@@ -5,15 +5,15 @@
 +Request Param: +(id)
 +Result : [{
 	 "id": "1",
-     "nama": "Sogumontar Hendra Simangunsong",
+     "nama_lengkap": "Sogumontar Hendra Simangunsong",
      "tanggal_lahir": "25-05-2000",
      "alamat": "silaen",
      "role": "customer",
      "email": "hendra@gmail.com",
      "ISBN": "9123-123-342",
      "pict": "sxasdw.PNG",
-     "bahasa": "indonesia",
-     "jumlah_halaman": "244",
+     "telepon": "082243410293",
+     "password": "WFTrqU2YIx2LxdqPMqk7F0hNEMM7w6M2c5EniowyOEU=",
      "created_at": "12-05-2019",
      "updated_at": " ",
 }] 
