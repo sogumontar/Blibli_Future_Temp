@@ -6,14 +6,14 @@
 +Result : [{
 	 "id": "1",
      "nama_lengkap": "Sogumontar Hendra Simangunsong",
+     "email": "hendra@gmail.com",
+     "password": "WFTrqU2YIx2LxdqPMqk7F0hNEMM7w6M2c5EniowyOEU=",
      "tanggal_lahir": "25-05-2000",
      "alamat": "silaen",
      "role": "customer",
-     "email": "hendra@gmail.com",
      "ISBN": "9123-123-342",
      "pict": "sxasdw.PNG",
      "telepon": "082243410293",
-     "password": "WFTrqU2YIx2LxdqPMqk7F0hNEMM7w6M2c5EniowyOEU=",
      "created_at": "12-05-2019",
      "updated_at": " ",
 }] 
