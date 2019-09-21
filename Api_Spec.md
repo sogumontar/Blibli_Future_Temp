@@ -1,7 +1,6 @@
-#Profile
-@Detail Account
+#Account
 
-*GetProfile(id)
+@GetProfile(id)
 +EndPoint : ``/profiles/1``
 +Http Method  : 'GET'
 +Request Param: +(id)
@@ -10,6 +9,7 @@
      "nama": "Sogumontar Hendra Simangunsong",
      "email": "hendra@gmail.com",
      "telepon": "082234568392",
+     "password": "asdasczxc5324XCasd2CZ",
      "alamat": "silaen",
      "tanggal_lahir": "25-05-2000",
      "role": "customer",
@@ -22,18 +22,33 @@
 *GetProfile(id)
 +EndPoint : ``/register``
 +Http Method  : 'POST'
-+Request Param: +('nama','email','password','confirm_password','telepon','alamat','tanggal_lahir');
-+Result : [{
-     "id": "1",
-     "nama": "Sogumontar Hendra Simangunsong",
-     "email": "hendra@gmail.com",
-     "telepon": "082234568392",
-     "alamat": "silaen",
-     "tanggal_lahir": "25-05-2000",
-     "role": "customer",
-     "pict": "sxasdw.PNG",
-     "created_at": "12-0 5-2019"
-}] 
++Request Param: +('nama','email','password','telepon','alamat','tanggal_lahir');
++Respon {'Register Success'}
+
+
+@Login
+*Login('email','password')
++EndPoint : ``/login``
++Http Method  : 'POST'
++Request Param: +('email','password');
++Respon {'Login Success' / 'Login Failed'}
+
+@Update Account
+*EditProfile(id)
++EndPoint : ``/edit``
++Http Method  : 'POST'
++Request Param: +('nama','gambar','email','password','tanggal_lahir','alamat');
+Response {'Update Success'}
+
+
+@registerMerchant
+*merchantRegister(id)
++EndPoint : ``/merchantRegister``
++Http Method  : 'POST'
++Request Param: +('nama','alamat','noNPWP','NOKTP','fotoKTP'');
+Response {'Register Success'}
+
+
 
 #products
 
@@ -42,46 +57,33 @@
 +Http Method  : 'Get'
 +Request Param: +(id)
 +Result : [{
-      "id": "1",
-     "kode_buku": "123",
+     "id": "1",
      "judul": "Belajar matematika",
      "penerbit": "Erlangga",
      "tahun_terbit": "12-04-2002",
      "penulis": "Sogumontar Simangunsong",
+     "harga": "500000",
      "ISBN": "9123-123-342",
-     "bahasa": "indonesia",
-     "jumlah_halaman": "244",
      "kategori": "pelajaran",
+     "deskripsi": "lorem ispum dolor sit amet",
      "created_at": "12-07-2019"
 }] 
 
-*EntryProduk(id)
+@EntryProduk(id)
 +EndPoint : ``/entryProducts/``
 +Http Method  : 'POST'
 +Request Param: +('kode_buku','judul','penerbit','tahun_terbit','penulis','ISBN','bahasa','jumlah_halaman','kategori')
-+Result : [{
-      "id": "1",
-     "kode_buku": "123",
-     "judul": "Belajar matematika",
-     "penerbit": "Erlangga",
-     "tahun_terbit": "12-04-2002",
-     "penulis": "Sogumontar Simangunsong",
-     "ISBN": "9123-123-342",
-     "bahasa": "indonesia",
-     "jumlah_halaman": "244",
-     "kategori": "pelajaran",
-     "created_at": "12-07-2019"
-}] 
++Response {"Entry product success"}
 
-
-#Login
-
-*Login('email','password')
-+EndPoint : ``/login``
+@AddWishlist
++EndPoint : ``/wishlist{idBuku}/``
 +Http Method  : 'POST'
-+Request Param: +('email','password');
-+Result : [{
-     "email": "hendrasimz92@gmail.com",
-     "password": "123aczxichjsdLKASJD81KJ"
-     
-}] 
++Request Param: +('id_buku','date');
++Response {"Add to wishlist success"}
+
+@AddToCart
++EndPoint : ``/cart{idBuku}/``
++Http Method  : 'POST'
++Request Param: +('id_buku','date');
++Response {"Add to Cart success"}
+
