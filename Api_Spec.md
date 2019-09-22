@@ -109,7 +109,7 @@
 
 ## Update Account
 *EditProfile(id)
-+EndPoint : ``/edit``
++EndPoint : ``/editAccount``
 +Http Method  : `POST`
 +Request Param: +('nama','gambar','email','password','tanggal_lahir','alamat');
 +Request body : 
@@ -119,13 +119,47 @@
 	+password
 	+tanggal_lahir
 	+alamat
-Response {'Update Success'}
++Response body(success) :
+```json
+{
+    "code": 200,
+    "status": "OK",
+    "data": {
+        "nama": "andreas",
+        "gambar": "andreas.jpg",
+        "email": "andreas@gmail.com",
+        "password": macan123,
+        "tanggal_lahir": "10/09/1999",
+        "alamat": "balige"
+    }
+}
+```
 
++Response body(fail) :
+```json
+{
+    "timestamp": "2019-08-23T04:22:26.690+0000",
+    "code": 400,
+    "status": "Bad Request",
+    "message": "Invalid Request: Invalid request format",
+    "path": "/editAccount"
+}
+```
+
+```json
+{
+    "timestamp": "2019-08-23T04:22:26.690+0000",
+    "code": 401,
+    "status": "Unauthorized",
+    "message": "Invalid Request: Invalid user authentication or Unauthorized",
+    "path": "/editAccount"
+}
+```
 
 @registerMerchant
 *merchantRegister(id)
 +EndPoint : ``/merchantRegister``
-+Http Method  : 'POST'
++Http Method  : `POST`
 +Request Param: +('nama','alamat','noNPWP','NOKTP','fotoKTP'');
 Response {'Register Success'}
 
