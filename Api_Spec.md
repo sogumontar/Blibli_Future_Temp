@@ -1,43 +1,124 @@
-#Account
+#Account API
 
-@GetProfile(id)
-+EndPoint : ``/profiles/1``
-+Http Method  : 'GET'
-+Request Param: +(id)
-+Result : [{
-     "id": "1",
-     "nama": "Sogumontar Hendra Simangunsong",
-     "email": "hendra@gmail.com",
-     "telepon": "082234568392",
-     "password": "asdasczxc5324XCasd2CZ",
-     "alamat": "silaen",
-     "tanggal_lahir": "25-05-2000",
-     "role": "customer",
-     "pict": "sxasdw.PNG",
-     "created_at": "12-0 5-2019"
-}] 
+## Get Profile(by Id)
+
++EndPoint : ``/profiles/{id}``
++Http Method  : `GET`
++Request Param: 
+	+(id)
++ Request Header : 
+	+ Accept: `application/json`
++ Response Body (Success) : 
+
+```json
+{
+    "code": 200,
+    "status": "OK",
+    "data": [{
+        "id": "1",
+		 "nama": "Sogumontar Hendra Simangunsong",
+		 "email": "hendra@gmail.com",
+		 "telepon": "082234568392",
+		 "password": "asdasczxc5324XCasd2CZ",
+		 "alamat": "silaen",
+		 "tanggal_lahir": "25-05-2000",
+		 "role": "customer",
+		 "pict": "sxasdw.PNG",
+		 "created_at": "12-0 5-2019"
+    },{
+		"id": "2",
+		 "nama": "Andreas Tampubolon",
+		 "email": "Andreas Tampubolon@gmail.com",
+		 "telepon": "082248953434",
+		 "password": "asdasczxc5324XCasd2CZ",
+		 "alamat": "balige",
+		 "tanggal_lahir": "10-09-1999",
+		 "role": "customer",
+		 "pict": "sxasdw.PNG",
+		 "created_at": "12-0 5-2019"
+	}]
+}	
 
 
-@Register Accounts
+## Register Accounts (Customer or Merchant)
 *GetProfile(id)
 +EndPoint : ``/register``
-+Http Method  : 'POST'
++Http Method  : `POST`
 +Request Param: +('nama','email','password','telepon','alamat','tanggal_lahir');
-+Respon {'Register Success'}
++Request Body :
+	+name
+	+email
+	+password
+	+telepon
+	+alamat
+	+tanggal_lahir
++Response body(success) :
+	```json
+{
+	"code": 200,
+    "status": "OK",
+    "data": {
+        "id": 1,
+        "nama": "Andreas Tampubolon",
+        "email": "andreas@gmail.com",
+        "password": "macan123",
+        "telepon": 082248953434,
+        "alamat": "balige",
+        "tanggal_lahir": 10/009/1999
+    }
+}
+```
 
 
-@Login
+## Login
 *Login('email','password')
 +EndPoint : ``/login``
 +Http Method  : 'POST'
 +Request Param: +('email','password');
++Request Body :
+	+email
+	+password
 +Respon {'Login Success' / 'Login Failed'}
++Response body(success) :
+``json
+	{
+		"code": 200,
+		"status": "OK",
+	}
+```	
++ Response Body (Fail) : 
+```json
+{
+    "timestamp": "2019-08-23T04:22:26.690+0000",
+    "code": 400,
+    "status": "Bad Request",
+    "message": "Invalid Request: Invalid request format",
+    "path": "/login"
+}
+```
 
-@Update Account
+```json
+{
+    "timestamp": "2019-08-23T04:22:26.690+0000",
+    "code": 401,
+    "status": "Unauthorized",
+    "message": "Invalid Request: Invalid user authentication or Unauthorized",
+    "path": "/login"
+}
+```
+
+## Update Account
 *EditProfile(id)
 +EndPoint : ``/edit``
-+Http Method  : 'POST'
++Http Method  : `POST`
 +Request Param: +('nama','gambar','email','password','tanggal_lahir','alamat');
++Request body : 
+	+nama
+	+gambar
+	+email
+	+password
+	+tanggal_lahir
+	+alamat
 Response {'Update Success'}
 
 
@@ -50,8 +131,10 @@ Response {'Register Success'}
 
 
 
+
 #products
 
+#Get by product id
 *GetProduk(id)
 +EndPoint : ``/products/1``
 +Http Method  : 'Get'
