@@ -16,26 +16,26 @@
     "status": "OK",
     "data": [{
         "id": "1",
-		 "nama": "Sogumontar Hendra Simangunsong",
+		 "name": "Sogumontar Hendra Simangunsong",
 		 "email": "hendra@gmail.com",
-		 "telepon": "082234568392",
+		 "telephone": "082234568392",
 		 "password": "asdasczxc5324XCasd2CZ",
-		 "alamat": "silaen",
-		 "tanggal_lahir": "25-05-2000",
+		 "address": "silaen",
+		 "date_of_birth": "939456671",
 		 "role": "customer",
-		 "pict": "sxasdw.PNG",
-		 "created_at": "12-0 5-2019"
+		 "picture": "sxasdw.PNG",
+		 "created_at": "939456671"
     },{
 		"id": "2",
-		 "nama": "Andreas Tampubolon",
+		 "name": "Andreas Tampubolon",
 		 "email": "Andreas Tampubolon@gmail.com",
-		 "telepon": "082248953434",
+		 "telephone": "082248953434",
 		 "password": "asdasczxc5324XCasd2CZ",
-		 "alamat": "balige",
-		 "tanggal_lahir": "10-09-1999",
+		 "address": "balige",
+		 "date_of_birth": "939456671",
 		 "role": "customer",
-		 "pict": "sxasdw.PNG",
-		 "created_at": "12-0 5-2019"
+		 "picture": "sxasdw.PNG",
+		 "created_at": "939456671"
 	}]
 }	
 
@@ -44,27 +44,27 @@
 *GetProfile(id)
 +EndPoint : ``/register``
 +Http Method  : `POST`
-+Request Param: +('nama','email','password','telepon','alamat','tanggal_lahir');
++Request Param: +('name','email','password','telephone','address','date_of_birth');
 +Request Body :
 	+name
 	+email
 	+password
-	+telepon
-	+alamat
-	+tanggal_lahir
-+Response body(success) :
+	+telephone
+	+address
+	+date_of_birth
+	+Response body(success) :
 	```json
 {
 	"code": 200,
     "status": "OK",
     "data": {
         "id": 1,
-        "nama": "Andreas Tampubolon",
+        "name": "Andreas Tampubolon",
         "email": "andreas@gmail.com",
         "password": "macan123",
-        "telepon": 082248953434,
-        "alamat": "balige",
-        "tanggal_lahir": 10/009/1999
+        "telephone": 082248953434,
+        "address": "balige",
+        "date_of_birth": 939456671
     }
 }
 ```
@@ -84,6 +84,7 @@
 	{
 		"code": 200,
 		"status": "OK",
+		"access_token" : yRQYnWzskCZUxPwaQupWkiUzKELZ49eM7oWxAQK_ZXw
 	}
 ```	
 + Response Body (Fail) : 
@@ -111,26 +112,26 @@
 *EditProfile(id)
 +EndPoint : ``/editAccount``
 +Http Method  : `POST`
-+Request Param: +('nama','gambar','email','password','tanggal_lahir','alamat');
++Request Param: +('name','picture','email','password','date_of_birth','address');
 +Request body : 
-	+nama
-	+gambar
+	+name
+	+picture
 	+email
 	+password
-	+tanggal_lahir
-	+alamat
+	+date_of_birth
+	+address
 +Response body(success) :
 ```json
 {
     "code": 200,
     "status": "OK",
     "data": {
-        "nama": "andreas",
-        "gambar": "andreas.jpg",
+        "name": "andreas",
+        "picture": "andreas.jpg",
         "email": "andreas@gmail.com",
         "password": macan123,
-        "tanggal_lahir": "10/09/1999",
-        "alamat": "balige"
+        "date_of_birth": "10/09/1999",
+        "address": "balige"
     }
 }
 ```
@@ -160,15 +161,15 @@
 *merchantRegister(id)
 +EndPoint : ``/merchantRegister``
 +Http Method  : `POST`
-+Request Param: +('nama','alamat','noNPWP','noKTP','fotoKTP'');
++Request Param: +('name','address','noNPWP','noKTP','fotoKTP'');
 +Response body (success) :
 ```json
 {
     "code": 200,
     "status": "OK",
     "data": {
-        "nama": "andreas",
-        "alamat": "balige",
+        "name": "andreas",
+        "address": "balige",
         "noNPWP": "1234126634",
         "noKTP": 1212423235234234,
         "fotoKTP": "andreas.jpg"
@@ -208,15 +209,15 @@
 +Request body :
 	+id
 	+sku
-	+judul
-	+penerbit
-	+tahun_terbit
-	+penulis
-	+harga
+	+title
+	+publisher
+	+publication_year
+	+author
+	+price
 	+ISBN
-	+kategori
-	+deskripsi
-	+foto_produk
+	+categories
+	+description
+	+picture_produk
 + Response Body (Success) : 
 
 ```json
@@ -226,15 +227,15 @@
     "data": [{
      "id": "1",
 	 "sku" :abc-123
-     "judul": "Belajar matematika",
-     "penerbit": "Erlangga",
-     "tahun_terbit": "12-04-2002",
-     "penulis": "Sogumontar Simangunsong",
-     "harga": "500000",
+     "title": "Belajar matematika",
+     "publisher": "Erlangga",
+     "publication_year": "12-04-2002",
+     "author": "Sogumontar Simangunsong",
+     "price": "500000",
      "ISBN": "9123-123-342",
-     "kategori": "pelajaran",
-     "deskripsi": "lorem ispum dolor sit amet",
-     "foto_produk": "lorem.jpg"
+     "categories": "pelajaran",
+     "description": "lorem ispum dolor sit amet",
+     "picture_produk": "lorem.jpg"
 }] 
 }
 ```	
@@ -266,15 +267,15 @@
 +Request body :
 	+id
 	+sku
-	+judul
-	+penerbit
-	+tahun_terbit
-	+penulis
-	+harga
+	+title
+	+publisher
+	+publication_year
+	+author
+	+price
 	+ISBN
-	+kategori
-	+deskripsi
-	+foto_produk
+	+categories
+	+description
+	+picture_produk
 
 ```json
 {
@@ -311,15 +312,15 @@
 +Request body :
 	+id
 	+sku
-	+judul
-	+penerbit
-	+tahun_terbit
-	+penulis
-	+harga
+	+title
+	+publisher
+	+publication_year
+	+author
+	+price
 	+ISBN
-	+kategori
-	+deskripsi
-	+foto_produk
+	+categories
+	+description
+	+picture_produk
 
 ```json
 {
@@ -356,15 +357,15 @@
 +Request body :
 	+id
 	+sku
-	+judul
-	+penerbit
-	+tahun_terbit
-	+penulis
-	+harga
+	+title
+	+publisher
+	+publication_year
+	+author
+	+price
 	+ISBN
-	+kategori
-	+deskripsi
-	+foto_produk
+	+categories
+	+description
+	+picture_produk
 
 ```json
 {
@@ -405,7 +406,7 @@
     "status": "OK",
 	"data" : [{
 		"id_buku" : "2"
-		"date" : "10/09/2019"
+		"date" : "939456671"
 	}]
 }
 ```	
@@ -475,7 +476,7 @@
 	"data" : [{
 		"id_buku" : "2"
 		"id_customer" : "3"
-		"date" : "10/09/2019"
+		"date" : "939456671"
 	}]
 }
 ```	
