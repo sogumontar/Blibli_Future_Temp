@@ -3,6 +3,7 @@ package com.medan.sitoluama.Del.Kindle.controller;
 import com.medan.sitoluama.Del.Kindle.Model.Product;
 import com.medan.sitoluama.Del.Kindle.repository.ProductRepository;
 
+import com.medan.sitoluama.Del.Kindle.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,16 +16,16 @@ import java.util.List;
 public class ProductController {
 
     @Autowired
-    ProductRepository productRepository;
+    ProductService productService;
 
     @GetMapping("/")
-    public List<Product> getAll(){
-        return productRepository.findAll();
+    public List findAll(){
+        return productService.findAll();
     }
 
     @GetMapping("/get")
-    public List findAll(){
-        return productRepository.findAll();
+    public Product findFirstById(Long id){
+        return productService.findFirstById(id);
     }
     @GetMapping("/coba")
     public String coba(){
@@ -33,6 +34,6 @@ public class ProductController {
 
     @PostMapping(value= "/tambah", produces = "application/json")
     public Product tambah(@Valid @RequestBody Product product){
-        return productRepository.save(product);
+        return productService.save(product);
     }
 }
