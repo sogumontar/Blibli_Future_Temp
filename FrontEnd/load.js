@@ -1,5 +1,6 @@
+let tot=1;
 function getAPI(){
-	let URL="https://swapi.co/api/starships"
+	let URL="https://swapi.co/api/people"
 	let urlProduct="https://swapi.co/api/starships"
 	window.fetch(urlProduct).then((ress)=>{
 		return ress.json()
@@ -19,6 +20,8 @@ function getAPI(){
 	}).then((res)=>{
 		let data=res.results
 		let l=data.map(i=>{
+
+			tot+=i.mass;
 			return {
 				name:i.name,
 				mass:i.mass
@@ -30,14 +33,17 @@ function getAPI(){
 		window.divLists.innerHTML=htmls
 	})
 }
+
 function generateCastHtml(list){
+	
 	return list.map(i=>
+		// tot=i.mass
 		`<div class='container'>
 			<ul>
 				<div class="form-inline">	
 					<img width='80px' src="pict/351498779_9037cd50-325c-4d33-8025-d4ef0201c0a5_2048_2048.jpg">	
 					<p>${i.name} 
-							<p style="color: green ;"> ${i.mass}</p>
+							<p style="color: green ;"> &nbsp;&nbsp;&nbsp;&nbsp; Rp.${i.mass},00  ${tot}</p>
 						</p>
 				</div>
 				<div class="form-inline">
