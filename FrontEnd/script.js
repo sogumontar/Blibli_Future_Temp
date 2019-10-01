@@ -10,15 +10,21 @@ $(document).ready(function(){
           success: function(data) {
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {
-               $("tbody").
-                append("<tr> \
-                            <td>" +  users[i].id + "</td> \
-                            <td>" +  users[i].title + "</td> \
-                            <td>" +  users[i].description + "</td> \
-                            <td>" +  users[i].publication_year + "</td> \
-                            <td> \ <button id='delete' class='btn btn-danger'>Delete</button> \
-                           <button id='edit' class='btn btn-warning'>Edit</button> \ </td> \
-                        </tr>");
+               $("#listBook").
+                append("<div class='card' style='width: 18rem;margin-right: 5px;margin-left: 5px;margin-bottom:20px'>\
+                  <img src='pict/rahasia-penerbit-ini-gambaran-royalti-ketika-buku-diretur-dari-toko-170526s.jpg' class='card-img-top' alt=''>\
+                    <div class='card-body'>\
+                      <center><p>" + users[i].title+"</p></center>\
+                      <div class='row'>\
+                        <div class='col-md-6'>\
+                          <p>"+ users[i].price+ "</p>\
+                        </div>\
+                        <div class='col-md-6'>\
+                          <p>"+ users[i].publisher+ "</p>\
+                        </div>\
+                      </div>\
+                    </div>\
+                  </div>");
             }
           },
           error: function(data) { 
