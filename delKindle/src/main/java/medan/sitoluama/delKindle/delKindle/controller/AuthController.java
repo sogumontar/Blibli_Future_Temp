@@ -65,7 +65,10 @@ public class AuthController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         String jwt = tokenProvider.generateToken(authentication);
-        return ResponseEntity.ok(new JwtAuthenticationResponse(jwt));
+
+       return ResponseEntity.ok(new JwtAuthenticationResponse(jwt));
+
+
     }
 
     @PostMapping("/signup")
@@ -89,7 +92,7 @@ public class AuthController {
         Role userRole = roleRepository.findByName(RoleName.ROLE_USER)
                 .orElseThrow(() -> new AppException("User Role not set."));
 
-        user.setRoles(Collections.singleton(userRole));
+//        user.setRoles(Collections.singleton(userRole));
 
         User result = userRepository.save(user);
 

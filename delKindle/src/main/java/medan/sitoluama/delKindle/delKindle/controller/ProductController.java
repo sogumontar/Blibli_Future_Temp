@@ -12,7 +12,7 @@ import java.util.List;
 @CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping("/product")
-public class ProductController {
+public class  ProductController {
 
     @Autowired
     ProductService productService;
