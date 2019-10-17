@@ -1,32 +1,34 @@
 $(document).ready(function(){
 
-  var jsonVar = {
-      usernameOrEmail: $("#usernameOrEmail").val(),
-      password: $("#password").val()
-  };
-  $.ajax({
-            type:"POST",
-            url:"http://localhost:9094/api/auth/signin",
-            data: JSON.stringify(jsonVar),
-            contentType: "application/json",
-            success: function(data){
-                alert("Berhasil Login");
-                console.log("andreas");
-                location.href = "index1.html";
-            },
-            error: function(err) {
-                alert("Username dan Password anda salah")
-                $("#message").append(err.responseJSON.message);
-                console.log(err.responseJSON.message);
-            }
-  });
 
-  // let response = await fetch('localhost:9094/api/auth/signin');
-  //
-  // if (response.ok) { // if HTTP-status is 200-299
-  //   // get the response body (the method explained below)
-  //   let json = await response.json();
-  // } else {
-  //   alert("HTTP-Error: " + response.status);
-  // }
+  assignDataProduct();
+
+  function assignDataProduct(){
+		$.ajax({
+          type:"GET",
+          contentType: "application/json",
+          url:"http://localhost:9094/product/",
+          success: function(data) {
+            var users = JSON.parse(JSON.stringify(data));
+            for (var i in users) {
+               $("#listBook").
+                append("<div class='col-lg-3 col-md-6 mb-4'>\
+                    <div class='card h-100'>\
+											<img class='card-img-top' src='http://placehold.it/500x325' alt=''>\
+											<div class='card-body'>\
+												<h4 class='card-title'><center><p>" + users[i].title+"</p></center></h4>\
+												<p class='card-text'>" + users[i].description+"</p>\
+											</div>\
+											<div class='card-footer'>\
+												<button class='btn btn-primary' id='but_beli'>Beli Sekarang</button>\
+											</div>\
+                    </div>\
+                  </div>");
+            }
+          },
+          error: function(data) {
+            console.log(data);
+            }
+        });
+	}
 });
