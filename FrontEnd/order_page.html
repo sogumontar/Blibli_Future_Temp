@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Homepage - Del Kindle</title>
+  <title>Order Page - Del Kindle</title>
   <script type="text/javascript" src="js/jquery.slim.min.js"></script>
   <link rel="stylesheet" href="css/css.css">
   <link rel="stylesheet" href="css/bootstrap.css">
@@ -34,18 +34,9 @@
     </div>
   </nav>
   <!-- Page Content -->
-  <div id="header_merchant">
-    <table>
-      <tr>
-        <td><img src="Pict/left.png" width="25px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-        <td><img src="Pict/shopping.png" width="100px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-        <td><h1 style="font-size:6vw;">Gudangnya Buku</h1></td>
-      </tr>
-    </table>
-    <br><br>
-    <div class="item_header">
-        <h3 style="font-size:4vw;">Produk : 35</h3>
-    </div>
+  <div id="header_merchant" class="row">
+    <div><img src="Pict/left.png" width="25px">&nbsp;&nbsp;&nbsp;</div>
+    <div><h2> Incoming Order Page</h2></div>
   </div>
 
   <div id="garantee">
@@ -55,9 +46,30 @@
         <td><h3 style="font-size:3vw;">Semua pesanan perlu untuk ditangani</h3></td>
       </tr>
     </table>
-  </div><br><br><br><br>
+  </div><br>
   <!-- /.container -->
-
+  <div id="pemesanan">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="">
+            <table>
+              <tr><td>Nama Pemesan : Andreas Tampubolon</td></tr>
+              <tr><td>Total Pesanan : Rp 300.000</td></tr>
+              <tr><td>Tanggal Pesanan : 24 April 2019</td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div id="but_pesanan">
+              <div >
+                <img src="Pict/next.png" id="gambar_next" alt="">Detail Pesanan
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Footer -->
   <footer class="fixed-bottom" style="background-color: white">
 		<ul class="flex-container" class="navbar navbar-expand fixed-bottom">

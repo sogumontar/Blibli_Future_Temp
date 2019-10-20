@@ -1,8 +1,7 @@
 #header_merchant{
   margin: 75px 25px 0px 25px;
   padding: 25px 25px 25px 25px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19
-    
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .item_header{
@@ -10,8 +9,27 @@
 }
 
 #garantee{
-  margin: 10px 25px 50px 25px;
+  margin: 10px 25px 0px 25px;
   padding: 25px 25px 25px 25px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: #FFF8DF;
+}
+
+#pemesanan{
+  margin: 10px 25px 50px 25px;
+  padding: 25px 0px 25px 0px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#but_pesanan{
+  text-align: center;
+ position: relative;
+ top: 20%;
+ border-style: solid;
+ border-radius: 50px;
+ border-color: blue;
+}
+
+#gambar_next{
+  width: 20%;
 }
