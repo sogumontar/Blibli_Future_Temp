@@ -2,14 +2,11 @@
 <html>
 <head>
 	<title>Del Kindle Book</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script type="text/javascript" src="js/jquery.slim.min.js"></script>
 	<link rel="stylesheet" href="css/css.css">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="load.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/script_login.js"></script>
 </head>
 <body>
 	<div class="container" style="background-color: #F1FAFF; ">
@@ -18,9 +15,9 @@
 			<img src="pict/logo.png">
 			<div>
 				<form method="POST" action="">
-					<input type="email" class="form-control" style="width: 500px;" name="email" placeholder="Email" required="">
+					<input type="email" class="form-control" id="usernameOrEmail" value="andreasjr61@gmail.com" style="width: 500px;" name="email" placeholder="Username or Email" required="">
 					<br>
-					<input type="password" class="form-control" style="width: 500px;" name="password" placeholder="Kata Sandi" required="">
+					<input type="password" class="form-control" id="password" value="macan1234" style="width: 500px;" name="password" placeholder="Kata Sandi" required="">
 					<br><br>
 					<button  style="height: 40px;" class="btn btn-primary">Login</a>
 					<br><br>
@@ -28,7 +25,6 @@
 
 		</center>
 			<div class="form-inline">
-				<a style="margin-left: 190px;" href="#">Forgot Password?</a>
 				<a style="margin-left: 310px ;" href="register.html">Register</a>
 			</div>
 
