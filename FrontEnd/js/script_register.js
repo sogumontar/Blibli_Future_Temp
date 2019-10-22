@@ -1,9 +1,6 @@
 $(document).ready(function(){
 
   $("#register").click(function(){
-
-    var URLS="http://localhost:9094/api/auth/signup"
-    fetch(URLS).then((resp)=>resp.json())
     assignUser();
   });
 
@@ -17,8 +14,6 @@ $(document).ready(function(){
     $.ajax({
               type:"POST",
               url:"http://localhost:9094/api/auth/signup",
-              data: JSON.stringify(jsonVar),
-              contentType: "application/json",
               data: JSON.stringify(jsonVar),
               contentType: "application/json",
               success: function(data){
