@@ -24,9 +24,9 @@ public class ProductController {
     }
 
     @CrossOrigin
-    @GetMapping("/get")
-    public Product findFirstById(Long id){
-        return productService.findFirstById(id);
+    @PostMapping("/createProduct")
+    public Product createProduct(@Valid @RequestBody Product product){
+        return productService.save(product);
     }
 
     @CrossOrigin
