@@ -30,12 +30,6 @@ public class ProductController {
     }
 
     @CrossOrigin
-    @GetMapping("/coba")
-    public String coba(){
-        return "coba";
-    }
-
-    @CrossOrigin
     @PostMapping(value= "/tambah", produces = "application/json")
     public Product tambah(@Valid @RequestBody Product product){
         return productService.save(product);

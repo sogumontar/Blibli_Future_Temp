@@ -38,7 +38,9 @@
     <div><a href="javascript:history.back()"><img src="Pict/left.png" width="25px"></a>&nbsp;&nbsp;&nbsp;</div>
     <div><h2> Catalog Entry</h2></div>
   </div>
-  <br><br>
+  <div id="notifikasi">
+
+  </div>
   <div id="tambah">
     <table>
       <tr>
@@ -50,38 +52,18 @@
   <!-- /.container -->
   <div id="pemesanan">
     <div id="form">
-      <form>
+      <form method="POST" enctype="multipart/form-data" id="fileUploadForm">
         <div class="form-group">
-          <label for="exampleFormControlInput1">Judul</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Judul">
+          <label for="exampleFormControlInput1">Title</label>
+          <input id="title" class="form-control" placeholder="Title">
         </div>
         <div class="form-group">
-          <label for="exampleFormControlInput1">Penerbit</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Penerbit">
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlInput1">ISBN</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ISBN">
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlInput1">Penulis</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Penulis">
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlInput1">Harga</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Harga">
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlInput1">Tahun terbit</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Tahun terbit">
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlInput1">Judul</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Judul">
+          <label for="exampleFormControlInput1">Description</label>
+          <textarea class="form-control" id="description" rows="3"></textarea>
         </div>
         <div class="form-group">
           <label for="exampleFormControlSelect2">Example multiple select</label>
-          <select class="form-control">
+          <select class="form-control" id="categories">
             <option>-- select --</option>
             <option>Buku Pelajaran</option>
             <option>Buku Anak anak</option>
@@ -92,13 +74,35 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="exampleFormControlInput1">Foto Produk</label>
-          <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="Judul">
+          <label for="exampleFormControlInput1">Publication Year</label>
+          <input type="text" class="form-control" id="publication_year" placeholder="Publication Year">
         </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Price</label>
+          <input type="text" class="form-control" id="price" placeholder="Price">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Author</label>
+          <input type="text" class="form-control" id="author" placeholder="Author">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">ISBN</label>
+          <input type="text" class="form-control" id="isbn" placeholder="ISBN">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Picture Product</label>
+          <input type="file" class="form-control" id="picture_product" placeholder="Picture Product">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Publisher</label>
+          <input type="text" class="form-control" id="publisher" placeholder="Publisher">
+        </div>
+
         <div class="form-group">
           <label for="exampleFormControlTextarea1">Deskripsi</label>
           <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
+        <button type="button" class="btn btn-success btn-lg btn-block">Tambah</button>
       </form>
     </div>
   </div><br><br><br><br><br><br>
@@ -106,7 +110,7 @@
   <footer class="fixed-bottom" style="background-color: white">
 		<ul class="flex-container" class="navbar navbar-expand fixed-bottom">
 		  <li class="flex-item">
-		  	<a href=""><button class="btn"><img id="icon1" style="width: 50px;margin-bottom: 30px" src="Pict/icons8-home-50.png"></button></a>
+		  	<a href="home_merchant.html"><button class="btn"><img id="icon1" style="width: 50px;margin-bottom: 30px" src="Pict/icons8-home-50.png"></button></a>
 		  </li>
 		  <li class="flex-item">
 		  	<a href=""><button class="btn"><img style="width: 50px;margin-bottom: 30px" src="Pict/icons8-love-50.png"></button></a>

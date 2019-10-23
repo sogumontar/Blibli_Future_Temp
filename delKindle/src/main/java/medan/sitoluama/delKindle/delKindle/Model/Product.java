@@ -11,6 +11,7 @@ import javax.persistence.*;
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, allowGetters = true)
 public class Product {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name ="id")
@@ -21,9 +22,6 @@ public class Product {
 
     @Column(name ="description")
     private String description;
-
-    @Column(name="picture_product")
-    private String picture_product;
 
     @Column(name ="categories")
     private String categories;
@@ -43,6 +41,30 @@ public class Product {
     @Column(name ="publisher")
     private String publisher;
 
+    @Lob
+    @Column(name="picture_product")
+    private byte[] picture_product;
+
+    @Lob
+    @Column(name="picture_file")
+    private byte[] picture_file;
+
+    public Product(String title, String description, String categories, String publication_year, Integer price, String author, String isbn, String publisher, byte[] picture_product, byte[] picture_file) {
+        this.title = title;
+        this.description = description;
+        this.categories = categories;
+        this.publication_year = publication_year;
+        this.price = price;
+        this.author = author;
+        this.isbn = isbn;
+        this.publisher = publisher;
+        this.picture_product = picture_product;
+        this.picture_file = picture_file;
+    }
+
+    public Product(){
+
+    }
 
     public Long getId() {
         return id;
@@ -66,14 +88,6 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getPicture_product() {
-        return picture_product;
-    }
-
-    public void setPicture_product(String picture_product) {
-        this.picture_product = picture_product;
     }
 
     public String getCategories() {
@@ -122,5 +136,21 @@ public class Product {
 
     public void setPublisher(String publisher) {
         this.publisher = publisher;
+    }
+
+    public byte[] getPictureproduct(){
+        return this.picture_product;
+    }
+
+    public void setPictureproduct(byte[] picture_product){
+        this.picture_product = picture_product;
+    }
+
+    public byte[] getPicturefile(){
+        return this.picture_file;
+    }
+
+    public void setPicturefile(byte[] picturefile){
+        this.picture_file = picturefile;
     }
 }
