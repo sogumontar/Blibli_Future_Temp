@@ -1,7 +1,8 @@
 $(document).ready(function(){
 
   $(".btn").click(function(){
-    uploadFile();
+    event.preventDefault();
+    doAjax();
 
     // var jsonVar = {
     //   title: $("#title").val(),
@@ -49,22 +50,26 @@ $(document).ready(function(){
     var form = $('#fileUploadForm')[0];
     var data = new FormData(form);
 
+    // console.log(data);
     $.ajax({
         type: "POST",
         enctype: 'multipart/form-data',
-        url: "/api/file/upload",
+        // url: "/api/file/upload",
+        url: "http://localhost:9094/product/createFile",
         data: data,
         processData: false, //prevent jQuery from automatically transforming the data into a query string
         contentType: false,
         cache: false,
         success: (data) => {
-            $("#listFiles").text(data);
+            // $("#listFiles").text(data);
+            console.log("suksess");
         },
         error: (e) => {
-            $("#listFiles").text(e.responseText);
+            console.log(e.responseText);
+            // $("#listFiles").text(e.responseText);
         }
     });
-}
+  }
 
 
 
