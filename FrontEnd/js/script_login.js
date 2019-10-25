@@ -1,10 +1,11 @@
-$(document).ready(function(){
 
-  var jsonVar = {
-      usernameOrEmail: $("#usernameOrEmail").val(),
-      password: $("#password").val()
-  };
-  $.ajax({
+  function logs(){
+    var jsonVar = {
+      usernameOrEmail: document.getElementById("usernameOrEmail").value,
+      password: document.getElementById("password").value
+      
+    };
+    $.ajax({
             type:"POST",
             url:"http://localhost:9094/api/auth/signin",
             data: JSON.stringify(jsonVar),
@@ -19,7 +20,13 @@ $(document).ready(function(){
                 $("#message").append(err.responseJSON.message);
                 console.log(err.responseJSON.message);
             }
-  });
+    });  
+  }
+  
+  function test(){
+    console.log("")
+  }
+  
 
   // let response = await fetch('localhost:9094/api/auth/signin');
   //
@@ -29,4 +36,3 @@ $(document).ready(function(){
   // } else {
   //   alert("HTTP-Error: " + response.status);
   // }
-});
