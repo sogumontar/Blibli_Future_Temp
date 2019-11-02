@@ -1,10 +1,19 @@
 $(document).ready(function(){
 
   $("#register").click(function(){
-
-    var URLS="http://localhost:9094/api/auth/signup"
-    fetch(URLS).then((resp)=>resp.json())
-    assignUser();
+    console.log("cliked")
+    // var URLS="http://localhost:9094/api/auth/signup"
+    // fetch(URLS).then((resp)=>resp.json())
+    // assignUser();
+    var email=document.getElementById('email').value;
+    var name=document.getElementById('name').value;
+    var username=document.getElementById('username').value;
+    var password=document.getElementById('password').value;
+    if(email === "" || name === "" || username === "" || password === ""){
+      window.alert("Semua Field Harus di isi")
+    }else{
+      assignUser()  
+    }
   });
 
   function assignUser(){
@@ -16,7 +25,7 @@ $(document).ready(function(){
     };
     $.ajax({
               type:"POST",
-              url:"http://localhost:9094/api/auth/signup",
+              url:"http://localhost:9094/account/register",
               data: JSON.stringify(jsonVar),
               contentType: "application/json",
               data: JSON.stringify(jsonVar),

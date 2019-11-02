@@ -9,5 +9,9 @@ import java.util.List;
 //@Repository
 public interface AccountRepo extends JpaRepository<Account,String> {
 //    Account findFirstByUsernameOrEmail(String usernameOrEmail);
-//    List findAll();
+    List findAll();
+
+    Boolean existsByUsername(String username);
+
+    Boolean existsByEmail(String email);
 }
