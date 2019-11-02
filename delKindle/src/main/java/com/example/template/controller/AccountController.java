@@ -15,12 +15,12 @@ import java.util.List;
 @RequestMapping("/account")
 public class AccountController {
 
-    @Autowired
-    AccountService accountService;
-
-    @GetMapping("/")
-    public List findAll(){
-        return accountService.findAll();
-    }
+        @Autowired
+        AccountService accountService;
+        @CrossOrigin
+        @GetMapping("/")
+        public List findAll(){
+            return accountService.findAll();
+        }
 
 }
