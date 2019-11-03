@@ -18,4 +18,7 @@ public class AccountService {
         return accountRepo.findAll();
     }
 
+    public Account save(Account account){
+        return accountRepo.save(account);
+    }
 }

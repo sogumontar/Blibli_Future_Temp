@@ -10,7 +10,7 @@ public class Account {
 
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private long id;
 
@@ -26,6 +26,12 @@ public class Account {
     @Column(name = AccountConstant.Password)
     private String password;
 
+    public Account(String email,String name,String username ,String password){
+        this.email=email;
+        this.name=name;
+        this.username=username;
+        this.password=password;
+    }
     public long getId() {
         return id;
     }
