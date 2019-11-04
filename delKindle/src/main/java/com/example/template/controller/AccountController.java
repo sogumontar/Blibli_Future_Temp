@@ -3,9 +3,12 @@ package com.example.template.controller;
 import com.example.template.model.Account;
 import com.example.template.model.constants.AccountConstant;
 import com.example.template.payload.ApiResponse;
+import com.example.template.payload.JwtAuthenticationResponse;
 import com.example.template.payload.LoginRequest;
 import com.example.template.payload.RegisterRequest;
 import com.example.template.repository.AccountRepo;
+import com.example.template.security.JwtAuthenticationFilter;
+import com.example.template.security.JwtTokenProvider;
 import com.example.template.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,7 +29,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/account")
 public class AccountController {
-
+        @Autowired
+        JwtTokenProvider jwtTokenProvider;
         @Autowired
         PasswordEncoder passwordEncoder;
         @Autowired
@@ -52,7 +56,9 @@ public class AccountController {
                                 loginRequest.getPassword()
                         )
                 );
-                return  ResponseEntity.ok(new JwtAuth    )
+
+                String jwt= jwtTokenProvider.generateToken(authentication);
+                return  ResponseEntity.ok(new JwtAuthenticationResponse(jwt));
         }
 
         @CrossOrigin
