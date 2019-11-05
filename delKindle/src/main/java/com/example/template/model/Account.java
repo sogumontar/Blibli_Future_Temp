@@ -26,12 +26,40 @@ public class Account {
     @Column(name = AccountConstant.Password)
     private String password;
 
-    public Account(String email,String name,String username ,String password){
+    @Column(name = "created_at")
+    private String created_at;
+
+    @Column(name = "updated_at")
+    private String updated_at;
+
+    public Account(){
+
+    }
+    public Account(String email,String name,String username ,String password,String created_at){
         this.email=email;
         this.name=name;
         this.username=username;
         this.password=password;
+        this.created_at=created_at;
     }
+
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
+    }
+
+    public String getUpdated_at() {
+        return updated_at;
+    }
+
+    public void setUpdated_at(String updated_at) {
+        this.updated_at = updated_at;
+    }
+
     public long getId() {
         return id;
     }

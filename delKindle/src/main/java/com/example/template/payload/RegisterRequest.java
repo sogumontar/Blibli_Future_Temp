@@ -22,6 +22,16 @@ public class RegisterRequest {
     @Size(min = 6, max = 20)
     private String password;
 
+    private String created_at;
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
+    }
+
     public String getName() {
         return name;
     }

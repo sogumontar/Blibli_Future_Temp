@@ -3,12 +3,12 @@ package com.example.template.controller;
 import com.example.template.model.Account;
 import com.example.template.model.constants.AccountConstant;
 import com.example.template.payload.ApiResponse;
-import com.example.template.payload.JwtAuthenticationResponse;
+//import com.example.template.payload.JwtAuthenticationResponse;
 import com.example.template.payload.LoginRequest;
 import com.example.template.payload.RegisterRequest;
 import com.example.template.repository.AccountRepo;
-import com.example.template.security.JwtAuthenticationFilter;
-import com.example.template.security.JwtTokenProvider;
+//import com.example.template.security.JwtAuthenticationFilter;
+//import com.example.template.security.JwtTokenProvider;
 import com.example.template.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,14 +23,16 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 
 @RestController
 @RequestMapping("/account")
 public class AccountController {
-        @Autowired
-        JwtTokenProvider jwtTokenProvider;
+//        @Autowired
+//        JwtTokenProvider jwtTokenProvider;
         @Autowired
         PasswordEncoder passwordEncoder;
         @Autowired
@@ -43,23 +45,29 @@ public class AccountController {
         @GetMapping("/")
         public List findAll()
         {
-            return accountService.findAll();
-        }
 
+                return accountService.findAll();
+        }
         @CrossOrigin
-        @GetMapping
-        public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest){
-
-                Authentication authentication= authenticationManager.authenticate(
-                        new UsernamePasswordAuthenticationToken(
-                                loginRequest.getUsernameOrEmail(),
-                                loginRequest.getPassword()
-                        )
-                );
-
-                String jwt= jwtTokenProvider.generateToken(authentication);
-                return  ResponseEntity.ok(new JwtAuthenticationResponse(jwt));
+        @GetMapping("/test")
+        public String test(){
+                return "test";
         }
+
+//        @CrossOrigin
+//        @GetMapping
+//        public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest){
+//
+//                Authentication authentication= authenticationManager.authenticate(
+//                        new UsernamePasswordAuthenticationToken(
+//                                loginRequest.getUsernameOrEmail(),
+//                                loginRequest.getPassword()
+//                        )
+//                );
+//
+//                String jwt= jwtTokenProvider.generateToken(authentication);
+//                return  ResponseEntity.ok(new JwtAuthenticationResponse(jwt));
+//        }
 
         @CrossOrigin
         @PostMapping("/register")
@@ -73,9 +81,11 @@ public class AccountController {
                         return new ResponseEntity(new ApiResponse(false, "Email Sudah digunakan"),
                                 HttpStatus.BAD_REQUEST);
                 }
-
-                Account account= new Account(registerRequest.getEmail(),registerRequest.getName(),registerRequest.getUsername(),registerRequest.getPassword());
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+                LocalDateTime now = LocalDateTime.now();
+                Account account= new Account(registerRequest.getEmail(),registerRequest.getName(),registerRequest.getUsername(),registerRequest.getPassword(),registerRequest.getCreated_at());
                 account.setPassword(passwordEncoder.encode(account.getPassword()));
+                account.setCreated_at(dtf.format(now).toString());
                 Account result=accountRepo.save(account);
 
                 URI location = ServletUriComponentsBuilder
