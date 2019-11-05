@@ -1,0 +1,92 @@
+#header_merchant{
+  margin: 75px 25px 0px 25px;
+  padding: 25px 25px 25px 25px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#navbar {
+  background-color: #007BFF;
+  top: 0;
+  display: block;
+  transition: top 0.3s;
+}
+#tambah{
+  margin: 0px 25px 0px 25px;
+  padding: 10px 10px 10px 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #FFF8DF;
+}
+
+#notifikasi{
+  margin: 25px 25px 0px 25px;
+}
+
+#form{
+  padding: 25px 25px 25px 25px;
+}
+#plus{
+   width:20px;
+}
+#tambah1{
+  font-size: 2vw;
+}
+#icon1{
+  width: 50px;
+  margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 981px) {
+
+  body{
+    margin-left: 250px;
+    margin-right: 250px;
+  }
+  #toko{
+    font-size:3vw;
+  }
+  #number_produk{
+    font-size: 2vw;
+  }
+  #pict_market{
+    width: 50px;
+  }
+  #pict_shopping{
+    width: 70px;
+  }
+  #not{
+    font-size: 1.5vw;
+  }
+  #icon1{
+    width: 30px;
+  }
+  #ds{
+    margin-left: 160px;
+    margin-right: 160px;
+  }
+  #catalog{
+    font-size: 1.5vw;
+  }
+  #tambah1{
+    font-size: 1.5vw;
+  }
+
+  #but_pemesanan{
+    border-color: #007BFF;
+    background-color: white;
+    color: #007BFF;
+    border-radius: 20px;
+    margin-top: 20px;
+  }
+  #pict_button{
+    width: 30px;
+  }
+  .row{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+  }
+  .col-md-12{
+    margin-top: 10px;
+  }
+
+}
