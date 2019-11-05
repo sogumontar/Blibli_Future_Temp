@@ -9,25 +9,34 @@
   display: block;
   transition: top 0.3s;
 }
-#tambah{
+
+.item_header{
+  margin-left: 50px;
+}
+
+#garantee{
   margin: 10px 25px 0px 25px;
   padding: 25px 25px 25px 25px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: #FFF8DF;
 }
 
-#notifikasi{
-  margin: 25px 25px 0px 25px;
+#produk{
+  margin: 25px 25px 50px 25px;
+  padding: 25px 0px 25px 0px;
 }
 
-#form{
-  padding: 25px 25px 25px 25px;
+#toko{
+  font-size:6vw;
 }
-#plus{
-   width:20px;
+#number_produk{
+  font-size:4vw;
 }
-#tambah1{
-  font-size: 2vw;
+#pict_shopping{
+  width: 100px;
+}
+#not{
+  font-size: 3vw;
 }
 #icon1{
   width: 50px;
@@ -35,7 +44,7 @@
 }
 
 @media only screen and (min-width: 981px) {
-
+  /* For mobile phones: */
   body{
     margin-left: 250px;
     margin-right: 250px;
@@ -62,11 +71,4 @@
     margin-left: 160px;
     margin-right: 160px;
   }
-  #catalog{
-    font-size: 1.5vw;
-  }
-  #tambah1{
-    font-size: 1.5vw;
-  }
-
 }

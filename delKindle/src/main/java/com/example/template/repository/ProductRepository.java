@@ -1,7 +1,7 @@
-package medan.sitoluama.delKindle.delKindle.repository;
+package com.example.template.repository;
 
 
-import medan.sitoluama.delKindle.delKindle.Model.Product;
+import com.example.template.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

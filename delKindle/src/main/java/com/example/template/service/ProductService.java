@@ -1,8 +1,8 @@
-package medan.sitoluama.delKindle.delKindle.service;
+package com.example.template.service;
 
 
-import medan.sitoluama.delKindle.delKindle.Model.Product;
-import medan.sitoluama.delKindle.delKindle.repository.ProductRepository;
+import com.example.template.model.Product;
+import com.example.template.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

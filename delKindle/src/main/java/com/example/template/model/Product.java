@@ -1,4 +1,4 @@
-package medan.sitoluama.delKindle.delKindle.Model;
+package com.example.template.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -49,7 +49,7 @@ public class Product {
     @Column(name="product_file")
     private byte[] product_file;
 
-    public Product(String title, String description, String categories, String publication_year, Integer price, String author, String publisher ,String isbn) {
+    public Product(String title, String description, String categories, String publication_year, Integer price, String author, String publisher , String isbn) {
         this.title = title;
         this.description = description;
         this.categories = categories;
