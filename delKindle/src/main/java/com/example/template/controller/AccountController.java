@@ -3,12 +3,19 @@ package com.example.template.controller;
 import com.example.template.model.Account;
 import com.example.template.model.constants.AccountConstant;
 import com.example.template.payload.ApiResponse;
+import com.example.template.payload.JwtAuthenticationResponse;
+import com.example.template.payload.LoginRequest;
 import com.example.template.payload.RegisterRequest;
 import com.example.template.repository.AccountRepo;
+import com.example.template.security.JwtAuthenticationFilter;
+import com.example.template.security.JwtTokenProvider;
 import com.example.template.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -18,14 +25,18 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/account")
 public class AccountController {
-
+        @Autowired
+        JwtTokenProvider jwtTokenProvider;
         @Autowired
         PasswordEncoder passwordEncoder;
         @Autowired
         AccountRepo accountRepo;
+        @Autowired
+        AuthenticationManager authenticationManager;
         @Autowired
         AccountService accountService;
         @CrossOrigin
@@ -33,6 +44,21 @@ public class AccountController {
         public List findAll()
         {
             return accountService.findAll();
+        }
+
+        @CrossOrigin
+        @GetMapping
+        public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest){
+
+                Authentication authentication= authenticationManager.authenticate(
+                        new UsernamePasswordAuthenticationToken(
+                                loginRequest.getUsernameOrEmail(),
+                                loginRequest.getPassword()
+                        )
+                );
+
+                String jwt= jwtTokenProvider.generateToken(authentication);
+                return  ResponseEntity.ok(new JwtAuthenticationResponse(jwt));
         }
 
         @CrossOrigin
