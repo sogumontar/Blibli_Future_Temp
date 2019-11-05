@@ -7,8 +7,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "users")
 public class Account {
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")

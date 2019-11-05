@@ -12,7 +12,7 @@ $(document).ready(function(){
     if(email === "" || name === "" || username === "" || password === ""){
       window.alert("Semua Field Harus di isi")
     }else{
-      assignUser()  
+      assignUser()   
     }
   });
 

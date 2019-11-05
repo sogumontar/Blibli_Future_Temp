@@ -34,8 +34,8 @@
 
   <!-- Page Content -->
   <div id="header_merchant" class="row">
-    <div><a href="javascript:history.back()"><img src="Pict/left.png" width="25px"></a>&nbsp;&nbsp;&nbsp;</div>
-    <div><h2 id="catalog"> Catalog Entry</h2></div>
+    <div><a id="catalog" href="javascript:history.back()" style="color: black"><img src="Pict/left.png" width="25px"> Catalog Entry</a>&nbsp;&nbsp;&nbsp;</div>
+    <div></div>
   </div>
   <div id="notifikasi">
 
@@ -51,7 +51,6 @@
   <!-- /.container -->
   <div id="pemesanan">
     <div id="form">
-      <form method="POST" enctype="multipart/form-data" id="fileUploadForm">
         <div class="form-group">
           <label for="exampleFormControlInput1">Title</label>
           <input id="title" class="form-control" placeholder="Title">
@@ -61,7 +60,7 @@
           <textarea class="form-control" id="description" rows="3"></textarea>
         </div>
         <div class="form-group">
-          <label for="exampleFormControlSelect2">Example multiple select</label>
+          <label for="exampleFormControlSelect2">Categories</label>
           <select class="form-control" id="categories">
             <option>-- select --</option>
             <option>Buku Pelajaran</option>
@@ -78,7 +77,7 @@
         </div>
         <div class="form-group">
           <label for="exampleFormControlInput1">Price</label>
-          <input type="text" class="form-control" id="price" placeholder="Price">
+          <input type="number" min="0" class="form-control"  id="price" placeholder="Price">
         </div>
         <div class="form-group">
           <label for="exampleFormControlInput1">Author</label>
@@ -96,13 +95,7 @@
           <label for="exampleFormControlInput1">Publisher</label>
           <input type="text" class="form-control" id="publisher" placeholder="Publisher">
         </div>
-
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1">Deskripsi</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-        <button type="button" class="btn btn-success btn-lg btn-block">Tambah</button>
-      </form>
+        <button type="button" id="submit" class="btn btn-success btn-lg btn-block">Tambah</button>
     </div>
   </div><br><br><br><br><br><br>
 
