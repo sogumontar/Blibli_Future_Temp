@@ -34,16 +34,7 @@ public class ProductController {
 
     @CrossOrigin
     @RequestMapping("/insert")
-    public Product save(@Valid @RequestBody ProductRequest productRequest){
-        Product product=new Product(
-                productRequest.getTitle(),
-                productRequest.getDescription(),
-                productRequest.getCategories(),
-                productRequest.getPublicationYear(),
-                productRequest.getPrice(),
-                productRequest.getAuthor(),
-                productRequest.getIsbn(),
-                productRequest.getPublisher());
+    public Product save(@Valid @RequestBody Product product){
         return productRepo.save(product);
     }
 

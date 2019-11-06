@@ -15,7 +15,7 @@ public class ProductRequest {
     private String publicationYear;
 
     @NotBlank
-    private String price;
+    private long price;
 
     @NotBlank
     private String Author;
@@ -58,11 +58,11 @@ public class ProductRequest {
         this.publicationYear = publicationYear;
     }
 
-    public String getPrice() {
+    public long getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(long price) {
         this.price = price;
     }
 

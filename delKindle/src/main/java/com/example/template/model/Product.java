@@ -26,7 +26,7 @@ public class Product {
     private String publication_year;
 
     @Column(name = "price")
-    private String price;
+    private long price;
 
     @Column(name = "author")
     private String author;
@@ -41,7 +41,7 @@ public class Product {
     public Product(){
 
     }
-    public Product(String title, String description, String categories, String publication_year, String price, String author, String publisher, String isbn) {
+    public Product(String title, String description, String categories, String publication_year, long price, String author, String publisher, String isbn) {
 
         this.title = title;
         this.description = description;
@@ -101,11 +101,11 @@ public class Product {
         this.publication_year = publication_year;
     }
 
-    public String getPrice() {
+    public long getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(long price) {
         this.price = price;
     }
 
