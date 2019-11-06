@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
@@ -32,19 +33,28 @@ public class ProductController {
         return productService.findAll();
     }
 
+
     @CrossOrigin
-    @RequestMapping("/insert")
-    public Product save(@Valid @RequestBody ProductRequest productRequest){
-        Product product=new Product(
-                productRequest.getTitle(),
-                productRequest.getDescription(),
-                productRequest.getCategories(),
-                productRequest.getPublicationYear(),
-                productRequest.getPrice(),
-                productRequest.getAuthor(),
-                productRequest.getIsbn(),
-                productRequest.getPublisher());
-        return productRepo.save(product);
+    @RequestMapping("/simpan")
+    public String simpan(Product product1,@RequestParam MultipartFile file){
+        try{
+            
+            Product product =  new Product(
+                    product1.getTitle(),
+                    product1.getDescription(),
+                    product1.getCategories(),
+                    product1.getPublication_year(),
+                    product1.getPrice(),
+                    product1.getAuthor(),
+                    product1.getPublisher(),
+                    product1.getIsbn(),
+                    file.getOriginalFilename());
+
+            productService.save(product);
+            return "sukses";
+        }catch (Exception e){
+            return e.getMessage();
+        }
     }
 
 }
