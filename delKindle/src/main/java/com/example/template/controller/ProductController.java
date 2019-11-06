@@ -27,15 +27,21 @@ public class ProductController {
     ProductService productService;
 
     @CrossOrigin
-    @RequestMapping("/")
+    @GetMapping("/")
     public List findAll(){
         return productService.findAll();
     }
 
     @CrossOrigin
-    @RequestMapping("/insert")
+    @PostMapping("/insert")
     public Product save(@Valid @RequestBody Product product){
-        return productRepo.save(product);
+        return productService.save(product);
     }
+    @CrossOrigin
+    @GetMapping("/{productId}")
+    public Product findFirstById(@PathVariable  Integer productId){
+        return productService.findFirstById(productId);
+    }
+
 
 }
