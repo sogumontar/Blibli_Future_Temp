@@ -15,6 +15,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 @RestController
@@ -33,12 +36,15 @@ public class ProductController {
         return productService.findAll();
     }
 
+    @RequestMapping("/insert")
+    public Product save(@Valid @RequestBody Product product){
+        return productRepo.save(product);
+    }
 
     @CrossOrigin
     @RequestMapping("/simpan")
     public String simpan(Product product1,@RequestParam MultipartFile file){
         try{
-            
             Product product =  new Product(
                     product1.getTitle(),
                     product1.getDescription(),
@@ -51,6 +57,12 @@ public class ProductController {
                     file.getOriginalFilename());
 
             productService.save(product);
+
+            String folder = "C:/product/";
+            byte[] bytes = file.getBytes();
+            Path path = Paths.get(folder + file.getOriginalFilename());
+            Files.write(path,bytes);
+
             return "sukses";
         }catch (Exception e){
             return e.getMessage();
