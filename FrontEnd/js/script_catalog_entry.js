@@ -13,34 +13,36 @@ $(document).ready(function(){
     var author=document.getElementById('author').value;
     var isbn=document.getElementById('isbn').value;
     var publisher=document.getElementById('publisher').value;
+    var pict_product = document.getElementById('picture_product').value;
 
-    if(title === "" || description === "" || categories === "" || publication_year === "" 
-      || price === "" || author === "" || isbn === "" || publisher === ""){
+    if(title === "" || description === "" || categories === "" || publication_year === ""
+      || price === "" || author === "" || isbn === "" || publisher === "" || pict_product === ""){
       window.alert("Semua Field Harus di isi")
     }else{
-      insertProduct();  
+      insertProduct();
     }
   });
 
   function insertProduct(){
-   
+
      var jsonVar = {
-        title: $("#title").val(),  
+        title: $("#title").val(),
         description: $("#description").val(),
         categories: $("#categories").val(),
         publication_year: $("#publication_year").val(),
-        price: $("#price").val(),  
+        price: $("#price").val(),
         author: $("#author").val(),
         isbn: $("#isbn").val(),
-        publisher: $("#publisher").val()
+        publisher: $("#publisher").val(),
+        picture_product: $("#picture_product").val()
     };
     $.ajax({
               type:"POST",
-              url:"http://localhost:9094/product/insert",
+              url:"http://localhost:9097/product/simpan",
               data: JSON.stringify(jsonVar),
-              contentType: "application/json",
+              contentType: "multipart/form-data",
               data: JSON.stringify(jsonVar),
-              contentType: "application/json",
+              contentType: "multipart/form-data",
               success: function(data){
                   console.log(data.message);
               },

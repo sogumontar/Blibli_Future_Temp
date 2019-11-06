@@ -16,9 +16,6 @@ public class Product {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "pictProduct")
-    private String pictProduct;
-
     @Column(name = "categories")
     private String categories;
 
@@ -37,12 +34,13 @@ public class Product {
     @Column(name = "isbn")
     private String isbn;
 
+    @Column(name = "pict_product")
+    private String pictProduct;
 
     public Product(){
 
     }
     public Product(String title, String description, String categories, String publication_year, long price, String author, String publisher, String isbn) {
-
         this.title = title;
         this.description = description;
         this.categories = categories;
@@ -51,6 +49,24 @@ public class Product {
         this.author = author;
         this.publisher = publisher;
         this.isbn = isbn;
+        this.pictProduct = pictProduct;
+    }
+
+    public Product(String title, String description){
+        this.title = title;
+        this.description = description;
+    }
+
+    public Product(String title, String description, String categories, String publication_year, long price, String author, String publisher, String isbn, String pictProduct) {
+        this.title = title;
+        this.description = description;
+        this.categories = categories;
+        this.publication_year = publication_year;
+        this.price = price;
+        this.author = author;
+        this.publisher = publisher;
+        this.isbn = isbn;
+        this.pictProduct = pictProduct;
     }
 
     public Integer getId() {
@@ -101,12 +117,13 @@ public class Product {
         this.publication_year = publication_year;
     }
 
-    public long getPrice() {
-        return price;
-    }
 
     public void setPrice(long price) {
         this.price = price;
+    }
+
+    public long getPrice() {
+        return price;
     }
 
     public String getAuthor() {
