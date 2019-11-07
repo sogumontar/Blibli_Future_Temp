@@ -16,6 +16,10 @@ public class ProductService {
         return productRepo.findAll();
     }
 
+    public Product findFirstById(Integer productId){
+        return productRepo.findFirstById(productId);
+    }
+
     public Product save(Product product){
         return productRepo.save(product);
     }

@@ -48,34 +48,22 @@ public class ProductController {
         return productService.findFirstById(productId);
     }
 
-
-<<<<<<< HEAD
-    @CrossOrigin
-    @GetMapping("/{productId}")
-    public Product findFirstById(@PathVariable  Integer productId){
-        return productService.findFirstById(productId);
-    }
-    @CrossOrigin
-    @PostMapping(value = "/simpan")
-    public String simpan(@RequestPart("product") Product product1,@RequestPart("file") MultipartFile file){
-=======
     @CrossOrigin
     @PostMapping("/simpan")
-    public String simpan(Product product1,@RequestParam MultipartFile file){
->>>>>>> e737da82e7c6129323de9065d132c4719b1c6f0c
+    public String simpan(@RequestPart("product") Product product1,@RequestPart("file") MultipartFile file){
         try{
-//            Product product =  new Product(
-//                    product1.getTitle(),
-//                    product1.getDescription(),
-//                    product1.getCategories(),
-//                    product1.getPublication_year(),
-//                    product1.getPrice(),
-//                    product1.getAuthor(),
-//                    product1.getPublisher(),
-//                    product1.getIsbn(),
-//                    file.getOriginalFilename());
-//
-//            productService.save(product);
+            Product product =  new Product(
+                    product1.getTitle(),
+                    product1.getDescription(),
+                    product1.getCategories(),
+                    product1.getPublication_year(),
+                    product1.getPrice(),
+                    product1.getAuthor(),
+                    product1.getPublisher(),
+                    product1.getIsbn(),
+                    file.getOriginalFilename());
+
+            productService.save(product);
             System.out.println(product1.getTitle());
             System.out.println(product1.getDescription());
             System.out.println(file.getOriginalFilename());
