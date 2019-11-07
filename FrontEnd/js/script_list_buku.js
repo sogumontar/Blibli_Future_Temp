@@ -1,50 +1,60 @@
-function getCasts(){
-	// const url ='https://swapi.co/api/people'
-	const url ='http://localhost:9094/product/1'
-	window.fetch(url).then((res)=>{
-		return res.json()
-	}).then((res)=>{
-		const html= `
+$(document).ready(function(){
 
-			
-		`
-		window.detail.innerHTML =html
+	hideNavbar();
+	assignDataProduct();
+
+	$('#listBook').click(function(){
+		location.href = "detail.html";
+	});
 
 
-	}).then(() => {
-		console.log("selesai")
-	}).then(()=>console.log("del"))
 
+	function hideNavbar(){
+		var prevScrollpos = window.pageYOffset;
+		window.onscroll = function() {
+		var currentScrollPos = window.pageYOffset;
+		  if (prevScrollpos > currentScrollPos) {
+		    document.getElementById("navbar").style.top = "0";
+		  } else {
+		    document.getElementById("navbar").style.top = "-50px";
+		  }
+		  prevScrollpos = currentScrollPos;
+		}
+	}
 
-	const wait = time => new Promise((resolve) => setTimeout(resolve, time));
+	function assignDataProduct(){
+		$.ajax({
+          type:"GET",
+          contentType: "application/json",
+          url:"http://localhost:9094/product/",
+          success: function(data) {
+            var users = JSON.parse(JSON.stringify(data));
+            for (var i in users) {
+               $("#dat").
+                append("<div class='ard' id='card'>\
+						      <img src='pict/buku_fashion.jpg' class='card-img-top' id='image'>\
+						      <div class='card-body'>\
+						        <div class=''>\
+						          <center><h5>" + users[i].title + "</h5></center>\
+						        </div>\
+						        <div class=''>\
+						          <center><h6>SKU : " + users[i].categories + "</h6></center>\
+						        </div>\
+						        <div class=''>\
+						          <center><h5>Rp " + users[i].price + ",00</h5></center>\
+						        </div>\
+						        <div class=''>\
+						          <button type='button' name='button' style='float:left' id='but_del'>Delete</button>\
+						          <button type='button' name='button'  style='float:right' id='but_update'><a href='detail_book.html?id="+users[i].id+"'>Detail</a></button>\
+						        </div>\
+						      </div>\
+						    </div>");
+            }
+          },
+          error: function(data) {
+            console.log(data);
+            }
+        });
+	}
 
-	
-	console.log("test")
-}
-
-function generateCastHtml(list){
-	// console.log(list.title)
-	return list.map(i=>
-	`<p>Judul Buku :${i.title}</p>
-    <p>Deskripsi Buku : ${i.price}</p>
-    <p>Kategori : ${i.categories}</p>
-    <p>Tahun Terbit : ${i.publication_year}</p>
-    <p>Price : ${i.price}</p>
-    <p>Author : ${i.author}</p>
-    <p>publisher : ${i.publisher}</p>
-    <p>Isbn : ${i.isbn}</p>
-
-    <hr>
-    <div class="col-md-12">
-      <div class="row">
-        <div class="col-md-5">
-          <img src="Pict/buku_fashion.jpg" alt="">
-        </div>
-        <div class="col-md-7">
-          <p>Belajar Menulis <br>Rp 150.000</p>
-        </div>
-      </div>
-    </div>
-		<li>${i.title}, ${i.description}</li>`).join('')
-}
-getCasts()
+});

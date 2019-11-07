@@ -36,12 +36,9 @@ public class ProductController {
         return productService.findAll();
     }
 
-<<<<<<< HEAD
     @CrossOrigin
     @PostMapping("/insert")
-=======
     @RequestMapping("/insert")
->>>>>>> dcac786a21f7b46753b0738311debe025753904f
     public Product save(@Valid @RequestBody Product product){
         return productService.save(product);
     }
@@ -53,7 +50,7 @@ public class ProductController {
 
 
     @CrossOrigin
-    @RequestMapping("/simpan")
+    @PostMapping("/simpan")
     public String simpan(Product product1,@RequestParam MultipartFile file){
         try{
             Product product =  new Product(
