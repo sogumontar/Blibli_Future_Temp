@@ -16,7 +16,7 @@ public class ProductService {
         return productRepo.findAll();
     }
 
-    public Product findFirstById(long productId){
+    public Product findFirstById(Integer productId){
         return productRepo.findFirstById(productId);
     }
     public Product deleteById(Integer idProduct){

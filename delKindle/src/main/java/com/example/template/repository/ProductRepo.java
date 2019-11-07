@@ -8,7 +8,7 @@ import javax.transaction.Transactional;
 
 @Repository
 public interface ProductRepo extends JpaRepository<Product,Long> {
-    Product findFirstById(long  productId);
+    Product findFirstById(Integer  productId);
 
     @Transactional
     Product deleteById(Integer productId);
