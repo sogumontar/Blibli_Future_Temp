@@ -1,8 +1,15 @@
 $(document).ready(function(){
 
-  hideNavbar();
+	hideNavbar();
+	assignDataProduct();
 
-  function hideNavbar(){
+	$('#listBook').click(function(){
+		location.href = "detail.html";
+	});
+
+
+
+	function hideNavbar(){
 		var prevScrollpos = window.pageYOffset;
 		window.onscroll = function() {
 		var currentScrollPos = window.pageYOffset;
@@ -14,4 +21,40 @@ $(document).ready(function(){
 		  prevScrollpos = currentScrollPos;
 		}
 	}
-}
+
+	function assignDataProduct(){
+		$.ajax({
+          type:"GET",
+          contentType: "application/json",
+          url:"http://localhost:9094/product/",
+          success: function(data) {
+            var users = JSON.parse(JSON.stringify(data));
+            for (var i in users) {
+               $("#dat").
+                append("<div class='ard' id='card'>\
+						      <img src='pict/buku_fashion.jpg' class='card-img-top' id='image'>\
+						      <div class='card-body'>\
+						        <div class=''>\
+						          <center><h5>" + users[i].title + "</h5></center>\
+						        </div>\
+						        <div class=''>\
+						          <center><h6>SKU : " + users[i].categories + "</h6></center>\
+						        </div>\
+						        <div class=''>\
+						          <center><h5>Rp " + users[i].price + ",00</h5></center>\
+						        </div>\
+						        <div class=''>\
+						          <button type='button' name='button' style='float:left' id='but_del'>Delete</button>\
+						          <button type='button' name='button'  style='float:right' id='but_update'><a href='detail_book.html?id="+users[i].id+"'>Detail</a></button>\
+						        </div>\
+						      </div>\
+						    </div>");
+            }
+          },
+          error: function(data) {
+            console.log(data);
+            }
+        });
+	}
+
+});

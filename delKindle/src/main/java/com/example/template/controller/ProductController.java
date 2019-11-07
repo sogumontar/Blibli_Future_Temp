@@ -31,17 +31,25 @@ public class ProductController {
     ProductService productService;
 
     @CrossOrigin
-    @RequestMapping("/")
+    @GetMapping("/")
     public List findAll(){
         return productService.findAll();
     }
 
+    @CrossOrigin
+    @PostMapping("/insert")
     @RequestMapping("/insert")
     public Product save(@Valid @RequestBody Product product){
-        return productRepo.save(product);
+        return productService.save(product);
+    }
+    @CrossOrigin
+    @GetMapping("/{productId}")
+    public Product findFirstById(@PathVariable  Integer productId){
+        return productService.findFirstById(productId);
     }
 
 
+<<<<<<< HEAD
     @CrossOrigin
     @GetMapping("/{productId}")
     public Product findFirstById(@PathVariable  Integer productId){
@@ -50,6 +58,11 @@ public class ProductController {
     @CrossOrigin
     @PostMapping(value = "/simpan")
     public String simpan(@RequestPart("product") Product product1,@RequestPart("file") MultipartFile file){
+=======
+    @CrossOrigin
+    @PostMapping("/simpan")
+    public String simpan(Product product1,@RequestParam MultipartFile file){
+>>>>>>> e737da82e7c6129323de9065d132c4719b1c6f0c
         try{
 //            Product product =  new Product(
 //                    product1.getTitle(),
