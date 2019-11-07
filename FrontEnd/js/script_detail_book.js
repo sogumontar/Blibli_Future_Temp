@@ -13,6 +13,10 @@ for(var i in queryStringList)
 }
 
   function getCasts(){
+<<<<<<< HEAD
+=======
+  // const url ='https://swapi.co/api/people'
+>>>>>>> b2024f7436f3ef85fd008983ff17b2b789692f7d
   const url ="http://localhost:9097/product/"+res;
   window.fetch(url).then((res)=>{
     return res.json()
@@ -51,7 +55,7 @@ for(var i in queryStringList)
 
   const wait = time => new Promise((resolve) => setTimeout(resolve, time));
 
-  
+
   console.log("test")
 }
 
