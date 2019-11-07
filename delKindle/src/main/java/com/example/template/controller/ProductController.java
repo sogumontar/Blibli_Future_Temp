@@ -23,12 +23,25 @@ import java.util.List;
 @RestController
 @RequestMapping("/product")
 public class ProductController {
+
     @Autowired
     ProductRepo productRepo;
 
 
     @Autowired
     ProductService productService;
+
+
+//    @CrossOrigin
+    @DeleteMapping("/del/{id}")
+    public Product deleteProduct(@PathVariable Integer id){
+        return productService.deleteById(id);
+    }
+
+    @DeleteMapping("/delete/{author}")
+    public Product deleteByAuthor(String author){
+        return productService.deleteByAuthor(author);
+    }
 
     @CrossOrigin
     @GetMapping("/")

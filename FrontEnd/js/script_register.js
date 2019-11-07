@@ -25,7 +25,7 @@ $(document).ready(function(){
     };
     $.ajax({
               type:"POST",
-              url:"http://localhost:9094/account/register",
+              url:"http://localhost:9097/account/register",
               data: JSON.stringify(jsonVar),
               contentType: "application/json",
               data: JSON.stringify(jsonVar),

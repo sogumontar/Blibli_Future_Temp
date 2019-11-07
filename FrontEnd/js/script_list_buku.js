@@ -26,7 +26,7 @@ $(document).ready(function(){
 		$.ajax({
           type:"GET",
           contentType: "application/json",
-          url:"http://localhost:9094/product/",
+          url:"http://localhost:9097/product/",
           success: function(data) {
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {
