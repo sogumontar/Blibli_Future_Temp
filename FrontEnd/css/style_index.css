@@ -37,35 +37,8 @@ h1 {
 /*flexbox footer */
 @import "compass/css3";
 
-.flex-container {
-  padding: 0;
-  margin: 0;
-  list-style: none;
 
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
 
-  -webkit-flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.flex-item {
-  padding: 5px;
-  height: 100px;
-  margin-left: 10px;
-  margin-bottom: 20px;
-
-  line-height: 150px;
-  color: white;
-  font-weight: bold;
-  font-size: 3em;
-  text-align: center;
-  align-items: center;
-}
 
 /* untuk web laptop */
 @media only screen and (min-width: 981px) {
@@ -89,8 +62,33 @@ h1 {
     margin-right: 10px;
   }
   #kategori_gambar{
-    width:100px;
-    height: 100px;
+    width:80px;
+    height: 80px;
     border-radius: 100px;
+  }
+  #nama{
+    font-size: 1vw;
+  }
+  .produk{
+    list-style-type: none;
+    overflow: hidden;
+  }
+  li {
+    float: left;
+  }
+  .flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
   }
 }
