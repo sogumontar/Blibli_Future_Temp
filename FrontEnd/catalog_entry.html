@@ -50,7 +50,7 @@
   </div><br>
   <!-- /.container -->
   <div id="pemesanan">
-    <div id="form">
+    <form id="form" name="productForm">
         <div class="form-group">
           <label for="exampleFormControlInput1">Title</label>
           <input id="title" class="form-control" placeholder="Title" required>
@@ -67,7 +67,7 @@
             <option>Buku Anak anak</option>
             <option>Buku Novel</option>
             <option>Buku Fashion</option>
-            <option>Buku Teknolofi</option>
+            <option>Buku Ensiklopedia</option>
             <option>Buku Seni</option>
           </select>
         </div>
@@ -89,14 +89,14 @@
         </div>
         <div class="form-group">
           <label for="exampleFormControlInput1">Picture Product</label>
-          <input type="file" class="form-control" id="picture_product" name="picture_product" placeholder="Picture Product" required>
+          <input type="file" class="form-control" id="picture_product" name="file" placeholder="Picture Product" required>
         </div>
         <div class="form-group">
           <label for="exampleFormControlInput1">Publisher</label>
           <input type="text" class="form-control" id="publisher" placeholder="Publisher" required>
         </div>
-        <button type="button" id="submit" class="btn btn-success btn-lg btn-block">Tambah</button>
-    </div>
+        <input type="submit" name="" value="Tambah" id="submit">
+    </form>
   </div><br><br><br><br><br><br>
 
   <!-- Footer -->

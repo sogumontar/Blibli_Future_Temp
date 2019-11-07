@@ -19,7 +19,7 @@ $(document).ready(function(){
       || price === "" || author === "" || isbn === "" || publisher === "" || pict_product === ""){
       window.alert("Semua Field Harus di isi")
     }else{
-      insertProduct();
+      insert();
     }
   });
 
@@ -40,9 +40,7 @@ $(document).ready(function(){
               type:"POST",
               url:"http://localhost:9097/product/simpan",
               data: JSON.stringify(jsonVar),
-              contentType: "multipart/form-data",
-              data: JSON.stringify(jsonVar),
-              contentType: "multipart/form-data",
+              contentType: false,
               success: function(data){
                   console.log(data.message);
               },
@@ -51,6 +49,37 @@ $(document).ready(function(){
                   console.log(err.responseJSON.message);
               }
     });
-
   }
+
+  function insert(){
+    var formData = new FormData();
+            formData.append("file", document.forms["productForm"].file.files[0]);
+            formData.append('product', new Blob([JSON.stringify({
+                "title": document.getElementById("title").value,
+                "description": document.getElementById("description").value,
+                "categories": document.getElementById("categories").value,
+                "publication_year": document.getElementById("publication_year").value,
+                "price": document.getElementById("price").value,
+                "author": document.getElementById("author").value,
+                "isbn": document.getElementById("isbn").value,
+                "publisher": document.getElementById("publisher").value,
+            })], {
+                    type: "application/json"
+                }));
+            var boundary = Math.random().toString().substr(2);
+            console.log("asd");
+            fetch('http://localhost:9097/product/simpan', {
+                method: 'post',
+                body: formData
+            }).then(function (response) {
+                if (response.status !== 200) {
+                    // alert("There was an error!");
+                } else {
+                    alert("Request successful");
+                }
+            }).catch(function (err) {
+                //alert("There was an error!");
+            });;
+  }
+
 });

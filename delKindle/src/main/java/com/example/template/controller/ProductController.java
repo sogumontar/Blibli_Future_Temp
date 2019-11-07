@@ -41,22 +41,31 @@ public class ProductController {
         return productRepo.save(product);
     }
 
-    @CrossOrigin
-    @RequestMapping("/simpan")
-    public String simpan(Product product1,@RequestParam MultipartFile file){
-        try{
-            Product product =  new Product(
-                    product1.getTitle(),
-                    product1.getDescription(),
-                    product1.getCategories(),
-                    product1.getPublication_year(),
-                    product1.getPrice(),
-                    product1.getAuthor(),
-                    product1.getPublisher(),
-                    product1.getIsbn(),
-                    file.getOriginalFilename());
 
-            productService.save(product);
+    @CrossOrigin
+    @GetMapping("/{productId}")
+    public Product findFirstById(@PathVariable  Integer productId){
+        return productService.findFirstById(productId);
+    }
+    @CrossOrigin
+    @PostMapping(value = "/simpan")
+    public String simpan(@RequestPart("product") Product product1,@RequestPart("file") MultipartFile file){
+        try{
+//            Product product =  new Product(
+//                    product1.getTitle(),
+//                    product1.getDescription(),
+//                    product1.getCategories(),
+//                    product1.getPublication_year(),
+//                    product1.getPrice(),
+//                    product1.getAuthor(),
+//                    product1.getPublisher(),
+//                    product1.getIsbn(),
+//                    file.getOriginalFilename());
+//
+//            productService.save(product);
+            System.out.println(product1.getTitle());
+            System.out.println(product1.getDescription());
+            System.out.println(file.getOriginalFilename());
 
             String folder = "C:/product/";
             byte[] bytes = file.getBytes();
