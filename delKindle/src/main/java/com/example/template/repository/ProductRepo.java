@@ -15,5 +15,4 @@ public interface ProductRepo extends JpaRepository<Product,Long> {
     @Transactional
     Product deleteByAuthor(String author);
 
-
 }

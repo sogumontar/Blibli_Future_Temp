@@ -1,3 +1,4 @@
+getCasts()
 var url = window.location.toString();
 url.match(/\?(.+)$/);
 var params = RegExp.$1;
@@ -37,5 +38,40 @@ for(var i in queryStringList)
   console.log("test")
 }
 
+function push(){
+    var title = document.getElementById('title');
+    var description = document.getElementById('description');
+    var categories = document.getElementById('categories');
+    var publication_year = document.getElementById('publication_year');
+    var price = document.getElementById('price');
+    var author = document.getElementById('author');
+    var isbn = document.getElementById('isbn');
+    var publisher = document.getElementById('publisher');
 
-getCasts()
+    var jsonVar = {
+        title: $("#title").val(),  
+        description: $("#description").val(),
+        categories: $("#categories").val(),
+        publication_year: $("#publication_year").val(),
+        price: $("#price").val(),  
+        author: $("#author").val(),
+        isbn: $("#isbn").val(),
+        publisher: $("#publisher").val()
+    };
+    $.ajax({
+              type:"PUT",
+              url:"http://localhost:9097/product/update/" + res,
+              data: JSON.stringify(jsonVar),
+              contentType: "application/json",
+              data: JSON.stringify(jsonVar),
+              contentType: "application/json",
+              success: function(data){
+                  alert("Update Book Success");
+                  location.href="list_buku.html";
+              },
+              error: function(err) {
+                  $("#message").append(err.responseJSON.message);
+                  console.log(err.responseJSON.message);
+              }
+    });
+}

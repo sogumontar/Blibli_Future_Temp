@@ -19,6 +19,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/product")
@@ -31,8 +32,7 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
-
-//    @CrossOrigin
+    @CrossOrigin
     @DeleteMapping("/del/{id}")
     public Product deleteProduct(@PathVariable Integer id){
         return productService.deleteById(id);
@@ -91,5 +91,17 @@ public class ProductController {
             return e.getMessage();
         }
     }
+    @CrossOrigin
+    @PutMapping("/update/{idProduct}")
+    public ResponseEntity<Object> updateProduct(@PathVariable Integer idProduct, @RequestBody Product product){
+        Optional<Product> productOptional= Optional.ofNullable(productRepo.findFirstById(idProduct));
+        if(!productOptional.isPresent())
+            return ResponseEntity.notFound().build();
+        product.setId(idProduct);
+        productRepo.save(product);
+        return ResponseEntity.ok().build();
+
+    }
+
 
 }
