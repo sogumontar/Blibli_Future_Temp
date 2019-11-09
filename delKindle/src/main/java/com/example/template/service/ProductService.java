@@ -19,8 +19,16 @@ public class ProductService {
     public Product findFirstById(Integer productId){
         return productRepo.findFirstById(productId);
     }
+    public Product deleteById(Integer idProduct){
+        return productRepo.deleteById(idProduct);
+    }
 
     public Product save(Product product){
         return productRepo.save(product);
     }
+
+    public Product deleteByAuthor(String author){
+        return productRepo.deleteByAuthor(author);
+    }
+
 }
