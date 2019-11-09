@@ -1,68 +1,79 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Del Kindle Book</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/css.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="load.js"></script>
-</head>
-<body>
-	<nav class="container navbar " style="background-color: #008BFF; height: 80px; width: 900px;">
-		<a href="" class="btn" ><img style="" src="Pict/logo.png" width="70" height="70"></a>
-		<form class="form-inline" action="/action_page.php" style="">
-			<input class="form-control mr-sm-1" style=" margin-bottom: 30px; width: 400px;"  type="text" placeholder="Search">
-			<button class="btn btn-success" style="margin-bottom: 30px;"  type="submit">Search</button>
-		</form>
-		<a href="cart.html" class="btn" style="margin-bottom:30px; "><img width="30px" src="pict/5a364b752c0633.9984354215135077011803.png"></a>
-	</nav>
-	<div class="container" style=" width: 900px; ">
-		<br><br>
-		<div class="container form-inline">
-			<img src="pict/leftarrowsign_85800.png" width="50px"> <h2>&nbsp;&nbsp;&nbsp;Keranjang</h2>
+<html lang="en">
 
-		</div>
-		<div class="container form-inline" id="divList">
-			<img src="pict/Spinner-1s-200px.gif">
-		</div>
-		<div class="form-inline">
-			<p>Sub Total</p>
-		</div>
-		<hr><br><br>
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	</div>
-	
-	<nav style="background-color: white; height: 50px; width: 850px;  " class=" container navbar navbar-expand fixed-bottom">
-		<center>
-			<ul class="navbar-nav ">
-				<li  style="margin-left: 30px;" >
-					<a href=""><button class="btn"><img style="margin-top: 10px;" width="30px" src="Pict/icons8-home-50.png"></button></a>
-				</li>
-				<li style="margin-left: 90px;">
-					<a href=""><button class="btn"><img style="margin-top: 10px;" width="30px" src="Pict/icons8-love-50.png"></button></a>
-				</li>
-				<li style="margin-left: 90px;" class="nav-item dropdown">
-					<div class="dropup">
-						<button class="dropbtn" style="background-color: transparent;"><img width="30px" src="pict/list.png" alt=""></button>
-						<div class="dropup-content">
-							<a href="#">Link 1</a>
-							<a href="#">Link 2</a>
-							<a href="#">Link 3</a>
-						</div>
-					</div>
-				</li>
-				<li style="margin-left: 90px;">
-					<a href=""><button class="btn"><img style="margin-top: 10px;" width="30px" src="Pict/5a364b752c0633.9984354215135077011803.png"></button></a>
-				</li>
-				<li style="margin-left: 90px; margin-right: 0px;">
-					<a href=""><button class="btn"><img width="30px"style="margin-top: 10px;" src="Pict/avatar.png"></button></a>
-				</li>
-			</ul>
-		</center>
-	</nav>
+<head>
+  <title>Cart - Del Kindle</title>
+  <script type="text/javascript" src="js/jquery.slim.min.js"></script>
+  <link rel="stylesheet" href="css/css.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <script src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/script_cart.js"></script>
+  <link href="css/style_cart.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="#">DelKindle</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <img style="width: 35px" src="Pict/5a364b752c0633.9984354215135077011803.png">
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Page Content -->
+  <div id="header_merchant" class="row">
+    <div><a href="javascript:history.back()"><img src="Pict/left.png" width="25px"></a>&nbsp;&nbsp;&nbsp;</div>
+      <div><h2 id="catalog"> Cart</h2></div>
+  </div>
+  <!-- /.container -->
+		<div id="tambah">
+	    <table>
+	      <tr>
+	        <td><img src="Pict/checked.png" id="plus" alt="">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+	        <td><h4 id="tambah1">Banyak pilihan buku yang tersedia dengan kualitas yang terjamin.</h4></td>
+	      </tr>
+	    </table>
+	  </div><br>
+
+
+
+
+
+  <!-- Footer -->
+  <footer class="fixed-bottom" style="background-color: white">
+		<div id="ds">
+      <ul class="flex-container" class="navbar navbar-expand fixed-bottom">
+  		  <li class="flex-item1">
+  		  	<a href=""><button class="btn"><img id="icon1" src="Pict/icons8-home-50.png"></button></a>
+  		  </li>
+  		  <li class="flex-item1">
+  		  	<a href="catalog_entry.html"><button class="btn"><img id="icon1" src="Pict/plus.png"></button></a>
+  		  </li>
+  		  <li class="flex-item1">
+  		  	<a href=""><button class="btn"><img id="icon1" src="Pict/5a364b752c0633.9984354215135077011803.png"></button></a>
+  		  </li>
+  		  <li class="flex-item1">
+  		  	<a href=""><button class="btn"><img id="icon1" src="Pict/avatar.png"></button></a>
+  		  </li>
+  		</ul>
+    </div>
+	</footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 </body>
-<script type="text/javascript" src="css/bootstrap.js"></script>
+
 </html>
