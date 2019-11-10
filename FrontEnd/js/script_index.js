@@ -30,13 +30,17 @@ $(document).ready(function(){
           success: function(data) {
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {
+            	var str=users[i].description;
+            	if(str.length >50){
+            		str=str.substring(0,50);
+            	}
                $("#listBook").
                 append("<div class='col-lg-3 col-md-6 mb-4'>\
                     <div class='card h-100'>\
 											<img class='card-img-top' src='http://placehold.it/500x325' alt=''>\
 											<div class='card-body'>\
 												<h4 class='card-title'><center><p>" + users[i].title+"</p></center></h4>\
-												<p class='card-text'>" + users[i].description+"</p>\
+												<p class='card-text'>" + str +".....</p>\
 											</div>\
 											<div class='card-footer'>\
 												<button class='btn btn-primary' id='but_beli'>Beli Sekarang</button>\

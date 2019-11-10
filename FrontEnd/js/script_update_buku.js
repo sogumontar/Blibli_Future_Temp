@@ -71,7 +71,7 @@ function push(){
               data: JSON.stringify(jsonVar),
               contentType: "application/json",
               success: function(data){
-                  alert($("#pict_product").val());
+                  alert("Update Success");
                   location.href="list_buku.html";
               },
               error: function(err) {
