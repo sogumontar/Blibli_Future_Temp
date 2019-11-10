@@ -1,4 +1,3 @@
-getCasts()
 var url = window.location.toString();
 url.match(/\?(.+)$/);
 var params = RegExp.$1;
@@ -38,15 +37,20 @@ for(var i in queryStringList)
   console.log("test")
 }
 
+getCasts()
+ function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
 function push(){
-    var title = document.getElementById('title');
-    var description = document.getElementById('description');
-    var categories = document.getElementById('categories');
-    var publication_year = document.getElementById('publication_year');
-    var price = document.getElementById('price');
-    var author = document.getElementById('author');
-    var isbn = document.getElementById('isbn');
-    var publisher = document.getElementById('publisher');
 
     var jsonVar = {
         title: $("#title").val(),  
@@ -56,7 +60,8 @@ function push(){
         price: $("#price").val(),  
         author: $("#author").val(),
         isbn: $("#isbn").val(),
-        publisher: $("#publisher").val()
+        publisher: $("#publisher").val(),
+        pict_product: $("#pict_product").val()
     };
     $.ajax({
               type:"PUT",
@@ -66,7 +71,7 @@ function push(){
               data: JSON.stringify(jsonVar),
               contentType: "application/json",
               success: function(data){
-                  alert("Update Book Success");
+                  alert($("#pict_product").val());
                   location.href="list_buku.html";
               },
               error: function(err) {

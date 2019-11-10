@@ -32,7 +32,7 @@ $(document).ready(function(){
             for (var i in users) {
                $("#dat").
                 append("<div class='ard' id='card'>\
-						      <img src='pict/buku_fashion.jpg' class='card-img-top' id='image'>\
+						      <img src='C:/product/1a.png' class='card-img-top' id='image'>\
 						      <div class='card-body'>\
 						        <div class=''>\
 						          <center><h5>" + users[i].title + "</h5></center>\

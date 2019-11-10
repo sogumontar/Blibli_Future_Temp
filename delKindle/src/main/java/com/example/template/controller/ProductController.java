@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -77,9 +78,6 @@ public class ProductController {
                     file.getOriginalFilename());
 
             productService.save(product);
-            System.out.println(product1.getTitle());
-            System.out.println(product1.getDescription());
-            System.out.println(file.getOriginalFilename());
 
             String folder = "C:/product/";
             byte[] bytes = file.getBytes();
@@ -93,12 +91,26 @@ public class ProductController {
     }
     @CrossOrigin
     @PutMapping("/update/{idProduct}")
-    public ResponseEntity<Object> updateProduct(@PathVariable Integer idProduct, @RequestBody Product product){
+    public ResponseEntity<Object> updateProduct(@PathVariable Integer idProduct, @RequestBody Product product,@RequestPart("file") MultipartFile file) throws IOException {
         Optional<Product> productOptional= Optional.ofNullable(productRepo.findFirstById(idProduct));
         if(!productOptional.isPresent())
             return ResponseEntity.notFound().build();
         product.setId(idProduct);
-        productRepo.save(product);
+        Product product1 =  new Product(
+                product.getTitle(),
+                product.getDescription(),
+                product.getCategories(),
+                product.getPublication_year(),
+                product.getPrice(),
+                product.getAuthor(),
+                product.getPublisher(),
+                product.getIsbn(),
+                file.getOriginalFilename());
+        productService.save(product1);
+        String folder = "C:/product/";
+        byte[] bytes = file.getBytes();
+        Path path = Paths.get(folder + file.getOriginalFilename());
+        Files.write(path,bytes);
         return ResponseEntity.ok().build();
 
     }
