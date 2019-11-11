@@ -1,47 +1,43 @@
-var url = window.location.toString();
-url.match(/\?(.+)$/);
-var params = RegExp.$1;
-var params = params.split("&");
-var queryStringList = {};
-for(var i=0;i<params.length;i++)
-{   var tmp = params[i].split("=");
-    queryStringList[tmp[0]] = unescape(tmp[1]);
-}
-for(var i in queryStringList)
-{   var res = queryStringList[i].replace(/[+]/g, " ");
-    console.log(i+" = "+res+"<br/>");
-}
-
   function getCasts(){
   // const url ='https://swapi.co/api/people'
-  const url ="http://localhost:9097/product/"+res;
+  const url ="http://localhost:9097/account/find/17";
   window.fetch(url).then((res)=>{
     return res.json()
   }).then((i)=>{
-    const html= `
+    var gend=i.gender;
 
-      <div class="row">
-          <div class="col-md-4">
-            <img src="pict/buku_pelajaran.jpg" id="pict_book" class="img-thumbnail">
-          </div>
-          <div class="col-md-8">
-            <p><b>Judul</b> : ${i.title} </p>
-            <p><b>Penerbit</b> : ${i.publisher} </p>
-            <p><b>Penulis</b> : ${i.author}</p>
-            <p><b>Jumlah halaman</b> : 125(+cover)</p>
-            <p><b>ISBN</b> : ${i.isbn}</p>
-            <p><b>Bahasa</b> : Indonesia</p>
-            <p><b>Harga(IDR)</b> : ${i.price}</p>
-          </div>
+    
+      const pit=`<img class="card" style="width: 150px; height: 150px;" src="Pict/male.png"><br><br>`;
+      const pitt=`<img class="card" style="width: 150px; height: 150px;" src="Pict/girl.png"><br><br>`;
+    
+    
+    const html= `
+<input type="text" id="name" required="" class="form-control" name="" readonly value="${i.name}" placeholder="Nama Lengkap" >
           <br>
-          <hr>
+          <input type="text" id="email" required=""  class="form-control" readonly value="${i.email}" name="" placeholder="Email">
           <br>
-            <div class="content">
-              ${i.description}
-            </div>
-      </div>
+          <input type="text" id="username" required="" class="form-control" readonly name="" value="${i.username}" placeholder="Username">
+          <br>
+          <input type="text" id="username" required="" class="form-control" readonly name="" value="${i.gender}" placeholder="Username">
+          <br>
+          <input type="number" id="telepon" class="form-control" value="${i.telepon}" readonly name="" placeholder="Telepon">
+          <br>
+          <input type="text" id="alamat" class="form-control" value="${i.alamat}" name="" readonly placeholder="Alamat">
+          <br>
+          <input type="date" id="tanggal_lahir" class="form-control" value=${i.tanggal_lahir} readonly required="required" placeholder="Tanggal Lahir">
+          <br><br>
+          <button style="height:  40px;" class="btn btn-primary" id="register">Edit</button>
+          <br><br>
+
+
 
     `
+    if(gend==="male"){
+      window.pic.innerHTML=pit;  
+    }else{
+      window.pic.innerHTML=pitt;
+    }
+    
     window.detail.innerHTML =html
 
 

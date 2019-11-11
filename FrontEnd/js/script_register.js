@@ -21,7 +21,10 @@ $(document).ready(function(){
         name: $("#name").val(),  
         email: $("#email").val(),
         password: $("#password").val(),
-        username: $("#username").val()
+        username: $("#username").val(),
+        telepon: $("#telepon").val(),
+        alamat: $("#alamat").val(),
+        tanggal_lahir: $("#tanggal_lahir").val()
     };
     $.ajax({
               type:"POST",

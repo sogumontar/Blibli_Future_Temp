@@ -9,8 +9,29 @@ import javax.persistence.*;
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+
     @Column(name = "id")
     private long id;
+
+    @Column(name = "telepon")
+    private String telepon;
+
+    @Column(name = "alamat")
+    private String alamat;
+
+    @Column(name = "tanggal_lahir")
+    private String tanggal_lahir;
+
+    public Account(String telepon, String alamat, String tanggal_lahir, String name, String username, String email, String password, String created_at) {
+        this.telepon = telepon;
+        this.alamat = alamat;
+        this.tanggal_lahir = tanggal_lahir;
+        this.name = name;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.created_at = created_at;
+    }
 
     @Column(name = AccountConstant.Name)
     private String name;
@@ -27,20 +48,34 @@ public class Account {
     @Column(name = "created_at")
     private String created_at;
 
-    @Column(name = "updated_at")
-    private String updated_at;
 
     public Account(){
 
     }
-    public Account(String email,String name,String username ,String password,String created_at){
-        this.email=email;
-        this.name=name;
-        this.username=username;
-        this.password=password;
-        this.created_at=created_at;
+
+    public String getTelepon() {
+        return telepon;
     }
 
+    public void setTelepon(String telepon) {
+        this.telepon = telepon;
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
+
+    public String getTanggal_lahir() {
+        return tanggal_lahir;
+    }
+
+    public void setTanggal_lahir(String tanggal_lahir) {
+        this.tanggal_lahir = tanggal_lahir;
+    }
 
     public String getCreated_at() {
         return created_at;
@@ -50,13 +85,6 @@ public class Account {
         this.created_at = created_at;
     }
 
-    public String getUpdated_at() {
-        return updated_at;
-    }
-
-    public void setUpdated_at(String updated_at) {
-        this.updated_at = updated_at;
-    }
 
     public long getId() {
         return id;

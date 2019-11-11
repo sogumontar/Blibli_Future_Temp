@@ -91,19 +91,28 @@ public class ProductController {
     }
     @CrossOrigin
     @PutMapping("/update/{idProduct}")
-    public ResponseEntity<Object> updateProduct(@PathVariable Integer idProduct, @RequestBody Product product) throws IOException {
+    public ResponseEntity<Object> updateProduct(@RequestPart("file") MultipartFile file,@PathVariable Integer idProduct, @RequestPart("product") Product product1) throws IOException {
         Optional<Product> productOptional= Optional.ofNullable(productRepo.findFirstById(idProduct));
         if(!productOptional.isPresent())
             return ResponseEntity.notFound().build();
-        product.setId(idProduct);
-        product.setId(idProduct);
+        product1.setId(idProduct);
+        product1.setId(idProduct);
+        Product product =  new Product(
+                product1.getTitle(),
+                product1.getDescription(),
+                product1.getCategories(),
+                product1.getPublication_year(),
+                product1.getPrice(),
+                product1.getAuthor(),
+                product1.getPublisher(),
+                product1.getIsbn(),
+                file.getOriginalFilename());
+        System.out.println(file.getOriginalFilename());
         productService.save(product);
-//                file.getOriginalFilename());
-//        productService.save(product1);
-//        String folder = "C:/product/";
-//        byte[] bytes = file.getBytes();
-//        Path path = Paths.get(folder + file.getOriginalFilename());
-//        Files.write(path,bytes);
+        String folder = "C:/product/";
+        byte[] bytes = file.getBytes();
+        Path path = Paths.get(folder + file.getOriginalFilename());
+        Files.write(path,bytes);
         return ResponseEntity.ok().build();
 
     }

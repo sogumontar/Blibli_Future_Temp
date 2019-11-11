@@ -17,6 +17,9 @@ public class AccountService {
     public List findAll(){
         return accountRepo.findAll();
     }
+    public Account findFirstById(long id){
+        return accountRepo.findFirstById(id);
+    }
 
     public Account save(Account account){
         return accountRepo.save(account);

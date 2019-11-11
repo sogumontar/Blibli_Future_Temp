@@ -49,9 +49,9 @@ public class AccountController {
                 return accountService.findAll();
         }
         @CrossOrigin
-        @GetMapping("/test")
-        public String test(){
-                return "test";
+        @GetMapping("/find/{id}")
+        public Account find(@PathVariable long id){
+                return accountService.findFirstById(id);
         }
 
 //        @CrossOrigin
@@ -83,10 +83,10 @@ public class AccountController {
                 }
                 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
                 LocalDateTime now = LocalDateTime.now();
-                Account account= new Account(registerRequest.getEmail(),registerRequest.getName(),registerRequest.getUsername(),registerRequest.getPassword(),registerRequest.getCreated_at());
+                Account account= new Account(registerRequest.getTelepon(),registerRequest.getAlamat(),registerRequest.getTanggal_lahir(),registerRequest.getEmail(),registerRequest.getName(),registerRequest.getUsername(),registerRequest.getPassword(),dtf.format(now));
                 account.setPassword(passwordEncoder.encode(account.getPassword()));
                 account.setCreated_at(dtf.format(now).toString());
-                Account result=accountRepo.save(account);
+                Account result=accountService.save(account);
 
                 URI location = ServletUriComponentsBuilder
                         .fromCurrentContextPath().path("/users/{username}")

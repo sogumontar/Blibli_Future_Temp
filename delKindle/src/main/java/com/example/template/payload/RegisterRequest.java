@@ -21,8 +21,34 @@ public class RegisterRequest {
     @NotBlank
     @Size(min = 6, max = 20)
     private String password;
-
+    private String telepon;
+    private String alamat;
+    private String tanggal_lahir;
     private String created_at;
+
+    public String getTelepon() {
+        return telepon;
+    }
+
+    public void setTelepon(String telepon) {
+        this.telepon = telepon;
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
+
+    public String getTanggal_lahir() {
+        return tanggal_lahir;
+    }
+
+    public void setTanggal_lahir(String tanggal_lahir) {
+        this.tanggal_lahir = tanggal_lahir;
+    }
 
     public String getCreated_at() {
         return created_at;
