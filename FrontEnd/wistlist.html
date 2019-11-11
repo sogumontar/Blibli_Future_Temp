@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-  <title>Pay Page - Del Kindle</title>
+  <title>Wistlist - Del Kindle</title>
   <script type="text/javascript" src="js/jquery.slim.min.js"></script>
   <link rel="stylesheet" href="css/css.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <script src="js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/script_pay_page.js"></script>
-  <link href="css/style_pay_page.css" rel="stylesheet">
+  <script type="text/javascript" src="js/script_wistlist.js"></script>
+  <link href="css/style_wistlist.css" rel="stylesheet">
 </head>
 
 <body>
@@ -34,65 +34,35 @@
   <!-- Page Content -->
   <div id="header_merchant" class="row">
     <div><a href="javascript:history.back()"><img src="Pict/left.png" width="25px"></a>&nbsp;&nbsp;&nbsp;</div>
-      <div><h2 id="catalog"> Pay Page</h2></div>
+      <div><h2 id="catalog"> Wistlist</h2></div>
   </div>
 
-    <div id="content">
-      <div id="header_content">
-        <ul id="ul_header">
-          <li id="li_header"><a href="">  <img src="pict/money.png" id="img_header"></a></li>
-          <li id="li_header"><a href=""><b>Total Pembayaran</b></a></li>
-        </ul>
-        <hr>
-      </div>
-      <div class="col-md-12">
-        <div class="row" id="price">
-          <div class="col-md-8">
-            Fashion vigure
-          </div>
-          <div class="col-md-4">
-            Rp 20000
-          </div>
+  <div id="content">
+    <div class="card-deck">
+      <div class="card">
+        <img class="card-img-top" src="pict/ensiklopedia.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text"><button type="button" class="btn btn-outline-danger">Hapus</button></p>
+
         </div>
       </div>
-      <br>
-      <div class="col-md-12">
-        <div class="row" id="price">
-          <div class="col-md-8">
-            Fashion vigure
-          </div>
-          <div class="col-md-4">
-            Rp 20000
-          </div>
+      <div class="card">
+        <img class="card-img-top" src="pict/ensiklopedia.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text"><button type="button" class="btn btn-outline-danger">Hapus</button></p>
         </div>
       </div>
-      <br>
-      <p><b>Total Pesanan : Rp 40000</b></p>
-    </div>
-
-    <br>
-
-    <div id="content">
-      <div id="header_content">
-        <ul id="ul_header">
-          <li id="li_header"><a href="">  <img src="pict/exchange.png" id="img_header"></a></li>
-          <li id="li_header"><a href=""><b>Metode Pembayaran</b></a></li>
-        </ul>
-        <hr>
+      <div class="card">
+        <img class="card-img-top" src="pict/ensiklopedia.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text"><button type="button" class="btn btn-outline-danger">Hapus</button></p>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="exampleFormControlSelect1">Example select</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-          <option>-- Transfer Bank --</option>
-          <option>Bank BCA</option>
-          <option>Bank Mandiri</option>
-          <option>Bank BRI</option>
-        </select>
-      </div>
-      <br>
-      <button type="button" class="btn btn-primary btn-md btn-block" name="button"> Buat Pesanan</button>
     </div>
-    <br><br><br><br>
+  </div>
 
 
   <!-- Footer -->

@@ -3,12 +3,6 @@
   padding: 25px 25px 25px 25px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-#navbar {
-  background-color: #007BFF;
-  top: 0;
-  display: block;
-  transition: top 0.3s;
-}
 @media only screen and (min-width: 981px) {
 
   body{
@@ -22,11 +16,16 @@
     margin-left: 160px;
     margin-right: 160px;
   }
+  #tambah{
+    margin: 0px 25px 0px 25px;
+    padding: 10px 10px 10px 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #FFF8DF;
+  }
   #content{
     margin: 0px 25px 0px 25px;
     padding: 10px 10px 10px 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background-color: #F6F5F5;
   }
   #header_content{
     border-color: red;
@@ -47,28 +46,4 @@
     align-items: center;
   }
 
-  #ul_header{
-    list-style-type: none;
-   padding: 0;
-   overflow: hidden;
-  }
-  #li_header a{
-    display: block;
-  text-align: center;
-  padding: 16px;
-  text-decoration: none;
-  }
-  #li_header{
-    float: left;
-  }
-  #img_product{
-    width: 200px;
-    height: 180px;
-  }
-  #price{
-    background-color: white;
-  }
-  #img_header{
-    width: 40px;
-  }
 }
