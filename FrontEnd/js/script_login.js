@@ -1,32 +1,40 @@
+$(document).ready(function(){
+    var token="";
 
-  function logs(){
-    var jsonVar = {
-      usernameOrEmail: document.getElementById("usernameOrEmail").value,
-      password: document.getElementById("password").value
-      
-    };
-    $.ajax({
-            type:"POST",
-            url:"http://localhost:9097/api/auth/signin",
-            data: JSON.stringify(jsonVar),
-            contentType: "application/json",
-            success: function(data){
-                alert("Berhasil Login");
-                console.log("andreas");
-                location.href = "index1.html";
-            },
-            error: function(err) {
-                alert("Username dan Password anda salah")
-                $("#message").append(err.responseJSON.message);
-                console.log(err.responseJSON.message);
-            }
-    });  
-  }
-  
-  function test(){
-    console.log("")
-  }
-  
+    //function login
+    $("#button").click(function(){
+      var temp_token = document.getElementById("temp_token");
+      var jsonVar = {
+        usernameOrEmail: document.getElementById("usernameOrEmail").value,
+        password: document.getElementById("password").value
+
+      };
+
+      $.ajax({
+              type:"POST",
+              url:"http://localhost:9097/api/auth/signin",
+              data: JSON.stringify(jsonVar),
+              contentType: "application/json",
+              success: function(data){
+                token = data.accessToken;
+                location.href = "index.html?token="+token;
+                // location.href = "index.html";
+              },
+              error: function(err) {
+                  alert("Username dan Password anda salah")
+                  $("#message").append(err.responseJSON.message);
+                  console.log(err.responseJSON.message);
+              }
+      });
+    });
+
+    function coba(x){
+      console.log(x);
+    }
+
+
+});
+
 
   // let response = await fetch('localhost:9094/api/auth/signin');
   //

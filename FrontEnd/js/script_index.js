@@ -1,5 +1,9 @@
 $(document).ready(function(){
 
+	var c = new URL(location.href).searchParams.get('token')
+
+	console.log(c);
+
 	hideNavbar();
 	assignDataProduct();
 
@@ -8,7 +12,7 @@ $(document).ready(function(){
 	});
 
 
-
+	//for navbar
 	function hideNavbar(){
 		var prevScrollpos = window.pageYOffset;
 		window.onscroll = function() {
@@ -25,15 +29,16 @@ $(document).ready(function(){
 	function assignDataProduct(){
 		$.ajax({
           type:"GET",
-          contentType: "application/json",
-          url:"http://localhost:9097/product/",
+					headers: {
+			        "Content-Type": "application/json",
+			        "Authorization": "Bearer "+c
+			    },
+          url:"http://localhost:9097/product/get",
           success: function(data) {
+						console.log(data);
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {
             	var str=users[i].description;
-            	if(str.length >50){
-            		str=str.substring(0,50);
-            	}
                $("#listBook").
                 append("<div class='col-lg-3 col-md-6 mb-4'>\
                     <div class='card h-100'>\

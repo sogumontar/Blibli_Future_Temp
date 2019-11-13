@@ -59,4 +59,10 @@ public class ProductController {
         }
     }
 
+    @CrossOrigin
+    @GetMapping(value = "/coba")
+    public String coba(){
+        return "berhasil";
+    }
+
 }
