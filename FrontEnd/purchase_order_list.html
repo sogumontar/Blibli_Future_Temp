@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Purchase Order - Del Kindle</title>
+  <script type="text/javascript" src="js/jquery.slim.min.js"></script>
+  <link rel="stylesheet" href="css/css.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <script src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/script_pay_page.js"></script>
+  <link href="css/style_purchase_order_list.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="#">DelKindle</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <img style="width: 35px" src="Pict/5a364b752c0633.9984354215135077011803.png">
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Page Content -->
+  <div id="header_merchant" class="row">
+    <div><a href="javascript:history.back()"><img src="Pict/left.png" width="25px"></a>&nbsp;&nbsp;&nbsp;</div>
+      <div><h2 id="catalog"> Purchase Order List</h2></div>
+  </div>
+
+  <div class="tab">
+    <button class="tablinks" onclick="openCity(event, 'London')">Order List</button>
+    <button class="tablinks" onclick="openCity(event, 'Paris')">Purchase</button>
+  </div>
+
+    <div id="London" class="tabcontent">
+      <div id="header_content">
+        <ul id="ul_header">
+          <li id="li_header"><a href="">  <img src="pict/shopping.png" alt=""></a></li>
+          <li id="li_header"><a href=""><b>Gudangnya Buku</b></a></li>
+        </ul>
+        <hr>
+      </div>
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="Pict/buku_fashion.jpg" id="img_product" alt="">
+          </div>
+          <div class="col-md-8">
+              <table>
+                <tr>
+                  <td><p>Fashion figure</p></td>
+                </tr>
+                <tr>
+                  <td><p>Rp 12123123</p></td>
+                </tr>
+                <tr>
+                  <td><h4>Belum bayar</h4></td>
+                </tr>
+              </table>
+          </div>
+        </div>
+      </div>
+      <br>
+
+      <div id="header_content">
+        <ul id="ul_header">
+          <li id="li_header"><a href="">  <img src="pict/shopping.png" alt=""></a></li>
+          <li id="li_header"><a href=""><b>Gudangnya Buku</b></a></li>
+        </ul>
+        <hr>
+      </div>
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="Pict/buku_fashion.jpg" id="img_product" alt="">
+          </div>
+          <div class="col-md-8">
+              <table>
+                <tr>
+                  <td><p>Fashion figure</p></td>
+                </tr>
+                <tr>
+                  <td><p>Rp 12123123</p></td>
+                </tr>
+                <tr>
+                  <td><h4>Belum bayar</h4></td>
+                </tr>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div id="Paris" class="tabcontent">
+    <div id="header_content">
+      <ul id="ul_header">
+        <li id="li_header"><a href="">  <img src="pict/shopping.png" alt=""></a></li>
+        <li id="li_header"><a href=""><b>Gudangnya Buku</b></a></li>
+      </ul>
+      <hr>
+    </div>
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-4">
+          <img src="Pict/buku_fashion.jpg" id="img_product" alt="">
+        </div>
+        <div class="col-md-8">
+            <table>
+              <tr>
+                <td><p>Fashion figure</p></td>
+              </tr>
+              <tr>
+                <td><p>Rp 12123123</p></td>
+              </tr>
+            </table>
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <div id="header_content">
+      <ul id="ul_header">
+        <li id="li_header"><a href="">  <img src="pict/shopping.png" alt=""></a></li>
+        <li id="li_header"><a href=""><b>Gudangnya Buku</b></a></li>
+      </ul>
+      <hr>
+    </div>
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-4">
+          <img src="Pict/buku_fashion.jpg" id="img_product" alt="">
+        </div>
+        <div class="col-md-8">
+            <table>
+              <tr>
+                <td><p>Fashion figure</p></td>
+              </tr>
+              <tr>
+                <td><p>Rp 12123123</p></td>
+              </tr>
+            </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br><br><br>
+  <!-- Footer -->
+  <footer class="fixed-bottom" style="background-color: white">
+		<div id="ds">
+      <ul class="flex-container" class="navbar navbar-expand fixed-bottom">
+  		  <li class="flex-item1">
+  		  	<a href=""><button class="btn"><img id="icon1" src="Pict/icons8-home-50.png"></button></a>
+  		  </li>
+  		  <li class="flex-item1">
+  		  	<a href="catalog_entry.html"><button class="btn"><img id="icon1" src="Pict/plus.png"></button></a>
+  		  </li>
+  		  <li class="flex-item1">
+  		  	<a href=""><button class="btn"><img id="icon1" src="Pict/5a364b752c0633.9984354215135077011803.png"></button></a>
+  		  </li>
+  		  <li class="flex-item1">
+  		  	<a href=""><button class="btn"><img id="icon1" src="Pict/avatar.png"></button></a>
+  		  </li>
+  		</ul>
+    </div>
+	</footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+</script>
+</body>
+
+</html>
