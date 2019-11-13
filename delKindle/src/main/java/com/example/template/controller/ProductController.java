@@ -1,121 +1,62 @@
 package com.example.template.controller;
 
-import com.example.template.model.Account;
+
 import com.example.template.model.Product;
-import com.example.template.payload.ProductRequest;
-import com.example.template.payload.RegisterRequest;
-import com.example.template.repository.ProductRepo;
-import com.example.template.service.ProductService;
+import com.example.template.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
-import java.io.IOException;
-import java.net.URI;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
-import java.util.Optional;
 
+@CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping("/product")
 public class ProductController {
 
     @Autowired
-    ProductRepo productRepo;
-
-
-    @Autowired
     ProductService productService;
 
     @CrossOrigin
-    @DeleteMapping("/del/{id}")
-    public Product deleteProduct(@PathVariable Integer id){
-        return productService.deleteById(id);
-    }
-
-    @DeleteMapping("/delete/{author}")
-    public Product deleteByAuthor(String author){
-        return productService.deleteByAuthor(author);
-    }
-
-    @CrossOrigin
-    @GetMapping("/")
+    @GetMapping("/get")
     public List findAll(){
         return productService.findAll();
     }
 
+//    @CrossOrigin
+//    @PostMapping("/createProduct")
+//    public Product createProduct(@Valid @RequestBody Product product){
+//        return productService.save(product);
+//    }
     @CrossOrigin
-    @PostMapping("/insert")
-    @RequestMapping("/insert")
-    public Product save(@Valid @RequestBody Product product){
-        return productService.save(product);
-    }
-    @CrossOrigin
-    @GetMapping("/{productId}")
-    public Product findFirstById(@PathVariable  Integer productId){
-        return productService.findFirstById(productId);
+    @PostMapping(value = "/createProduct")
+    public Product createProduct(@Valid @RequestBody Product product){
+        Product product1 = new Product(product.getTitle(),product.getDescription(),product.getCategories(),product.getPublication_year(),product.getPrice(),product.getAuthor(),product.getPublisher(),product.getIsbn());
+        return productService.save(product1);
     }
 
     @CrossOrigin
-    @PostMapping("/simpan")
-    public String simpan(@RequestPart("product") Product product1,@RequestPart("file") MultipartFile file){
+    @PostMapping(value= "/createFile")
+    public String tambah(@Valid Product product,@RequestParam("picture_product") MultipartFile file){
         try{
-            Product product =  new Product(
-                    product1.getTitle(),
-                    product1.getDescription(),
-                    product1.getCategories(),
-                    product1.getPublication_year(),
-                    product1.getPrice(),
-                    product1.getAuthor(),
-                    product1.getPublisher(),
-                    product1.getIsbn(),
-                    file.getOriginalFilename());
-
-            productService.save(product);
-
-            String folder = "C:/product/";
-            byte[] bytes = file.getBytes();
-            Path path = Paths.get(folder + file.getOriginalFilename());
-            Files.write(path,bytes);
-
-            return "sukses";
+            Product product1 = new Product(file.getBytes(),file.getBytes());
+            productService.save(product1);
+            return "berhasil";
         }catch (Exception e){
             return e.getMessage();
         }
     }
     @CrossOrigin
-    @PutMapping("/update/{idProduct}")
-    public ResponseEntity<Object> updateProduct(@RequestPart("file") MultipartFile file,@PathVariable Integer idProduct, @RequestPart("product") Product product1) throws IOException {
-        Optional<Product> productOptional= Optional.ofNullable(productRepo.findFirstById(idProduct));
-        if(!productOptional.isPresent())
-            return ResponseEntity.notFound().build();
-        product1.setId(idProduct);
-        product1.setId(idProduct);
-        Product product =  new Product(
-                product1.getTitle(),
-                product1.getDescription(),
-                product1.getCategories(),
-                product1.getPublication_year(),
-                product1.getPrice(),
-                product1.getAuthor(),
-                product1.getPublisher(),
-                product1.getIsbn(),
-                file.getOriginalFilename());
-        System.out.println(file.getOriginalFilename());
-        productService.save(product);
-        String folder = "C:/product/";
-        byte[] bytes = file.getBytes();
-        Path path = Paths.get(folder + file.getOriginalFilename());
-        Files.write(path,bytes);
-        return ResponseEntity.ok().build();
-
+    @PostMapping(value= "/createFile2")
+    public String tambah2(@Valid Product product, @RequestParam MultipartFile file){
+        try{
+            Product product1 = new Product(product.getTitle(),product.getDescription(),product.getCategories(),product.getPublication_year(),product.getPrice(),product.getAuthor(),product.getPublisher(),product.getIsbn(),product.getPictureproduct(),product.getProductfile());
+            productService.save(product1);
+            return "berhasil";
+        }catch (Exception e){
+            return e.getMessage();
+        }
     }
-
 
 }

@@ -1,34 +1,31 @@
 package com.example.template.service;
 
+
 import com.example.template.model.Product;
-import com.example.template.repository.ProductRepo;
+import com.example.template.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class ProductService {
 
     @Autowired
-    private ProductRepo productRepo;
+    ProductRepository productRepository;
 
     public List findAll(){
-        return productRepo.findAll();
+        return productRepository.findAll();
     }
 
-    public Product findFirstById(Integer productId){
-        return productRepo.findFirstById(productId);
-    }
-    public Product deleteById(Integer idProduct){
-        return productRepo.deleteById(idProduct);
+    public Product findFirstById(Long id){
+        return productRepository.findFirstById(id);
     }
 
     public Product save(Product product){
-        return productRepo.save(product);
+        return productRepository.save(product);
     }
 
-    public Product deleteByAuthor(String author){
-        return productRepo.deleteByAuthor(author);
-    }
+
 
 }

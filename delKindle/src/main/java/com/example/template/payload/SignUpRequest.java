@@ -4,7 +4,11 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-public class RegisterRequest {
+/**
+ * Created by rajeevkumarsingh on 02/08/17.
+ */
+
+public class SignUpRequest {
     @NotBlank
     @Size(min = 4, max = 40)
     private String name;
@@ -21,42 +25,6 @@ public class RegisterRequest {
     @NotBlank
     @Size(min = 6, max = 20)
     private String password;
-    private String telepon;
-    private String alamat;
-    private String tanggal_lahir;
-    private String created_at;
-
-    public String getTelepon() {
-        return telepon;
-    }
-
-    public void setTelepon(String telepon) {
-        this.telepon = telepon;
-    }
-
-    public String getAlamat() {
-        return alamat;
-    }
-
-    public void setAlamat(String alamat) {
-        this.alamat = alamat;
-    }
-
-    public String getTanggal_lahir() {
-        return tanggal_lahir;
-    }
-
-    public void setTanggal_lahir(String tanggal_lahir) {
-        this.tanggal_lahir = tanggal_lahir;
-    }
-
-    public String getCreated_at() {
-        return created_at;
-    }
-
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
-    }
 
     public String getName() {
         return name;
