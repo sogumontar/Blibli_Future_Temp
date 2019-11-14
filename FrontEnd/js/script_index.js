@@ -38,11 +38,13 @@ $(document).ready(function(){
 						console.log(data);
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {
+							var img = 'C://product/'+users[i].pict_product;
+							console.log(img)
             	var str=users[i].description;
                $("#listBook").
                 append("<div class='col-lg-3 col-md-6 mb-4'>\
                     <div class='card h-100'>\
-											<img class='card-img-top' src='http://placehold.it/500x325' alt=''>\
+											<img class='card-img-top' src=''>\
 											<div class='card-body'>\
 												<h4 class='card-title'><center><p>" + users[i].title+"</p></center></h4>\
 												<p class='card-text'>" + str +".....</p>\
