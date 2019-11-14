@@ -31,8 +31,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/account")
 public class AccountController {
-//        @Autowired
-//        JwtTokenProvider jwtTokenProvider;
         @Autowired
         PasswordEncoder passwordEncoder;
         @Autowired
@@ -53,21 +51,6 @@ public class AccountController {
         public String test(){
                 return "test";
         }
-
-//        @CrossOrigin
-//        @GetMapping
-//        public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest){
-//
-//                Authentication authentication= authenticationManager.authenticate(
-//                        new UsernamePasswordAuthenticationToken(
-//                                loginRequest.getUsernameOrEmail(),
-//                                loginRequest.getPassword()
-//                        )
-//                );
-//
-//                String jwt= jwtTokenProvider.generateToken(authentication);
-//                return  ResponseEntity.ok(new JwtAuthenticationResponse(jwt));
-//        }
 
         @CrossOrigin
         @PostMapping("/register")
