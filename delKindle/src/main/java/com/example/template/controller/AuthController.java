@@ -2,7 +2,6 @@ package com.example.template.controller;
 
 
 import com.example.template.model.User;
-import com.example.template.exception.AppException;
 import com.example.template.model.Role;
 import com.example.template.model.RoleName;
 import com.example.template.payload.ApiResponse;
@@ -69,6 +68,7 @@ public class AuthController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         String jwt = tokenProvider.generateToken(authentication);
+        System.out.println(jwt);
         return ResponseEntity.ok(new JwtAuthenticationResponse(jwt));
     }
 
@@ -90,8 +90,6 @@ public class AuthController {
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-        Role userRole = roleRepository.findByName(RoleName.ROLE_USER)
-                .orElseThrow(() -> new AppException("User Role not set."));
 
 //        user.setRoles(Collections.singleton(userRole));
 

@@ -65,4 +65,10 @@ public class ProductController {
         return "berhasil";
     }
 
+    @CrossOrigin
+    @GetMapping("/{productId}")
+    public Product findFirstById(@PathVariable  Integer productId){
+        return productService.findFirstById(productId);
+    }
+
 }

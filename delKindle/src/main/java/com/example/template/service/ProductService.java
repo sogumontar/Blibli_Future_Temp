@@ -18,7 +18,7 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public Product findFirstById(Long id){
+    public Product findFirstById(Integer id){
         return productRepository.findFirstById(id);
     }
 

@@ -7,9 +7,6 @@ $(document).ready(function(){
 	hideNavbar();
 	assignDataProduct();
 
-	$('#listBook').click(function(){
-		location.href = "detail_book.html?token="+c;
-	});
 
 
 	//for navbar
@@ -38,22 +35,30 @@ $(document).ready(function(){
 						console.log(data);
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {
-							var img = 'C://product/'+users[i].pict_product;
-							console.log(img)
             	var str=users[i].description;
                $("#listBook").
-                append("<div class='col-lg-3 col-md-6 mb-4'>\
-                    <div class='card h-100'>\
-											<img class='card-img-top' src=''>\
-											<div class='card-body'>\
-												<h4 class='card-title'><center><p>" + users[i].title+"</p></center></h4>\
-												<p class='card-text'>" + str +".....</p>\
-											</div>\
-											<div class='card-footer'>\
-												<button class='btn btn-primary' id='but_beli'>Beli Sekarang</button>\
-											</div>\
-                    </div>\
-                  </div>");
+                append("<div class='row'>\
+                    <div class='col-md-4'>\
+                      <img src='pict/buku_pelajaran.jpg' id='pict_book' class='img-thumbnail'>
+                    </div>
+                    <div class='col-md-8'>
+                      <p><b>Judul</b> : users[i]. </p>
+                      <p><b>Penerbit</b> : ${i.publisher} </p>
+                      <p><b>Penulis</b> : ${i.author}</p>
+                      <p><b>Jumlah halaman</b> : 125(+cover)</p>
+                      <p><b>ISBN</b> : ${i.isbn}</p>
+                      <p><b>Bahasa</b> : Indonesia</p>
+                      <p><b>Harga(IDR)</b> : ${i.price}</p>
+                    </div>
+                    <br>
+                    <hr>
+                    <br>
+                      <div class="content">
+                        ${i.description}
+                      </div>
+                </div>
+
+                  ");
             }
           },
           error: function(data) {
