@@ -8,7 +8,7 @@ $(document).ready(function(){
 	assignDataProduct();
 
 	$('#listBook').click(function(){
-		location.href = "detail.html";
+		location.href = "detail_book.html?token="+c;
 	});
 
 
