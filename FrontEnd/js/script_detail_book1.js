@@ -32,33 +32,12 @@ $(document).ready(function(){
 			    },
           url:"http://localhost:9097/product/get",
           success: function(data) {
-						console.log(data);
+						console.log(data.length);
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {
             	var str=users[i].description;
                $("#listBook").
-                append("<div class='row'>\
-                    <div class='col-md-4'>\
-                      <img src='pict/buku_pelajaran.jpg' id='pict_book' class='img-thumbnail'>
-                    </div>
-                    <div class='col-md-8'>
-                      <p><b>Judul</b> : users[i]. </p>
-                      <p><b>Penerbit</b> : ${i.publisher} </p>
-                      <p><b>Penulis</b> : ${i.author}</p>
-                      <p><b>Jumlah halaman</b> : 125(+cover)</p>
-                      <p><b>ISBN</b> : ${i.isbn}</p>
-                      <p><b>Bahasa</b> : Indonesia</p>
-                      <p><b>Harga(IDR)</b> : ${i.price}</p>
-                    </div>
-                    <br>
-                    <hr>
-                    <br>
-                      <div class="content">
-                        ${i.description}
-                      </div>
-                </div>
-
-                  ");
+                append("<h1>asd<h1>");
             }
           },
           error: function(data) {
