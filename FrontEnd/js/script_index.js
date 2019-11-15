@@ -42,7 +42,8 @@ $(document).ready(function(){
 							console.log(img)
             	var str=users[i].description;
                $("#listBook").
-                append("<div class='col-lg-3 col-md-6 mb-4'>\
+                append("<a href=''>\
+								<div class='col-lg-3 col-md-6 mb-4'>\
                     <div class='card h-100'>\
 											<img class='card-img-top' src=''>\
 											<div class='card-body'>\
@@ -53,7 +54,9 @@ $(document).ready(function(){
 												<button class='btn btn-primary' id='but_beli'>Beli Sekarang</button>\
 											</div>\
                     </div>\
-                  </div>");
+                  </div>
+									</a>\
+									");
             }
           },
           error: function(data) {
