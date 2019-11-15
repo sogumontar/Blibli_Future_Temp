@@ -14,6 +14,9 @@ public class ProductService {
     @Autowired
     ProductRepo productRepo;
 
+    public void deleteById(Integer id){
+         productRepo.deleteById(id);
+    }
     public List findAll(){
         return productRepo.findAll();
     }
