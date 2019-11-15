@@ -49,7 +49,7 @@ $(document).ready(function(){
                     alert("Request successful");
                 }
             }).catch(function (err) {
-                alert("There was an errors!");
+                alert("There was an errors!", err);
             });;
   }
 

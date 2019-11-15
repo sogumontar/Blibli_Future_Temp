@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53fd1e8a-141e-457a-aaf2-c5e2bdd6a837" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/detail_book.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/detail_book.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/js/script_detail_book.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/js/script_detail_book.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/js/script_update_buku.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/js/script_update_buku.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/update_book.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/update_book.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/template/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/template/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/template/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/template/model/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/template/repository/AccountRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/template/repository/AccountRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/template/repository/ProductRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/template/repository/ProductRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/template/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/template/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/template/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/template/controller/ProductController.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +60,7 @@
       <updated>1573655458854</updated>
       <workItem from="1573655460874" duration="97000" />
       <workItem from="1573693049368" duration="5115000" />
-      <workItem from="1573782267283" duration="11920000" />
+      <workItem from="1573782267283" duration="13852000" />
     </task>
     <servers />
   </component>

@@ -33,7 +33,7 @@ public class ProductController {
 
     @CrossOrigin
     @PostMapping("/simpan")
-    public String simpan(@RequestPart("product") Product product1,@RequestPart("file") MultipartFile file){
+    public String simpan(@RequestPart("product") Product product1){
         try{
             Product product =  new Product(
                     product1.getTitle(),
@@ -43,27 +43,27 @@ public class ProductController {
                     product1.getPrice(),
                     product1.getAuthor(),
                     product1.getPublisher(),
-                    product1.getIsbn(),
-                    file.getOriginalFilename());
-
+                    product1.getIsbn());
             productService.save(product);
-            System.out.println(product1.getTitle());
-            System.out.println(product1.getDescription());
-            System.out.println(file.getOriginalFilename());
 
-            String folder = "C:/product/";
-            byte[] bytes = file.getBytes();
-            Path path = Paths.get(folder + file.getOriginalFilename());
-            Files.write(path,bytes);
 
             return "sukses";
         }catch (Exception e){
             return e.getMessage();
         }
-    }    @CrossOrigin
+    }
+    @CrossOrigin
     @PostMapping(value = "/createProduct")
     public Product createProduct(@Valid @RequestBody Product product){
-        Product product1 = new Product(product.getTitle(),product.getDescription(),product.getCategories(),product.getPublication_year(),product.getPrice(),product.getAuthor(),product.getPublisher(),product.getIsbn());
+        Product product1 = new Product(
+                product.getTitle(),
+                product.getDescription(),
+                product.getCategories(),
+                product.getPublication_year(),
+                product.getPrice(),
+                product.getAuthor(),
+                product.getPublisher(),
+                product.getIsbn());
         return productService.save(product1);
     }
 
