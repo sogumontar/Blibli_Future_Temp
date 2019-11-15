@@ -18,8 +18,10 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
+
+
     @CrossOrigin
-    @GetMapping("/get")
+    @GetMapping("/")
     public List findAll(){
         return productService.findAll();
     }

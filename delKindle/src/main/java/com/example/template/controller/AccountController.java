@@ -46,6 +46,12 @@ public class AccountController {
 
                 return accountService.findAll();
         }
+
+        @CrossOrigin
+        @GetMapping("/find/{id}")
+        public Account findFirstById(@PathVariable  Long id){
+            return accountService.findFirstById(id);
+        }
         @CrossOrigin
         @GetMapping("/test")
         public String test(){
