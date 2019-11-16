@@ -6,7 +6,7 @@
  body {
    padding-top: 35px;
  }
- #navbar {
+#navbar {
   background-color: #007BFF;
   top: 0;
   display: block;
@@ -15,6 +15,23 @@
 
 h1 {
   color: white;
+}
+#icon1{
+  width: 50px;
+  margin-bottom: 10px;
+}
+.carousel{
+  margin-top: 20px;
+}
+#kategori{
+  margin-left: 75px;
+  margin-right: 75px;
+}
+
+#kategori_gambar{
+  width:150px;
+  height: 150px;
+  border-radius: 100px;
 }
 
 /*flexbox footer */
@@ -38,9 +55,7 @@ h1 {
 
 .flex-item {
   padding: 5px;
-  width: 100px;
   height: 100px;
-  margin-top: 10px;
   margin-left: 10px;
   margin-bottom: 20px;
 
@@ -50,4 +65,32 @@ h1 {
   font-size: 3em;
   text-align: center;
   align-items: center;
+}
+
+/* untuk web laptop */
+@media only screen and (min-width: 981px) {
+  /* For mobile phones: */
+  #body {
+    margin-left: 250px;
+    margin-right: 250px;
+  }
+  img #gambar1{
+    width: 50px;
+  }
+  #icon1{
+    width: 30px;
+  }
+  .ds{
+    margin-left: 160px;
+    margin-right: 160px;
+  }
+  #kategori{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  #kategori_gambar{
+    width:100px;
+    height: 100px;
+    border-radius: 100px;
+  }
 }

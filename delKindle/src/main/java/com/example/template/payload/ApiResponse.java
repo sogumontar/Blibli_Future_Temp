@@ -1,6 +1,8 @@
 package com.example.template.payload;
 
-
+/**
+ * Created by rajeevkumarsingh on 19/08/17.
+ */
 public class ApiResponse {
     private Boolean success;
     private String message;
