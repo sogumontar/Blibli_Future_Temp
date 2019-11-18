@@ -23,7 +23,7 @@ import java.util.Set;
             "email"
         })
 })
-public class User{
+public class User extends DateAudit{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -46,6 +46,19 @@ public class User{
     @Size(max = 100)
     private String password;
 
+    @NotBlank
+    @Size(max = 100)
+    private String alamat;
+
+    @NotBlank
+    @Size(max = 100)
+    private String tanggal_lahir;
+
+    @NotBlank
+    @Size(max = 100)
+    private String telepon;
+
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -56,11 +69,14 @@ public class User{
 
     }
 
-    public User(String name, String username, String email, String password) {
+    public User(String name, String username, String email, String password, String alamat,String tanggal_lahir,String telepon) {
         this.name = name;
         this.username = username;
         this.email = email;
         this.password = password;
+        this.alamat = alamat;
+        this.tanggal_lahir = tanggal_lahir;
+        this.telepon = telepon;
     }
 
     public Long getId() {
@@ -101,6 +117,30 @@ public class User{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
+
+    public String getTanggal_lahir() {
+        return tanggal_lahir;
+    }
+
+    public void setTanggal_lahir(String tanggal_lahir) {
+        this.tanggal_lahir = tanggal_lahir;
+    }
+
+    public String getTelepon() {
+        return telepon;
+    }
+
+    public void setTelepon(String telepon) {
+        this.telepon = telepon;
     }
 
     public Set<Role> getRoles() {

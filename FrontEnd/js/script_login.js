@@ -5,20 +5,27 @@ $(document).ready(function(){
     $("#button").click(function(){
       var temp_token = document.getElementById("temp_token");
       var jsonVar = {
-        usernameOrEmail: document.getElementById("usernameOrEmail").value,
+        username: document.getElementById("username").value,
         password: document.getElementById("password").value
-
       };
 
       $.ajax({
               type:"POST",
-              url:"http://localhost:9097/api/auth/signin",
+              url:"http://localhost:9080/api/auth/signin",
               data: JSON.stringify(jsonVar),
               contentType: "application/json",
               success: function(data){
                 token = data.accessToken;
-                location.href = "index.html?token="+token;
-                // location.href = "index.html";
+                console.log(data.role);
+                if(data.role == "ROLE_USER"){
+                    location.href = "index.html?token="+token;
+                }else if(data.role == "ROLE_ADMIN"){
+                    location.href = "home_admin.html?token="+token;
+                }else if(data.role == "ROLE_MERCHANT"){
+                    location.href = "home_merchant.html?token="+token;
+                }
+
+
               },
               error: function(err) {
                   alert("Username dan Password anda salah")

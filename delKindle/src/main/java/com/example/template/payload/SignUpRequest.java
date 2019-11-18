@@ -27,6 +27,18 @@ public class SignUpRequest {
     private String password;
 
     @NotBlank
+    @Size( max = 40)
+    private String alamat;
+
+    @NotBlank
+    @Size( max = 40)
+    private String tanggal_lahir;
+
+    @NotBlank
+    @Size( max = 40)
+    private String telepon;
+
+    @NotBlank
     private String role;
 
     public String getName() {
@@ -59,6 +71,30 @@ public class SignUpRequest {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
+
+    public String getTanggal_lahir() {
+        return tanggal_lahir;
+    }
+
+    public void setTanggal_lahir(String tanggal_lahir) {
+        this.tanggal_lahir = tanggal_lahir;
+    }
+
+    public String getTelepon() {
+        return telepon;
+    }
+
+    public void setTelepon(String telepon) {
+        this.telepon = telepon;
     }
 
     public String getRole() {

@@ -9,32 +9,39 @@ $(document).ready(function(){
     var name=document.getElementById('name').value;
     var username=document.getElementById('username').value;
     var password=document.getElementById('password').value;
-    if(email === "" || name === "" || username === "" || password === ""){
+    var alamat=document.getElementById('alamat').value;
+    var tanggal_lahir=document.getElementById('tanggal_lahir').value;
+    var telepon=document.getElementById('telepon').value;
+    var role=document.getElementById('role').value;
+    if(email === "" || name === "" || username === "" || password === "" || alamat === "" || tanggal_lahir === "" || telepon === "" || role === ""){
       window.alert("Semua Field Harus di isi")
     }else{
-      assignUser()   
+      assignUser();
     }
   });
 
   function assignUser(){
     var jsonVar = {
-        name: $("#name").val(),  
+        name: $("#name").val(),
         email: $("#email").val(),
         password: $("#password").val(),
         username: $("#username").val(),
         telepon: $("#telepon").val(),
         alamat: $("#alamat").val(),
-        tanggal_lahir: $("#tanggal_lahir").val()
+        tanggal_lahir: $("#tanggal_lahir").val(),
+        role: $("#role").val()
     };
     $.ajax({
               type:"POST",
-              url:"http://localhost:9097/account/register",
+              url:"http://localhost:9080/api/auth/signup",
               data: JSON.stringify(jsonVar),
               contentType: "application/json",
               data: JSON.stringify(jsonVar),
               contentType: "application/json",
               success: function(data){
                   console.log(data.message);
+                  window.alert("success register account");
+                  location.href = "login.html?";
               },
               error: function(err) {
                   $("#message").append(err.responseJSON.message);

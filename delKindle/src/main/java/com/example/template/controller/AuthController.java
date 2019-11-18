@@ -43,6 +43,7 @@ import java.util.Collections;
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
+    private static String temp;
 
     @Autowired
     AuthenticationManager authenticationManager;
@@ -71,16 +72,23 @@ public class AuthController {
                         loginRequest.getPassword()
                 )
         );
-        User user = userRepository.findByUsername("secret3");
+        User user = userRepository.findByUsername(loginRequest.getUsername());
         System.out.println(user.toString());
-        UserRole userRole = userRoleRepository.findByUser_id((long) 6);
+        UserRole userRole = userRoleRepository.findByUser_id(user.getId());
         System.out.println(userRole.getRole_id());
+        if(userRole.getRole_id() == 1){
+            temp = "ROLE_USER";
+        }else if(userRole.getRole_id() == 2){
+            temp = "ROLE_ADMIN";
+        }else if(userRole.getRole_id() == 3){
+            temp = "ROLE_MERCHANT";
+        }
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         String jwt = tokenProvider.generateToken(authentication);
         System.out.println(jwt);
-        return ResponseEntity.ok(new JwtAuthenticationResponse(jwt));
+        return ResponseEntity.ok(new JwtAuthenticationResponse(jwt,temp));
     }
 
     @PostMapping("/signup")
@@ -97,7 +105,7 @@ public class AuthController {
 
         // Creating user's account
         User user = new User(signUpRequest.getName(), signUpRequest.getUsername(),
-                signUpRequest.getEmail(), signUpRequest.getPassword());
+                signUpRequest.getEmail(), signUpRequest.getPassword(),signUpRequest.getAlamat(),signUpRequest.getTanggal_lahir(),signUpRequest.getTelepon());
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
