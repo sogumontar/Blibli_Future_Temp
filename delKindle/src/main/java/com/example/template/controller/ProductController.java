@@ -25,7 +25,7 @@ public class ProductController {
 
 
     @CrossOrigin
-    @GetMapping("/")
+    @GetMapping("/getAll")
     public List findAll(){
         return productService.findAll();
     }
