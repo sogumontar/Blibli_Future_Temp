@@ -22,6 +22,9 @@ public class RegisterRequest {
     @Size(min = 6, max = 20)
     private String password;
 
+    @Size(max = 3)
+    private Integer status;
+
     private String created_at;
 
     public String getCreated_at() {
@@ -64,4 +67,11 @@ public class RegisterRequest {
         this.password = password;
     }
 
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 }

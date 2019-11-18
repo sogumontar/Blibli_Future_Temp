@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface UserRoleRepository extends JpaRepository<UserRole, Long> {
     @Query("SELECT u FROM UserRole u WHERE u.user_id = ?1")
     UserRole findByUser_id(Long userId);
+
+
 }

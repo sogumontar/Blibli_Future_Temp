@@ -59,6 +59,9 @@ public class User extends DateAudit{
     private String telepon;
 
 
+    private Integer status;
+
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -69,7 +72,7 @@ public class User extends DateAudit{
 
     }
 
-    public User(String name, String username, String email, String password, String alamat,String tanggal_lahir,String telepon) {
+    public User(String name, String username, String email, String password, String alamat,String tanggal_lahir,String telepon,Integer status) {
         this.name = name;
         this.username = username;
         this.email = email;
@@ -77,6 +80,7 @@ public class User extends DateAudit{
         this.alamat = alamat;
         this.tanggal_lahir = tanggal_lahir;
         this.telepon = telepon;
+        this.status = status;
     }
 
     public Long getId() {
