@@ -31,6 +31,11 @@ public class ProductController {
     }
 
     @CrossOrigin
+    @GetMapping("/get/{id}")
+    public Product detail(@PathVariable Integer id){
+        return productService.findFirstById(id);
+    }
+    @CrossOrigin
     @PostMapping("/simpan")
     public String simpan(@RequestPart("product") Product product1){
         try{

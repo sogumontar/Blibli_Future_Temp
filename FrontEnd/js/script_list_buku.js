@@ -1,5 +1,11 @@
 $(document).ready(function(){
 
+	var token = new URL(location.href).searchParams.get('token')
+	if(token){
+		console.log("testing");
+	}else{
+		console.log("binatang");
+	}
 	hideNavbar();
 	assignDataProduct();
 
@@ -23,16 +29,20 @@ $(document).ready(function(){
 	}
 
 	function assignDataProduct(){
+		var gbr="5.png";
 		$.ajax({
           type:"GET",
-          contentType: "application/json",
-          url:"http://localhost:9080/product/",
+          headers: {
+			        "Content-Type": "application/json",
+			        "Authorization": "Bearer "+token
+			    },
+          url:"http://localhost:9080/product/getAll",
           success: function(data) {
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {
                $("#dat").
                 append("<div class='ard' id='card'>\
-						      <img src='C:/product/"+users[i].title+"' class='card-img-top' id='image'>\
+						      <img src='C:/product/"+users[i].pict_product+"' class='card-img-top' id='image'>\
 						      <div class='card-body'>\
 						        <div class=''>\
 						          <center><h5>" + users[i].title + "</h5></center>\
@@ -45,7 +55,7 @@ $(document).ready(function(){
 						        </div>\
 						        <div class=''>\
 						          <button type='button' name='button' style='float:left' id='but_del'><a href='update_book.html?id="+users[i].id+"'>Update</a></button>\
-						          <button type='button' name='button'  style='float:right' id='but_update'><a href='detail_book.html?id="+users[i].id+"'>Detail</a></button>\
+						          <button type='button' name='button'  style='float:right' id='but_update'><a href='detail_book.html?id="+users[i].id+"&token="+token+"'>Detail</a></button>\
 						        </div>\
 						      </div>\
 						    </div>");

@@ -27,6 +27,7 @@ $(document).ready(function(){
 	}
 
 	function assignDataProduct(){
+		var gbr="5.png";
 		$.ajax({
           type:"GET",
 					headers: {
@@ -41,9 +42,8 @@ $(document).ready(function(){
                $("#listBook").
                 append("<div class='col-lg-3 col-md-6 mb-4'>\
                     <div class='card h-100'>\
-											<img class='card-img-top' src='C://product/5.png'>\
 											<div class='card-body'>\
-												<h4 class='card-title'><center><p>" + users[i].title + "</p></center></h4>\
+												<h4 class='card-title'> <img src='C:/product/"+users[i].pict_product+"' class='card-img-top' id='image'>\</center></h4>\
 												<p class='card-text'>.....</p>\
 											</div>\
 											<div class='card-footer'>\
