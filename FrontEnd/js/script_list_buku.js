@@ -26,13 +26,13 @@ $(document).ready(function(){
 		$.ajax({
           type:"GET",
           contentType: "application/json",
-          url:"http://localhost:9097/product/",
+          url:"http://localhost:9080/product/",
           success: function(data) {
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {
                $("#dat").
                 append("<div class='ard' id='card'>\
-						      <img src='C:/product/1a.png' class='card-img-top' id='image'>\
+						      <img src='C:/product/"+users[i].title+"' class='card-img-top' id='image'>\
 						      <div class='card-body'>\
 						        <div class=''>\
 						          <center><h5>" + users[i].title + "</h5></center>\

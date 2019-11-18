@@ -23,7 +23,6 @@ public class ProductController {
     ProductService productService;
 
 
-
     @CrossOrigin
     @GetMapping("/")
     public List findAll(){
