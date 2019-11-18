@@ -1,15 +1,18 @@
 package com.example.template.controller;
 
 
+import com.example.template.exception.AppException;
 import com.example.template.model.User;
 import com.example.template.model.Role;
 import com.example.template.model.RoleName;
+import com.example.template.model.UserRole;
 import com.example.template.payload.ApiResponse;
 import com.example.template.payload.JwtAuthenticationResponse;
 import com.example.template.payload.LoginRequest;
 import com.example.template.payload.SignUpRequest;
 import com.example.template.repository.RoleRepository;
 import com.example.template.repository.UserRepository;
+import com.example.template.repository.UserRoleRepository;
 import com.example.template.security.JwtTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,6 +35,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.net.URI;
+import java.util.Collections;
 
 /**
  * Created by rajeevkumarsingh on 02/08/17.
@@ -47,6 +51,9 @@ public class AuthController {
     UserRepository userRepository;
 
     @Autowired
+    UserRoleRepository userRoleRepository;
+
+    @Autowired
     RoleRepository roleRepository;
 
     @Autowired
@@ -60,10 +67,14 @@ public class AuthController {
 
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        loginRequest.getUsernameOrEmail(),
+                        loginRequest.getUsername(),
                         loginRequest.getPassword()
                 )
         );
+        User user = userRepository.findByUsername("secret3");
+        System.out.println(user.toString());
+        UserRole userRole = userRoleRepository.findByUser_id((long) 6);
+        System.out.println(userRole.getRole_id());
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
@@ -90,8 +101,19 @@ public class AuthController {
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-
-//        user.setRoles(Collections.singleton(userRole));
+        if(signUpRequest.getRole().equals("ROLE_USER")) {
+            Role userRole = roleRepository.findByName(RoleName.ROLE_USER)
+                    .orElseThrow(() -> new AppException("User Role not set."));
+            user.setRoles(Collections.singleton(userRole));
+        }else if(signUpRequest.getRole().equals("ROLE_ADMIN")){
+            Role userRole = roleRepository.findByName(RoleName.ROLE_ADMIN)
+                    .orElseThrow(() -> new AppException("User Role not set."));
+            user.setRoles(Collections.singleton(userRole));
+        }else if(signUpRequest.getRole().equals("ROLE_MERCHANT")){
+            Role userRole = roleRepository.findByName(RoleName.ROLE_MERCHANT)
+                    .orElseThrow(() -> new AppException("User Role not set."));
+            user.setRoles(Collections.singleton(userRole));
+        }
 
         User result = userRepository.save(user);
 
