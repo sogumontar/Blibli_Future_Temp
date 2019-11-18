@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  var c = new URL(location.href).searchParams.get('token')
 
   $("#submit").click(function(){
     console.log("cliked")
@@ -39,6 +40,10 @@ $(document).ready(function(){
     $.ajax({
               type:"POST",
               url:"http://localhost:9097/product/simpan",
+
+              headers: {
+              "Content-Type": "application/json",
+              "Authorization": "Bearer "+c},
               data: JSON.stringify(jsonVar),
               contentType: false,
               success: function(data){
@@ -73,12 +78,12 @@ $(document).ready(function(){
                 body: formData
             }).then(function (response) {
                 if (response.status !== 200) {
-                    // alert("There was an error!");
+                    alert("There was an error!");
                 } else {
                     alert("Request successful");
                 }
             }).catch(function (err) {
-                //alert("There was an error!");
+                alert("There was an error!");
             });;
   }
 
