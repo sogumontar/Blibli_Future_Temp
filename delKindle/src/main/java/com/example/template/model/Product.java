@@ -43,7 +43,7 @@ public class Product {
 
     @Lob
     @Column(name="picture_product")
-    private byte[] picture_product;
+    private String picture_product;
 
     @Lob
     @Column(name="product_file")
@@ -61,12 +61,12 @@ public class Product {
 
     }
 
-    public Product(byte[] picture_product, byte[] product_file) {
+    public Product(String picture_product, byte[] product_file) {
         this.picture_product = picture_product;
         this.product_file = product_file;
     }
 
-    public Product(String title, String description, String categories, String publication_year, Integer price, String author, String isbn, String publisher, byte[] picture_product, byte[] product_file) {
+    public Product(String title, String description, String categories, String publication_year, Integer price, String author, String isbn, String publisher, String picture_product) {
         this.title = title;
         this.description = description;
         this.categories = categories;
@@ -76,7 +76,6 @@ public class Product {
         this.isbn = isbn;
         this.publisher = publisher;
         this.picture_product = picture_product;
-        this.product_file = product_file;
     }
 
     public Product(){
@@ -155,11 +154,11 @@ public class Product {
         this.publisher = publisher;
     }
 
-    public byte[] getPictureproduct(){
+    public String getPictureproduct(){
         return this.picture_product;
     }
 
-    public void setPictureproduct(byte[] picture_product){
+    public void setPictureproduct(String picture_product){
         this.picture_product = picture_product;
     }
 

@@ -73,18 +73,23 @@ $(document).ready(function(){
                 }));
             var boundary = Math.random().toString().substr(2);
             console.log("asd");
-            fetch('http://localhost:9097/product/simpan', {
+            fetch('http://localhost:9080/product/simpan', {
                 method: 'post',
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer "+c
+                },
                 body: formData
             }).then(function (response) {
                 if (response.status !== 200) {
-                    alert("There was an error!");
+                    alert("There was an errorz!");
                 } else {
                     alert("Request successful");
                 }
             }).catch(function (err) {
-                alert("There was an error!");
+                alert("There was an errors!");
             });;
+            alert("selesai")
   }
 
 });

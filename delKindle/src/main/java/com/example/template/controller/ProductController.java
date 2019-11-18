@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -52,7 +53,12 @@ public class ProductController {
     }
     @CrossOrigin
     @PostMapping(value = "/createProduct")
-    public Product createProduct(@Valid @RequestBody Product product){
+    public String createProduct(@Valid @RequestBody Product product,@RequestParam("file") MultipartFile file) throws IOException {
+
+        String folder = "C:/product";
+        byte[] bytes = file.getBytes();
+        Path path = Paths.get(folder + file.getOriginalFilename());
+        Files.write(path,bytes);
         Product product1 = new Product(
                 product.getTitle(),
                 product.getDescription(),
@@ -61,9 +67,13 @@ public class ProductController {
                 product.getPrice(),
                 product.getAuthor(),
                 product.getPublisher(),
-                product.getIsbn());
-        return productService.save(product1);
+                product.getIsbn(),
+                file.getOriginalFilename());
+        productService.save(product1);
+        return "Sukses";
+
     }
+
 
     @CrossOrigin
     @PutMapping("/update/{idProduct}")
@@ -82,23 +92,23 @@ public class ProductController {
     public void deleteProduct(@PathVariable Integer id) {
         productService.deleteById(id);
     }
-
-    @CrossOrigin
-    @PostMapping(value= "/createFile")
-    public String tambah(@Valid Product product,@RequestParam("picture_product") MultipartFile file){
-        try{
-            Product product1 = new Product(file.getBytes(),file.getBytes());
-            productService.save(product1);
-            return "berhasil";
-        }catch (Exception e){
-            return e.getMessage();
-        }
-    }
+//
+//    @CrossOrigin
+//    @PostMapping(value= "/createFile")
+//    public String tambah(@Valid Product product,@RequestParam("picture_product") MultipartFile file){
+//        try{
+//            Product product1 = new Product(file.getBytes(),file.getBytes());
+//            productService.save(product1);
+//            return "berhasil";
+//        }catch (Exception e){
+//            return e.getMessage();
+//        }
+//    }
     @CrossOrigin
     @PostMapping(value= "/createFile2")
     public String tambah2(@Valid Product product, @RequestParam MultipartFile file){
         try{
-            Product product1 = new Product(product.getTitle(),product.getDescription(),product.getCategories(),product.getPublication_year(),product.getPrice(),product.getAuthor(),product.getPublisher(),product.getIsbn(),product.getPictureproduct(),product.getProductfile());
+            Product product1 = new Product(product.getTitle(),product.getDescription(),product.getCategories(),product.getPublication_year(),product.getPrice(),product.getAuthor(),product.getPublisher(),product.getIsbn(),product.getPictureproduct());
             productService.save(product1);
             return "berhasil";
         }catch (Exception e){
