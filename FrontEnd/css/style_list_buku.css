@@ -18,8 +18,15 @@
   margin: 10px 25px 0px 25px;
   padding: 25px 25px 25px 25px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #e6ffea;
+}
+#notLogged{
+  margin: 10px 25px 0px 25px;
+  padding: 25px 25px 25px 25px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: #FFF8DF;
 }
+
 
 #produk{
   margin: 25px 25px 50px 25px;
@@ -59,6 +66,12 @@
     width: 50px;
   }
   #garantee{
+    margin: 10px 25px 0px 25px;
+    padding: 10px 25px 10px 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #e6ffea;
+  }
+  #notLogged{
     margin: 10px 25px 0px 25px;
     padding: 10px 25px 10px 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

@@ -1,6 +1,13 @@
 $(document).ready(function(){
 
 	var token = new URL(location.href).searchParams.get('token')
+	var val = new URL(location.href).searchParams.get('val')
+	var kate="";
+	if(val=="buku_pelajaran"){
+		kate="Buku Pelajaran";
+	}else{
+		kate="Buku Anak anak";
+	}
 	if(token){
 		console.log("testing");
 	}else{
@@ -30,13 +37,12 @@ $(document).ready(function(){
 
 	function assignDataProduct(){
 		var gbr="5.png";
+		var jsonVar = {
+        kategori: "Buku Anak anak"
+      };
 		$.ajax({
           type:"GET",
-          headers: {
-			        "Content-Type": "application/json",
-			        "Authorization": "Bearer "+token
-			    },
-          url:"http://localhost:9080/product/getAll",
+          url:"http://localhost:9080/product/kategori/"+kate,
           success: function(data) {
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {

@@ -71,7 +71,7 @@ public class Product {
         this.product_file = product_file;
     }
 
-    public Product(String title, String description, String categories, String publication_year, Integer price, String author, String isbn, String publisher, String pict_product) {
+    public Product(String title, String description, String categories, String publication_year, Integer price, String author,  String publisher, String isbn, String pict_product) {
         this.title = title;
         this.description = description;
         this.categories = categories;

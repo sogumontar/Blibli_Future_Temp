@@ -23,6 +23,16 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
+    @GetMapping("/")
+    public List findIndex(){
+        return productService.findAll();
+    }
+
+    @CrossOrigin
+    @GetMapping("/kategori/{kategori}")
+    public List findAllByCategories(@PathVariable String kategori){
+        return productService.findAllByCategories(kategori);
+    }
 
     @CrossOrigin
     @GetMapping("/getAll")
