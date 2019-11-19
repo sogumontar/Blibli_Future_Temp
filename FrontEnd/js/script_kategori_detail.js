@@ -5,8 +5,16 @@ $(document).ready(function(){
 	var kate="";
 	if(val=="buku_pelajaran"){
 		kate="Buku Pelajaran";
-	}else{
+	}else if(val==="buku_anak_anak"){
 		kate="Buku Anak anak";
+	}else if(val==="buku_novel"){
+		kate="Buku Novel";
+	}else if(val==="buku_fashion"){
+		kate="Buku Fashion"
+	}else if(val==="buku_kesehatan"){
+		kate="Buku Kesehatan";
+	}else if(val==="buku_ensiklopedia"){
+		kate="Buku Ensiklopedia";
 	}
 	if(token){
 		console.log("testing");
