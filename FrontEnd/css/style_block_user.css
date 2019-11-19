@@ -69,10 +69,13 @@
     font-size: 1.5vw;
   }
 
-  #but_pemesanan{
-    border-color: #007BFF;
+  #but_block{
     background-color: white;
-    color: #007BFF;
+    border-radius: 20px;
+    margin-top: 20px;
+  }
+  #but_active{
+    background-color: white;
     border-radius: 20px;
     margin-top: 20px;
   }

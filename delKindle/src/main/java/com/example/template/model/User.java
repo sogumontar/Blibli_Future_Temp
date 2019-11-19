@@ -28,33 +28,26 @@ public class User extends DateAudit{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
     @Size(max = 40)
     private String name;
 
-    @NotBlank
     @Size(max = 15)
     private String username;
 
     @NaturalId
-    @NotBlank
     @Size(max = 40)
     @Email
     private String email;
 
-    @NotBlank
     @Size(max = 100)
     private String password;
 
-    @NotBlank
     @Size(max = 100)
     private String alamat;
 
-    @NotBlank
     @Size(max = 100)
     private String tanggal_lahir;
 
-    @NotBlank
     @Size(max = 100)
     private String telepon;
 
@@ -153,6 +146,14 @@ public class User extends DateAudit{
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     @Override
