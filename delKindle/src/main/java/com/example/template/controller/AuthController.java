@@ -88,7 +88,7 @@ public class AuthController {
         System.out.println(jwt);
         idLogin=user.getId();
         System.out.println(user.getId());
-        return ResponseEntity.ok(new JwtAuthenticationResponse(jwt,temp));
+        return ResponseEntity.ok(new JwtAuthenticationResponse(jwt,temp,idLogin));
     }
 
     @PostMapping("/signup")

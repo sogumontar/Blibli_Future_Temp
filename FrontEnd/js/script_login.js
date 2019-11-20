@@ -1,5 +1,6 @@
 $(document).ready(function(){
     var token="";
+    var idLogin;
 
     //function login
     $("#button").click(function(){
@@ -16,13 +17,16 @@ $(document).ready(function(){
               contentType: "application/json",
               success: function(data){
                 token = data.accessToken;
+                idLogin=data.idLog;
                 console.log(data.role);
+                localStorage.setItem('Token',token);
+                localStorage.setItem('idLogin',idLogin);                
                 if(data.role == "ROLE_USER"){
-                    location.href = "index.html?token="+token;
+                    location.href = "index.html";
                 }else if(data.role == "ROLE_ADMIN"){
-                    location.href = "index.html?token="+token;
+                    location.href = "index.html";
                 }else if(data.role == "ROLE_MERCHANT"){
-                    location.href = "home_merchant.html?token="+token;
+                    location.href = "home_merchant.html?idLog="+idLogin+"&token="+token;
                 }
 
 

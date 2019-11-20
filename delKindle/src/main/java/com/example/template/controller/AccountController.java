@@ -54,6 +54,12 @@ public class AccountController {
                 return "test";
         }
 
+        @CrossOrigin
+        @GetMapping("/find/{id}")
+        public Account find(@PathVariable Long id){
+                return accountService.findFirstById(id);/
+        }
+
 //        @CrossOrigin
 //        @GetMapping
 //        public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest){

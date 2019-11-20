@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	var token = new URL(location.href).searchParams.get('token')
+	var token = localStorage.getItem("Token")
 	var val = new URL(location.href).searchParams.get('val')
 	var kate="";
 	if(val=="buku_pelajaran"){
@@ -50,6 +50,10 @@ $(document).ready(function(){
       };
 		$.ajax({
           type:"GET",
+          headers:{
+          		"Content-Type": "application/json",
+			    "Authorization": "Bearer "+token
+          },
           url:"http://localhost:9080/product/kategori/"+kate,
           success: function(data) {
             var users = JSON.parse(JSON.stringify(data));
@@ -69,7 +73,7 @@ $(document).ready(function(){
 						        </div>\
 						        <div class=''>\
 						          <button type='button' name='button' style='float:left' id='but_del'><a href='update_book.html?id="+users[i].id+"'>Update</a></button>\
-						          <button type='button' name='button'  style='float:right' id='but_update'><a href='detail_book.html?id="+users[i].id+"&token="+token+"'>Detail</a></button>\
+						          <button type='button' name='button'  style='float:right' id='but_update'><a href='detail_book.html?id="+users[i].id+"'>Detail</a></button>\
 						        </div>\
 						      </div>\
 						    </div>");
