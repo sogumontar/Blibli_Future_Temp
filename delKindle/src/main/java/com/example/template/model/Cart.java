@@ -11,7 +11,7 @@ public class Cart {
     private Integer id;
 
     @Column(name = "id_user")
-    private Integer id_user;
+    private Long id_user;
 
     @Column(name = "id_product")
     private Integer id_product;
@@ -22,11 +22,14 @@ public class Cart {
     @Column(name = "status")
     private Integer status;
 
-    public Cart(Integer id_user, Integer id_product, String created_at, Integer status) {
+    public Cart(Long id_user, Integer id_product, String created_at, Integer status) {
         this.id_user = id_user;
         this.id_product = id_product;
         this.created_at = created_at;
         this.status = status;
+    }
+    public Cart(){
+
     }
 
     public Integer getId() {
@@ -37,11 +40,11 @@ public class Cart {
         this.id = id;
     }
 
-    public Integer getId_user() {
+    public Long getId_user() {
         return id_user;
     }
 
-    public void setId_user(Integer id_user) {
+    public void setId_user(Long id_user) {
         this.id_user = id_user;
     }
 

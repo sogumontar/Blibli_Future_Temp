@@ -12,6 +12,9 @@ public class CartService {
     @Autowired
     CartRepo cartRepo;
 
+    public List findAll(){
+        return cartRepo.findAll();
+    }
     public Cart save(Cart cart){
         return  cartRepo.save(cart);
     }

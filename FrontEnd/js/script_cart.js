@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+  var token = new URL(location.href).searchParams.get('token')
 	hideNavbar();
 	test();
 	function hideNavbar(){
@@ -40,10 +40,16 @@ function test(){
 			        </div>');
 	$.ajax({
           type:"GET",
-          url:"http://localhost:9080/cart/find/"+kate,
+          url:"http://localhost:9080/cart/all",
+          headers: {
+              "Content-Type": "application/json",
+              "Authorization": "Bearer "+token
+          },
           success: function(data) {
             var users = JSON.parse(JSON.stringify(data));
+            console.log(users.log);
             for (var i in users) {
+            	if(!users[i].id_user){
                $("#dat").
                 append('<div class="row">\
 			          <div class="col-md-4">\
@@ -63,6 +69,7 @@ function test(){
 			              </table>\
 			          </div>\
 			        </div>');
+            	}
             }
           },
           error: function(data) {

@@ -40,6 +40,7 @@ import java.util.Collections;
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
+    public static Long idLogin;
     private static String temp;
 
     @Autowired
@@ -85,6 +86,8 @@ public class AuthController {
 
         String jwt = tokenProvider.generateToken(authentication);
         System.out.println(jwt);
+        idLogin=user.getId();
+        System.out.println(user.getId());
         return ResponseEntity.ok(new JwtAuthenticationResponse(jwt,temp));
     }
 

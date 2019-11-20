@@ -16,14 +16,17 @@ public class CartController {
 
     @Autowired
     CartService cartService;
-    @Autowired
-    CartRepo cartRepo;
 
-//    @CrossOrigin
-//    @GetMapping("/find/{id_user}")
-//    public List findAllById_user(Integer id_user){
-//        return cartService.findAllById_user(id_user);
-//    }
+    @CrossOrigin
+    @GetMapping("/all")
+    public List findAllById_user(){
+        System.out.println(AuthController.idLogin);
+        idLog(AuthController.idLogin);
+        return cartService.findAll();
+    }
+    public Long idLog(Long log){
+        return log;
+    }
 
     @CrossOrigin
     @PostMapping("/add")
@@ -31,7 +34,7 @@ public class CartController {
         Date obDate = new Date();
         SimpleDateFormat obDateFormat = new SimpleDateFormat("dd-MM-yyyy");
         Cart cart1=new Cart(
-                cart.getId_user(),cart.getId_product(),obDateFormat.format(obDate.getTime()).toString(),cart.getStatus()
+                AuthController.idLogin,cart.getId_product(),obDateFormat.format(obDate.getTime()).toString(),cart.getStatus()
         );
         return cartService.save(cart1);
     }
