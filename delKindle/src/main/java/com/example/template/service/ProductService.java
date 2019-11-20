@@ -29,7 +29,8 @@ public class ProductService {
         return productRepo.save(product);
     }
 
-
-
+    public List findAllByCategories(String kategori){
+        return productRepo.findAllByCategories(kategori);
+    }
 }
 

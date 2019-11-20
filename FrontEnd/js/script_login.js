@@ -20,7 +20,7 @@ $(document).ready(function(){
                 if(data.role == "ROLE_USER"){
                     location.href = "index.html?token="+token;
                 }else if(data.role == "ROLE_ADMIN"){
-                    location.href = "home_admin.html?token="+token;
+                    location.href = "index.html?token="+token;
                 }else if(data.role == "ROLE_MERCHANT"){
                     location.href = "home_merchant.html?token="+token;
                 }
