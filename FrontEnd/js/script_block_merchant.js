@@ -36,7 +36,7 @@ $(document).ready(function(){
             console.log(data);
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {
-               if(users[i].roles[0].name== "ROLE_USER"){
+               if(users[i].roles[0].name== "ROLE_MERCHANT"){
                  $("#listSearch").
                   append('<div class="col-md-12">\
                       <div class="row">\
