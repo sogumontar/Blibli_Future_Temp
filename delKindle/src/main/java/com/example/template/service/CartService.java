@@ -11,9 +11,7 @@ import java.util.List;
 public class CartService {
     @Autowired
     CartRepo cartRepo;
-    public List findAllById_user(Integer id_user){
-        return cartRepo.findAllById_user(id_user);
-    }
+
     public Cart save(Cart cart){
         return  cartRepo.save(cart);
     }

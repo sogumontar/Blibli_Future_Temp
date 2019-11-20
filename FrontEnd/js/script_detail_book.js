@@ -1,6 +1,7 @@
+$(document).ready(function(){
 var id = new URL(location.href).searchParams.get('id');
 var token = new URL(location.href).searchParams.get('token')
-  function getCasts(){
+
   // const url ='https://swapi.co/api/people'
   const url ="http://localhost:9080/product/get/"+id;
   window.fetch(url,{
@@ -48,7 +49,33 @@ var token = new URL(location.href).searchParams.get('token')
 
 
   console.log("test")
-}
 
 
-getCasts()
+$("#addToCart").click(function(){
+  alert("test")
+      var temp_token = document.getElementById("temp_token");
+      var jsonVar = {
+        id: 19,
+        id_product: 20,
+        status: 1
+      };
+
+      $.ajax({
+              type:"POST",
+              headers: {
+                  "Content-Type": "application/json",
+                  "Authorization": "Bearer "+token
+              },
+              url:"http://localhost:9080/cart/add",
+              data: JSON.stringify(jsonVar),
+              success: function(data){
+                alert("binatangsss");
+              },
+              error: function(err) {
+                  alert(err)
+                 
+              }
+      });
+      console.log("binatang ")
+    });
+});

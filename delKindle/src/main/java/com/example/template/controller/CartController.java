@@ -1,6 +1,7 @@
 package com.example.template.controller;
 
 import com.example.template.model.Cart;
+import com.example.template.repository.CartRepo;
 import com.example.template.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,13 +16,14 @@ public class CartController {
 
     @Autowired
     CartService cartService;
+    @Autowired
+    CartRepo cartRepo;
 
-
-    @CrossOrigin
-    @GetMapping("/find/{id_user}")
-    public List findAllById_user(Integer id_user){
-        return cartService.findAllById_user(id_user);
-    }
+//    @CrossOrigin
+//    @GetMapping("/find/{id_user}")
+//    public List findAllById_user(Integer id_user){
+//        return cartService.findAllById_user(id_user);
+//    }
 
     @CrossOrigin
     @PostMapping("/add")
