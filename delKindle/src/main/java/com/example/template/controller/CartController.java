@@ -23,21 +23,32 @@ public class CartController {
     @Autowired
     CartService cartService;
 
-//    @CrossOrigin
-//    @GetMapping("/all")
-//    public List findAllById_user(){
-//
-//        TypedQuery<Product>query= entityManager.createQuery("SELECT pr FROM product pr join cart cr on pr.id=cr.id_product",Product.class);
-//        List<Product> result= query.getResultList() ;
-//        return result;
-//    }
+    @CrossOrigin
+    @GetMapping("/")
+    public List findAll(){
+        return cartService.findAll();
+    }
+    @CrossOrigin
+    @GetMapping("/find/{productId}")
+    public List findAllById_product(@PathVariable  Integer productId){
+        return cartService.findById_product(productId);
+    }
+
+    @CrossOrigin
+    @GetMapping("/all")
+    public List findAllById_user(){
+
+        TypedQuery<Product>query= entityManager.createQuery("SELECT pr FROM product pr join cart cr on pr.id=cr.id_product",Product.class);
+        List<Product> result= query.getResultList() ;
+        return result;
+    }
     @CrossOrigin
     @PostMapping("/add")
     public Cart save(@RequestBody Cart cart){
         Date obDate = new Date();
         SimpleDateFormat obDateFormat = new SimpleDateFormat("dd-MM-yyyy");
         Cart cart1=new Cart(
-                AuthController.idLogin,cart.getId_product(),obDateFormat.format(obDate.getTime()).toString(),cart.getStatus()
+                cart.getId_user(),cart.getId_product(),obDateFormat.format(obDate.getTime()).toString(),cart.getStatus()
         );
         return cartService.save(cart1);
     }

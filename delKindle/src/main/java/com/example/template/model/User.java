@@ -61,6 +61,15 @@ public class User extends DateAudit{
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
+
+    @ManyToMany(fetch = FetchType.LAZY,
+        cascade = {
+            CascadeType.PERSIST,
+                CascadeType.MERGE
+        },
+            mappedBy = "users")
+private Set<Product> products=new HashSet<>();
+
     public User() {
 
     }

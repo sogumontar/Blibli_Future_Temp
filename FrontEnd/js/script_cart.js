@@ -22,7 +22,7 @@ function test(){
 
 	$.ajax({
           type:"GET",
-          url:"http://localhost:9080/cart/all",
+          url:"http://localhost:9080/cart/find/36",
           headers: {
               "Content-Type": "application/json",
               "Authorization": "Bearer "+token
@@ -30,7 +30,8 @@ function test(){
           success: function(data) {
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {
-            	if(!users[i].id_user){
+            	if(true){
+            		console.log("test")
                $("#dat").
                 append('<div class="row">\
 			          <div class="col-md-4">\
@@ -39,7 +40,7 @@ function test(){
 			          <div class="col-md-8">\
 			              <table>\
 			                <tr>\
-			                  <td><p>Fashion figure</p></td>\
+			                  <td><p>'+users[i].status +'</p></td>\
 			                </tr>\
 			                <tr>\
 			                  <td><p>Rp 12123123</p></td>\

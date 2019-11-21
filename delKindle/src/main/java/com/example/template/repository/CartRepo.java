@@ -7,5 +7,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CartRepo extends JpaRepository<Cart,Integer> {
+public interface CartRepo extends JpaRepository<Cart,Long> {
+//    List findById_product(Integer idProduct);
+    List findById(Integer id);
+
 }
