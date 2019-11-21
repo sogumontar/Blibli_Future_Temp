@@ -6,7 +6,7 @@ $(document).ready(function(){
 
   function updateBlock(){
     $.ajax({
-          type:"GET",
+          type:"POST",
           headers: {
               "Content-Type": "application/json",
               // "Authorization": "Bearer "+c

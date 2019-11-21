@@ -54,6 +54,9 @@ public class Product {
     @Column(name="product_file")
     private byte[] product_file;
 
+    @Column(name="id_merchant")
+    private Integer id_merchant;
+
     public Product(String title, String description, String categories, String publication_year, Integer price, String author, String publisher ,String isbn) {
         this.title = title;
         this.description = description;
@@ -71,7 +74,7 @@ public class Product {
         this.product_file = product_file;
     }
 
-    public Product(String title, String description, String categories, String publication_year, Integer price, String author,  String publisher, String isbn, String pict_product) {
+    public Product(String title, String description, String categories, String publication_year, Integer price, String author,  String publisher, String isbn, String pict_product,Integer id_merchant) {
         this.title = title;
         this.description = description;
         this.categories = categories;
@@ -81,6 +84,7 @@ public class Product {
         this.isbn = isbn;
         this.publisher = publisher;
         this.pict_product = pict_product;
+        this.id_merchant = id_merchant;
     }
 
     public String getPict_product() {
@@ -180,5 +184,13 @@ public class Product {
 
     public void setProductfile(byte[] productfile){
         this.product_file = productfile;
+    }
+
+    public Integer getId_merchant() {
+        return id_merchant;
+    }
+
+    public void setId_merchant(Integer id_merchant) {
+        this.id_merchant = id_merchant;
     }
 }
