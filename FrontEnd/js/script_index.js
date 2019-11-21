@@ -1,8 +1,7 @@
 $(document).ready(function(){
 
-
 	var c = new URL(location.href).searchParams.get('token')
-	
+	var token = localStorage.getItem('Token');
 
 	hideNavbar();
 	assignDataProduct();
@@ -28,7 +27,6 @@ $('#kategori').append("<br><hr><br><br>\
 			</ul>\
 	");
 
-	//for navbar
 	function hideNavbar(){
 		var prevScrollpos = window.pageYOffset;
 		window.onscroll = function() {
@@ -46,10 +44,9 @@ $('#kategori').append("<br><hr><br><br>\
 		var gbr="5.png";
 		$.ajax({
           type:"GET",
-					headers: {
-			        "Content-Type": "application/json",
-			        "Authorization": "Bearer "+c
-			    },
+					beforeSend : function( xhr ) {
+        		xhr.setRequestHeader( "Authorization", "Bearer "+token );
+    			},
           url:"http://localhost:9080/product/",
           success: function(data) {
 						console.log(data);

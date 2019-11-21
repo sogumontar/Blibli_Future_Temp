@@ -66,28 +66,6 @@ public class ProductController {
             return e.getMessage();
         }
     }
-    @CrossOrigin
-    @PostMapping(value = "/createProduct")
-    public String createProduct(@Valid @RequestBody Product product,@RequestParam("file") MultipartFile file) throws IOException {
-
-        String folder = "C:/product";
-        byte[] bytes = file.getBytes();
-        Path path = Paths.get(folder + file.getOriginalFilename());
-        Files.write(path,bytes);
-        Product product1 = new Product(
-                product.getTitle(),
-                product.getDescription(),
-                product.getCategories(),
-                product.getPublication_year(),
-                product.getPrice(),
-                product.getAuthor(),
-                product.getPublisher(),
-                product.getIsbn(),
-                file.getOriginalFilename());
-        productService.save(product1);
-        return "Sukses";
-
-    }
 
 
     @CrossOrigin
@@ -119,17 +97,6 @@ public class ProductController {
 //            return e.getMessage();
 //        }
 //    }
-    @CrossOrigin
-    @PostMapping(value= "/createFile2")
-    public String tambah2(@Valid Product product, @RequestParam MultipartFile file){
-        try{
-            Product product1 = new Product(product.getTitle(),product.getDescription(),product.getCategories(),product.getPublication_year(),product.getPrice(),product.getAuthor(),product.getPublisher(),product.getIsbn(),product.getPictureproduct());
-            productService.save(product1);
-            return "berhasil";
-        }catch (Exception e){
-            return e.getMessage();
-        }
-    }
 
     @CrossOrigin
     @GetMapping(value = "/coba")

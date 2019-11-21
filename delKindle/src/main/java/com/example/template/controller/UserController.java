@@ -1,5 +1,6 @@
 package com.example.template.controller;
 
+import com.example.template.model.Product;
 import com.example.template.model.User;
 import com.example.template.repository.UserRepository;
 import com.example.template.service.UserService;
@@ -28,6 +29,12 @@ public class UserController{
     @GetMapping("/findByName/{name}")
     public List findByName( @PathVariable String name){
         return userService.findByName(name);
+    }
+
+    @CrossOrigin
+    @GetMapping("/findById/{id}")
+    public User findById( @PathVariable Long id){
+        return userService.findFirstById(id);
     }
 
     @CrossOrigin

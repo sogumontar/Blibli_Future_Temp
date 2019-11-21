@@ -1,6 +1,9 @@
 $(document).ready(function(){
   var c = new URL(location.href).searchParams.get('token')
+  var token = localStorage.getItem('Token');
+  var idLogin = localStorage.getItem('idLogin');
 
+  console.log(idLogin);
   $("#submit").click(function(){
     console.log("cliked")
     // var URLS="http://localhost:9094/api/auth/signup"
@@ -39,7 +42,7 @@ $(document).ready(function(){
     };
     $.ajax({
               type:"POST",
-              url:"http://localhost:9097/product/simpan",
+              url:"http://localhost:9080/product/simpan",
 
               headers: {
               "Content-Type": "application/json",
@@ -58,38 +61,35 @@ $(document).ready(function(){
 
   function insert(){
     var formData = new FormData();
-            formData.append("file", document.forms["productForm"].file.files[0]);
-            formData.append('product', new Blob([JSON.stringify({
-                "title": document.getElementById("title").value,
-                "description": document.getElementById("description").value,
-                "categories": document.getElementById("categories").value,
-                "publication_year": document.getElementById("publication_year").value,
-                "price": document.getElementById("price").value,
-                "author": document.getElementById("author").value,
-                "isbn": document.getElementById("isbn").value,
-                "publisher": document.getElementById("publisher").value,
-            })], {
-                    type: "application/json"
-                }));
+        formData.append("file", document.forms["productForm"].file.files[0]);
+        formData.append('product', new Blob([JSON.stringify({
+            "title": document.getElementById("title").value,
+            "description": document.getElementById("description").value,
+            "categories": document.getElementById("categories").value,
+            "publication_year": document.getElementById("publication_year").value,
+            "price": document.getElementById("price").value,
+            "author": document.getElementById("author").value,
+            "isbn": document.getElementById("isbn").value,
+            "publisher": document.getElementById("publisher").value,
+            "id_merchant": idLogin,
+        })],
+        {
+            type: "application/json"
+        }));
             var boundary = Math.random().toString().substr(2);
             console.log("asd");
-            fetch('http://localhost:9080/product/simpan', {
+            fetch('http://localhost:9080/merchant/saveProduct', {
                 method: 'post',
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": "Bearer "+c
-                },
                 body: formData
             }).then(function (response) {
                 if (response.status !== 200) {
-                    alert("There was an errorz!");
+                    console.log(response);
                 } else {
                     alert("Request successful");
                 }
             }).catch(function (err) {
-                alert("There was an errors!");
+                console.log(err);
             });;
-            alert("selesai")
   }
 
 });

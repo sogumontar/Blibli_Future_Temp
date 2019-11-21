@@ -26,6 +26,12 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    public User findFirstById(Long id){
+        return userRepository.findFirstById(id);
+    }
+
+
+
 
 
 }
