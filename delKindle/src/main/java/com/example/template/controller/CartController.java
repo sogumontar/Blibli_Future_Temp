@@ -28,20 +28,20 @@ public class CartController {
     public List findAll(){
         return cartService.findAll();
     }
-    @CrossOrigin
-    @GetMapping("/find/{productId}")
-    public List findAllById_product(@PathVariable  Integer productId){
-        return cartService.findById_product(productId);
-    }
+//    @CrossOrigin
+//    @GetMapping("/finds")
+//    public List findAllById_product(@PathVariable  Integer productId){
+//        return cartService.dat();
+//    }
 
-    @CrossOrigin
-    @GetMapping("/all")
-    public List findAllById_user(){
-
-        TypedQuery<Product>query= entityManager.createQuery("SELECT pr FROM product pr join cart cr on pr.id=cr.id_product",Product.class);
-        List<Product> result= query.getResultList() ;
-        return result;
-    }
+//    @CrossOrigin
+//    @GetMapping("/all")
+//    public List findAllById_user(){
+//
+//        TypedQuery<Product>query= entityManager.createQuery("SELECT pr FROM product pr join cart cr on pr.id=cr.id_product",Product.class);
+//        List<Product> result= query.getResultList() ;
+//        return result;
+//    }
     @CrossOrigin
     @PostMapping("/add")
     public Cart save(@RequestBody Cart cart){
