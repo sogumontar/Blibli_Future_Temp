@@ -5,14 +5,17 @@ import com.example.template.model.Product;
 import com.example.template.repository.CartRepo;
 import com.example.template.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.swing.text.html.Option;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/cart")
@@ -51,6 +54,20 @@ public class CartController {
                 cart.getId_user(),cart.getId_product(),obDateFormat.format(obDate.getTime()).toString(),cart.getStatus()
         );
         return cartService.save(cart1);
+    }
+
+    @CrossOrigin
+    @PostMapping("/purchase/{idLogin}")
+    public ResponseEntity<Object> purchase(@RequestBody Cart cart, @PathVariable Integer idLogin){
+        Optional<Cart> cartOptional=Optional.ofNullable(cartService.findFirstById(idLogin));
+        if(!cartOptional.isPresent())
+            return ResponseEntity.notFound().build();
+
+            cart.setId(idLogin);
+            cart.setStatus(2);
+            Cart cart1=new Cart(2);
+            cartService.save(cart);
+            return ResponseEntity.ok().build();
     }
 
 

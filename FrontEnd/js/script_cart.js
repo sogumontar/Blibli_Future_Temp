@@ -1,6 +1,7 @@
 $(document).ready(function(){
   // var token = new URL(location.href).searchParams.get('token')
   var token=localStorage.getItem("Token")
+  var id=localStorage.getItem("idLogin")
 	hideNavbar();
 	test();
 	function hideNavbar(){
@@ -18,11 +19,40 @@ $(document).ready(function(){
 
 
 
+	$("#bayar").click(function(){
+
+			var jsonVar = {
+		        name: $("#name").val(),
+		        email: $("#email").val(),
+		        password: $("#password").val(),
+		        username: $("#username").val(),
+		        telepon: $("#telepon").val(),
+		        alamat: $("#alamat").val(),
+		        tanggal_lahir: $("#tanggal_lahir").val(),
+		        role: $("#role").val()
+		    };
+		alert("bayar")
+		$.ajax({
+			type:"POST",
+			url:"http://localhost:9080/cart/purchase/"+id,
+			data:JSON.stringify(jsonvar),
+			Content-Type:"application/json",
+			headers: {
+              "Content-Type": "application/json",
+              "Authorization": "Bearer "+token
+          	},
+			success: function(data){
+
+			}
+		});
+
+	});
+
 function test(){
 
 	$.ajax({
           type:"GET",
-          url:"http://localhost:9080/cart/find/36",
+          url:"http://localhost:9080/cart/",
           headers: {
               "Content-Type": "application/json",
               "Authorization": "Bearer "+token
@@ -30,7 +60,7 @@ function test(){
           success: function(data) {
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {
-            	if(true){
+            	if(users[i].id_user){
             		console.log("test")
                $("#dat").
                 append('<div class="row">\
@@ -53,6 +83,7 @@ function test(){
 			        </div>');
             	}
             }
+
           },
           error: function(data) {
           	$("#dat").
@@ -63,7 +94,6 @@ function test(){
             }
         });
 	}
-
 
 });
 

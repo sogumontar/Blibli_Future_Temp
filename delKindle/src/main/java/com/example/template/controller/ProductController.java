@@ -77,7 +77,6 @@ public class ProductController {
         product.setId(idProduct);
         productService.save(product);
         return ResponseEntity.ok().build();
-
     }
 
     @CrossOrigin

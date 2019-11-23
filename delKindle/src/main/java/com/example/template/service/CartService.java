@@ -23,6 +23,9 @@ public class CartService {
 //    public List findById_product(Integer idProduct){
 //        return cartRepo.findAllById_product(idProduct);
 //    }
+    public Cart findFirstById(Integer id){
+        return cartRepo.findFirstById(id);
+    }
 //    public List dat(){
 //        return cartRepo.dat();
 //    };

@@ -14,6 +14,6 @@ public interface CartRepo extends JpaRepository<Cart,Long> {
 //    @Query("SELECT new Product(d.title, d.description, d.categories, d.publication_year) "
 //            + "FROM Product d JOIN Cart c ON c.id_product=d.id")
 //    List<Product> dat();
-    List findById(Integer id);
+    Cart findFirstById(Integer id);
 
 }

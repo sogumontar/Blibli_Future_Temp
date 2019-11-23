@@ -12,7 +12,7 @@ private ProductService productService;
     @Test
     public void testFindFirstById(){
         Product result=productService.findFirstById(21);
-        Integer id=result.getId();
+        String id=result.getId().toString();
         assertEquals("tt",id);
         assertEquals("tt",result.getDescription());
         assertEquals("Buku Anak anak",result.getCategories());
