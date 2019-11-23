@@ -1,6 +1,7 @@
 $(document).ready(function(){
 var id = new URL(location.href).searchParams.get('id');
 var token = localStorage.getItem("Token")
+var idLog = localStorage.getItem("idLogin")
 
   // const url ='https://swapi.co/api/people'
   const url ="http://localhost:9080/product/get/"+id;
@@ -52,11 +53,11 @@ var token = localStorage.getItem("Token")
 
 
 $("#addToCart").click(function(){
-  alert("test")
+  alert(idLog)
       var temp_token = localStorage.getItem("Token");
       var jsonVar = {
-        id: 19,
-        id_product: 20,
+        id_user: idLog,
+        id_product: id,
         status: 1
       };
 
