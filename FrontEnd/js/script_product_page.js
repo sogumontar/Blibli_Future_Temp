@@ -4,15 +4,17 @@ $(document).ready(function(){
   var token = localStorage.getItem('Token');
   var c = new URL(location.href).searchParams.get('token')
 
-  var temp="";
   hideNavbar();
   setMerchant();
   assignDataProduct();
 
   console.log(idLogin);
 
+
+
   function assignDataProduct(){
 		var gbr="5.png";
+
 		$.ajax({
           type:"GET",
           contentType: 'application/json',
@@ -35,10 +37,10 @@ $(document).ready(function(){
 												<div class='col-md-12'>\
                           <div class='row'>\
                             <div class='col-md-6'>\
-                              <p>Rp "+users[i].price+"</p>\
+                              <p><button type='button' class='btn btn-outline-primary'  data-toggle='modal' data-target='#updateModal'>Update</button></p>\
                             </div>\
                             <div class='col-md-6'>\
-                              <p></p>\
+                              <p><button type='button' class='btn btn-outline-danger' onclick='hai("+users[i].id+")'  data-toggle='modal' data-target='#exampleModal'>Delete</button></p>\
                             </div>\
                           </div>\
                         </div>\
@@ -53,7 +55,6 @@ $(document).ready(function(){
             }
         });
 	}
-
   function hideNavbar(){
 		var prevScrollpos = window.pageYOffset;
 		window.onscroll = function() {
@@ -77,7 +78,6 @@ $(document).ready(function(){
           url:"http://localhost:9081/user/findById/"+idLogin,
           success: function(data) {
             console.log(data);
-            $('#toko').text(data.name);
             temp =data.name;
           },
 
@@ -85,26 +85,33 @@ $(document).ready(function(){
             console.log(data);
             }
         });
-
-        //set Count Product
-        $.ajax({
-              type:"GET",
-              beforeSend : function( xhr ) {
-            		xhr.setRequestHeader( "Authorization", "Bearer "+token );
-        			},
-              url:"http://localhost:9081/merchant/countIdMerchant/"+idLogin,
-              success: function(data) {
-                console.log(data);
-                $('#number_produk').text("Product : "+data);
-                temp =data.name;
-              },
-
-              error: function(data) {
-                console.log(data);
-                }
-            });
-
   }
 
+  $('#but_yes').click(function(){
+    var id = localStorage.getItem("productId");
+    $.ajax({
+          type:"POST",
+          beforeSend : function( xhr ) {
+        		xhr.setRequestHeader( "Authorization", "Bearer "+token );
+    			},
+          url:"http://localhost:9081/merchant/deleteById/"+id,
+          success: function(data) {
+            alert("success");
+            location.href = "product_page.html";
+          },
+
+          error: function(data) {
+            console.log(data);
+            }
+        });
+  })
+
+  // $('#but_yes').click(function(){
+  //   localStorage.removeItem("nama");
+  // });
 
 });
+
+function hai(product_id){
+  localStorage.setItem("productId",product_id);
+}
