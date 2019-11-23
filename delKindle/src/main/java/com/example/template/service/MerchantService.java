@@ -21,5 +21,10 @@ public class MerchantService {
         return merchantRepository.findById_merchant(id_merchant);
     }
 
-
+    public Integer countByIdMerchant(Integer id_merchant){
+        return merchantRepository.countById_merchant(id_merchant);
+    }
+    public void deleteById(Integer Id){
+        merchantRepository.deleteById(Id);
+    }
 }
