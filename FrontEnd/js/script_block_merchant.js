@@ -39,17 +39,17 @@ $(document).ready(function(){
                if(users[i].roles[0].name== "ROLE_MERCHANT"){
                  $("#listSearch").
                   append('<div class="col-md-12">\
-                      <div class="row">\
+                      <div class="row" id="row1">\
                         <div class="col-md-8">\
                           <table>\
                             <tr>\
-                              <td>Name : ' + users[i].name + '</td>\
+                              <td><p>Name : ' + users[i].name + '</p></td>\
                             </tr>\
                             <tr>\
-                              <td>Role : ' + users[i].roles[0].name+ '</td>\
+                              <td><p>Role : ' + users[i].roles[0].name+ '</p></td>\
                             </tr>\
                             <tr>\
-                              <td>Status : ' + (users[i].status == 1 ? 'Active': 'Block') + '</td>\
+                              <td><p>Status : ' + (users[i].status == 1 ? 'Active': 'Block') + '</p></td>\
                             </tr>\
                           </table>\
                         </div>\
@@ -83,7 +83,7 @@ $(document).ready(function(){
                 for (var i in users) {
                    $("#listUser").
                     append('<div class="col-md-12">\
-                        <div class="row">\
+                        <div class="row" id="row1">\
                           <div class="col-md-8">\
                             <table>\
                               <tr>\

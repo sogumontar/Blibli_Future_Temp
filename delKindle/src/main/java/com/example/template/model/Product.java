@@ -86,7 +86,6 @@ public class Product {
         this.author = author;
         this.publisher = publisher;
         this.isbn = isbn;
-
     }
 
     public Product(String picture_product, byte[] product_file) {
@@ -227,4 +226,5 @@ public class Product {
     public void setId_merchant(Integer id_merchant) {
         this.id_merchant = id_merchant;
     }
+
 }

@@ -21,7 +21,11 @@ $(document).ready(function(){
           beforeSend : function( xhr ) {
            xhr.setRequestHeader( "Authorization", "Bearer "+token );
          },
+<<<<<<< HEAD
+          url:"http://localhost:9081/merchant/getAllByMerchant/"+idLogin,
+=======
           url:"http://localhost:9080/merchant/getAllByMerchant/"+idLogin,
+>>>>>>> a937c92850d1d5f0a4608592c095adf3aa824e37
           success: function(data) {
 						console.log(data);
             var users = JSON.parse(JSON.stringify(data));
@@ -37,7 +41,11 @@ $(document).ready(function(){
 												<div class='col-md-12'>\
                           <div class='row'>\
                             <div class='col-md-6'>\
+<<<<<<< HEAD
+                              <p><button type='button' class='btn btn-outline-primary' onclick='updateProduct(("+users[i].id+"))' data-toggle='modal' data-target='#updateModal'>Update</button></p>\
+=======
                               <p><button type='button' class='btn btn-outline-primary'  data-toggle='modal' data-target='#updateModal'>Update</button></p>\
+>>>>>>> a937c92850d1d5f0a4608592c095adf3aa824e37
                             </div>\
                             <div class='col-md-6'>\
                               <p><button type='button' class='btn btn-outline-danger' onclick='hai("+users[i].id+")'  data-toggle='modal' data-target='#exampleModal'>Delete</button></p>\
@@ -87,6 +95,10 @@ $(document).ready(function(){
         });
   }
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> a937c92850d1d5f0a4608592c095adf3aa824e37
   $('#but_yes').click(function(){
     var id = localStorage.getItem("productId");
     $.ajax({
@@ -115,3 +127,32 @@ $(document).ready(function(){
 function hai(product_id){
   localStorage.setItem("productId",product_id);
 }
+<<<<<<< HEAD
+function updateProduct(productId){
+  var token = localStorage.getItem('Token');
+  var id = productId;
+  $.ajax({
+        type:"GET",
+        beforeSend : function( xhr ) {
+          xhr.setRequestHeader( "Authorization", "Bearer "+token );
+        },
+        url:"http://localhost:9081/merchant/get/"+id,
+        success: function(data) {
+          console.log(data.title);
+          document.getElementById("title").value = data.title;
+          document.getElementById("description").value = data.description;
+          document.getElementById("category").value = data.categories;
+          document.getElementById("publication_year").value = data.publication_year;
+          document.getElementById("author").value = data.author;
+          document.getElementById("publisher").value = data.publisher;
+          document.getElementById("isbn").value = data.isbn;
+          document.getElementById("price").value = data.price;
+        },
+
+        error: function(data) {
+          console.log(data);
+          }
+      });
+}
+=======
+>>>>>>> a937c92850d1d5f0a4608592c095adf3aa824e37

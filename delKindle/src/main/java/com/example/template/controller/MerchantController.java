@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -54,6 +53,7 @@ public class MerchantController {
         }
     }
 
+
     @CrossOrigin
     @GetMapping("/getAllByMerchant/{idMerchant}")
     public List getAllByMerchant(@PathVariable Integer idMerchant){
@@ -72,4 +72,13 @@ public class MerchantController {
        merchantService.deleteById(Id);
        return ResponseEntity.ok(new DeleteProductResponse());
     }
+<<<<<<< HEAD
+
+    @CrossOrigin
+    @GetMapping("/get/{id}")
+    public Product detail(@PathVariable Integer id){
+        return merchantService.findFirstById(id);
+    }
+=======
+>>>>>>> a937c92850d1d5f0a4608592c095adf3aa824e37
 }
