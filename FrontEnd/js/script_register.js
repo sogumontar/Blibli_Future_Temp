@@ -36,7 +36,6 @@ $(document).ready(function(){
               url:"http://localhost:9080/api/auth/signup",
               data: JSON.stringify(jsonVar),
               contentType: "application/json",
-              data: JSON.stringify(jsonVar),
               contentType: "application/json",
               success: function(data){
                   console.log(data.message);

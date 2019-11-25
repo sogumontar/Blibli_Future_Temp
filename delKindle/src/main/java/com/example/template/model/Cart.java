@@ -22,6 +22,10 @@ public class Cart {
     @Column(name = "status")
     private Integer status;
 
+    public Cart(Integer status) {
+        this.status = status;
+    }
+
     public Cart(Long id_user, Integer id_product, String created_at, Integer status) {
         this.id_user = id_user;
         this.id_product = id_product;

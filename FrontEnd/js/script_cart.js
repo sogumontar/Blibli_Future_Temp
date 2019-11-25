@@ -1,5 +1,7 @@
 $(document).ready(function(){
-  var token = new URL(location.href).searchParams.get('token')
+  // var token = new URL(location.href).searchParams.get('token')
+  var token=localStorage.getItem("Token")
+  var id=localStorage.getItem("idLogin")
 	hideNavbar();
 	test();
 	function hideNavbar(){
@@ -17,39 +19,49 @@ $(document).ready(function(){
 
 
 
+	// $("#bayar").click(function(){
+
+	// 		var jsonVar = {
+	// 	        name: $("#name").val(),
+	// 	        email: $("#email").val(),
+	// 	        password: $("#password").val(),
+	// 	        username: $("#username").val(),
+	// 	        telepon: $("#telepon").val(),
+	// 	        alamat: $("#alamat").val(),
+	// 	        tanggal_lahir: $("#tanggal_lahir").val(),
+	// 	        role: $("#role").val()
+	// 	    };
+	// 	alert("bayar")
+	// 	$.ajax({
+	// 		type:"POST",
+	// 		url:"http://localhost:9080/cart/purchase/"+id,
+	// 		data:JSON.stringify(jsonvar),
+	// 		Content-Type:"application/json",
+	// 		headers: {
+ //              "Content-Type": "application/json",
+ //              "Authorization": "Bearer "+token
+ //          	},
+	// 		success: function(data){
+
+	// 		}
+	// 	});
+
+	// });
+
 function test(){
-	var kate=28;
-	$("#dat").
-                append('<div class="row">\
-			          <div class="col-md-4">\
-			            <img src="Pict/buku_fashion.jpg" id="img_product" alt="">\
-			          </div>\
-			          <div class="col-md-8">\
-			              <table>\
-			                <tr>\
-			                  <td><p>Fashion figure</p></td>\
-			                </tr>\
-			                <tr>\
-			                  <td><p>Rp 12123123</p></td>\
-			                </tr>\
-			                <tr>\
-			                  <td><button class="btn btn-danger">Hapus dari keranjang</button></td>\
-			                </tr>\
-			              </table>\
-			          </div>\
-			        </div>');
+
 	$.ajax({
           type:"GET",
-          url:"http://localhost:9080/cart/all",
+          url:"http://localhost:9080/cart/",
           headers: {
               "Content-Type": "application/json",
               "Authorization": "Bearer "+token
           },
           success: function(data) {
             var users = JSON.parse(JSON.stringify(data));
-            console.log(users.log);
             for (var i in users) {
-            	if(!users[i].id_user){
+            	if(users[i].id_user){
+            		console.log("test")
                $("#dat").
                 append('<div class="row">\
 			          <div class="col-md-4">\
@@ -58,19 +70,20 @@ function test(){
 			          <div class="col-md-8">\
 			              <table>\
 			                <tr>\
-			                  <td><p>Fashion figure</p></td>\
+			                  <td><p>'+users[i].status +'</p></td>\
 			                </tr>\
 			                <tr>\
 			                  <td><p>Rp 12123123</p></td>\
 			                </tr>\
 			                <tr>\
-			                  <td><button class="btn btn-danger">Hapus dari keranjang</button></td>\
+			                  <td><a class="btn btn-danger" href="del.html?id='+users[i].id+'" >Hapus dari keranjang</a></td>\
 			                </tr>\
 			              </table>\
 			          </div>\
 			        </div>');
             	}
             }
+
           },
           error: function(data) {
           	$("#dat").
@@ -81,7 +94,6 @@ function test(){
             }
         });
 	}
-
 
 });
 

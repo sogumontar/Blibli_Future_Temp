@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="product")
@@ -13,6 +15,7 @@ public class Product {
 
 
     @Id
+
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name ="id")
     private Integer id;
@@ -57,6 +60,23 @@ public class Product {
     @Column(name="id_merchant")
     private Integer id_merchant;
 
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
+
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            })
+    @JoinTable(name = "cart",
+            joinColumns = {@JoinColumn(name = "id_product")},
+            inverseJoinColumns ={@JoinColumn(name = "id_user")})
+    Set<User>users=new HashSet<>();
     public Product(String title, String description, String categories, String publication_year, Integer price, String author, String publisher ,String isbn) {
         this.title = title;
         this.description = description;
@@ -73,7 +93,21 @@ public class Product {
         this.product_file = product_file;
     }
 
-    public Product(String title, String description, String categories, String publication_year, Integer price, String author,  String publisher, String isbn, String pict_product,Integer id_merchant) {
+    public Product(Integer id, String title, String description, String categories, String publication_year, Integer price, String author, String isbn, String publisher, String pict_product, Integer id_merchant) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.categories = categories;
+        this.publication_year = publication_year;
+        this.price = price;
+        this.author = author;
+        this.isbn = isbn;
+        this.publisher = publisher;
+        this.pict_product = pict_product;
+        this.id_merchant = id_merchant;
+    }
+
+    public Product(String title, String description, String categories, String publication_year, Integer price, String author, String publisher, String isbn, String pict_product, Integer id_merchant) {
         this.title = title;
         this.description = description;
         this.categories = categories;
