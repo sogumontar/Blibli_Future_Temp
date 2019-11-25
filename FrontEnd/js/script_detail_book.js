@@ -16,7 +16,7 @@ var idLog = localStorage.getItem("idLogin")
   }).then((i)=>{
     const html= `
 
-      <div class="row">
+      <div class="row" id="row1">
           <div class="col-md-4">
             <img src="pict/buku_pelajaran.jpg" id="pict_book" class="img-thumbnail">
           </div>
@@ -73,7 +73,7 @@ $("#addToCart").click(function(){
               },
               error: function(err) {
                   alert(err)
-                 
+
               }
       });
 

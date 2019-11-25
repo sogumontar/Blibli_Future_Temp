@@ -39,7 +39,7 @@ $(document).ready(function(){
                if(users[i].roles[0].name== "ROLE_USER"){
                  $("#listSearch").
                   append('<div class="col-md-12">\
-                      <div class="row">\
+                      <div class="row" id="row1">\
                         <div class="col-md-8">\
                           <table>\
                             <tr>\
