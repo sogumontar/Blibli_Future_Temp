@@ -49,12 +49,8 @@ public class CartController {
     @CrossOrigin
     @PostMapping("/add")
     public Cart save(@RequestBody Cart cart){
-        Date obDate = new Date();
-        SimpleDateFormat obDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        Cart cart1=new Cart(
-                cart.getId_user(),cart.getId_product(),obDateFormat.format(obDate.getTime()).toString(),cart.getStatus()
-        );
-        return cartService.save(cart1);
+
+        return cartService.save(cart);
     }
 
     @CrossOrigin

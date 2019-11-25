@@ -6,6 +6,8 @@ import com.example.template.repository.CartRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -20,7 +22,24 @@ public class CartService {
         return cartRepo.findAll();
     }
     public Cart save(Cart cart){
-        return  cartRepo.save(cart);
+        Date obDate = new Date();
+        SimpleDateFormat obDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        Cart cart1=new Cart(
+                cart.getId_user(),
+                cart.getId_product(),
+                obDateFormat.format(obDate.getTime()).toString(),
+                cart.getStatus(),
+                cart.getTitle(),
+                cart.getPict_product(),
+                cart.getCategories(),
+                cart.getPublication_year(),
+                cart.getPrice(),
+                cart.getAuthor(),
+                cart.getPublisher(),
+                cart.getIsbn()
+        );
+
+        return  cartRepo.save(cart1);
     }
 //    public List findById_product(Integer idProduct){
 //        return cartRepo.findAllById_product(idProduct);

@@ -20,7 +20,8 @@ $(document).ready(function(){
                 idLogin=data.idLog;
                 console.log(data.role);
                 localStorage.setItem('Token',token);
-                localStorage.setItem('idLogin',idLogin);                
+                localStorage.setItem('idLogin',idLogin);
+                localStorage.setItem('Role',data.role);                
                 if(data.role == "ROLE_USER"){
                     location.href = "index.html";
                 }else if(data.role == "ROLE_ADMIN"){

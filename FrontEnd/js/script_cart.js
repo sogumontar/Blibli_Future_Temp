@@ -49,7 +49,6 @@ $(document).ready(function(){
 	// });
 
 function test(){
-
 	$.ajax({
           type:"GET",
           url:"http://localhost:9080/cart/",
@@ -70,13 +69,13 @@ function test(){
 			          <div class="col-md-8">\
 			              <table>\
 			                <tr>\
-			                  <td><p>'+users[i].status +'</p></td>\
+			                  <td><p>'+users[i].id +'</p></td>\
 			                </tr>\
 			                <tr>\
 			                  <td><p>Rp 12123123</p></td>\
 			                </tr>\
 			                <tr>\
-			                  <td><a class="btn btn-danger" href="del.html?id='+users[i].id+'" >Hapus dari keranjang</a></td>\
+			                  <td><a class="btn btn-danger" onclick="hapus('+users[i].id+')" >Hapus dari keranjang</a></td>\
 			                </tr>\
 			              </table>\
 			          </div>\
@@ -95,7 +94,36 @@ function test(){
         });
 	}
 
+
+	
+
+
 });
 
+
+function tt(){
+	location.href="cart.html";
+}
+
+function hapus(idss){
+	var token=localStorage.getItem("Token")
+  var id=localStorage.getItem("idLogin")
+	
+		$.ajax({
+          type:"DELETE",
+          url:"http://localhost:9080/cart/delete/"+idss,
+          headers: {
+              "Content-Type": "application/json",
+              "Authorization": "Bearer "+token
+          },	
+          success: function(data) {
+          	alert("Delete Success");
+          	tt();
+          },
+          error: function(data){
+          	alert(data);
+          }
+	});
+}
 
 

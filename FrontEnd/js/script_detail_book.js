@@ -53,14 +53,32 @@ var idLog = localStorage.getItem("idLogin")
 
 
 $("#addToCart").click(function(){
-  alert("Add To Cart, Success")
+  var title = new URL(location.href).searchParams.get('title');
+  var pict_product = new URL(location.href).searchParams.get('pict_product');
+  var categories = new URL(location.href).searchParams.get('categories');
+  var publication_year = new URL(location.href).searchParams.get('publication_year');
+  var price = new URL(location.href).searchParams.get('price');
+  var author = new URL(location.href).searchParams.get('author');
+  var publisher = new URL(location.href).searchParams.get('publisher');
+  var isbn = new URL(location.href).searchParams.get('isbn');
+  
       var temp_token = localStorage.getItem("Token");
       var jsonVar = {
         id_user: idLog,
         id_product: id,
-        status: 1
+        status: 1,
+        title:title,
+        pict_product:pict_product,
+        categories:categories,
+        publication_year:publication_year,
+        price:price,
+        author:author,
+        publisher:publisher,
+        isbn:isbn,
       };
 
+                window.alert("Add To Cart, Success");
+                window.location.href="cart.html";
       $.ajax({
               type:"POST",
               headers: {
@@ -70,6 +88,8 @@ $("#addToCart").click(function(){
               url:"http://localhost:9080/cart/add",
               data: JSON.stringify(jsonVar),
               success: function(data){
+                window.alert("Add To Cart, Success");
+                window.location.href="cart.html";
               },
               error: function(err) {
                   alert(err)
@@ -77,7 +97,6 @@ $("#addToCart").click(function(){
               }
       });
 
-                location.href="cart.html";
       console.log("binatang ")
     });
 });
