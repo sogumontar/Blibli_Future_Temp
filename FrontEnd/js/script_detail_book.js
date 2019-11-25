@@ -53,7 +53,7 @@ var idLog = localStorage.getItem("idLogin")
 
 
 $("#addToCart").click(function(){
-  alert(idLog)
+  alert("Add To Cart, Success")
       var temp_token = localStorage.getItem("Token");
       var jsonVar = {
         id_user: idLog,
@@ -70,13 +70,14 @@ $("#addToCart").click(function(){
               url:"http://localhost:9080/cart/add",
               data: JSON.stringify(jsonVar),
               success: function(data){
-                alert("binatangsss");
               },
               error: function(err) {
                   alert(err)
                  
               }
       });
+
+                location.href="cart.html";
       console.log("binatang ")
     });
 });

@@ -15,5 +15,8 @@ public interface CartRepo extends JpaRepository<Cart,Long> {
 //            + "FROM Product d JOIN Cart c ON c.id_product=d.id")
 //    List<Product> dat();
     Cart findFirstById(Integer id);
+    Cart deleteById(Integer id);
+
+//    List<Cart> findAllById_user(String idUser);
 
 }

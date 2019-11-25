@@ -6,6 +6,7 @@ import com.example.template.repository.CartRepo;
 import com.example.template.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityManager;
@@ -68,7 +69,15 @@ public class CartController {
             Cart cart1=new Cart(2);
             cartService.save(cart);
             return ResponseEntity.ok().build();
+
+
     }
 
+    @CrossOrigin
+    @DeleteMapping("/delete/{id}")
+    @Transactional
+    public Cart deleteById(@PathVariable Integer id){
+        return cartService.deleteById(id);
+    }
 
 }

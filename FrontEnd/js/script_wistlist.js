@@ -36,7 +36,7 @@ test();
         					<img class="card-img-top" src="pict/ensiklopedia.jpg" alt="Card image cap">\
         					<div class="card-body">\
           					<h5 class="card-title">'+users[i].id+'</h5>\
-          					<p class="card-text"><button type="button" class="btn btn-outline-danger">Hapus</button></p>\
+          					<p class="card-text"><a class="btn btn-danger" href="del.html?id='+users[i].id+'" >Hapus dari wishlist</a></p>\
         				</div>');
             	}
             }
@@ -51,6 +51,22 @@ test();
             }
         });
 	}
+	// $("#del").click(function(){
+	// 	alert("bayar")
+	// 	$.ajax({
+	// 		type:"POST",
+	// 		url:"http://localhost:9080/cart/purchase/"+id,
+	// 		Content-Type:"application/json",
+	// 		headers: {
+ //              "Content-Type": "application/json",
+ //              "Authorization": "Bearer "+token
+ //          	},
+	// 		success: function(data){
+
+	// 		}
+	// 	});
+
+	// });
 
 
 });

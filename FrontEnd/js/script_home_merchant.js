@@ -19,7 +19,7 @@ $(document).ready(function(){
           beforeSend : function( xhr ) {
            xhr.setRequestHeader( "Authorization", "Bearer "+token );
          },
-          url:"http://localhost:9081/merchant/getAllByMerchant/"+idLogin,
+          url:"http://localhost:9080/merchant/getAllByMerchant/"+idLogin,
           success: function(data) {
 						console.log(data);
             var users = JSON.parse(JSON.stringify(data));
@@ -74,7 +74,7 @@ $(document).ready(function(){
           beforeSend : function( xhr ) {
         		xhr.setRequestHeader( "Authorization", "Bearer "+token );
     			},
-          url:"http://localhost:9081/user/findById/"+idLogin,
+          url:"http://localhost:9080/user/findById/"+idLogin,
           success: function(data) {
             console.log(data);
             $('#toko').text(data.name);
@@ -92,7 +92,7 @@ $(document).ready(function(){
               beforeSend : function( xhr ) {
             		xhr.setRequestHeader( "Authorization", "Bearer "+token );
         			},
-              url:"http://localhost:9081/merchant/countIdMerchant/"+idLogin,
+              url:"http://localhost:9080/merchant/countIdMerchant/"+idLogin,
               success: function(data) {
                 console.log(data);
                 $('#number_produk').text("Product : "+data);

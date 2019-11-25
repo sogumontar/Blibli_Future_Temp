@@ -8,4 +8,5 @@ import java.util.List;
 public interface ProductRepo extends JpaRepository<Product,Integer> {
     Product findFirstById(Integer productId);
     List findAllByCategories(String kategori);
+    void deleteById(Integer id);
 }

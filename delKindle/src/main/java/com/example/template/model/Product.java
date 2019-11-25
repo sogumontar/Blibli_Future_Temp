@@ -15,6 +15,7 @@ public class Product {
 
 
     @Id
+
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name ="id")
     private Integer id;
@@ -93,7 +94,21 @@ public class Product {
         this.product_file = product_file;
     }
 
-    public Product(String title, String description, String categories, String publication_year, Integer price, String author,  String publisher, String isbn, String pict_product,Integer id_merchant) {
+    public Product(Integer id, String title, String description, String categories, String publication_year, Integer price, String author, String isbn, String publisher, String pict_product, Integer id_merchant) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.categories = categories;
+        this.publication_year = publication_year;
+        this.price = price;
+        this.author = author;
+        this.isbn = isbn;
+        this.publisher = publisher;
+        this.pict_product = pict_product;
+        this.id_merchant = id_merchant;
+    }
+
+    public Product(String title, String description, String categories, String publication_year, Integer price, String author, String publisher, String isbn, String pict_product, Integer id_merchant) {
         this.title = title;
         this.description = description;
         this.categories = categories;

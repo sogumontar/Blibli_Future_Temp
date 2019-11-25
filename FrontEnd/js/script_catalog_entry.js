@@ -78,7 +78,7 @@ $(document).ready(function(){
         }));
             var boundary = Math.random().toString().substr(2);
             console.log("asd");
-            fetch('http://localhost:9081/merchant/saveProduct', {
+            fetch('http://localhost:9080/merchant/saveProduct', {
                 method: 'post',
                 body: formData
             }).then(function (response) {

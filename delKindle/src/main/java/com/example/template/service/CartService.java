@@ -13,7 +13,9 @@ import java.util.Set;
 public class CartService {
     @Autowired
     CartRepo cartRepo;
-
+    public Cart deleteById(Integer id){
+        return cartRepo.deleteById(id);
+    }
     public List findAll(){
         return cartRepo.findAll();
     }

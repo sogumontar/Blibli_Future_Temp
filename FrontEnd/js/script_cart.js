@@ -19,34 +19,34 @@ $(document).ready(function(){
 
 
 
-	$("#bayar").click(function(){
+	// $("#bayar").click(function(){
 
-			var jsonVar = {
-		        name: $("#name").val(),
-		        email: $("#email").val(),
-		        password: $("#password").val(),
-		        username: $("#username").val(),
-		        telepon: $("#telepon").val(),
-		        alamat: $("#alamat").val(),
-		        tanggal_lahir: $("#tanggal_lahir").val(),
-		        role: $("#role").val()
-		    };
-		alert("bayar")
-		$.ajax({
-			type:"POST",
-			url:"http://localhost:9080/cart/purchase/"+id,
-			data:JSON.stringify(jsonvar),
-			Content-Type:"application/json",
-			headers: {
-              "Content-Type": "application/json",
-              "Authorization": "Bearer "+token
-          	},
-			success: function(data){
+	// 		var jsonVar = {
+	// 	        name: $("#name").val(),
+	// 	        email: $("#email").val(),
+	// 	        password: $("#password").val(),
+	// 	        username: $("#username").val(),
+	// 	        telepon: $("#telepon").val(),
+	// 	        alamat: $("#alamat").val(),
+	// 	        tanggal_lahir: $("#tanggal_lahir").val(),
+	// 	        role: $("#role").val()
+	// 	    };
+	// 	alert("bayar")
+	// 	$.ajax({
+	// 		type:"POST",
+	// 		url:"http://localhost:9080/cart/purchase/"+id,
+	// 		data:JSON.stringify(jsonvar),
+	// 		Content-Type:"application/json",
+	// 		headers: {
+ //              "Content-Type": "application/json",
+ //              "Authorization": "Bearer "+token
+ //          	},
+	// 		success: function(data){
 
-			}
-		});
+	// 		}
+	// 	});
 
-	});
+	// });
 
 function test(){
 
@@ -76,7 +76,7 @@ function test(){
 			                  <td><p>Rp 12123123</p></td>\
 			                </tr>\
 			                <tr>\
-			                  <td><button class="btn btn-danger">Hapus dari keranjang</button></td>\
+			                  <td><a class="btn btn-danger" href="del.html?id='+users[i].id+'" >Hapus dari keranjang</a></td>\
 			                </tr>\
 			              </table>\
 			          </div>\
