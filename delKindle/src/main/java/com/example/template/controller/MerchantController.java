@@ -1,11 +1,12 @@
 package com.example.template.controller;
 
 import com.example.template.model.Product;
+import com.example.template.payload.DeleteProductResponse;
 import com.example.template.service.MerchantService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -52,9 +53,29 @@ public class MerchantController {
         }
     }
 
+
     @CrossOrigin
     @GetMapping("/getAllByMerchant/{idMerchant}")
     public List getAllByMerchant(@PathVariable Integer idMerchant){
         return merchantService.findByIdMerchant(idMerchant);
+    }
+
+    @CrossOrigin
+    @GetMapping("/countIdMerchant/{idMerchant}")
+    public Integer countIdMerchant(@PathVariable Integer idMerchant){
+        return merchantService.countByIdMerchant(idMerchant);
+    }
+
+    @CrossOrigin
+    @PostMapping("/deleteById/{Id}")
+    public ResponseEntity<?> deleteById(@PathVariable Integer Id){
+       merchantService.deleteById(Id);
+       return ResponseEntity.ok(new DeleteProductResponse());
+    }
+
+    @CrossOrigin
+    @GetMapping("/get/{id}")
+    public Product detail(@PathVariable Integer id){
+        return merchantService.findFirstById(id);
     }
 }
