@@ -4,6 +4,7 @@ import com.example.template.model.Cart;
 import com.example.template.model.Product;
 import com.example.template.repository.CartRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -15,8 +16,8 @@ import java.util.Set;
 public class CartService {
     @Autowired
     CartRepo cartRepo;
-    public Cart deleteById(Integer id){
-        return cartRepo.deleteById(id);
+    public void deleteById(Integer id){
+        cartRepo.deleteById(id);
     }
     public List findAll(){
         return cartRepo.findAll();
@@ -47,8 +48,10 @@ public class CartService {
     public Cart findFirstById(Integer id){
         return cartRepo.findFirstById(id);
     }
+    public Cart findFirstByIdProduct(Integer idProduct){
+        return cartRepo.findFirstById_product(idProduct);
+    }
 //    public List dat(){
 //        return cartRepo.dat();
 //    };
-
 }

@@ -69,10 +69,13 @@ function test(){
 			          <div class="col-md-8">\
 			              <table>\
 			                <tr>\
-			                  <td><p>'+users[i].id +'</p></td>\
+			                  <td><p>'+users[i].title +'</p></td>\
 			                </tr>\
 			                <tr>\
-			                  <td><p>Rp 12123123</p></td>\
+			                  <td><p>Rp '+users[i].price+',00</p></td>\
+			                </tr>\
+			                <tr>\
+			                  <td><p>'+users[i].author+'</p></td>\
 			                </tr>\
 			                <tr>\
 			                  <td><a class="btn btn-danger" onclick="hapus('+users[i].id+')" >Hapus dari keranjang</a></td>\
@@ -108,7 +111,8 @@ function tt(){
 function hapus(idss){
 	var token=localStorage.getItem("Token")
   var id=localStorage.getItem("idLogin")
-	
+	console.log(idss);
+	console.log(token);
 		$.ajax({
           type:"DELETE",
           url:"http://localhost:9080/cart/delete/"+idss,
@@ -121,7 +125,7 @@ function hapus(idss){
           	tt();
           },
           error: function(data){
-          	alert(data);
+          	alert("error");
           }
 	});
 }

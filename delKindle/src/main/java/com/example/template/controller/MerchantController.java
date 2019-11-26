@@ -72,13 +72,9 @@ public class MerchantController {
        merchantService.deleteById(Id);
        return ResponseEntity.ok(new DeleteProductResponse());
     }
-<<<<<<< HEAD
-
     @CrossOrigin
     @GetMapping("/get/{id}")
     public Product detail(@PathVariable Integer id){
         return merchantService.findFirstById(id);
     }
-=======
->>>>>>> a937c92850d1d5f0a4608592c095adf3aa824e37
 }

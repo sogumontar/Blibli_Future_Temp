@@ -27,16 +27,19 @@ public class CartController {
     @Autowired
     CartService cartService;
 
+    @Autowired
+    CartRepo cartRepo;
+
     @CrossOrigin
     @GetMapping("/")
     public List findAll(){
         return cartService.findAll();
     }
-//    @CrossOrigin
-//    @GetMapping("/finds")
-//    public List findAllById_product(@PathVariable  Integer productId){
-//        return cartService.dat();
-//    }
+    @CrossOrigin
+    @GetMapping("/finds/{productId}")
+    public Cart findAllById_product(@PathVariable  Integer productId){
+        return cartService.findFirstByIdProduct(productId);
+    }
 
 //    @CrossOrigin
 //    @GetMapping("/all")
@@ -51,6 +54,21 @@ public class CartController {
     public Cart save(@RequestBody Cart cart){
 
         return cartService.save(cart);
+    }
+
+    @CrossOrigin
+    @GetMapping("/exist/{idUser}/{idProduct}")
+    public Long existByIdUserAndIdProduct(@PathVariable Long idUser,@PathVariable Integer idProduct){
+        System.out.println(cartRepo.existsById_userAndId_product(idUser,idProduct));
+        //         cartService.existsById_userAndId_product((long)idUser,idProduct);
+//         Optional<Cart> idUserCheck= Optional.ofNullable(cartService.findFirstById(idUser));
+//         Optional<Cart> idProductCheck= Optional.ofNullable(cartService.findFirstByIdProduct(idProduct));
+//         System.out.println(cartService.existsById_userAndId_product((long)idUser,idProduct));
+//         System.out.println(cartService.findFirstByIdProduct(idProduct));
+//         if(cartRepo.existsById_userAndId_product(idUser,idProduct)==0){
+//             return ResponseEntity.noContent().build();
+//         }
+         return cartRepo.existsById_userAndId_product(idUser,idProduct);
     }
 
     @CrossOrigin
@@ -72,8 +90,8 @@ public class CartController {
     @CrossOrigin
     @DeleteMapping("/delete/{id}")
     @Transactional
-    public Cart deleteById(@PathVariable Integer id){
-        return cartService.deleteById(id);
+    public void deleteById(@PathVariable Integer id){
+        cartService.deleteById(id);
     }
 
 }

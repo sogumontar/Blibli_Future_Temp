@@ -27,11 +27,8 @@ public class MerchantService {
     public void deleteById(Integer Id){
         merchantRepository.deleteById(Id);
     }
-<<<<<<< HEAD
 
     public Product findFirstById(Integer id){
         return merchantRepository.findFirstById(id);
     }
-=======
->>>>>>> a937c92850d1d5f0a4608592c095adf3aa824e37
 }
