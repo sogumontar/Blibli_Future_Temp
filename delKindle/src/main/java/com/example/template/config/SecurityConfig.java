@@ -93,7 +93,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers("/cart/finds/*")
                 .permitAll()
-                .antMatchers("/cart/delete/*")
+                .antMatchers("/cart/order/*")
                 .permitAll()
                 .antMatchers("/product/simpan1")
                 .permitAll()

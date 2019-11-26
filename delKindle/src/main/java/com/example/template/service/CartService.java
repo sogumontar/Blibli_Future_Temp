@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -16,12 +17,19 @@ import java.util.Set;
 public class CartService {
     @Autowired
     CartRepo cartRepo;
+
     public void deleteById(Integer id){
         cartRepo.deleteById(id);
     }
+
+    public Cart findAllByIduser(Integer id_user){
+        return cartRepo.findAllById_user(id_user);
+    }
+
     public List findAll(){
         return cartRepo.findAll();
     }
+
     public Cart save(Cart cart){
         Date obDate = new Date();
         SimpleDateFormat obDateFormat = new SimpleDateFormat("dd-MM-yyyy");

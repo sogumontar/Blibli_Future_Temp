@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -20,6 +21,9 @@ public interface CartRepo extends JpaRepository<Cart,Integer> {
 
     @Query("SELECT COUNT(u.id) FROM Cart u WHERE u.id_user=?1 and u.id_product=?2")
     Long existsById_userAndId_product(Long id_user, Integer id_product);
+
+    @Query("SELECT c FROM Cart c WHERE c.id=?1")
+    Cart findAllById_user(Integer id);
 
     void deleteById(Integer id);
 }

@@ -14,6 +14,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.swing.text.html.Option;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -92,6 +93,13 @@ public class CartController {
     @Transactional
     public void deleteById(@PathVariable Integer id){
         cartService.deleteById(id);
+    }
+
+    @CrossOrigin
+    @GetMapping("/order/{id}")
+    public Cart findAllByIdUser(Integer id){
+        System.out.println(cartService.findAllByIduser(id));
+        return cartService.findAllByIduser(id);
     }
 
 }

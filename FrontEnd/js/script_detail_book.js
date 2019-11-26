@@ -33,30 +33,31 @@ var indikator=0;
   }).then((res)=>{
     return res.json()
   }).then((i)=>{
+    console.log(i.categories)
     $("#detail").
                 append('\
                    <div class="row" id="row1">\
-          <div class="col-md-4">\
-            <img src="pict/buku_pelajaran.jpg" id="pict_book" class="img-thumbnail">\
-          </div>\
-          <div class="col-md-8">\
-            <p><b>Judul</b> : ${i.title} </p>\
-            <p><b>Penerbit</b> : ${i.publisher} </p>\
-            <p><b>Penulis</b> : ${i.author}</p>\
-            <p><b>Jumlah halaman</b> : 125(+cover)</p>\
-            <p><b>ISBN</b> : ${i.isbn}</p>\
-            <p><b>Bahasa</b> : Indonesia</p>\
-            <p><b>Harga(IDR)</b> : ${i.price}</p>\
-          </div>\
-          <br>\
-          <hr>\
-          <br>\
-            <div class="content">\
-              ${i.description}\
-            </div>\
-      </div>\
-      <br>\
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\
+                    <div class="col-md-4">\
+                      <img src="pict/buku_pelajaran.jpg" id="pict_book" class="img-thumbnail">\
+                    </div>\
+                    <div class="col-md-8">\
+                      <p><b>Judul</b> : '+i.title+' </p>\
+                      <p><b>Penerbit</b> : '+i.publisher+' </p>\
+                      <p><b>Penulis</b> : '+i.author+'</p>\
+                      <p><b>Jumlah halaman</b> : 125(+cover)</p>\
+                      <p><b>ISBN</b> : '+i.isbn+'</p>\
+                      <p><b>Bahasa</b> : Indonesia</p>\
+                      <p><b>Harga(IDR)</b> : '+i.price+'</p>\
+                    </div>\
+                    <br>\
+                    <hr>\
+                    <br>\
+                      <div class="content">\
+                        '+i.description+'\
+                      </div>\
+                </div>\
+                <br>\
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\
                   ');
                 
                 
