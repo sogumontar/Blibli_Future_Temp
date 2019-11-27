@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Cart - Del Kindle</title>
+  <title>Order Detail - Del Kindle</title>
   <script type="text/javascript" src="js/jquery.slim.min.js"></script>
   <link rel="stylesheet" href="css/bootstrap.css">
   <script src="js/bootstrap.min.js"></script>
@@ -56,7 +56,25 @@
       <div class="col-md-12" id="dat">
 
       </div>
-      <a id="bayar" class="btn btn-success" href="">Order</a>
+      <div id="dd">
+        
+      </div>
+      <div>
+          <br><br>
+          <p><i>Payment Method</i></p>
+          <select class="form-control">
+            <option>ATM</option>
+          </select>
+          <br>
+          <form action="">
+            <input type="radio" name="atm" value="BNI" name="">BNI <br>
+            <input type="radio" name="atm" value="BRI" name="">BRI <br>
+            <input type="radio" name="atm" value="BNI" name="">Mandiri <br>
+            <input type="radio" name="atm" value="BRI" name="">BCA <br>
+          </form>
+          <br><br>
+      </div>
+      <a id="bayar" class="btn btn-success"  href="order_process.html">Checkout</a>
     </div>
     <br><br><br><br>
   </div>

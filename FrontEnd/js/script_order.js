@@ -1,5 +1,7 @@
+	var arr=[];
 $(document).ready(function(){
-	var token = localStorage.getItem('Token')
+
+	var token = localStorage.getItem('Token');
 	var idLog = localStorage.getItem('idLogin')
 	if(token){
 		console.log("testing");
@@ -27,8 +29,8 @@ $(document).ready(function(){
 		  prevScrollpos = currentScrollPos;
 		}
 	}
-
 	function assignDataProduct(){
+		
 		// console.log(token)
 		var gbr="5.png";
 		$.ajax({
@@ -40,31 +42,45 @@ $(document).ready(function(){
           url:"http://localhost:9080/cart/",
           success: function(data) {
             var users = JSON.parse(JSON.stringify(data));
+            var sum=0;
             for (var i in users) {
             	if(users[i].id_user==idLog){
+            		sum+=users[i].price;
+            		arr.push(users[i].title);
 
 
                $("#dat").
-                append("<div class='ard' id='card'>\
+                append("<div class='row' id='card'>\
+                			<div class='col-md-2'>\
 						      <img src='C:/product/"+users[i].pict_product+"' class='card-img-top' id='image'>\
-						      <div class='card-body'>\
-						        <div class=''>\
-						          <center><h5>" + users[i].title + "</h5></center>\
-						        </div>\
-						        <div class=''>\
-						          <center><h6>SKU : " + users[i].categories + "</h6></center>\
-						        </div>\
-						        <div class=''>\
-						          <center><h5>Rp " + users[i].price + ",00</h5></center>\
-						        </div>\
-						        <div class=''>\
-						          <button type='button' name='button' style='float:left' id='but_del'><a href='update_book.html?id="+users[i].id+"&title="+users[i].title+"&pict_product="+users[i].pict_product+"&categories="+users[i].categories+"&publication_year="+users[i].publication_year+"&price="+users[i].price+"&author="+users[i].author+"&publisher="+users[i].publisher+"&isbn="+users[i].isbn+"'>Update</a></button>\
-						          <button type='button' name='button'  style='float:right' id='but_update'><a href='detail_book.html?id="+users[i].id+"&title="+users[i].title+"&pict_product="+users[i].pict_product+"&categories="+users[i].categories+"&publication_year="+users[i].publication_year+"&price="+users[i].price+"&author="+users[i].author+"&publisher="+users[i].publisher+"&isbn="+users[i].isbn+"'>Detail</a></button>\
-						        </div>\
-						      </div>\
-						    </div>");
+						    </div>\
+						    <div class='col-md-3'>\
+						    	<br>\
+						       <center><p'>" + users[i].title + "<p5></center>\
+						    </div>\
+						    <div class='col-md-3'>\
+						    	<br>\
+						        <center><p>" + users[i].categories + "</p></center>\
+						    </div>\
+						    <div class='col-md-3'>\
+						    	<br>\
+						        <center><p>Rp " + users[i].price + ",00</p></center>\
+						    </div>\
+						    <div class='col-md-1'>\
+						          <a class='btn' onclick='hapus("+users[i].id+")' href=''><img width='30' src='pict/icons8-close-window-64.png'></a>\
+						    </div>\
+						</div><hr><br>\
+						");
             }
-            }
+            }addOrder(arr);
+            $("#dd").append("<div class='row'>\
+								<div class='col-md-8'>\
+							 	</div>\
+							 	<div class='col-md-4'>\
+								<b>Harga Total</b> : "+sum+"\
+								</div>\
+							 </div>\
+							 ");
           },
           error: function(data) {
           	$("#dat").
@@ -77,3 +93,51 @@ $(document).ready(function(){
 	}
 
 });
+function hapus(idss){
+	var token=localStorage.getItem("Token")
+  var id=localStorage.getItem("idLogin")
+	console.log(idss);
+	console.log(token);
+		$.ajax({
+          type:"DELETE",
+          url:"http://localhost:9080/cart/delete/"+idss,
+          headers: {
+              "Content-Type": "application/json",
+              "Authorization": "Bearer "+token
+          },	
+          success: function(data) {
+          	alert("Delete Success");
+          	tt();
+          },
+          error: function(data){
+          	alert("error");
+          }
+	});
+}
+function tt(){
+	alert("Delete Success")
+}
+
+function addOrder(arr){
+
+	var token = localStorage.getItem('Token');
+	var idLog = localStorage.getItem('idLogin')
+	for(var i in arr){
+		console.log(arr[i])
+		$.ajax({
+          type:"POST",
+          url:"http://localhost:9080/cart/add",
+          headers: {
+              "Content-Type": "application/json",
+              "Authorization": "Bearer "+token
+          },	
+          success: function(data) {
+          	alert("Success");
+          	tt();
+          },
+          error: function(data){
+          	alert("error");
+          }
+	});
+}
+}

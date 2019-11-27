@@ -1,17 +1,13 @@
 package com.example.template.service;
 
 import com.example.template.model.Cart;
-import com.example.template.model.Product;
 import com.example.template.repository.CartRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class CartService {
@@ -62,4 +58,23 @@ public class CartService {
 //    public List dat(){
 //        return cartRepo.dat();
 //    };
+//    public Cart addToOrder(Cart cart){
+//        Date obDate = new Date();
+//        SimpleDateFormat obDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//        System.out.println("Current Date of system :"
+//                + obDateFormat.format(obDate.getTime()));
+//        String waktuSekarang=obDateFormat.format(obDate.getTime());
+//        Cart cart1=new Order(
+//                cart.getId_user(),
+//                cart.getId_product(),
+//                waktuSekarang,
+//                1
+//        );
+//        return cartRepo.addToOrder(cart1);
+//    }
+
+    public List allDate(){
+        return cartRepo.findAll();
+    }
+
 }

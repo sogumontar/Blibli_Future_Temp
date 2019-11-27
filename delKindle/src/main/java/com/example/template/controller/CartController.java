@@ -50,13 +50,13 @@ public class CartController {
 //        List<Product> result= query.getResultList() ;
 //        return result;
 //    }
+
     @CrossOrigin
     @PostMapping("/add")
-    public Cart save(@RequestBody Cart cart){
+    public Cart save(@RequestBody Cart order){
 
-        return cartService.save(cart);
+        return cartService.save(order);
     }
-
     @CrossOrigin
     @GetMapping("/exist/{idUser}/{idProduct}")
     public Long existByIdUserAndIdProduct(@PathVariable Long idUser,@PathVariable Integer idProduct){
@@ -100,6 +100,15 @@ public class CartController {
     public Cart findAllByIdUser(Integer id){
         System.out.println(cartService.findAllByIduser(id));
         return cartService.findAllByIduser(id);
+    }
+    @CrossOrigin
+    @GetMapping("/check")
+    public List allCheck(){
+        Cart cart=new Cart();
+
+         cartService.allDate();
+        System.out.println(cart.getId_user());
+        return cartService.allDate();
     }
 
 }
