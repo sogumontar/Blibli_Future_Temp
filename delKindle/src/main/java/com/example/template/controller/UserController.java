@@ -1,5 +1,4 @@
 package com.example.template.controller;
-
 import com.example.template.model.Product;
 import com.example.template.model.User;
 import com.example.template.repository.UserRepository;
@@ -32,24 +31,20 @@ public class UserController{
     }
 
     @CrossOrigin
-    @GetMapping("/findById/{id}")
-    public User findById( @PathVariable Long id){
-        return userService.findFirstById(id);
+    @GetMapping("/findById/{sku}")
+    public User findBySku( @PathVariable String sku){
+        return userService.findBySku(sku);
     }
 
     @CrossOrigin
-    @PostMapping("updateStatusActive/{id}")
-    public User updateStatusActive(@PathVariable Long id){
-        User user = userRepository.findFirstById(id);
-        user.setStatus(1);
-        return userService.save(user);
+    @PostMapping("updateStatusActive/{sku}")
+    public User updateStatusActive(@PathVariable String sku){
+        return userService.updateStatusActive(sku);
     }
 
     @CrossOrigin
-    @PostMapping("updateStatusBlock/{id}")
-    public User updateStatusBlock(@PathVariable Long id){
-        User user = userRepository.findFirstById(id);
-        user.setStatus(0);
-        return userService.save(user);
+    @PostMapping("updateStatusBlock/{sku}")
+    public User updateStatusBlock(@PathVariable String sku){
+        return userService.updateStatusabalock(sku);
     }
 }

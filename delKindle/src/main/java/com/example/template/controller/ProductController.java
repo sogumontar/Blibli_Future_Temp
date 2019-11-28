@@ -42,8 +42,8 @@ public class ProductController {
 
     @CrossOrigin
     @GetMapping("/get/{id}")
-    public Product detail(@PathVariable Integer id){
-        return productService.findFirstById(id);
+    public Product detail(@PathVariable String skuProduct){
+        return productService.findFirstBySkuProduct(skuProduct);
     }
     @CrossOrigin
     @PostMapping("/simpan")
@@ -70,19 +70,19 @@ public class ProductController {
 
     @CrossOrigin
     @PutMapping("/update/{idProduct}")
-    public ResponseEntity<Object> updateProduct(@PathVariable Integer idProduct, @RequestBody Product product){
-        Optional<Product> productOptional= Optional.ofNullable(productService.findFirstById(idProduct));
+    public ResponseEntity<Object> updateProduct(@PathVariable String skuProduct, @RequestBody Product product){
+        Optional<Product> productOptional= Optional.ofNullable(productService.findFirstBySkuProduct(skuProduct));
         if(!productOptional.isPresent())
             return ResponseEntity.notFound().build();
-        product.setId(idProduct);
+        product.setSkuProduct(skuProduct);
         productService.save(product);
         return ResponseEntity.ok().build();
     }
 
     @CrossOrigin
     @DeleteMapping("/del/{id}")
-    public void deleteProduct(@PathVariable Integer id) {
-        productService.deleteById(id);
+    public void deleteProduct(@PathVariable String sku) {
+        productService.deleteBySkuProduct(sku);
     }
 //
 //    @CrossOrigin
@@ -105,8 +105,8 @@ public class ProductController {
 
     @CrossOrigin
     @GetMapping("/{productId}")
-    public Product findFirstById(@PathVariable  Integer productId){
-        return productService.findFirstById(productId);
+    public Product findFirstBySkuProduct(@PathVariable  String SkuProduct){
+        return productService.findFirstBySkuProduct(SkuProduct);
     }
 
 }

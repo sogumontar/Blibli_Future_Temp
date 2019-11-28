@@ -1,5 +1,4 @@
 package com.example.template.model;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -15,10 +14,8 @@ public class Product {
 
 
     @Id
-
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name ="id")
-    private Integer id;
+    @Column(name ="sku_product")
+    private String skuProduct;
 
     @Column(name ="title")
     private String title;
@@ -49,13 +46,8 @@ public class Product {
     @Column(name="pict_product")
     private String pict_product;
 
-    @Lob
-    @Column(name="picture_product")
-    private String picture_product;
-
-    @Lob
-    @Column(name="product_file")
-    private byte[] product_file;
+    @Column(name="book_file")
+    private String book_file;
 
     @Column(name="id_merchant")
     private Integer id_merchant;
@@ -75,7 +67,7 @@ public class Product {
             })
     @JoinTable(name = "cart",
             joinColumns = {@JoinColumn(name = "id_product")},
-            inverseJoinColumns ={@JoinColumn(name = "id_user")})
+            inverseJoinColumns ={@JoinColumn(name = "sku_user")})
     Set<User>users=new HashSet<>();
     public Product(String title, String description, String categories, String publication_year, Integer price, String author, String publisher ,String isbn) {
         this.title = title;
@@ -88,13 +80,9 @@ public class Product {
         this.isbn = isbn;
     }
 
-    public Product(String picture_product, byte[] product_file) {
-        this.picture_product = picture_product;
-        this.product_file = product_file;
-    }
 
-    public Product(Integer id, String title, String description, String categories, String publication_year, Integer price, String author, String isbn, String publisher, String pict_product, Integer id_merchant) {
-        this.id = id;
+    public Product(String skuProduct, String title, String description, String categories, String publication_year, Integer price, String author, String isbn, String publisher, String pict_product, Integer id_merchant) {
+        this.skuProduct = skuProduct;
         this.title = title;
         this.description = description;
         this.categories = categories;
@@ -131,12 +119,12 @@ public class Product {
 
     }
 
-    public Integer getId() {
-        return id;
+    public String getSkuProduct() {
+        return skuProduct;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setSkuProduct(String skuProduct) {
+        this.skuProduct = skuProduct;
     }
 
     public String getTitle() {
@@ -203,22 +191,6 @@ public class Product {
         this.publisher = publisher;
     }
 
-    public String getPictureproduct(){
-        return this.picture_product;
-    }
-
-    public void setPictureproduct(String picture_product){
-        this.picture_product = picture_product;
-    }
-
-    public byte[] getProductfile(){
-        return this.product_file;
-    }
-
-    public void setProductfile(byte[] productfile){
-        this.product_file = productfile;
-    }
-
     public Integer getId_merchant() {
         return id_merchant;
     }
@@ -227,4 +199,11 @@ public class Product {
         this.id_merchant = id_merchant;
     }
 
+    public String getBook_file() {
+        return book_file;
+    }
+
+    public void setBook_file(String book_file) {
+        this.book_file = book_file;
+    }
 }

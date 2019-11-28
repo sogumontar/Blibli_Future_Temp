@@ -26,12 +26,25 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public User findFirstById(Long id){
-        return userRepository.findFirstById(id);
+
+    public User findBySku(String sku){
+        return userRepository.findBySku(sku);
+    }
+
+    public User updateStatusActive(String sku){
+        User user = userRepository.findBySku(sku);
+        user.setStatus(1);
+        return userRepository.save(user);
+    }
+
+    public User updateStatusabalock(String sku){
+        User user = userRepository.findBySku(sku);
+        user.setStatus(0);
+        return userRepository.save(user);
     }
 
 
-
-
-
 }
+
+
+

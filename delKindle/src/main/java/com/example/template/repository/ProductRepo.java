@@ -8,8 +8,9 @@ import java.util.List;
 
 
 
-public interface ProductRepo extends JpaRepository<Product,Integer> {
-    Product findFirstById(Integer productId);
+public interface ProductRepo extends JpaRepository<Product,String> {
+      Product findFirstBySkuProduct(String sku);
+//    Product findFirstById(String productId);
     List findAllByCategories(String kategori);
-    void deleteById(Integer id);
+    void deleteBySkuProduct(String sku);
 }

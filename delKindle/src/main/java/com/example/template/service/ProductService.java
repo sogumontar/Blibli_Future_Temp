@@ -17,16 +17,16 @@ public class ProductService {
 
     @Autowired
     SkuProductsService skuProductsService;
-    public void deleteById(Integer id){
-        productRepo.deleteById(id);
+    public void deleteBySkuProduct(String sku){
+        productRepo.deleteBySkuProduct(sku);
     }
     public List findAll(){
         return productRepo.findAll();
     }
 
-    public Product findFirstById(Integer id){
+    public Product findFirstBySkuProduct(String sku){
 
-        return productRepo.findFirstById(id);
+        return productRepo.findFirstBySkuProduct(sku);
     }
 
     public Product save(Product product){

@@ -9,11 +9,11 @@ public class Order {
     @Column(name = "id")
     private String id;
 
-    @Column(name = "id_user")
-    private Integer idUser;
+    @Column(name = "sku_user")
+    private String skuUser;
 
-    @Column(name = "id_product")
-    private Integer idProduct;
+    @Column(name = "sku_product")
+    private String skuProduct;
 
     @Column(name = "created_at")
     private String date;
@@ -24,9 +24,10 @@ public class Order {
     public Order(){
 
     }
-    public Order(Integer idUser, Integer idProduct, String date, Integer status) {
-        this.idUser = idUser;
-        this.idProduct = idProduct;
+    public Order(String id,String idUser, String idProduct, String date, Integer status) {
+        this.id=id;
+        this.skuUser = idUser;
+        this.skuProduct = idProduct;
         this.date = date;
         this.status = status;
     }
@@ -39,20 +40,20 @@ public class Order {
         this.id = id;
     }
 
-    public Integer getIdUser() {
-        return idUser;
+    public String getIdUser() {
+        return skuUser;
     }
 
-    public void setIdUser(Integer idUser) {
-        this.idUser = idUser;
+    public void setIdUser(String idUser) {
+        this.skuUser = idUser;
     }
 
-    public Integer getIdProduct() {
-        return idProduct;
+    public String getIdProduct() {
+        return skuProduct;
     }
 
-    public void setIdProduct(Integer idProduct) {
-        this.idProduct = idProduct;
+    public void setIdProduct(String idProduct) {
+        this.skuProduct = idProduct;
     }
 
     public String getDate() {
