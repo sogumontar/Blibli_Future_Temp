@@ -25,8 +25,7 @@ import java.util.Set;
 })
 public class User extends DateAudit{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String sku;
 
     @Size(max = 40)
     private String name;
@@ -34,7 +33,7 @@ public class User extends DateAudit{
     @Size(max = 15)
     private String username;
 
-    @NaturalId
+
     @Size(max = 40)
     @Email
     private String email;
@@ -57,24 +56,17 @@ public class User extends DateAudit{
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
+            joinColumns = @JoinColumn(name = "sku_user"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
-
-    @ManyToMany(fetch = FetchType.LAZY,
-        cascade = {
-            CascadeType.PERSIST,
-                CascadeType.MERGE
-        },
-            mappedBy = "users")
-private Set<Product> products=new HashSet<>();
 
     public User() {
 
     }
 
-    public User(String name, String username, String email, String password, String alamat,String tanggal_lahir,String telepon,Integer status) {
+    public User(String sku,String name, String username, String email, String password, String alamat,String tanggal_lahir,String telepon,Integer status) {
+        this.sku = sku;
         this.name = name;
         this.username = username;
         this.email = email;
@@ -85,12 +77,12 @@ private Set<Product> products=new HashSet<>();
         this.status = status;
     }
 
-    public Long getId() {
-        return id;
+    public String getSku() {
+        return sku;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setSku(String sku) {
+        this.sku = sku;
     }
 
     public String getUsername() {
@@ -165,12 +157,4 @@ private Set<Product> products=new HashSet<>();
         this.status = status;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", username='" + username + '\'' +
-                '}';
-    }
 }

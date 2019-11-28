@@ -12,7 +12,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class UserPrincipal implements UserDetails {
-    private Long id;
+    private String sku;
 
     private String name;
 
@@ -26,8 +26,8 @@ public class UserPrincipal implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserPrincipal(Long id, String name, String username, String email, String password, Collection<? extends GrantedAuthority> authorities) {
-        this.id = id;
+    public UserPrincipal(String sku, String name, String username, String email, String password, Collection<? extends GrantedAuthority> authorities) {
+        this.sku = sku;
         this.name = name;
         this.username = username;
         this.email = email;
@@ -41,7 +41,7 @@ public class UserPrincipal implements UserDetails {
         ).collect(Collectors.toList());
 
         return new UserPrincipal(
-                user.getId(),
+                user.getSku(),
                 user.getName(),
                 user.getUsername(),
                 user.getEmail(),
@@ -50,8 +50,8 @@ public class UserPrincipal implements UserDetails {
         );
     }
 
-    public Long getId() {
-        return id;
+    public String getSku() {
+        return sku;
     }
 
     public String getName() {
@@ -102,12 +102,12 @@ public class UserPrincipal implements UserDetails {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UserPrincipal that = (UserPrincipal) o;
-        return Objects.equals(id, that.id);
+        return Objects.equals(sku, that.sku);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id);
+        return Objects.hash(sku);
     }
 }

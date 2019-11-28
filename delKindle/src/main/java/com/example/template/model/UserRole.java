@@ -9,18 +9,18 @@ import javax.validation.constraints.Size;
 public class UserRole {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long user_id;
+    private String sku_user;
 
     @NotBlank
     @Size(max = 40)
     private Integer role_id;
 
-    public Long getUser_id() {
-        return user_id;
+    public String getSku_user() {
+        return sku_user;
     }
 
-    public void setUser_id(Long user_id) {
-        this.user_id = user_id;
+    public void setSku_user(String sku_user) {
+        this.sku_user = sku_user;
     }
 
     public Integer getRole_id() {

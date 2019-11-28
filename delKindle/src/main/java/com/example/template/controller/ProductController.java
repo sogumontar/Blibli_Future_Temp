@@ -40,44 +40,44 @@ public class ProductController {
         return productService.findAll();
     }
 
-    @CrossOrigin
-    @GetMapping("/get/{id}")
-    public Product detail(@PathVariable Integer id){
-        return productService.findFirstById(id);
-    }
-    @CrossOrigin
-    @PostMapping("/simpan")
-    public String simpan(@RequestPart("product") Product product1){
-        try{
-            Product product =  new Product(
-                    product1.getTitle(),
-                    product1.getDescription(),
-                    product1.getCategories(),
-                    product1.getPublication_year(),
-                    product1.getPrice(),
-                    product1.getAuthor(),
-                    product1.getPublisher(),
-                    product1.getIsbn());
-            productService.save(product);
+//    @CrossOrigin
+//    @GetMapping("/get/{id}")
+//    public Product detail(@PathVariable Integer id){
+//        return productService.findFirstById(id);
+//    }
+//    @CrossOrigin
+//    @PostMapping("/simpan")
+//    public String simpan(@RequestPart("product") Product product1){
+//        try{
+//            Product product =  new Product(
+//                    product1.getTitle(),
+//                    product1.getDescription(),
+//                    product1.getCategories(),
+//                    product1.getPublication_year(),
+//                    product1.getPrice(),
+//                    product1.getAuthor(),
+//                    product1.getPublisher(),
+//                    product1.getIsbn());
+//            productService.save(product);
+//
+//
+//            return "sukses";
+//        }catch (Exception e){
+//            return e.getMessage();
+//        }
+//    }
 
 
-            return "sukses";
-        }catch (Exception e){
-            return e.getMessage();
-        }
-    }
-
-
-    @CrossOrigin
-    @PutMapping("/update/{idProduct}")
-    public ResponseEntity<Object> updateProduct(@PathVariable Integer idProduct, @RequestBody Product product){
-        Optional<Product> productOptional= Optional.ofNullable(productService.findFirstById(idProduct));
-        if(!productOptional.isPresent())
-            return ResponseEntity.notFound().build();
-        product.setId(idProduct);
-        productService.save(product);
-        return ResponseEntity.ok().build();
-    }
+//    @CrossOrigin
+//    @PutMapping("/update/{idProduct}")
+//    public ResponseEntity<Object> updateProduct(@PathVariable Integer idProduct, @RequestBody Product product){
+//        Optional<Product> productOptional= Optional.ofNullable(productService.findFirstById(idProduct));
+//        if(!productOptional.isPresent())
+//            return ResponseEntity.notFound().build();
+//        product.setId(idProduct);
+//        productService.save(product);
+//        return ResponseEntity.ok().build();
+//    }
 
     @CrossOrigin
     @DeleteMapping("/del/{id}")
@@ -103,10 +103,10 @@ public class ProductController {
         return "berhasil";
     }
 
-    @CrossOrigin
-    @GetMapping("/{productId}")
-    public Product findFirstById(@PathVariable  Integer productId){
-        return productService.findFirstById(productId);
-    }
+//    @CrossOrigin
+//    @GetMapping("/{productId}")
+//    public Product findFirstById(@PathVariable  Integer productId){
+//        return productService.findFirstById(productId);
+//    }
 
 }

@@ -33,14 +33,13 @@ $(document).ready(function(){
     };
     $.ajax({
               type:"POST",
-              url:"http://localhost:9080/api/auth/signup",
+              url:"http://localhost:9081/api/auth/signup",
               data: JSON.stringify(jsonVar),
-              contentType: "application/json",
               contentType: "application/json",
               success: function(data){
                   console.log(data.message);
                   window.alert("success register account");
-                  location.href = "login.html?";
+                  location.href = "login.html";
               },
               error: function(err) {
                   $("#message").append(err.responseJSON.message);

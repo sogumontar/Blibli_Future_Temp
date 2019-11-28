@@ -15,10 +15,8 @@ public class Product {
 
 
     @Id
-
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name ="id")
-    private Integer id;
+    @Column(name ="sku_product")
+    private String sku_product;
 
     @Column(name ="title")
     private String title;
@@ -49,52 +47,15 @@ public class Product {
     @Column(name="pict_product")
     private String pict_product;
 
-    @Lob
-    @Column(name="picture_product")
-    private String picture_product;
+    @Column(name="book_file")
+    private String book_file;
 
-    @Lob
-    @Column(name="product_file")
-    private byte[] product_file;
+    @Column(name="sku_merchant")
+    private String sku_merchant;
 
-    @Column(name="id_merchant")
-    private Integer id_merchant;
 
-    public Set<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Set<User> users) {
-        this.users = users;
-    }
-
-    @ManyToMany(fetch = FetchType.LAZY,
-            cascade = {
-                    CascadeType.PERSIST,
-                    CascadeType.MERGE
-            })
-    @JoinTable(name = "cart",
-            joinColumns = {@JoinColumn(name = "id_product")},
-            inverseJoinColumns ={@JoinColumn(name = "id_user")})
-    Set<User>users=new HashSet<>();
-    public Product(String title, String description, String categories, String publication_year, Integer price, String author, String publisher ,String isbn) {
-        this.title = title;
-        this.description = description;
-        this.categories = categories;
-        this.publication_year = publication_year;
-        this.price = price;
-        this.author = author;
-        this.publisher = publisher;
-        this.isbn = isbn;
-    }
-
-    public Product(String picture_product, byte[] product_file) {
-        this.picture_product = picture_product;
-        this.product_file = product_file;
-    }
-
-    public Product(Integer id, String title, String description, String categories, String publication_year, Integer price, String author, String isbn, String publisher, String pict_product, Integer id_merchant) {
-        this.id = id;
+    public Product(String sku_product,String title, String description, String categories, String publication_year, Integer price, String author, String publisher, String isbn, String pict_product,String book_file, String sku_merchant) {
+        this.sku_product = sku_product;
         this.title = title;
         this.description = description;
         this.categories = categories;
@@ -104,10 +65,12 @@ public class Product {
         this.isbn = isbn;
         this.publisher = publisher;
         this.pict_product = pict_product;
-        this.id_merchant = id_merchant;
+        this.book_file = book_file;
+        this.sku_merchant = sku_merchant;
     }
 
-    public Product(String title, String description, String categories, String publication_year, Integer price, String author, String publisher, String isbn, String pict_product, Integer id_merchant) {
+    public Product(String sku_product, String title, String description, String categories, String publication_year, Integer price, String author, String publisher, String isbn, String sku_merchant) {
+        this.sku_product = sku_product;
         this.title = title;
         this.description = description;
         this.categories = categories;
@@ -116,8 +79,7 @@ public class Product {
         this.author = author;
         this.isbn = isbn;
         this.publisher = publisher;
-        this.pict_product = pict_product;
-        this.id_merchant = id_merchant;
+        this.sku_merchant = sku_merchant;
     }
 
     public String getPict_product() {
@@ -131,13 +93,8 @@ public class Product {
 
     }
 
-    public Integer getId() {
-        return id;
-    }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+
 
     public String getTitle() {
         return title;
@@ -203,28 +160,29 @@ public class Product {
         this.publisher = publisher;
     }
 
-    public String getPictureproduct(){
-        return this.picture_product;
+    public String getSku_product() {
+        return sku_product;
     }
 
-    public void setPictureproduct(String picture_product){
-        this.picture_product = picture_product;
+    public void setSku_product(String sku_product) {
+        this.sku_product = sku_product;
     }
 
-    public byte[] getProductfile(){
-        return this.product_file;
+    public String getSku_merchant() {
+        return sku_merchant;
     }
 
-    public void setProductfile(byte[] productfile){
-        this.product_file = productfile;
+    public void setSku_merchant(String sku_merchant) {
+        this.sku_merchant = sku_merchant;
     }
 
-    public Integer getId_merchant() {
-        return id_merchant;
+    public String getBook_file() {
+        return book_file;
     }
 
-    public void setId_merchant(Integer id_merchant) {
-        this.id_merchant = id_merchant;
+    public void setBook_file(String book_file) {
+        this.book_file = book_file;
     }
+
 
 }

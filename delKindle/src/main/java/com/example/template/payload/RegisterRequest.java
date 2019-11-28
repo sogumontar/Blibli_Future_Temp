@@ -5,20 +5,20 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 public class RegisterRequest {
-    @NotBlank
+
+    @Size(max = 100)
+    private String sku;
+
     @Size(min = 4, max = 40)
     private String name;
 
-    @NotBlank
     @Size(min = 3, max = 15)
     private String username;
 
-    @NotBlank
     @Size(max = 40)
     @Email
     private String email;
 
-    @NotBlank
     @Size(min = 6, max = 20)
     private String password;
 
@@ -26,6 +26,14 @@ public class RegisterRequest {
     private Integer status;
 
     private String created_at;
+
+    public String getSku() {
+        return sku;
+    }
+
+    public void setSku(String sku) {
+        this.sku = sku;
+    }
 
     public String getCreated_at() {
         return created_at;

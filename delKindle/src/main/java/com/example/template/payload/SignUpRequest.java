@@ -41,7 +41,6 @@ public class SignUpRequest {
     @NotBlank
     private String role;
 
-
     private Integer status=1;
 
     public String getName() {

@@ -4,25 +4,25 @@ public class JwtAuthenticationResponse {
     private String accessToken;
     private String tokenType = "Bearer";
     private String role;
-    private Long idLog;
+    private String skuLog;
 
     public JwtAuthenticationResponse(String accessToken , String role) {
         this.accessToken = accessToken;
         this.role = role;
     }
 
-    public JwtAuthenticationResponse(String accessToken, String role, Long idLog) {
+    public JwtAuthenticationResponse(String accessToken, String role, String skuLog) {
         this.accessToken = accessToken;
         this.role = role;
-        this.idLog = idLog;
+        this.skuLog = skuLog;
     }
 
-    public Long getIdLog() {
-        return idLog;
+    public String getSkuLog() {
+        return skuLog;
     }
 
-    public void setIdLog(Long idLog) {
-        this.idLog = idLog;
+    public void setSkuLog(String skuLog) {
+        this.skuLog = skuLog;
     }
 
     public String getAccessToken() {

@@ -24,10 +24,10 @@ public class ProductService {
         return productRepo.findAll();
     }
 
-    public Product findFirstById(Integer id){
-
-        return productRepo.findFirstById(id);
-    }
+//    public Product findFirstById(Integer id){
+//
+//        return productRepo.findFirstById(id);
+//    }
 
     public Product save(Product product){
 

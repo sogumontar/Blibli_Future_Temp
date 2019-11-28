@@ -97,10 +97,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers("/merchant/saveProduct")
                 .permitAll()
-                .antMatchers(HttpMethod.GET, "/api/polls/**", "/api/users/**")
+                .antMatchers("seqUser/**")
                 .permitAll()
-                .anyRequest()
-                .authenticated();
+//                .anyRequest()
+//                .authenticated()
+        ;
 
         // Add our custom JWT security filter
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
