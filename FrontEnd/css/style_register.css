@@ -1,0 +1,36 @@
+@media only screen and (min-width: 981px){
+  #body{
+    background-color: #F1FAFF;
+    padding-top: 10px;
+    padding-bottom: 140px;
+    padding-left: 180px;
+    padding-right: 180px;
+  }
+  #content{
+    margin: 30px 250px 0px 250px;
+    padding: 25px 25px 25px 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  #username{
+    width: 400px;
+  }
+  #name{
+    width: 400px;
+  }
+  #email{
+    width: 400px;
+  }
+  #password{
+    width: 400px;
+  }
+  #telepon{
+    width: 400px;
+  }
+  #alamat{
+    width: 400px;
+  }
+  #tanggal_lahir{
+    width: 400px;
+  }
+
+}
