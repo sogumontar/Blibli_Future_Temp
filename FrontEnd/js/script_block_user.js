@@ -31,7 +31,7 @@ $(document).ready(function(){
               "Content-Type": "application/json",
               // "Authorization": "Bearer "+c
           },
-          url:"http://localhost:9080/user/getAll",
+          url:"http://localhost:9081/user/getAll",
           success: function(data) {
             console.log(data);
             var users = JSON.parse(JSON.stringify(data));
@@ -54,7 +54,7 @@ $(document).ready(function(){
                           </table>\
                         </div>\
                         <div>\
-                          ' + (users[i].status == 1 ? '<a href="update_block.html?id='+users[i].id+'"><button type="button" class="btn btn-outline-danger" id="but_block"><img src="Pict/wrong.png" id="pict_button"> Block</button></a>': '<a href="update_active.html?id='+users[i].id+'"><button type="button" class="btn btn-outline-primary" id="but_active"><img src="Pict/cek.png" id="pict_button"> Active</button></a>') + '\
+                          ' + (users[i].status == 1 ? '<a href="update_block.html?id='+users[i].sku+'"><button type="button" class="btn btn-outline-danger" id="but_block"><img src="Pict/wrong.png" id="pict_button"> Block</button></a>': '<a href="update_active.html?id='+users[i].sku+'"><button type="button" class="btn btn-outline-primary" id="but_active"><img src="Pict/cek.png" id="pict_button"> Active</button></a>') + '\
                         </div>\
                       </div>\
                   </div>\
@@ -75,7 +75,7 @@ $(document).ready(function(){
                   "Content-Type": "application/json",
                   // "Authorization": "Bearer "+c
               },
-              url:"http://localhost:9080/user/findByName/"+name,
+              url:"http://localhost:9081/user/findByName/"+name,
               success: function(data) {
                 console.log(data);
                 $("#listSearch").hide();
