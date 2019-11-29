@@ -30,6 +30,7 @@ import java.util.Collections;
 public class AuthService {
     public static String skuLogin;
     private static String temp;
+    public static Integer status;
 
     @Autowired
     AuthenticationManager authenticationManager;
@@ -76,8 +77,9 @@ public class AuthService {
         String jwt = tokenProvider.generateToken(authentication);
         System.out.println(jwt);
         skuLogin=user.getSku();
+        status = user.getStatus();
         System.out.println(user.getSku());
-        return ResponseEntity.ok(new JwtAuthenticationResponse(jwt,temp,skuLogin));
+        return ResponseEntity.ok(new JwtAuthenticationResponse(jwt,temp,skuLogin,status));
     }
 
 
