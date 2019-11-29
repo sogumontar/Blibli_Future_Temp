@@ -1,15 +1,20 @@
 package com.example.template.service;
 
+import com.example.template.model.LastProduct;
 import com.example.template.model.Product;
+import com.example.template.model.SeqProduct;
 import com.example.template.payload.CatalogEntryRequest;
 import com.example.template.repository.MerchantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Base64;
 import java.util.List;
 
 @Service
@@ -20,6 +25,12 @@ public class MerchantService {
 
     @Autowired
     MerchantService merchantService;
+
+    @Autowired
+    LastProductService lastProductService;
+
+    @Autowired
+    SeqProductService seqProductService;
 
     public Product save(Product product){
         return merchantRepository.save(product);
@@ -71,11 +82,63 @@ public class MerchantService {
 //            return e.getMessage();
 //        }
 //    }
+    public void addProduct(CatalogEntryRequest catalogEntryRequest){
+        int last = lastProductService.findLast().getLast_book();
+        int two = last+1;
+        String pict = "pict"+two+".jpg";
+        File file = new File("C:/product/"+pict);
+        try(FileOutputStream fos = new FileOutputStream(file)){
+            byte[] decoder = Base64.getDecoder().decode(catalogEntryRequest.getPict_product());
+            fos.write(decoder);
+            System.out.println("Image file saved");
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
 
-    public Product saveProduct(CatalogEntryRequest catalogEntryRequest){
+    public void addBook(CatalogEntryRequest catalogEntryRequest){
+        int last = lastProductService.findLast().getLast_book();
+        int two = last+1;
+        String pdf = "book"+two+".pdf";
+        File file = new File("C:/product/book/"+pdf);
+        try(FileOutputStream fos = new FileOutputStream(file)){
+            byte[] decoder = Base64.getDecoder().decode(catalogEntryRequest.getBook_file());
+            fos.write(decoder);
+            System.out.println("Image file saved");
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public String saveProduct(CatalogEntryRequest catalogEntryRequest){
+
+            String sku_merchant = catalogEntryRequest.getSku_merchant();
+            String sku_product = "";
+            if(seqProductService.existByKey(sku_merchant)){
+                SeqProduct seqProduct = seqProductService.findFirstByKey(catalogEntryRequest.getSku_merchant());
+                int toInt = Integer.parseInt(seqProduct.getLast_seq());
+                int two = toInt+1;
+                String tempat = "000"+two;
+                seqProduct.setLast_seq(tempat);
+                seqProductService.save(seqProduct);
+                sku_product = sku_merchant+"-"+tempat;
+                System.out.println(sku_product);
+            }else{
+                seqProductService.add(catalogEntryRequest.getSku_merchant(),"0001");
+                LastProduct lastProduct = lastProductService.findLast();
+                int last_book = lastProduct.getLast_book();
+                lastProductService.save(last_book+1);
+                sku_product = sku_merchant+"-0001";
+            }
+
+            int last = lastProductService.findLast().getLast_book();
+            int two = last+1;
+            lastProductService.save(last+1);
+            String pdf = "book"+two+".pdf";
+            String pict = "pict"+two+".jpg";
 
             Product product = new Product(
-              catalogEntryRequest.getSku_product(),
+              sku_product,
               catalogEntryRequest.getTitle(),
               catalogEntryRequest.getDescription(),
               catalogEntryRequest.getCategories(),
@@ -86,9 +149,11 @@ public class MerchantService {
               catalogEntryRequest.getIsbn(),
               catalogEntryRequest.getSku_merchant()
             );
-            product.setPict_product("asd");
-            product.setBook_file("das");
-         return merchantService.save(product);
+            product.setPict_product(pict);
+            product.setBook_file(pdf);
+         merchantService.save(product);
+
+         return "sukses";
     }
 
 }

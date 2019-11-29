@@ -14,4 +14,11 @@ public class LastProductService {
     public LastProduct findLast(){
         return lastProductRepository.findLast();
     }
+
+    public LastProduct save(Integer last_book){
+        LastProduct lastProduct = new LastProduct();
+        lastProduct.setLast_book(last_book);
+        lastProduct.setLast_picture(last_book);
+        return lastProductRepository.save(lastProduct);
+    }
 }

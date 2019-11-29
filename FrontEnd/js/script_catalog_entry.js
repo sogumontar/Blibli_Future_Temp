@@ -88,19 +88,20 @@ function handlePdf(evt) {
 
       //access APIs
       var jsonVar = {
-          title:document.getElementById('title').value;
-          description:document.getElementById('description').value;
-          categories:document.getElementById('categories').value;
-          publication_year:document.getElementById('publication_year').value;
-          price:document.getElementById('price').value;
-          author:document.getElementById('author').value;
-          isbn:document.getElementById('isbn').value;
-          publisher:document.getElementById('publisher').value;
+          title:document.getElementById('title').value,
+          description:document.getElementById('description').value,
+          categories:document.getElementById('categories').value,
+          publication_year:document.getElementById('publication_year').value,
+          price:document.getElementById('price').value,
+          author:document.getElementById('author').value,
+          isbn:document.getElementById('isbn').value,
+          publisher:document.getElementById('publisher').value,
+          sku_merchant: localStorage.getItem("skuLogin")
       };
       //ajax
       $.ajax({
                 type:"POST",
-                url:"http://localhost:9081/merchant/addProductImage",
+                url:"http://localhost:9081/merchant/saveProduct",
                 data: JSON.stringify(jsonVar),
                 contentType: "application/json",
                 success: function(data){
@@ -113,7 +114,7 @@ function handlePdf(evt) {
       });
       //endlend onload
     }
-  }
+  
 
   $('#submit1').click(function(){
     assignDataProduct();
