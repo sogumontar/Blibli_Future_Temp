@@ -17,10 +17,10 @@ $(document).ready(function(){
               contentType: "application/json",
               success: function(data){
                 token = data.accessToken;
-                idLogin=data.idLog;
+                skuLog=data.skuLog;
                 console.log(data.role);
                 localStorage.setItem('Token',token);
-                localStorage.setItem('idLogin',idLogin);
+                localStorage.setItem('skuLogin',skuLog);
                 if(data.role == "ROLE_USER"){
                     location.href = "index.html";
                 }else if(data.role == "ROLE_ADMIN"){
