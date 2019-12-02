@@ -13,7 +13,7 @@ for(var i in queryStringList)
 }
 
   function getCasts(){
-  const url ="http://localhost:9080/product/"+res;
+  const url ="http://localhost:9081/product/"+res;
   window.fetch(url).then((res)=>{
     return res.json()
   }).then((i)=>{
@@ -68,7 +68,7 @@ function push(){
                 }));
             var boundary = Math.random().toString().substr(2);
             console.log("asd");
-            fetch('http://localhost:9080/product/update/' + res, {
+            fetch('http://localhost:9081/product/update/' + res, {
                 method: 'put',
                 body: formData
             }).then(function (response) {
@@ -99,7 +99,7 @@ function push(){
     // $.ajax({
 
     //           type:"PUT",
-    //           url:"http://localhost:9080/product/update/" + res,
+    //           url:"http://localhost:9081/product/update/" + res,
     //           data: JSON.stringify(jsonVar),
     //           contentType: "application/json",
     //           data: JSON.stringify(jsonVar),

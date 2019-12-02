@@ -15,19 +15,19 @@ public class ProductService {
     @Autowired
     ProductRepo productRepo;
 
-    @Autowired
-    SkuProductsService skuProductsService;
-    public void deleteById(Integer id){
-        productRepo.deleteById(id);
-    }
+//    @Autowired
+//    SkuProductsService skuProductsService;
+//    public void deleteById(Integer id){
+//        productRepo.deleteById(id);
+//    }
     public List findAll(){
         return productRepo.findAll();
     }
 
-//    public Product findFirstById(Integer id){
-//
-//        return productRepo.findFirstById(id);
-//    }
+    public Product findFirstBySku(String sku){
+
+        return productRepo.findFirstBySku_product(sku);
+    }
 
     public Product save(Product product){
 

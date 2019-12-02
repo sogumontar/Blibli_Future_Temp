@@ -34,7 +34,7 @@ $(document).ready(function(){
 	// 	alert("bayar")
 	// 	$.ajax({
 	// 		type:"POST",
-	// 		url:"http://localhost:9080/cart/purchase/"+id,
+	// 		url:"http://localhost:9081/cart/purchase/"+id,
 	// 		data:JSON.stringify(jsonvar),
 	// 		Content-Type:"application/json",
 	// 		headers: {
@@ -52,7 +52,7 @@ function test(){
 
 	$.ajax({
           type:"GET",
-          url:"http://localhost:9080/cart/",
+          url:"http://localhost:9081/cart/",
           headers: {
               "Content-Type": "application/json",
               "Authorization": "Bearer "+token

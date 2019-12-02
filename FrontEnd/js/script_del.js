@@ -8,7 +8,7 @@ $(document).ready(function(){
 
 		$.ajax({
 	          type:"DELETE",
-	          url:"http://localhost:9080/cart/delete/"+val,
+	          url:"http://localhost:9081/cart/delete/"+val,
 	          headers: {
 	              "Content-Type": "application/json",
 	              "Authorization": "Bearer "+token

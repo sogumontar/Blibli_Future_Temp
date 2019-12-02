@@ -21,7 +21,7 @@ test();
 
 	$.ajax({
           type:"GET",
-          url:"http://localhost:9080/cart/",
+          url:"http://localhost:9081/cart/",
           headers: {
               "Content-Type": "application/json",
               "Authorization": "Bearer "+token
@@ -55,7 +55,7 @@ test();
 	// 	alert("bayar")
 	// 	$.ajax({
 	// 		type:"POST",
-	// 		url:"http://localhost:9080/cart/purchase/"+id,
+	// 		url:"http://localhost:9081/cart/purchase/"+id,
 	// 		Content-Type:"application/json",
 	// 		headers: {
  //              "Content-Type": "application/json",

@@ -57,21 +57,21 @@ public class CartController {
         return cartService.save(cart1);
     }
 
-    @CrossOrigin
-    @PostMapping("/purchase/{idLogin}")
-    public ResponseEntity<Object> purchase(@RequestBody Cart cart, @PathVariable Integer idLogin){
-        Optional<Cart> cartOptional=Optional.ofNullable(cartService.findFirstById(idLogin));
-        if(!cartOptional.isPresent())
-            return ResponseEntity.notFound().build();
-
-            cart.setId(idLogin);
-            cart.setStatus(2);
-            Cart cart1=new Cart(2);
-            cartService.save(cart);
-            return ResponseEntity.ok().build();
-
-
-    }
+//    @CrossOrigin
+//    @PostMapping("/purchase/{idLogin}")
+//    public ResponseEntity<Object> purchase(@RequestBody Cart cart, @PathVariable Integer idLogin){
+//        Optional<Cart> cartOptional=Optional.ofNullable(cartService.findFirstById(idLogin));
+//        if(!cartOptional.isPresent())
+//            return ResponseEntity.notFound().build();
+//
+//            cart.setId(idLogin);
+//            cart.setStatus(2);
+//            Cart cart1=new Cart(2);
+//            cartService.save(cart);
+//            return ResponseEntity.ok().build();
+//
+//
+//    }
 
     @CrossOrigin
     @DeleteMapping("/delete/{id}")
