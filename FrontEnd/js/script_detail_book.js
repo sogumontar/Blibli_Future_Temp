@@ -4,7 +4,7 @@ var token = localStorage.getItem("Token")
 var idLog = localStorage.getItem("idLogin")
 
   // const url ='https://swapi.co/api/people'
-  const url ="http://localhost:9080/product/get/"+id;
+  const url ="http://localhost:9081/product/get/"+id;
   window.fetch(url,{
     method: 'GET',
     headers: {
@@ -67,7 +67,7 @@ $("#addToCart").click(function(){
                   "Content-Type": "application/json",
                   "Authorization": "Bearer "+token
               },
-              url:"http://localhost:9080/cart/add",
+              url:"http://localhost:9081/cart/add",
               data: JSON.stringify(jsonVar),
               success: function(data){
               },

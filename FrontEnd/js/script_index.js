@@ -47,7 +47,7 @@ $('#kategori').append("<br><hr><br><br>\
 					beforeSend : function( xhr ) {
         		xhr.setRequestHeader( "Authorization", "Bearer "+token );
     			},
-          url:"http://localhost:9080/product/",
+          url:"http://localhost:9081/product/",
           success: function(data) {
 						console.log(data);
             var users = JSON.parse(JSON.stringify(data));

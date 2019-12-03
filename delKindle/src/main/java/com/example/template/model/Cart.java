@@ -6,9 +6,8 @@ import javax.persistence.*;
 @Table(name = "cart")
 public class Cart {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private Integer id;
+    private String id;
 
     @Column(name = "id_user")
     private Long id_user;
@@ -36,11 +35,11 @@ public class Cart {
 
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -40,11 +40,11 @@ public class ProductController {
         return productService.findAll();
     }
 
-//    @CrossOrigin
-//    @GetMapping("/get/{id}")
-//    public Product detail(@PathVariable Integer id){
-//        return productService.findFirstById(id);
-//    }
+    @CrossOrigin
+    @GetMapping("/get/{sku}")
+    public Product detail(@PathVariable String sku){
+        return productService.findFirstBySku(sku);
+    }
 //    @CrossOrigin
 //    @PostMapping("/simpan")
 //    public String simpan(@RequestPart("product") Product product1){
@@ -79,11 +79,11 @@ public class ProductController {
 //        return ResponseEntity.ok().build();
 //    }
 
-    @CrossOrigin
-    @DeleteMapping("/del/{id}")
-    public void deleteProduct(@PathVariable Integer id) {
-        productService.deleteById(id);
-    }
+//    @CrossOrigin
+//    @DeleteMapping("/del/{id}")
+//    public void deleteProduct(@PathVariable Integer id) {
+//        productService.deleteById(id);
+//    }
 //
 //    @CrossOrigin
 //    @PostMapping(value= "/createFile")
