@@ -3,6 +3,12 @@
   padding: 25px 25px 25px 25px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+#navbar {
+  background-color: #007BFF;
+  top: 0;
+  display: block;
+  transition: top 0.3s;
+}
 
 .item_header{
   margin-left: 50px;
@@ -36,37 +42,27 @@
   width: 50px;
   margin-bottom: 10px;
 }
-#pict{
-  width: 100px;
-  height: 100px;
-}
-.flex-container {
-  padding: 0;
-  margin: 0;
-  list-style: none;
 
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-
-  -webkit-flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: center;
-}
-#image_cart{
-  width: 45px;
-}
-p{
-  font-size: 1.5em;
-  margin-bottom: 0.01em;
-}
 @media only screen and (min-width: 981px) {
   /* For mobile phones: */
   body{
     margin-left: 250px;
     margin-right: 250px;
+  }
+  #toko{
+    font-size:3vw;
+  }
+  #number_produk{
+    font-size: 2vw;
+  }
+  #pict_market{
+    width: 50px;
+  }
+  #pict_admin{
+    width: 80px;
+  }
+  #not{
+    font-size: 1.5vw;
   }
   #icon1{
     width: 30px;
@@ -93,8 +89,5 @@ p{
   #pict{
     width: 60px;
     height: 60px;
-  }
-  p{
-    font-size: 1em;
   }
 }

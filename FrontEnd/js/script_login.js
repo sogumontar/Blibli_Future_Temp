@@ -12,28 +12,21 @@ $(document).ready(function(){
 
       $.ajax({
               type:"POST",
-              url:"http://localhost:9081/api/auth/signin",
+              url:"http://localhost:9080/api/auth/signin",
               data: JSON.stringify(jsonVar),
               contentType: "application/json",
               success: function(data){
-                if(data.status == 1){
-                  alert("Login Success");
-                  token = data.accessToken;
-                  skuLog=data.skuLog;
-                  console.log(data.role);
-                  localStorage.setItem('Token',token);
-                  localStorage.setItem('skuLogin',skuLog);
-                  if(data.role == "ROLE_USER"){
-                      location.href = 
-                      "index.html";
-                  }else if(data.role == "ROLE_ADMIN"){
-                      location.href = "home_admin.html";
-                  }else if(data.role == "ROLE_MERCHANT"){
-                      // location.href = "home_merchant.html?idLog="+idLogin+"&token="+token;
-                      location.href = "home_merchant.html";
-                  }
-                }else {
-                  alert("Your account have block !");
+                token = data.accessToken;
+                idLogin=data.idLog;
+                console.log(data.role);
+                localStorage.setItem('Token',token);
+                localStorage.setItem('idLogin',idLogin);                
+                if(data.role == "ROLE_USER"){
+                    location.href = "index.html";
+                }else if(data.role == "ROLE_ADMIN"){
+                    location.href = "index.html";
+                }else if(data.role == "ROLE_MERCHANT"){
+                    location.href = "home_merchant.html?idLog="+idLogin+"&token="+token;
                 }
 
 

@@ -4,7 +4,7 @@ var token = localStorage.getItem("Token")
 var idLog = localStorage.getItem("idLogin")
 
   // const url ='https://swapi.co/api/people'
-  const url ="http://localhost:9081/product/get/"+id;
+  const url ="http://localhost:9080/product/get/"+id;
   window.fetch(url,{
     method: 'GET',
     headers: {
@@ -16,7 +16,7 @@ var idLog = localStorage.getItem("idLogin")
   }).then((i)=>{
     const html= `
 
-      <div class="row" id="row1">
+      <div class="row">
           <div class="col-md-4">
             <img src="pict/buku_pelajaran.jpg" id="pict_book" class="img-thumbnail">
           </div>
@@ -53,7 +53,7 @@ var idLog = localStorage.getItem("idLogin")
 
 
 $("#addToCart").click(function(){
-  alert("Add To Cart, Success")
+  alert(idLog)
       var temp_token = localStorage.getItem("Token");
       var jsonVar = {
         id_user: idLog,
@@ -67,17 +67,16 @@ $("#addToCart").click(function(){
                   "Content-Type": "application/json",
                   "Authorization": "Bearer "+token
               },
-              url:"http://localhost:9081/cart/add",
+              url:"http://localhost:9080/cart/add",
               data: JSON.stringify(jsonVar),
               success: function(data){
+                alert("binatangsss");
               },
               error: function(err) {
                   alert(err)
-
+                 
               }
       });
-
-                location.href="cart.html";
       console.log("binatang ")
     });
 });

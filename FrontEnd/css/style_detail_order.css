@@ -33,27 +33,6 @@
   width: 50px;
   margin-bottom: 10px;
 }
-.flex-container {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-
-  -webkit-flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: center;
-}
-#image_cart{
-  width: 45px;
-}
-p{
-  font-size: 1em;
-}
 
 @media only screen and (min-width: 981px) {
 
@@ -111,9 +90,6 @@ p{
     -webkit-flex-flow: row wrap;
     justify-content: space-around;
     align-items: center;
-  }
-  #image_cart{
-    width: 35px;
   }
 
 }

@@ -54,7 +54,7 @@ $(document).ready(function(){
           		"Content-Type": "application/json",
 			    "Authorization": "Bearer "+token
           },
-          url:"http://localhost:9081/product/kategori/"+kate,
+          url:"http://localhost:9080/product/kategori/"+kate,
           success: function(data) {
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {
@@ -73,7 +73,7 @@ $(document).ready(function(){
 						        </div>\
 						        <div class=''>\
 						          <button type='button' name='button' style='float:left' id='but_del'><a href='update_book.html?id="+users[i].id+"'>Update</a></button>\
-						          <button type='button' name='button'  style='float:right' id='but_update'><a href='detail_book.html?id="+users[i].sku_product+"'>Detail</a></button>\
+						          <button type='button' name='button'  style='float:right' id='but_update'><a href='detail_book.html?id="+users[i].id+"'>Detail</a></button>\
 						        </div>\
 						      </div>\
 						    </div>");
