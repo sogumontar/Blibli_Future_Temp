@@ -54,7 +54,7 @@ $(document).ready(function(){
           		"Content-Type": "application/json",
 			    "Authorization": "Bearer "+token
           },
-          url:"http://localhost:9080/product/kategori/"+kate,
+          url:"http://localhost:9081/product/kategori/"+kate,
           success: function(data) {
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {

@@ -27,7 +27,7 @@ $(document).ready(function(){
 		$.ajax({
           type:"GET",
 					
-          url:"http://localhost:9080/product/get/20",
+          url:"http://localhost:9081/product/get/20",
           success: function(data) {
 						console.log(data.length);
             var users = JSON.parse(JSON.stringify(data));

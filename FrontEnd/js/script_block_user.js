@@ -31,7 +31,7 @@ $(document).ready(function(){
               "Content-Type": "application/json",
               // "Authorization": "Bearer "+c
           },
-          url:"http://localhost:9080/user/getAll",
+          url:"http://localhost:9081/user/getAll",
           success: function(data) {
             console.log(data);
             var users = JSON.parse(JSON.stringify(data));
@@ -75,7 +75,7 @@ $(document).ready(function(){
                   "Content-Type": "application/json",
                   // "Authorization": "Bearer "+c
               },
-              url:"http://localhost:9080/user/findByName/"+name,
+              url:"http://localhost:9081/user/findByName/"+name,
               success: function(data) {
                 console.log(data);
                 $("#listSearch").hide();

@@ -42,7 +42,7 @@ $(document).ready(function(){
     };
     $.ajax({
               type:"POST",
-              url:"http://localhost:9080/product/simpan",
+              url:"http://localhost:9081/product/simpan",
 
               headers: {
               "Content-Type": "application/json",
@@ -78,7 +78,7 @@ $(document).ready(function(){
         }));
             var boundary = Math.random().toString().substr(2);
             console.log("asd");
-            fetch('http://localhost:9080/merchant/saveProduct', {
+            fetch('http://localhost:9081/merchant/saveProduct', {
                 method: 'post',
                 body: formData
             }).then(function (response) {

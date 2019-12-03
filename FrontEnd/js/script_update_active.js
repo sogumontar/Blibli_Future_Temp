@@ -11,7 +11,7 @@ $(document).ready(function(){
               "Content-Type": "application/json",
               // "Authorization": "Bearer "+c
           },
-          url:"http://localhost:9080/user/updateStatusActive/"+id,
+          url:"http://localhost:9081/user/updateStatusActive/"+id,
           success: function(data) {
             location.href="block_user.html";
           },

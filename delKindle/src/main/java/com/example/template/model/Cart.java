@@ -21,6 +21,9 @@ public class Cart {
     @Column(name = "status")
     private Integer status;
 
+    @Column(name = "title")
+    private String title;
+
     public Cart(Integer status) {
         this.status = status;
     }

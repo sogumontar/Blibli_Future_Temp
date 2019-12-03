@@ -33,7 +33,7 @@ $(document).ready(function(){
     };
     $.ajax({
               type:"POST",
-              url:"http://localhost:9080/api/auth/signup",
+              url:"http://localhost:9081/api/auth/signup",
               data: JSON.stringify(jsonVar),
               contentType: "application/json",
               contentType: "application/json",

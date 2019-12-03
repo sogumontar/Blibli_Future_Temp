@@ -102,7 +102,6 @@ public class ProductController {
     public String coba(){
         return "berhasil";
     }
-
 //    @CrossOrigin
 //    @GetMapping("/{productId}")
 //    public Product findFirstById(@PathVariable  Integer productId){
