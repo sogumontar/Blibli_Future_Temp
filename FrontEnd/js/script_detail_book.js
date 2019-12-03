@@ -16,7 +16,7 @@ var idLog = localStorage.getItem("idLogin")
   }).then((i)=>{
     const html= `
 
-      <div class="row">
+      <div class="row" id="row1">
           <div class="col-md-4">
             <img src="pict/buku_pelajaran.jpg" id="pict_book" class="img-thumbnail">
           </div>
@@ -53,7 +53,7 @@ var idLog = localStorage.getItem("idLogin")
 
 
 $("#addToCart").click(function(){
-  alert(idLog)
+  alert("Add To Cart, Success")
       var temp_token = localStorage.getItem("Token");
       var jsonVar = {
         id_user: idLog,
@@ -70,13 +70,14 @@ $("#addToCart").click(function(){
               url:"http://localhost:9081/cart/add",
               data: JSON.stringify(jsonVar),
               success: function(data){
-                alert("binatangsss");
               },
               error: function(err) {
                   alert(err)
-                 
+
               }
       });
+
+                location.href="cart.html";
       console.log("binatang ")
     });
 });

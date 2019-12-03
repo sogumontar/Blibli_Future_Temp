@@ -6,6 +6,8 @@ import com.example.template.repository.CartRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -13,23 +15,68 @@ import java.util.Set;
 public class CartService {
     @Autowired
     CartRepo cartRepo;
-    public Cart deleteById(Integer id){
-        return cartRepo.deleteById(id);
+
+    public void deleteById(Integer id){
+        cartRepo.deleteById(id);
     }
+
+    public Cart findAllBySku_user(String sku_user){
+        return cartRepo.findAllBySku_user(sku_user);
+    }
+
     public List findAll(){
         return cartRepo.findAll();
     }
+
     public Cart save(Cart cart){
-        return  cartRepo.save(cart);
+        Date obDate = new Date();
+        SimpleDateFormat obDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        Cart cart1=new Cart(
+                obDateFormat.format(obDate.getTime()).toString(),
+                cart.getStatus(),
+                cart.getTitle(),
+                cart.getPict_product(),
+                cart.getCategories(),
+                cart.getPublication_year(),
+                cart.getPrice(),
+                cart.getAuthor(),
+                cart.getPublisher(),
+                cart.getIsbn(),
+                cart.getSku_user(),
+                cart.getSku_product()
+        );
+
+        return  cartRepo.save(cart1);
     }
-//    public List findById_product(Integer idProduct){
+    //    public List findById_product(Integer idProduct){
 //        return cartRepo.findAllById_product(idProduct);
 //    }
     public Cart findFirstById(Integer id){
         return cartRepo.findFirstById(id);
     }
+    public Cart findFirstByIdProduct(String idProduct){
+        return cartRepo.findFirstBySku_product(idProduct);
+    }
 //    public List dat(){
 //        return cartRepo.dat();
 //    };
+//    public Cart addToOrder(Cart cart){
+//        Date obDate = new Date();
+//        SimpleDateFormat obDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//        System.out.println("Current Date of system :"
+//                + obDateFormat.format(obDate.getTime()));
+//        String waktuSekarang=obDateFormat.format(obDate.getTime());
+//        Cart cart1=new Order(
+//                cart.getId_user(),
+//                cart.getId_product(),
+//                waktuSekarang,
+//                1
+//        );
+//        return cartRepo.addToOrder(cart1);
+//    }
+
+    public List allDate(){
+        return cartRepo.findAll();
+    }
 
 }

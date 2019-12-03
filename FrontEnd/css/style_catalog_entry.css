@@ -70,6 +70,10 @@
     margin-left: 250px;
     margin-right: 250px;
   }
+  #pemesanan{
+    margin-left: 20px;
+    margin-right: 20px;
+  }
   #toko{
     font-size:3vw;
   }
@@ -87,10 +91,6 @@
   }
   #icon1{
     width: 30px;
-  }
-  #ds{
-    margin-left: 160px;
-    margin-right: 160px;
   }
   #catalog{
     font-size: 1.5vw;

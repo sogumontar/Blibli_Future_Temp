@@ -49,12 +49,23 @@ public class CartController {
     @CrossOrigin
     @PostMapping("/add")
     public Cart save(@RequestBody Cart cart){
-        Date obDate = new Date();
-        SimpleDateFormat obDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        Cart cart1=new Cart(
-                cart.getId_user(),cart.getId_product(),obDateFormat.format(obDate.getTime()).toString(),cart.getStatus()
-        );
-        return cartService.save(cart1);
+//        Date obDate = new Date();
+//        SimpleDateFormat obDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+//        Cart cart1=new Cart(
+//                obDateFormat.format(obDate.getTime()).toString(),
+//                cart.getStatus(),
+//                cart.getTitle(),
+//                cart.getPict_product(),
+//                cart.getCategories(),
+//                cart.getPublication_year(),
+//                cart.getPrice(),
+//                cart.getAuthor(),
+//                cart.getPublisher(),
+//                cart.getIsbn(),
+//                cart.getSku_user(),
+//                cart.getSku_product()
+//        );
+        return cartService.save(cart);
     }
 
 //    @CrossOrigin
@@ -76,8 +87,9 @@ public class CartController {
     @CrossOrigin
     @DeleteMapping("/delete/{id}")
     @Transactional
-    public Cart deleteById(@PathVariable Integer id){
-        return cartService.deleteById(id);
+    public String deleteById(@PathVariable Integer id){
+         cartService.deleteById(id);
+         return "Success";
     }
 
 }

@@ -13,7 +13,7 @@ $(document).ready(function(){
           },
           url:"http://localhost:9081/user/updateStatusBlock/"+id,
           success: function(data) {
-            location.href="block_user.html";
+            JavaScript:history.back()
           },
           error: function(data) {
             console.log(data);

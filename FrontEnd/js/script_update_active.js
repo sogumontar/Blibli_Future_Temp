@@ -3,7 +3,7 @@ $(document).ready(function(){
   var id = new URL(location.href).searchParams.get('id')
 
   updateActive();
-  
+
   function updateActive(){
     $.ajax({
           type:"POST",
@@ -13,7 +13,7 @@ $(document).ready(function(){
           },
           url:"http://localhost:9081/user/updateStatusActive/"+id,
           success: function(data) {
-            location.href="block_user.html";
+            JavaScript:history.back()
           },
           error: function(data) {
             console.log(data);

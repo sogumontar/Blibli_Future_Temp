@@ -16,17 +16,24 @@ $(document).ready(function(){
               data: JSON.stringify(jsonVar),
               contentType: "application/json",
               success: function(data){
-                token = data.accessToken;
-                idLogin=data.idLog;
-                console.log(data.role);
-                localStorage.setItem('Token',token);
-                localStorage.setItem('idLogin',idLogin);                
-                if(data.role == "ROLE_USER"){
-                    location.href = "index.html";
-                }else if(data.role == "ROLE_ADMIN"){
-                    location.href = "index.html";
-                }else if(data.role == "ROLE_MERCHANT"){
-                    location.href = "home_merchant.html?idLog="+idLogin+"&token="+token;
+                if(data.status == 1){
+                  alert("Login Success");
+                  token = data.accessToken;
+                  skuLog=data.skuLog;
+                  console.log(data.role);
+                  localStorage.setItem('Token',token);
+                  localStorage.setItem('skuLogin',skuLog);
+                  if(data.role == "ROLE_USER"){
+                      location.href = 
+                      "index.html";
+                  }else if(data.role == "ROLE_ADMIN"){
+                      location.href = "home_admin.html";
+                  }else if(data.role == "ROLE_MERCHANT"){
+                      // location.href = "home_merchant.html?idLog="+idLogin+"&token="+token;
+                      location.href = "home_merchant.html";
+                  }
+                }else {
+                  alert("Your account have block !");
                 }
 
 
