@@ -34,7 +34,7 @@ $(document).ready(function(){
 												<div class='col-md-12'>\
                           <div class='row'>\
                             <div class='col-md-6'>\
-                              <p><button type='button' class='btn btn-outline-primary' onclick='updateProduct(("+users[i].id+"))' data-toggle='modal' data-target='#updateModal'>Update</button></p>\
+                              <p><button type='button' class='btn btn-outline-primary' onclick='updateProduct("+users[i].sku_product+")' data-toggle='modal' data-target='#updateModal'>Update</button></p>\
                              </div>\
                             <div class='col-md-6'>\
                               <p><button type='button' class='btn btn-outline-danger' onclick='hai("+users[i].id+")'  data-toggle='modal' data-target='#exampleModal'>Delete</button></p>\
@@ -101,6 +101,19 @@ $(document).ready(function(){
             console.log(data);
             }
         });
+  });
+
+  $('#save_change').click(function(){
+    var jsonVar = {
+      title: document.getElementById('title'),
+      description: document.getElementById('description'),
+      categories: document.getElementById('category'),
+      publication_year: document.getElementById('publication_year'),
+      author: document.getElementById('author'),
+      publisher: document.getElementById('publisher'),
+      isbn: document.getElementById('isbn'),
+      price: document.getElementById('price')
+    }
   })
 
 });
@@ -108,14 +121,15 @@ $(document).ready(function(){
 function hai(product_id){
   localStorage.setItem("productId",product_id);
 }
-function updateProduct(productId){
+function updateProduct("MERC"){
   var token = localStorage.getItem('Token');
-  var id = productId;
+  var id = "MERC-0001-0006";
   $.ajax({
         type:"GET",
         beforeSend : function( xhr ) {
           xhr.setRequestHeader( "Authorization", "Bearer "+token );
         },
+        async: false,
         url:"http://localhost:9081/merchant/get/"+id,
         success: function(data) {
           console.log(data.title);
