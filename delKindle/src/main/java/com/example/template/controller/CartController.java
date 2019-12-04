@@ -3,7 +3,9 @@ package com.example.template.controller;
 import com.example.template.model.Cart;
 import com.example.template.model.Product;
 import com.example.template.repository.CartRepo;
+import com.example.template.repository.OrderRepo;
 import com.example.template.service.CartService;
+import com.example.template.service.OrdersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,6 +28,10 @@ public class CartController {
     EntityManager entityManager;
     @Autowired
     CartService cartService;
+    @Autowired
+    OrderRepo orderRepo;
+    @Autowired
+    OrdersService ordersService;
     @Autowired
     CartRepo cartRepo;
 
@@ -80,21 +86,16 @@ public class CartController {
         return cartService.save(cart);
     }
 
-//    @CrossOrigin
-//    @PostMapping("/purchase/{idLogin}")
-//    public ResponseEntity<Object> purchase(@RequestBody Cart cart, @PathVariable Integer idLogin){
+    @Transactional
+    @CrossOrigin
+    @PutMapping("/purchase/{skuUser}")
+    public ResponseEntity<Object> purchase( @PathVariable String skuUser){
 //        Optional<Cart> cartOptional=Optional.ofNullable(cartService.findFirstById(idLogin));
 //        if(!cartOptional.isPresent())
 //            return ResponseEntity.notFound().build();
-//
-//            cart.setId(idLogin);
-//            cart.setStatus(2);
-//            Cart cart1=new Cart(2);
-//            cartService.save(cart);
-//            return ResponseEntity.ok().build();
-//
-//
-//    }
+            cartRepo.updateAll(skuUser);
+            return ResponseEntity.ok().build();
+    }
 
     @CrossOrigin
     @DeleteMapping("/delete/{id}")
@@ -102,6 +103,19 @@ public class CartController {
     public String deleteById(@PathVariable Integer id){
          cartService.deleteById(id);
          return "Success";
+    }
+
+    @CrossOrigin
+    @PostMapping("/final/{skuUser}/{skuProducts}")
+    public void akhir(@PathVariable String skuUser, @PathVariable String skuProducts){
+        cartService.makeOrder(skuUser,skuProducts);
+    }
+
+    @CrossOrigin
+    @PutMapping("/finish/{sku_user}")
+    public String akhir(@PathVariable String sku_user){
+        ordersService.updateAfterCart(sku_user);
+        return "Sukses";
     }
 
 }

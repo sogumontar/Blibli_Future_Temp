@@ -1,8 +1,10 @@
 package com.example.template.service;
 
 import com.example.template.model.Cart;
+import com.example.template.model.Orders;
 import com.example.template.model.Product;
 import com.example.template.repository.CartRepo;
+import com.example.template.repository.OrderRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,8 @@ import java.util.Set;
 public class CartService {
     @Autowired
     CartRepo cartRepo;
+    @Autowired
+    OrderRepo orderRepo;
     public Integer check(String skuUser,String skuProduct){
         return cartRepo.existsBySku_userAndSku_product(skuUser,skuProduct);
     }
@@ -80,6 +84,19 @@ public class CartService {
 
     public List allDate(){
         return cartRepo.findAll();
+    }
+
+    public String makeOrder(String skuUser,String skuProducts){
+        Date obDate = new Date();
+        SimpleDateFormat obDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        Orders orders=new Orders(
+                skuUser,
+                skuProducts,
+                1,
+                obDateFormat.format(obDate.getTime()).toString()
+        );
+        orderRepo.save(orders);
+        return "Sukses";
     }
 
 }

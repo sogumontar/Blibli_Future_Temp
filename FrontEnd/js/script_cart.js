@@ -1,4 +1,7 @@
+var penanda=[];
 $(document).ready(function(){
+	$("#tad").append('<a id="bayar" onclick="upd()" class="btn btn-success" href="">Process</a>')
+	
   // var token = new URL(location.href).searchParams.get('token')
   var token=localStorage.getItem("Token")
   var id=localStorage.getItem("idLogin")
@@ -60,7 +63,7 @@ function test(){
           success: function(data) {
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {
-            	if(users[i].sku_user===id){
+            	if(users[i].sku_user===id && users[i].status==1){
             		console.log("test")
                $("#dat").
                 append('<div class="row">\
@@ -70,10 +73,11 @@ function test(){
 			          <div class="col-md-8">\
 			              <table>\
 			                <tr>\
-			                  <td><p>'+users[i].status +'</p></td>\
+			                  <td><p>'+users[i].title +'</p></td>\
 			                </tr>\
 			                <tr>\
-			                  <td><p>Rp 12123123</p></td>\
+												<td><p>Rp '+users[i].price+',00</p></td>\
+												<br>\
 			                </tr>\
 			                <tr>\
 			                  <td><a class="btn btn-danger" onclick="hap('+users[i].id+')">Hapus dari keranjang</a></td>\
@@ -86,7 +90,41 @@ function test(){
 
           },
           error: function(data) {
-          	$("#dat").
+          	$("#dat2").
+          	append("<br><br><br><div class='container-fluid' id='notLogged'>\
+          			<center><p>You are not logged in yet <a href='login.html'>Login</a></p></center>\
+          		</div>")
+            console.log(data);
+            }
+				});
+				var arr=[];
+				var harg=0;
+				$.ajax({
+          type:"GET",
+          url:"http://localhost:9081/cart/",
+          headers: {
+              "Content-Type": "application/json",
+              "Authorization": "Bearer "+token
+          },
+          success: function(data) {
+            var users = JSON.parse(JSON.stringify(data));
+            for (var i in users) {
+            	if(users[i].sku_user===id && users[i].status==2){
+								harg+=users[i].price;
+								penanda.push(users[i].sku_product);
+								arr.push(users[i].title);
+								
+               
+            }
+
+					}
+					$("#tad2").append('<a id="bayar" onclick="bay()" class="btn btn-success" href="">Pay</a>')
+					$("#dat2").
+						append('<b>Product</b> :'+arr+' <b>Total Price</b> '+ harg );
+					}
+					,
+          error: function(data) {
+          	$("#dat2").
           	append("<br><br><br><div class='container-fluid' id='notLogged'>\
           			<center><p>You are not logged in yet <a href='login.html'>Login</a></p></center>\
           		</div>")
@@ -96,6 +134,7 @@ function test(){
 	}
 
 });
+
 function hap(test){
 	var token=localStorage.getItem("Token");
 	$.ajax({
@@ -113,4 +152,41 @@ function hap(test){
 }
 
 
+function upd(){
+	var token=localStorage.getItem("Token")
+	var id=localStorage.getItem("idLogin")
+	alert(id);		
+	$.ajax({
+		type:"PUT",
+		url:"http://localhost:9081/cart/purchase/"+id,
+		headers: {
+				"Content-Type": "application/json",
+				"Authorization": "Bearer "+token
+		},
+		success:function(data){
+			alert("Update Succes");
+		}
+	});
 
+alert("test");
+}
+function bay(){
+	var token=localStorage.getItem("Token")
+	var isd=localStorage.getItem("idLogin")
+	console.log(isd)
+	console.log(penanda);		
+
+	alert("Process Success");
+	$.ajax({
+		type:"POST",
+		url:"http://localhost:9081/cart/final/"+isd+"/"+penanda,
+		headers: {
+				"Content-Type": "application/json",
+				"Authorization": "Bearer "+token
+		},
+		success:function(data){
+			alert("Update Succes");
+		}
+	});
+
+}
