@@ -15,6 +15,9 @@ import java.util.Set;
 public class CartService {
     @Autowired
     CartRepo cartRepo;
+    public Integer check(String skuUser,String skuProduct){
+        return cartRepo.existsBySku_userAndSku_product(skuUser,skuProduct);
+    }
 
     public void deleteById(Integer id){
         cartRepo.deleteById(id);

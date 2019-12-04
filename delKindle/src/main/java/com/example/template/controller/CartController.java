@@ -26,6 +26,18 @@ public class CartController {
     EntityManager entityManager;
     @Autowired
     CartService cartService;
+    @Autowired
+    CartRepo cartRepo;
+
+    @CrossOrigin
+    @GetMapping("/check/{skuUser}/{skuProduct}")
+    public Integer check(@PathVariable  String skuUser, @PathVariable String skuProduct){
+
+//        System.out.println(skuUser + skuProduct);
+//        System.out.println(cartService.check(skuUser,skuProduct));
+        return cartRepo.existsBySku_userAndSku_product(skuUser,skuProduct);
+    }
+
 
     @CrossOrigin
     @GetMapping("/")

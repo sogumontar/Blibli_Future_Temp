@@ -1,7 +1,21 @@
 $(document).ready(function(){
+
 var id = new URL(location.href).searchParams.get('id');
 var token = localStorage.getItem("Token")
 var idLog = localStorage.getItem("idLogin")
+var judul;
+var gambar;
+var kategori;
+var publikasi;
+var harga;
+var pencipta;
+var publish;
+var ibn;
+var skuU;
+var skuP;
+var skuz=localStorage.getItem("idLogin");
+var skuzz;
+var indikator=0;
 
   // const url ='https://swapi.co/api/people'
   const url ="http://localhost:9081/product/get/"+id;
@@ -14,11 +28,23 @@ var idLog = localStorage.getItem("idLogin")
   }).then((res)=>{
     return res.json()
   }).then((i)=>{
-    const html= `
+  
+     skuzz=i.sku_product;
+     judul=i.title;
+     gambar=i.pict_product;
+     kategori=i.categories;
+     publikasi=i.publication_year;
+     harga=i.price;
+     pencipta=i.author;
+     publish=i.publisher;
+     ibn=i.isbn;
+     skuU=i.sku_user;
+     skuP=i.sku_product;
+     html= `
 
       <div class="row" id="row1">
           <div class="col-md-4">
-            <img src="pict/buku_pelajaran.jpg" id="pict_book" class="img-thumbnail">
+            <img src="/../../e.png" id="pict_book" class="img-thumbnail">
           </div>
           <div class="col-md-8">
             <p><b>Judul</b> : ${i.title} </p>
@@ -48,19 +74,41 @@ var idLog = localStorage.getItem("idLogin")
 
   const wait = time => new Promise((resolve) => setTimeout(resolve, time));
 
+  $.ajax({
+    type:"GET",
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer "+token
+    },
+    url:"http://localhost:9081/cart/check/"+skuz+"/"+id,
+    success: function(data){
+      indikator=data;
+    },
+    error: function(err) {
+        alert(err)
 
-  console.log("test")
+    }
 
-
+});
 $("#addToCart").click(function(){
-  alert("Add To Cart, Success")
+
       var temp_token = localStorage.getItem("Token");
       var jsonVar = {
-        id_user: idLog,
-        id_product: id,
-        status: 1
+        status:1,
+        title:judul,
+        pict_product:gambar,
+        categories:kategori,
+        publication_year:publikasi,
+        price:harga,
+        author:pencipta,
+        publisher:publish,
+        isbn:ibn,
+        sku_user:idLog,
+        sku_product:skuP
       };
+    if(indikator!=1){
 
+      alert("Success Add To Cart")
       $.ajax({
               type:"POST",
               headers: {
@@ -79,5 +127,15 @@ $("#addToCart").click(function(){
 
                 location.href="cart.html";
       console.log("binatang ")
+    }else{
+      alert("This Book Already In Cart")
+      // asd();
+      
+    }
     });
+  
 });
+// function asd(){
+//   alert("bunatanga")
+//   location.href="cart.html";
+// }

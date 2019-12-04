@@ -60,12 +60,12 @@ function test(){
           success: function(data) {
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {
-            	if(users[i].id_user){
+            	if(users[i].sku_user===id){
             		console.log("test")
                $("#dat").
                 append('<div class="row">\
 			          <div class="col-md-4">\
-			            <img src="Pict/buku_fashion.jpg" id="img_product" alt="">\
+			            <img src="C:\product/'+users[i].pict_product+'" id="img_product" alt="">\
 			          </div>\
 			          <div class="col-md-8">\
 			              <table>\
@@ -76,7 +76,7 @@ function test(){
 			                  <td><p>Rp 12123123</p></td>\
 			                </tr>\
 			                <tr>\
-			                  <td><a class="btn btn-danger" href="del.html?id='+users[i].id+'" >Hapus dari keranjang</a></td>\
+			                  <td><a class="btn btn-danger" onclick="hap('+users[i].id+')">Hapus dari keranjang</a></td>\
 			                </tr>\
 			              </table>\
 			          </div>\
@@ -96,6 +96,21 @@ function test(){
 	}
 
 });
+function hap(test){
+	var token=localStorage.getItem("Token");
+	$.ajax({
+		type:"DELETE",
+		url:"http://localhost:9081/cart/delete/"+test,
+		headers: {
+				"Content-Type": "application/json",
+				"Authorization": "Bearer "+token
+		},
+		success:function(data){
+			alert("Delete Succes");
+		}
+	});
+	location.href="cart.html";
+}
 
 
 
