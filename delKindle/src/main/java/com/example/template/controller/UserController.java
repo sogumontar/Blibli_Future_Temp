@@ -50,10 +50,10 @@ public class UserController{
     }
 
     @CrossOrigin
-    @PutMapping("updateProfile/{sku}")
-    public String updateProfile(@PathVariable  String sku){
+    @PutMapping("updateProfile/{name}/{email}/{telepon}/{username}/{alamat}/{sku}")
+    public String updateProfile(@PathVariable  String name, @PathVariable String email, @PathVariable String telepon, @PathVariable String username, @PathVariable String alamat,@PathVariable String sku){
 
-//        userService.
+        userService.updateProfile(name, email, username, telepon, alamat, sku);
         return "Update Success";
     }
 }

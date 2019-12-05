@@ -21,7 +21,6 @@ $(document).ready(function(){
     }).then((res)=>{
       return res.json()
     }).then((i)=>{
-    
        skuzz=i.sku_product;
        judul=i.title;
        gambar=i.pict_product;
