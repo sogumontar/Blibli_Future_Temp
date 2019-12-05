@@ -14,4 +14,5 @@ public interface WishlistRepo extends JpaRepository<Wishlist,Long> {
     Integer existsBySku_userAndSku_product(String sku_user, String sku_product);
 
     void deleteById(Integer id);
+
 }

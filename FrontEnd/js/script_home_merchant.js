@@ -25,13 +25,13 @@ $(document).ready(function(){
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {
                $("#listBook").
-                append("<div class='col-lg-4 col-md-6 mb-4'>\
-                    <div class='card h-100'>\
+                append("<div class='col-lg-4 col-md-6 mb-5'>\
+                    <div id='h'>\
 											<div class='card-body'>\
 												<h4 class='card-title'> <img src='C:/product/"+users[i].pict_product+"' class='card-img-top' id='image'>\</center></h4>\
 												<p class='card-text'>"+users[i].title+"</p>\
 											</div>\
-											<div class='card-footer'>\
+											<div class=''>\
 												<div class='col-md-12'>\
                           <div class='row'>\
                             <div class='col-md-6'>\
@@ -43,6 +43,8 @@ $(document).ready(function(){
                           </div>\
                         </div>\
 											</div>\
+                      <hr>\
+                      <p class='card-text'>Dijual Oleh : "+temp+"</p>\
                     </div>\
                 </div>\
 									");

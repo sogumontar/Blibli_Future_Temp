@@ -110,4 +110,8 @@ p {
     justify-content: space-around;
     align-items: center;
   }
+  #image{
+    width: 250px;
+    height: 250px;
+  }
 }

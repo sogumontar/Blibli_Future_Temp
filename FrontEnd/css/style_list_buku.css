@@ -103,7 +103,7 @@
   #image{
     height: 150px;
   }
-  .row{
+  #dat{
     margin-left: 20px;
     margin-right: 20px;
   }
@@ -135,5 +135,18 @@
     -webkit-flex-flow: row wrap;
     justify-content: space-around;
     align-items: center;
+  }
+  #h{
+    height: 380px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  #bawah{
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    height: 30px;
+    padding: 10px;
+  }
+  #harga{
+    color: red;
   }
 }

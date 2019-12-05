@@ -10,7 +10,7 @@ $(document).ready(function(){
 	}else if(val==="buku_novel"){
 		kate="Buku Novel";
 	}else if(val==="buku_fashion"){
-		kate="Buku Fashion"
+		kate="Buku Fashion";
 	}else if(val==="buku_kesehatan"){
 		kate="Buku Kesehatan";
 	}else if(val==="buku_ensiklopedia"){
@@ -52,31 +52,38 @@ $(document).ready(function(){
           type:"GET",
           headers:{
           		"Content-Type": "application/json",
-			    "Authorization": "Bearer "+token
+			    		"Authorization": "Bearer "+token
           },
           url:"http://localhost:9081/product/kategori/"+kate,
           success: function(data) {
+						console.log(data);
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {
                $("#dat").
-                append("<div class='ard' id='card'>\
-						      <img src='C:/product/"+users[i].pict_product+"' class='card-img-top' id='image'>\
-						      <div class='card-body'>\
-						        <div class=''>\
-						          <center><h5>" + users[i].title + "</h5></center>\
-						        </div>\
-						        <div class=''>\
-						          <center><h6>SKU : " + users[i].categories + "</h6></center>\
-						        </div>\
-						        <div class=''>\
-						          <center><h5>Rp " + users[i].price + ",00</h5></center>\
-						        </div>\
-						        <div class=''>\
-						          <button type='button' name='button' style='float:left' id='but_del'><a href='update_book.html?id="+users[i].id+"'>Update</a></button>\
-						          <button type='button' name='button'  style='float:right' id='but_update'><a href='detail_book.html?id="+users[i].sku_product+"'>Detail</a></button>\
-						        </div>\
-						      </div>\
-						    </div>");
+                append("<div class='col-lg-4 col-md-6 mb-5'>\
+                    <div id='h'>\
+											<div class='card-body'>\
+												<h4 class='card-title'> <img src='C:/product/"+users[i].pict_product+"' class='card-img-top' id='image'>\</center></h4>\
+												<p class='card-text'><b>"+users[i].title+"</b></p>\
+											</div>\
+											<div class=''>\
+												<div class='col-md-12'>\
+                          <div class='row'>\
+                            <div class='col-md-6'>\
+                              <p id='harga'><b>Rp "+users[i].price+"</b></p>\
+                            </div>\
+                            <div class='col-md-6'>\
+                              <p></p>\
+                            </div>\
+                          </div>\
+                        </div>\
+											</div>\
+											<div id='bawah'><hr>\
+												<a href='detail_book.html?id="+users[i].sku_product+"' style='text-decoration:none'><button type='button' class='btn btn-outline-primary btn-block'>Detail</button></a>\
+											</div>\
+                    </div>\
+                </div>\
+									");
             }
           },
           error: function(data) {
