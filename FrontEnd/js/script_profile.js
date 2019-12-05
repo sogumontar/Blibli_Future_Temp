@@ -9,38 +9,32 @@ $.ajax({
               "Content-Type": "application/json",
               "Authorization": "Bearer "+token
           },
-          url:"http://localhost:9081/account/find/"+id,
+          url:"http://localhost:9081/user/findById/"+id,
           success: function(data) {
             var users = JSON.parse(JSON.stringify(data));
-            for (var i in users) {
+            
                $("#detail").
-                append('<input type="text" id="name" required="" class="form-control" name="" readonly value="${i.name}" placeholder="Nama Lengkap" >\
+                append('<input type="text" id="name" required="" class="form-control" name="" readonly value="'+users.name+'" placeholder="Nama Lengkap" >\
                       <br>\
-                      <input type="text" id="email" required=""  class="form-control" readonly value="${i.email}" name="" placeholder="Email">\
+                      <input type="text" id="email" required=""  class="form-control" readonly value="'+users.email+'" name="" placeholder="Email">\
                       <br>\
-                      <input type="text" id="username" required="" class="form-control" readonly name="" value="${i.username}" placeholder="Username">\
+                      <input type="text" id="username" required="" class="form-control" readonly name="" value="'+users.username+'" placeholder="Username">\
                       <br>\
-                      <input type="text" id="username" required="" class="form-control" readonly name="" value="${i.gender}" placeholder="Username">\
+                      <input type="text" id="username" required="" class="form-control" readonly name="" value="'+users.gender+'" placeholder="Username">\
                       <br>\
-                      <input type="number" id="telepon" class="form-control" value="${i.telepon}" readonly name="" placeholder="Telepon">\
+                      <input type="number" id="telepon" class="form-control" value="'+users.telepon+'" readonly name="" placeholder="Telepon">\
                       <br>\
-                      <input type="text" id="alamat" class="form-control" value="${i.alamat}" name="" readonly placeholder="Alamat">\
+                      <input type="text" id="alamat" class="form-control" value="'+users.alamat+'" name="" readonly placeholder="Alamat">\
                       <br>\
-                      <input type="date" id="tanggal_lahir" class="form-control" value=${i.tanggal_lahir} readonly required="required" placeholder="Tanggal Lahir">\
+                      <input type="date" id="tanggal_lahir" class="form-control" value="'+users.tanggal_lahir+'" readonly required="required" placeholder="Tanggal Lahir">\
                       <br><br>\
-                      <button style="height:  40px;" class="btn btn-primary" id="register">Edit</button>\
+                      <a href="update_profile.html" class="btn btn-primary">Edit</a>\
                       <br><br>\
                   ');
               }
-            }
+            
 
         });
- if(gend==="male"){
-      window.pic.innerHTML=pit;  
-    }else{
-      // window.pic.innerHTML=pitt;
-    }
-
 
 
 

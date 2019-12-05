@@ -56,7 +56,7 @@ public class AccountController {
 
         @CrossOrigin
         @GetMapping("/find/{id}")
-        public Account find(@PathVariable Long id){
+        public Account find(@PathVariable long id){
                 return accountService.findFirstById(id);
         }
 

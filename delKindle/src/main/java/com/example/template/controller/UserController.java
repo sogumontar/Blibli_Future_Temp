@@ -48,4 +48,12 @@ public class UserController{
     public User updateStatusBlock(@PathVariable String sku){
         return userService.updateStatusabalock(sku);
     }
+
+    @CrossOrigin
+    @PutMapping("updateProfile/{sku}")
+    public String updateProfile(@PathVariable  String sku){
+
+//        userService.
+        return "Update Success";
+    }
 }

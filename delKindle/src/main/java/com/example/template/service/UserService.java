@@ -42,6 +42,10 @@ public class UserService {
         user.setStatus(0);
         return userRepository.save(user);
     }
+    public String updateProfile(String name,String email,String username,String telepon,String alamat,String sku){
+        userRepository.update( name, email, username, telepon, alamat, sku);
+        return "Sukses";
+    }
 
 
 }
