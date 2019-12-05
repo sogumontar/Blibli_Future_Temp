@@ -16,6 +16,7 @@ var skuP;
 var skuz=localStorage.getItem("idLogin");
 var skuzz;
 var indikator=0;
+var wis=0;
 
   // const url ='https://swapi.co/api/people'
   const url ="http://localhost:9081/product/get/"+id;
@@ -130,6 +131,69 @@ $("#addToCart").click(function(){
     }else{
       alert("This Book Already In Cart")
       // asd();
+      
+    }
+    });
+
+
+    $.ajax({
+      type:"GET",
+      headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer "+token
+      },
+      url:"http://localhost:9081/wishlist/check/"+skuz+"/"+id,
+      success: function(data){
+        indikator=data;
+      },
+      error: function(err) {
+          alert(err)
+  
+      }
+  
+  });
+
+
+    $("#addToWishlist").click(function(){
+
+      var temp_token = localStorage.getItem("Token");
+      var jsonVar = {
+        status:1,
+        title:judul,
+        pict_product:gambar,
+        categories:kategori,
+        publication_year:publikasi,
+        price:harga,
+        author:pencipta,
+        publisher:publish,
+        isbn:ibn,
+        sku_user:idLog,
+        sku_product:skuP
+      };
+    if(wis!=1){
+
+      alert(ibn)
+      $.ajax({
+              type:"POST",
+              headers: {
+                  "Content-Type": "application/json",
+                  "Authorization": "Bearer "+token
+              },
+              url:"http://localhost:9081/wishlist/add",
+              data: JSON.stringify(jsonVar),
+              success: function(data){
+                alert(data)
+              },
+              error: function(err) {
+                  alert(err)
+
+              }
+      });
+
+                location.href="cart.html";
+      
+    }else{
+      alert("This Book Already In WishList")
       
     }
     });

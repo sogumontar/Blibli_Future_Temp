@@ -53,8 +53,8 @@ $(document).ready(function(){
 						          <center><h5>Rp " + users[i].price + ",00</h5></center>\
 						        </div>\
 						        <div class=''>\
-						          <button type='button' name='button' style='float:left' id='but_del'><a href='update_book.html?id="+users[i].id+"'>Update</a></button>\
-						          <button type='button' name='button'  style='float:right' id='but_update'><a href='detail_book.html?id="+users[i].id+"'>Detail</a></button>\
+						          <button type='button' name='button' style='float:left' id='but_del'><a href='update_book.html?id="+users[i].aku_product+"'>Update</a></button>\
+						          <button type='button' name='button'  style='float:right' id='but_update'><a href='detail_book.html?id="+users[i].sku_product+"'>Detail</a></button>\
 						        </div>\
 						      </div>\
 						    </div>");

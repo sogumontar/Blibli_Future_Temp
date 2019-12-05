@@ -113,7 +113,7 @@ public class CartController {
 
     @CrossOrigin
     @PutMapping("/finish/{sku_user}")
-    public String akhir(@PathVariable String sku_user){
+    public String akhirskall(@PathVariable String sku_user){
         ordersService.updateAfterCart(sku_user);
         return "Sukses";
     }
