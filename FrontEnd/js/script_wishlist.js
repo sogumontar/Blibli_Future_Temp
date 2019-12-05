@@ -31,21 +31,30 @@ test();
 					if(1==1){
 						console.log("test")
 					 $("#wish").
-						append('<div class="row">\
-									<div class="col-md-1">\
-										<img src="C:\product/'+users[i].pict_product+'" id="img_product" alt="">\
-									</div>\
-									<div class="col-md-3">\
-											<p>'+users[i].title +'</p></td>\
-											<p>Rp '+users[i].price+',00</p>\
-									</div>\
-									<div class="col-md-2">\
-											<a class="btn btn-danger" onclick="hap('+users[i].id+')">Delete From Wishlist</a>\
-									</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\
-									<div class="col-md-3">\
-											<a class="btn btn-success" onclick="hap('+users[i].id+')">Process</a>\
-									</div>\
-								</div>');
+					 append("<div class='col-lg-4 col-md-6 mb-5'>\
+ 							<a href='detail_book.html?id="+users[i].sku_product+"' style='text-decoration:none'><div id='h'>\
+ 								<div class='card-body'>\
+ 									<h4 class='card-title'> <img src='C:/product/"+users[i].pict_product+"' class='card-img-top' id='image'>\</center></h4>\
+ 									<p class='card-text' style='color:black'><b>"+users[i].title+"</b></p>\
+ 								</div>\
+ 								<div class=''>\
+ 									<div class='col-md-12'>\
+ 										<div class='row'>\
+ 											<div class='col-md-6'>\
+ 												<p id='harga'><b>Rp "+users[i].price+"</b></p>\
+ 											</div>\
+ 											<div class='col-md-6'>\
+ 												<p></p>\
+ 											</div>\
+ 										</div>\
+ 									</div>\
+ 								</div>\
+ 								<div id='bawah'><hr>\
+									<button type=button' class='btn btn-outline-danger btn-block'>Remove From Wishlist</button>\
+								</div>\
+ 							</div></a>\
+ 					</div>\
+ 						");
 					}
 				}
 

@@ -105,6 +105,8 @@ function handlePdf(evt) {
                 data: JSON.stringify(jsonVar),
                 contentType: "application/json",
                 success: function(data){
+                  alert("success add product");
+                  location.href = "home_merchant.html";
                 },
                 error: function(err) {
                     $("#message").append(err.responseJSON.message);
@@ -113,7 +115,7 @@ function handlePdf(evt) {
       });
       //endlend onload
     }
-  
+
 
   $('#submit1').click(function(){
     assignDataProduct();

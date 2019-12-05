@@ -29,7 +29,7 @@ var wis=0;
   }).then((res)=>{
     return res.json()
   }).then((i)=>{
-  
+
      skuzz=i.sku_product;
      judul=i.title;
      gambar=i.pict_product;
@@ -45,7 +45,7 @@ var wis=0;
 
       <div class="row" id="row1">
           <div class="col-md-4">
-            <img src="/../../e.png" id="pict_book" class="img-thumbnail">
+            <img src="C:/product/${i.pict_product}" class="img-thumbnail" id="image">
           </div>
           <div class="col-md-8">
             <p><b>Judul</b> : ${i.title} </p>
@@ -131,7 +131,7 @@ $("#addToCart").click(function(){
     }else{
       alert("This Book Already In Cart")
       // asd();
-      
+
     }
     });
 
@@ -148,9 +148,9 @@ $("#addToCart").click(function(){
       },
       error: function(err) {
           alert(err)
-  
+
       }
-  
+
   });
 
 
@@ -191,13 +191,13 @@ $("#addToCart").click(function(){
       });
 
                 location.href="cart.html";
-      
+
     }else{
       alert("This Book Already In WishList")
-      
+
     }
     });
-  
+
 });
 // function asd(){
 //   alert("bunatanga")

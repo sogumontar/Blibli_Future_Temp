@@ -42,6 +42,9 @@
   width: 50px;
   margin-bottom: 10px;
 }
+#h{
+  border-color: black;
+}
 
 @media only screen and (min-width: 981px) {
   /* For mobile phones: */
@@ -87,7 +90,11 @@
     align-items: center;
   }
   #image{
-    width: 180px;
+    width: 200px;
     height: 200px;
+  }
+  #h{
+    height: 500px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 }

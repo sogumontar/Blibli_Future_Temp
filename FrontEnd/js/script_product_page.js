@@ -121,7 +121,7 @@ $(document).ready(function(){
 function hai(product_id){
   localStorage.setItem("productId",product_id);
 }
-function updateProduct("MERC"){
+function updateProduct(){
   var token = localStorage.getItem('Token');
   var id = "MERC-0001-0006";
   $.ajax({
