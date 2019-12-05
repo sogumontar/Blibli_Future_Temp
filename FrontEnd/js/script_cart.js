@@ -81,7 +81,7 @@ function test(){
 												<br>\
 			                </tr>\
 			                <tr>\
-			                  <td><a class="btn btn-danger" onclick="hap('+users[i].id+')">Hapus dari keranjang</a></td>\
+			                  <td><a onclick="hap('+users[i].id+')"><button class="btn btn-danger">Hapus dari keranjang</button></a></td>\
 			                </tr>\
 			              </table>\
 			          </div>\
@@ -137,6 +137,7 @@ function test(){
 });
 
 function hap(test){
+	alert("Delete Succes");
 	var token=localStorage.getItem("Token");
 	$.ajax({
 		type:"DELETE",
@@ -146,7 +147,7 @@ function hap(test){
 				"Authorization": "Bearer "+token
 		},
 		success:function(data){
-			alert("Delete Succes");
+			alert("success")
 		}
 	});
 	location.href="cart.html";
