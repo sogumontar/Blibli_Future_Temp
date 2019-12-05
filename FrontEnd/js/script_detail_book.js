@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 var id = new URL(location.href).searchParams.get('id');
 var token = localStorage.getItem("Token")
-var idLog = localStorage.getItem("idLogin")
+var idLog = localStorage.getItem("skuLogin")
 var judul;
 var gambar;
 var kategori;
@@ -13,7 +13,7 @@ var publish;
 var ibn;
 var skuU;
 var skuP;
-var skuz=localStorage.getItem("idLogin");
+var skuz=localStorage.getItem("skuLogin");
 var skuzz;
 var indikator=0;
 var wis=0;

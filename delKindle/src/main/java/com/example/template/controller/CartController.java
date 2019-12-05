@@ -115,6 +115,7 @@ public class CartController {
     @PutMapping("/finish/{sku_user}")
     public String akhirskall(@PathVariable String sku_user){
         ordersService.updateAfterCart(sku_user);
+        System.out.println(ordersService.updateAfterCart(sku_user));
         return "Sukses";
     }
 

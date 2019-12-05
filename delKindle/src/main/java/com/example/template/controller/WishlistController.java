@@ -5,6 +5,7 @@ import com.example.template.model.Wishlist;
 import com.example.template.repository.WishlistRepo;
 import com.example.template.service.WishlistService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
@@ -57,6 +58,13 @@ public class WishlistController {
 //                wishlist.getSku_product()
 //        );
         return wishlistService.save(wishlist);
+    }
+    @CrossOrigin
+    @DeleteMapping("/delete/{id}")
+    @Transactional
+    public String deleteById(@PathVariable Integer id){
+        wishlistService.delete(id);
+        return "Success";
     }
 
 

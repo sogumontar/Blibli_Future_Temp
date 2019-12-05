@@ -1,7 +1,7 @@
 $(document).ready(function(){
   var c = new URL(location.href).searchParams.get('token')
   var token = localStorage.getItem('Token');
-  var idLogin = localStorage.getItem('idLogin');
+  var idLogin = localStorage.getItem('skuLogin');
   var base = "";
 
   // Check for the File API support.

@@ -4,7 +4,8 @@ $(document).ready(function(){
 	
   // var token = new URL(location.href).searchParams.get('token')
   var token=localStorage.getItem("Token")
-  var id=localStorage.getItem("idLogin")
+	var id=localStorage.getItem("skuLogin")
+	console.log(id)
 	hideNavbar();
 	test();
 	function hideNavbar(){
@@ -154,7 +155,7 @@ function hap(test){
 
 function upd(){
 	var token=localStorage.getItem("Token")
-	var id=localStorage.getItem("idLogin")
+	var id=localStorage.getItem("skuLogin")
 	alert(id);		
 	$.ajax({
 		type:"PUT",
@@ -172,7 +173,7 @@ alert("test");
 }
 function bay(){
 	var token=localStorage.getItem("Token")
-	var isd=localStorage.getItem("idLogin")
+	var isd=localStorage.getItem("skuLogin")
 	console.log(isd)
 	console.log(penanda);		
 

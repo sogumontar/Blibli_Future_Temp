@@ -1,5 +1,5 @@
    var token=localStorage.getItem("token")
-   var id=localStorage.getItem("idLogin")
+   var id=localStorage.getItem("skuLogin")
    var gend="";
       const pit=`<img class="card" style="width: 150px; height: 150px;" src="Pict/male.png"><br><br>`;
       const pitt=`<img class="card" style="width: 150px; height: 150px;" src="Pict/girl.png"><br><br>`;

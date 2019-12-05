@@ -1,6 +1,5 @@
 $(document).ready(function(){
 
-  console.log("andreas");
   // var id = new URL(location.href).searchParams.get('id')
   //
   // updateActive();

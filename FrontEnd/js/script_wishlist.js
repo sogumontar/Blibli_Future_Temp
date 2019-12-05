@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	var token=localStorage.getItem("Token")
-  var id=localStorage.getItem("idLogin")
+  var id=localStorage.getItem("skuLogin")
 
 	hideNavbar();
 
@@ -28,28 +28,24 @@ test();
 			success: function(data) {
 				var users = JSON.parse(JSON.stringify(data));
 				for (var i in users) {
-					if(users[i].sku_user===id && users[i].status==1){
+					if(1==1){
 						console.log("test")
-					 $("#dat").
+					 $("#wish").
 						append('<div class="row">\
-						<div class="col-md-4">\
-							<img src="C:\product/'+users[i].pict_product+'" id="img_product" alt="">\
-						</div>\
-						<div class="col-md-8">\
-								<table>\
-									<tr>\
-										<td><p>'+users[i].title +'</p></td>\
-									</tr>\
-									<tr>\
-										<td><p>Rp '+users[i].price+',00</p></td>\
-										<br>\
-									</tr>\
-									<tr>\
-										<td><a class="btn btn-danger" onclick="hap('+users[i].id+')">Hapus dari keranjang</a></td>\
-									</tr>\
-								</table>\
-						</div>\
-					</div>');
+									<div class="col-md-1">\
+										<img src="C:\product/'+users[i].pict_product+'" id="img_product" alt="">\
+									</div>\
+									<div class="col-md-3">\
+											<p>'+users[i].title +'</p></td>\
+											<p>Rp '+users[i].price+',00</p>\
+									</div>\
+									<div class="col-md-2">\
+											<a class="btn btn-danger" onclick="hap('+users[i].id+')">Delete From Wishlist</a>\
+									</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\
+									<div class="col-md-3">\
+											<a class="btn btn-success" onclick="hap('+users[i].id+')">Process</a>\
+									</div>\
+								</div>');
 					}
 				}
 
@@ -82,3 +78,18 @@ test();
 
 
 });
+function hap(test){
+	var token=localStorage.getItem("Token");
+	$.ajax({
+		type:"DELETE",
+		url:"http://localhost:9081/wishlist/delete/"+test,
+		headers: {
+				"Content-Type": "application/json",
+				"Authorization": "Bearer "+token
+		},
+		success:function(data){
+			alert("Delete Succes");
+		}
+	});
+	location.href="wishlist.html";
+}

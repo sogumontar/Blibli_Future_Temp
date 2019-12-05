@@ -40,11 +40,16 @@ public class WishlistService {
                 wishlist.getSku_user(),
                 wishlist.getSku_product()
         );
+        System.out.println(wishlist1);
         return  wishlistRepo.save(wishlist1);
     }
 
     public Wishlist findFirstById(Integer id){
         return wishlistRepo.findFirstById(id);
+    }
+    public String delete(Integer id){
+        wishlistRepo.deleteById(id);
+        return"Delete Success";
     }
 
 }
