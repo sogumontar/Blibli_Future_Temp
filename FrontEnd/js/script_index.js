@@ -6,9 +6,7 @@ $(document).ready(function(){
 	hideNavbar();
 	assignDataProduct();
 
-	$('#listBook').click(function(){
-		location.href = "detail_book.html?token="+c;
-	});
+
 $('#kategori').append("<br><hr><br><br>\
 			<h2 style='color: #008BFF;'><b><font face='Times New Roman'>Kategori</font></b></h2>\
 			<ul class='produk'>\
@@ -54,15 +52,15 @@ $('#kategori').append("<br><hr><br><br>\
             for (var i in users) {
                $("#listBook").
                 append("<div class='col-lg-3 col-md-6 mb-4'>\
-                    <div class='card h-100'>\
+                    <a href='detail_book.html?id="+users[i].sku_product+"'><div class='card h-100'>\
 											<div class='card-body'>\
 												<h4 class='card-title'> <img src='C:/product/"+users[i].pict_product+"' class='card-img-top' id='image'>\</center></h4>\
-												<p class='card-text'>.....</p>\
+												<p class='card-text'><b>"+users[i].title+"</b></p>\
 											</div>\
 											<div class='card-footer'>\
 												<button class='btn btn-primary' id='but_beli'>Beli Sekarang</button>\
 											</div>\
-                    </div>\
+                    </div></a>\
                 </div>\
 									");
             }

@@ -1,6 +1,6 @@
-
-var indikator;
-$(document).ready(function(){
+var wis;
+ var indikator;
+ $(document).ready(function(){
 
   var id = new URL(location.href).searchParams.get('id');
   var token = localStorage.getItem("Token")
@@ -8,8 +8,7 @@ $(document).ready(function(){
   var judul, gambar,kategori,publikasi,harga,pencipta,publish,ibn,skuU,skuP;
   var skuz=localStorage.getItem("skuLogin");
   var skuzz;
-  var wis=0;
-  
+
     // const url ='https://swapi.co/api/people'
     const url ="http://localhost:9081/product/get/"+id;
     window.fetch(url,{
@@ -33,10 +32,10 @@ $(document).ready(function(){
        skuU=i.sku_user;
        skuP=i.sku_product;
        html= `
-  
+
         <div class="row" id="row1">
             <div class="col-md-4">
-              <img src="/../../e.png" id="pict_book" class="img-thumbnail">
+              <img src="C:/product/${i.pict_product}" class="card-img-top" id="image">
             </div>
             <div class="col-md-8">
               <p><b>Judul</b> : ${i.title} </p>
@@ -56,15 +55,15 @@ $(document).ready(function(){
         </div>
       `
       window.detail.innerHTML =html
-  
-  
+
+
     }).then(() => {
       console.log("selesai")
-    }).then(()=>console.log("del"))
-  
-  
+    })
+
     const wait = time => new Promise((resolve) => setTimeout(resolve, time));
-  
+
+    //cek there product in cart
     $.ajax({
       type:"GET",
       headers: {
@@ -78,12 +77,12 @@ $(document).ready(function(){
       },
       error: function(err) {
           alert(err)
-  
       }
-  
+
   });
+
   $("#addToCart").click(function(){
-  
+
         var temp_token = localStorage.getItem("Token");
         var jsonVar = {
           status:1,
@@ -99,7 +98,6 @@ $(document).ready(function(){
           sku_product:skuP
         };
       if(indikator==0){
-        alert("Success Add To Cart")
         $.ajax({
                 type:"POST",
                 headers: {
@@ -109,23 +107,19 @@ $(document).ready(function(){
                 url:"http://localhost:9081/cart/add",
                 data: JSON.stringify(jsonVar),
                 success: function(data){
+                  alert("Success Add To Cart");
+                  location.href="detail_book.html?id="+id;
                 },
                 error: function(err) {
                     alert(err)
-  
                 }
         });
-  
-                  location.href="cart.html";
-        console.log("binatang ")
       }else{
-        alert("This Book Already In Cart")
-        // asd();
-        
+        alert("This Book Already In Cart");
       }
       });
-  
-  
+
+
       $.ajax({
         type:"GET",
         headers: {
@@ -139,14 +133,12 @@ $(document).ready(function(){
         },
         error: function(err) {
             alert(err)
-    
         }
-    
+
     });
-  
-  
+
+
       $("#addToWishlist").click(function(){
-  
         var temp_token = localStorage.getItem("Token");
         var jsonVar = {
           status:1,
@@ -161,8 +153,7 @@ $(document).ready(function(){
           sku_user:idLog,
           sku_product:skuP
         };
-      if(wis===0){
-  
+      if(wis==0){
         $.ajax({
                 type:"POST",
                 headers: {
@@ -172,25 +163,20 @@ $(document).ready(function(){
                 url:"http://localhost:9081/wishlist/add",
                 data: JSON.stringify(jsonVar),
                 success: function(data){
-                  alert(data)
+                  alert("Success add to wisthlist");
+                  location.href="detail_book.html?id="+id;
                 },
                 error: function(err) {
                     alert(err)
-  
                 }
         });
-  
-                  location.href="cart.html";
-        
       }else{
-        alert("This Book Already In WishList")
-        
+        alert("This Book Already In WishList");
       }
       });
-    
+
   });
   // function asd(){
   //   alert("bunatanga")
   //   location.href="cart.html";
   // }
-  
