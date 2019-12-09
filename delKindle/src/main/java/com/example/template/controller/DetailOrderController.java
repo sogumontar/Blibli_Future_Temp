@@ -26,4 +26,5 @@ public class DetailOrderController {
     public List findBySkuMerchant(@PathVariable String skuMerchant){
         return detailOrderService.findBySkuMerchant(skuMerchant);
     }
+
 }

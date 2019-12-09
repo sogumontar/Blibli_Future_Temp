@@ -23,6 +23,7 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
+    @CrossOrigin
     @GetMapping("/")
     public List findIndex(){
         return productService.findAll();

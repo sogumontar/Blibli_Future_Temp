@@ -12,7 +12,7 @@ public class JwtAuthenticationResponse {
         this.role = role;
     }
 
-    public JwtAuthenticationResponse(String accessToken, String role, String skuLog,Integer status) {
+    public JwtAuthenticationResponse(String accessToken, String  role, String skuLog,Integer status) {
         this.accessToken = accessToken;
         this.role = role;
         this.skuLog = skuLog;

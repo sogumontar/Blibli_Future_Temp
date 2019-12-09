@@ -83,7 +83,7 @@ public class CartController {
 //                cart.getSku_user(),
 //                cart.getSku_product()
 //        );
-        System.out.println(cartService.save(cart));
+//        System.out.println(cartService.save(cart));
         return cartService.save(cart);
     }
 

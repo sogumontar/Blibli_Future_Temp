@@ -1,6 +1,5 @@
 package com.example.template.controller;
 
-import com.example.template.model.Product;
 import com.example.template.model.User;
 import com.example.template.repository.UserRepository;
 import com.example.template.service.UserService;
@@ -52,7 +51,6 @@ public class UserController{
     @CrossOrigin
     @PutMapping("updateProfile/{name}/{email}/{telepon}/{username}/{alamat}/{sku}")
     public String updateProfile(@PathVariable  String name, @PathVariable String email, @PathVariable String telepon, @PathVariable String username, @PathVariable String alamat,@PathVariable String sku){
-
         userService.updateProfile(name, email, username, telepon, alamat, sku);
         return "Update Success";
     }
