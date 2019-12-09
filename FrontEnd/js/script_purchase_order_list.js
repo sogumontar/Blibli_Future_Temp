@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+	$('#tablinks1').trigger("click");
 	hideNavbar();
 
 	function hideNavbar(){

@@ -1,4 +1,5 @@
 var penanda=[];
+var sub_total = 0;
 $(document).ready(function(){
 	$("#tad").append('<a id="bayar" onclick="upd()" class="btn btn-success" href="">Process</a>')
 
@@ -65,7 +66,7 @@ function test(){
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {
             	if(users[i].sku_user===id && users[i].status==1){
-            		console.log("test")
+            		sub_total = sub_total + users[i].price;
                $("#dat").
                 append('<div class="row">\
 			          <div class="col-md-4">\
@@ -88,6 +89,8 @@ function test(){
 			        </div><br>');
             	}
             }
+							document.getElementById("set_total").innerHTML = "Sub Total : Rp "+sub_total;
+							console.log(sub_total);
 
           },
           error: function(data) {

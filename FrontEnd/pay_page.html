@@ -4,7 +4,6 @@
 <head>
   <title>Pay Page - Del Kindle</title>
   <script type="text/javascript" src="js/jquery.slim.min.js"></script>
-  <link rel="stylesheet" href="css/css.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <script src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/script_pay_page.js"></script>
@@ -45,29 +44,12 @@
         </ul>
         <hr>
       </div>
-      <div class="col-md-12">
-        <div class="row" id="price">
-          <div class="col-md-8">
-            Fashion vigure
-          </div>
-          <div class="col-md-4">
-            Rp 20000
-          </div>
-        </div>
+
+      <div id="listProduct">
+
       </div>
       <br>
-      <div class="col-md-12">
-        <div class="row" id="price">
-          <div class="col-md-8">
-            Fashion vigure
-          </div>
-          <div class="col-md-4">
-            Rp 20000
-          </div>
-        </div>
-      </div>
-      <br>
-      <p><b>Total Pesanan : Rp 40000</b></p>
+      <p id="tot_pesanan"><b>Total Pesanan : Rp 40000</b></p>
     </div>
 
     <br>
@@ -81,16 +63,16 @@
         <hr>
       </div>
       <div class="form-group">
-        <label for="exampleFormControlSelect1">Example select</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-          <option>-- Transfer Bank --</option>
-          <option>Bank BCA</option>
-          <option>Bank Mandiri</option>
-          <option>Bank BRI</option>
+        <label for="exampleFormControlSelect1">Transfer Bank</label>
+        <select class="form-control" id="tipe_trans" required>
+          <option value="1">Bank BCA</option>
+          <option value="2">Bank Mandiri</option>
+          <option value="3">Bank BRI</option>
         </select>
       </div>
       <br>
-      <button type="button" class="btn btn-primary btn-md btn-block" name="button"> Buat Pesanan</button>
+
+    <button type="button" class="btn btn-primary btn-md btn-block" name="button" id="but_pesanan"> Buat Pesanan</button>
     </div>
     <br><br><br><br>
 

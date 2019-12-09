@@ -12,24 +12,35 @@ public class Orders {
     @Column(name = "sku_user")
     private String skuUser;
 
-    @Column(name = "sku_product")
-    private String skuProduct;
-
     @Column(name = "status")
     private Integer status;
 
     @Column(name = "created_at")
     private String createdAt;
 
+    @Column(name = "virtualaccount")
+    private String virtualaccount;
+
+    @Column(name = "tipe_trans")
+    private Integer tipeTrans;
+
+    @Column(name = "tot_transaction")
+    private Integer totTrans;
+
     public Orders(){
 
     }
 
-    public Orders(String skuUser, String skuProduct, Integer status, String createdAt) {
+    public Orders(String skuUser, Integer status, String createdAt, String virtualaccount, Integer tipeTrans,Integer totTrans) {
         this.skuUser = skuUser;
-        this.skuProduct = skuProduct;
         this.status = status;
         this.createdAt = createdAt;
+        this.virtualaccount = virtualaccount;
+        this.tipeTrans = tipeTrans;
+        this.totTrans = totTrans;
+    }
+
+    public Orders(String skuUser, String skuProducts, int i, String toString) {
     }
 
     public Integer getId() {
@@ -48,14 +59,6 @@ public class Orders {
         this.skuUser = skuUser;
     }
 
-    public String getSkuProduct() {
-        return skuProduct;
-    }
-
-    public void setSkuProduct(String skuProduct) {
-        this.skuProduct = skuProduct;
-    }
-
     public Integer getStatus() {
         return status;
     }
@@ -70,5 +73,29 @@ public class Orders {
 
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public String getVirtualaccount() {
+        return virtualaccount;
+    }
+
+    public void setVirtualaccount(String virtualaccount) {
+        this.virtualaccount = virtualaccount;
+    }
+
+    public Integer getTipeTrans() {
+        return tipeTrans;
+    }
+
+    public void setTipeTrans(Integer tipeTrans) {
+        this.tipeTrans = tipeTrans;
+    }
+
+    public Integer getTotTrans() {
+        return totTrans;
+    }
+
+    public void setTotTrans(Integer totTrans) {
+        this.totTrans = totTrans;
     }
 }

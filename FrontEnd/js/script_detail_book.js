@@ -31,6 +31,7 @@ var wis;
        ibn=i.isbn;
        skuU=i.sku_user;
        skuP=i.sku_product;
+       skuM=i.sku_merchant;
        html= `
 
         <div class="row" id="row1">
@@ -95,7 +96,8 @@ var wis;
           publisher:publish,
           isbn:ibn,
           sku_user:idLog,
-          sku_product:skuP
+          sku_product:skuP,
+          sku_merchant:skuM
         };
       if(indikator==0){
         $.ajax({
