@@ -1,116 +1,112 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Del Kindle Book</title>
+<html lang="en">
 
-	<script type="text/javascript" src="./js/jquery.slim.min.js"></script>
-	<link rel="stylesheet" href="./css/css.css">
-	<link rel="stylesheet" href="./css/bootstrap.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script src="./js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="./js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="./js/script.js"></script>
+<head>
+  <title>Homepage - Del Kindle</title>
+  <script type="text/javascript" src="js/jquery.slim.min.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <script src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/script_index.js"></script>
+  <link href="css/style_index.css" rel="stylesheet">
 
 </head>
+
 <body>
-	<!-- Image and text -->
-	<nav class="navbar navbar-inverse">
-	  <div class="container-fluid">
-	    <div>
-	      <a href="" class="navbar-brand" style="margin-bottom: : 0px"><img style="" src="Pict/logo.png" width="200" height="150" style=""></a>
-	    </div>
 
-	    <ul class="nav navbar-nav navbar-right">
-	      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-	      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-	    </ul>
-	  </div>
-	</nav>
-	<!-- <nav class="navbar " style="background-color: #008BFF;">
-		<a href="" class="btn" ><img style="" src="Pict/logo.png" width="120" height="120" style="margin-top: 50px"></a>
-		<form class="form-inline" action="/action_page.php" style="">
-			<input class="form-control mr-sm-1" style=" margin-bottom: 30px; width: 400px;"  type="text" placeholder="Search">
-			<button class="btn btn-success" style="margin-bottom: 30px;"  type="submit">Search</button>
-		</form>
-		<a href="login.html" class="btn" style="margin-bottom:30px; "><img src="pict/icons8-login-64.png"></a>
-	</nav> -->
-	<div class="" style="background-color: #F1FAFF;">
-		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-		  <ol class="carousel-indicators">
-		    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-		    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-		    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-		  </ol>
-		  <div class="carousel-inner">
-		    <div class="carousel-item active">
-		      <img class="d-block w-100" src="Pict/buku_kesehatan.jpg" alt="First slide">
-		    </div>
-		    <div class="carousel-item">
-		      <img class="d-block w-100" src="Pict/buku_pelajaran.jpg" alt="Second slide">
-		    </div>
-		    <div class="carousel-item">
-		      <img class="d-block w-100" src="pict/buku_kesehatan.jpg" alt="Third slide">
-		    </div>
-		  </div>
-		  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-		    <span class="sr-only">Previous</span>
-		  </a>
-		  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-		    <span class="sr-only">Next</span>
-		  </a>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="#">DelKindle</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <div id="ex4">
+              <span class="p1 fa-stack fa-2x has-badge" data-count="6">
+                <i class="p2 fa fa-shopping-cart fa-stack-1x xfa-inverse" data-count="1"></i>
+              </span>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div id="body">
+
+    <!-- Jumbotron Header -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="Pict/buku_kesehatan.jpg" alt="First slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="Pict/buku1.jpg" alt="Second slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="Pict/buku2.jpg" alt="Third slide">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <br><br>
+    <div id="kategori">
 		</div>
+    <br><br>
+    <h2 style="color: #008BFF;"><b><font face="Times New Roman">Buku Pilihan</font></b></h2>
+    <br>
 
-		<div>
-			<br><hr><br><br>
-			<h2 style="color: #008BFF;"><b><font face="Times New Roman">Kategori</font></b></h2>
+    <!-- Page Features -->
+      <div id="listBook" class="row container">
 
-			<ul class="produk">
-				<li><div style="margin-left: 75px;margin-right: 75px"><img src="Pict/buku_kesehatan.jpg" style="width:150px;height: 150px;border-radius: 100px"><center><p id="nama">Buku Kesehatan</p></center></div>
-				</li>
-				<li><div style="margin-left: 75px;margin-right: 75px"><img src="Pict/buku_kesehatan.jpg" style="width:150px;height: 150px;border-radius: 100px"><center><p id="nama">Buku Kesehatan</p></center></div>
-				</li>
-				<li><div style="margin-left: 75px;margin-right: 75px"><img src="Pict/buku_kesehatan.jpg" style="width:150px;height: 150px;border-radius: 100px"><center><p id="nama">Buku Kesehatan</p></center></div>
-				</li>
-				<li><div style="margin-left: 75px;margin-right: 75px"><img src="Pict/buku_kesehatan.jpg" style="width:150px;height: 150px;border-radius: 100px"><center><p id="nama">Buku Kesehatan</p></center></div>
-				</li>
-				<li><div style="margin-left: 75px;margin-right: 75px"><img src="Pict/buku_kesehatan.jpg" style="width:150px;height: 150px;border-radius: 100px"><center><p id="nama">Buku Kesehatan</p></center></div>
-				</li>
-				<li><div style="margin-left: 75px;margin-right: 75px"><img src="Pict/buku_kesehatan.jpg" style="width:150px;height: 150px;border-radius: 100px"><center><p id="nama">Buku Kesehatan</p></center></div>
-				</li>
-			</ul>
-		</div>
-		<div>
-			<br><hr><br><br>
-			<h2 style="color: #008BFF;"><b><font face="Times New Roman">Daftar Buku</font></b></h2>
+      </div>
 
-		</div>
+    <!-- /.row -->
 
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	</div>
 
-	<div id="listBook">
+  </div><br><br><br><br>
+  <!-- /.container -->
 
-	</div>
-
-	<footer class="fixed-bottom" style="background-color: white">
-		<ul class="flex-container" class="navbar navbar-expand fixed-bottom">
-		  <li class="flex-item">
-		  	<a href=""><button class="btn"><img id="icon1" style="width: 75px;margin-bottom: 30px" src="Pict/icons8-home-50.png"></button></a>
-		  </li>
-		  <li class="flex-item">
-		  	<a href=""><button class="btn"><img style="width: 75px;margin-bottom: 30px" src="Pict/icons8-love-50.png"></button></a>
-		  </li>
-		  <li class="flex-item">
-		  	<a href=""><button class="btn"><img style="width: 75px;margin-bottom: 30px" src="Pict/5a364b752c0633.9984354215135077011803.png"></button></a>
-		  </li>
-		  <li class="flex-item">
-		  	<a href=""><button class="btn"><img id="icon1" style="width: 75px;margin-bottom: 30px" src="Pict/avatar.png"></button></a>
-		  </li>
-		</ul>
+  <!-- Footer -->
+  <footer class="fixed-bottom" style="background-color: white">
+		<div class="ds">
+      <ul class="flex-container" class="navbar navbar-expand fixed-bottom">
+  		  <li class="flex-item1">
+  		  	<a href=""><button class="btn"><img id="icon1"  src="Pict/icons8-home-50.png"></button></a>
+  		  </li>
+  		  <li class="flex-item1">
+  		  	<a href="wishlist.html"><button class="btn"><img id="icon1" src="Pict/icons8-love-50.png"></button></a>
+  		  </li>
+  		  <li class="flex-item1">
+  		  	<a href="cart.html"><button class="btn"><img id="icon1" src="Pict/5a364b752c0633.9984354215135077011803.png"></button></a>
+  		  </li>
+  		  <li class="flex-item1">
+  		  	<a href=""><button class="btn"><img id="icon1" src="Pict/avatar.png"></button></a>
+  		  </li>
+  		</ul>
+    </div>
 	</footer>
 
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 </body>
-<script type="text/javascript" src="css/bootstrap.js"></script>
+
 </html>
