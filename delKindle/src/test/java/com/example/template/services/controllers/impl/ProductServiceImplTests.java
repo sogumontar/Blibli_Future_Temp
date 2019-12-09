@@ -4,6 +4,7 @@ import com.example.template.model.Cart;
 import com.example.template.model.Product;
 import com.example.template.repository.ProductRepo;
 import com.example.template.service.ProductService;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -30,18 +31,23 @@ public class ProductServiceImplTests {
     @Mock
     private ProductRepo productRepo;
 
-//    @Test
-//    public void testFindFirstById() {
-//        Product product = new Product();
-//        product.setId(21);
-//        when(productRepo.findFirstById(21)).thenReturn(product);
-//
-//        Product result = productService.findFirstById(21);
-//        assertNotNull(result);
-//
-//        String id = result.getId().toString();
-//        assertEquals("21", id);
-//    }
+    @Before
+    public void setup(){this.productService=new ProductService();}
+    @Test
+    public void testFindFirstBySku_product() {
+        Product product = new Product();
+        product.setSku_product("HEND-0003-0003");
+        product.setAuthor("Hendra");
+        when(this.productRepo.findFirstBySku_product("HEND-0003-0003")).thenReturn(product);
+
+        Product result = productService.findFirstBySku("HEND-0003-0003");
+        assertNotNull(result);
+
+        String id = result.getSku_product();
+        String author= result.getAuthor();
+        assertEquals("HEND-0003-0003", id);
+        assertEquals("Hendra", author);
+    }
 
 
 }
