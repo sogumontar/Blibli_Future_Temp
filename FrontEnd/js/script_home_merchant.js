@@ -9,7 +9,7 @@ $(document).ready(function(){
   setMerchant();
   assignDataProduct();
 
-  console.log(idLogin);
+
 
   function assignDataProduct(){
 		var gbr="5.png";

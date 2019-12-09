@@ -1,7 +1,8 @@
 var penanda=[];
+var sub_total = 0;
 $(document).ready(function(){
 	$("#tad").append('<a id="bayar" onclick="upd()" class="btn btn-success" href="">Process</a>')
-	
+
   // var token = new URL(location.href).searchParams.get('token')
   var token=localStorage.getItem("Token")
 	var id=localStorage.getItem("skuLogin")
@@ -65,7 +66,7 @@ function test(){
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {
             	if(users[i].sku_user===id && users[i].status==1){
-            		console.log("test")
+            		sub_total = sub_total + users[i].price;
                $("#dat").
                 append('<div class="row">\
 			          <div class="col-md-4">\
@@ -85,9 +86,11 @@ function test(){
 			                </tr>\
 			              </table>\
 			          </div>\
-			        </div>');
+			        </div><br>');
             	}
             }
+							document.getElementById("set_total").innerHTML = "Sub Total : Rp "+sub_total;
+							console.log(sub_total);
 
           },
           error: function(data) {
@@ -114,10 +117,7 @@ function test(){
 								harg+=users[i].price;
 								penanda.push(users[i].sku_product);
 								arr.push(users[i].title);
-								
-               
             }
-
 					}
 					$("#tad2").append('<a id="bayar" onclick="bay()" class="btn btn-success" href="">Pay</a>')
 					$("#dat2").
@@ -133,11 +133,9 @@ function test(){
             }
         });
 	}
-
 });
 
 function hap(test){
-	alert("Delete Succes");
 	var token=localStorage.getItem("Token");
 	$.ajax({
 		type:"DELETE",
@@ -147,17 +145,17 @@ function hap(test){
 				"Authorization": "Bearer "+token
 		},
 		success:function(data){
-			alert("success")
+			alert("success remove book from cart");
+			location.href="cart.html";
 		}
 	});
-	location.href="cart.html";
 }
 
 
 function upd(){
 	var token=localStorage.getItem("Token")
 	var id=localStorage.getItem("skuLogin")
-	alert(id);		
+	alert(id);
 	$.ajax({
 		type:"PUT",
 		url:"http://localhost:9081/cart/purchase/"+id,
@@ -176,7 +174,7 @@ function bay(){
 	var token=localStorage.getItem("Token")
 	var isd=localStorage.getItem("skuLogin")
 	console.log(isd)
-	console.log(penanda);		
+	console.log(penanda);
 
 	alert("Process Success");
 	$.ajax({
@@ -190,5 +188,4 @@ function bay(){
 			alert("Update Succes");
 		}
 	});
-
 }

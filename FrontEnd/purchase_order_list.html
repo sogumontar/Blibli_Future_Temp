@@ -4,11 +4,10 @@
 <head>
   <title>Purchase Order - Del Kindle</title>
   <script type="text/javascript" src="js/jquery.slim.min.js"></script>
-  <link rel="stylesheet" href="css/css.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <script src="js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/script_pay_page.js"></script>
   <link href="css/style_purchase_order_list.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -38,7 +37,7 @@
   </div>
 
   <div class="tab">
-    <button class="tablinks" onclick="openCity(event, 'London')">Order List</button>
+    <button class="tablinks" onclick="openCity(event, 'London')" id="tablinks1">Order List</button>
     <button class="tablinks" onclick="openCity(event, 'Paris')">Purchase</button>
   </div>
 
@@ -155,6 +154,11 @@
   </div>
 
   <br><br><br>
+  <!-- <button type="button" class="collapsible">Open Collapsible</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div> -->
+
   <!-- Footer -->
   <footer class="fixed-bottom" style="background-color: white">
 		<div id="ds">
@@ -192,6 +196,20 @@
       document.getElementById(cityName).style.display = "block";
       evt.currentTarget.className += " active";
     }
+</script>
+<script>
+var coll = document.getElementsByClassName("collapsible");
+
+  coll[0].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+
 </script>
 </body>
 

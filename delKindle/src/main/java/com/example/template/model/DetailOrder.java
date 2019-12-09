@@ -3,26 +3,27 @@ package com.example.template.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "cart")
-public class Cart {
+@Table(name = "detail_order")
+public class DetailOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private Integer id;
+    public Integer id;
 
-    @Column(name="created_at")
-    private String  created_at;
+    @Column(name = "sku_product")
+    public String sku_product;
 
-    @Column(name = "status")
-    private Integer status;
+    @Column(name = "sku_merchant")
+    public String sku_merchant;
 
+    @Column(name = "id_order")
+    public Integer idOrder;
 
     @Column(name = "title")
     public String title;
 
     @Column(name = "pict_product")
     public String pict_product;
-
 
     @Column(name = "categories")
     public String categories;
@@ -42,46 +43,22 @@ public class Cart {
     @Column(name = "isbn")
     public String isbn;
 
-    @Column(name = "sku_user")
-    private String sku_user;
-
-    @Column(name = "sku_product")
-    private String sku_product;
-
-    @Column(name = "sku_merchant")
-    private String sku_merchant;
-    public Cart(){
+    public DetailOrder(){
 
     }
-    public Cart(String created_at, Integer status, String title, String pict_product, String categories, String publication_year, Integer price, String author, String publisher, String isbn, String sku_user, String sku_product) {
-        this.created_at = created_at;
-        this.status = status;
-        this.title = title;
-        this.pict_product = pict_product;
-        this.categories = categories;
-        this.publication_year = publication_year;
-        this.price = price;
-        this.author = author;
-        this.publisher = publisher;
-        this.isbn = isbn;
-        this.sku_user = sku_user;
-        this.sku_product = sku_product;
-    }
 
-    public Cart(String created_at, Integer status, String title, String pict_product, String categories, String publication_year, Integer price, String author, String publisher, String isbn, String sku_user, String sku_product, String sku_merchant) {
-        this.created_at = created_at;
-        this.status = status;
-        this.title = title;
-        this.pict_product = pict_product;
-        this.categories = categories;
-        this.publication_year = publication_year;
-        this.price = price;
-        this.author = author;
-        this.publisher = publisher;
-        this.isbn = isbn;
-        this.sku_user = sku_user;
+    public DetailOrder(String sku_product, String sku_merchant, Integer idOrder, String title, String pict_product, String categories, String publication_year, Integer price, String author, String publisher, String isbn) {
         this.sku_product = sku_product;
         this.sku_merchant = sku_merchant;
+        this.idOrder = idOrder;
+        this.title = title;
+        this.pict_product = pict_product;
+        this.categories = categories;
+        this.publication_year = publication_year;
+        this.price = price;
+        this.author = author;
+        this.publisher = publisher;
+        this.isbn = isbn;
     }
 
     public Integer getId() {
@@ -92,20 +69,28 @@ public class Cart {
         this.id = id;
     }
 
-    public String getCreated_at() {
-        return created_at;
+    public String getSku_product() {
+        return sku_product;
     }
 
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
+    public void setSku_product(String sku_product) {
+        this.sku_product = sku_product;
     }
 
-    public Integer getStatus() {
-        return status;
+    public String getSku_merchant() {
+        return sku_merchant;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setSku_merchant(String sku_merchant) {
+        this.sku_merchant = sku_merchant;
+    }
+
+    public Integer getIdOrder() {
+        return idOrder;
+    }
+
+    public void setIdOrder(Integer idOrder) {
+        this.idOrder = idOrder;
     }
 
     public String getTitle() {
@@ -170,29 +155,5 @@ public class Cart {
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
-    }
-
-    public String getSku_user() {
-        return sku_user;
-    }
-
-    public void setSku_user(String sku_user) {
-        this.sku_user = sku_user;
-    }
-
-    public String getSku_product() {
-        return sku_product;
-    }
-
-    public void setSku_product(String sku_product) {
-        this.sku_product = sku_product;
-    }
-
-    public String getSku_merchant() {
-        return sku_merchant;
-    }
-
-    public void setSku_merchant(String sku_merchant) {
-        this.sku_merchant = sku_merchant;
     }
 }
