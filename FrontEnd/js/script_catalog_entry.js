@@ -22,35 +22,6 @@ $(document).ready(function(){
       insert();
     }
   });
-
-  function insertProduct(){
-
-     var jsonVar = {
-        title: $("#title").val(),
-        description: $("#description").val(),
-        categories: $("#categories").val(),
-        publication_year: $("#publication_year").val(),
-        price: $("#price").val(),
-        author: $("#author").val(),
-        isbn: $("#isbn").val(),
-        publisher: $("#publisher").val(),
-        picture_product: $("#picture_product").val()
-    };
-    $.ajax({
-              type:"POST",
-              url:"http://localhost:9097/product/simpan",
-              data: JSON.stringify(jsonVar),
-              contentType: false,
-              success: function(data){
-                  console.log(data.message);
-              },
-              error: function(err) {
-                  $("#message").append(err.responseJSON.message);
-                  console.log(err.responseJSON.message);
-              }
-    });
-  }
-
   function insert(){
     var formData = new FormData();
             formData.append("file", document.forms["productForm"].file.files[0]);
@@ -73,12 +44,12 @@ $(document).ready(function(){
                 body: formData
             }).then(function (response) {
                 if (response.status !== 200) {
-                    // alert("There was an error!");
+                    alert("There was an error!");
                 } else {
                     alert("Request successful");
                 }
             }).catch(function (err) {
-                //alert("There was an error!");
+                alert("There was an errors!", err);
             });;
   }
 

@@ -41,6 +41,29 @@ public class Product {
     @Column(name ="publisher")
     private String publisher;
 
+    @Column(name= "pict_product")
+    private String pict_product;
+
+    public Product(String title, String description, String categories, String publication_year, Integer price, String author, String isbn, String publisher, String pict_product) {
+        this.title = title;
+        this.description = description;
+        this.categories = categories;
+        this.publication_year = publication_year;
+        this.price = price;
+        this.author = author;
+        this.isbn = isbn;
+        this.publisher = publisher;
+        this.pict_product = pict_product;
+    }
+
+    public String getPict_product() {
+        return pict_product;
+    }
+
+    public void setPict_product(String pict_product) {
+        this.pict_product = pict_product;
+    }
+
     @Lob
     @Column(name="picture_product")
     private byte[] picture_product;

@@ -58,3 +58,16 @@ for(var i in queryStringList)
 
 
 getCasts()
+
+function del(){
+              url:"http://localhost:9097/product/del/"+res;
+               fetch(url, {
+              method: 'DELETE'
+            }).then(() => {
+              
+              location.href="list_buku.html";
+               console.log('removed');
+            }).catch(err => {
+              console.error(err)
+            });
+}

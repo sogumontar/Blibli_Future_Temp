@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="53fd1e8a-141e-457a-aaf2-c5e2bdd6a837" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/template/controller/AccountController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/detail_book.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/detail_book.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/js/script_catalog_entry.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/js/script_catalog_entry.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/js/script_detail_book.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/js/script_detail_book.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/js/script_update_buku.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/js/script_update_buku.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/update_book.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/update_book.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/template/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/template/controller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/template/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/template/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/template/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/template/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/template/repository/AccountRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/template/repository/AccountRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/template/repository/ProductRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/template/repository/ProductRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/template/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/template/service/AccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/template/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/template/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/template/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/template/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/template/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/template/controller/ProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/template/model/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/template/model/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/template/payload/ApiResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/template/payload/ApiResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/template/repository/AccountRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/template/repository/AccountRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/template/repository/ProductRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/template/repository/ProductRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/template/service/AccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/template/service/AccountService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/template/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/template/service/ProductService.class" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1TZ6qDw0UCqUvq49MUxtswy8d5c" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="TemplateApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="template" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.template.TemplateApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="53fd1e8a-141e-457a-aaf2-c5e2bdd6a837" name="Default Changelist" comment="" />
+      <created>1573655458854</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1573655458854</updated>
+      <workItem from="1573655460874" duration="97000" />
+      <workItem from="1573693049368" duration="5115000" />
+      <workItem from="1573782267283" duration="13852000" />
+      <workItem from="1573873812523" duration="34000" />
+      <workItem from="1573873861877" duration="52000" />
+      <workItem from="1573873931911" duration="47000" />
+      <workItem from="1573874005471" duration="626000" />
+      <workItem from="1573874704593" duration="140000" />
+      <workItem from="1573874852995" duration="758000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
