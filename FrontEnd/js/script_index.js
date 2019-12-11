@@ -39,7 +39,6 @@ $('#kategori').append("<br><hr><br><br>\
 	}
 
 	function assignDataProduct(){
-		var gbr="5.png";
 		$.ajax({
           type:"GET",
 					beforeSend : function( xhr ) {
@@ -58,7 +57,7 @@ $('#kategori').append("<br><hr><br><br>\
 												<p class='card-text'><b>"+users[i].title+"</b></p>\
 											</div>\
 											<div class='card-footer'>\
-												<button class='btn btn-primary' id='but_beli'>Beli Sekarang</button>\
+												<center><button class='btn btn-primary' id='but_beli'>Rp "+users[i].price+"</button></center>\
 											</div>\
                     </div></a>\
                 </div>\

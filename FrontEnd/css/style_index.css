@@ -29,11 +29,37 @@ h1 {
 }
 
 #kategori_gambar{
-  width:150px;
+  width: 220px;
   height: 150px;
   border-radius: 100px;
 }
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.produk{
+  list-style-type: none;
+  overflow: hidden;
+}
+li {
+  float: left;
+}
+#kategori_gambar{
+  width:80px;
+  height: 80px;
+  border-radius: 100px;
+}
 /*flexbox footer */
 @import "compass/css3";
 
@@ -105,5 +131,8 @@ h1 {
   text-align:center;
   min-width: 1em;
   //font-weight:bold;
+}
+#image{
+  height: 150px;
 }
 }

@@ -43,11 +43,17 @@ public class DetailOrder {
     @Column(name = "isbn")
     public String isbn;
 
+    @Column(name = "status")
+    public Integer status;
+
+    @Column(name = "name")
+    public String name;
+
     public DetailOrder(){
 
     }
 
-    public DetailOrder(String sku_product, String sku_merchant, Integer idOrder, String title, String pict_product, String categories, String publication_year, Integer price, String author, String publisher, String isbn) {
+    public DetailOrder(String sku_product, String sku_merchant, Integer idOrder, String title, String pict_product, String categories, String publication_year, Integer price, String author, String publisher, String isbn,Integer status,String name) {
         this.sku_product = sku_product;
         this.sku_merchant = sku_merchant;
         this.idOrder = idOrder;
@@ -59,6 +65,8 @@ public class DetailOrder {
         this.author = author;
         this.publisher = publisher;
         this.isbn = isbn;
+        this.status = status;
+        this.name = name;
     }
 
     public Integer getId() {
@@ -155,5 +163,21 @@ public class DetailOrder {
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

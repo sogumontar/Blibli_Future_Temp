@@ -39,13 +39,13 @@ $(document).ready(function(){
                       <div class='col-md-8'>\
                         <table>\
                           <tr>\
-                            <td>Nama Pemesan : Andreas Tampubolon</td>\
-                          </tr>\
-                          <tr>\
-                            <td>Total Pemesanan: Rp.300.000</td>\
+                            <td>Total Pemesanan: Rp."+users[i].price+"</td>\
                           </tr>\
                           <tr>\
                             <td>Tanggal Pemesanan : 24 Oktober 2019</td>\
+                          </tr>\
+                          <tr>\
+                            <td>Status Pembayaran : " + (users[i].status == 1 ? 'Belum Bayar': 'Sudah Bayar') + "</td>\
                           </tr>\
                         </table>\
                       </div>\

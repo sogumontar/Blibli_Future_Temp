@@ -6,6 +6,9 @@ import com.example.template.repository.OrderRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class OrdersService {
 
@@ -41,5 +44,27 @@ public class OrdersService {
 
     public Orders findLast(){
         return orderRepo.findLast();
+    }
+
+    public List getAll(){
+        return orderRepo.getAll();
+    }
+
+    public List findBySkuUser(String skuUser){
+        return orderRepo.findBySkuUser(skuUser);
+    }
+
+    public List findByVirtual(String virtual){
+        return orderRepo.findByVirtualaccount(virtual);
+    }
+
+    public Optional<Orders> findById(Integer id){
+        return orderRepo.findById(id);
+    }
+
+    public Orders updateStatusAcc(Integer id){
+        Orders orders = orderRepo.findFirstById(id);
+        orders.setStatus(2);
+        return ordersService.save(orders);
     }
 }

@@ -51,6 +51,7 @@ var wis;
             <hr>
             <br>
             <div class="content">
+              <p><b>Description : </b></p>
                 ${i.description}
             </div>
         </div>

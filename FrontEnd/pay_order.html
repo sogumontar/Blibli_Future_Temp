@@ -2,13 +2,12 @@
 <html lang="en">
 
 <head>
-  <title>Incoming Order Page - Del Kindle</title>
+  <title>Pay Order - Del Kindle</title>
   <script type="text/javascript" src="js/jquery.slim.min.js"></script>
-  <link rel="stylesheet" href="css/css.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <script src="js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/script_incoming_order_page.js"></script>
-  <link href="css/style_incoming_order_page.css" rel="stylesheet">
+  <script type="text/javascript" src="js/script_pay_order.js"></script>
+  <link href="css/style_wistlist.css" rel="stylesheet">
 </head>
 
 <body>
@@ -34,45 +33,49 @@
   <!-- Page Content -->
   <div id="header_merchant" class="row">
     <div><a href="javascript:history.back()"><img src="Pict/left.png" width="25px"></a>&nbsp;&nbsp;&nbsp;</div>
-    <div><h2 id="catalog"> Incoming Order Page</h2></div>
+      <div><h2 id="catalog"> Pay Order</h2></div>
   </div>
-  <div id="notifikasi">
 
+  <div id="content">
+    <p><b>* Lakukan Pembayaran agar dapat membaca buku yang dibeli</b><br>
+    <b>* Masukkan virtual account order</b></p><br>
+    <form>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Virtual Account</label>
+        <input type="text" class="form-control" id="vir" placeholder="Virtual Account" required>
+      </div>
+      <button type="button" class="btn btn-primary btn-sm" id="send">Send</button>
+    </form>
+    <br><br>
+    <p><b>Detail Transaksi : </b></p>
+    <div class="form-group">
+      <div id="virtual1">
+
+      </div>
+    </div>
   </div>
-  <div id="tambah">
-    <table>
-      <tr>
-        <td><img src="Pict/checked.png" id="plus" alt="">&nbsp;&nbsp;&nbsp;&nbsp;</td>
-        <td><h4 id="tambah1">Semua Pesanan Perlu ditangani</h4></td>
-      </tr>
-    </table>
-  </div><br>
+  <br><br><br><br><br>
 
-  <!-- /.container -->
 
-  <div id="listOrder">
-
-  </div>
-    <br><br><br><br><br>
   <!-- Footer -->
   <footer class="fixed-bottom" style="background-color: white">
-    <div id="ds">
+		<div id="ds">
       <ul class="flex-container" class="navbar navbar-expand fixed-bottom">
-        <li class="flex-item1">
-          <a href="home_merchant.html"><button class="btn"><img id="icon1" src="Pict/icons8-home-50.png"></button></a>
-        </li>
-        <li class="flex-item1">
-          <a href="catalog_entry.html"><button class="btn"><img id="icon1" src="Pict/plus.png"></button></a>
-        </li>
-        <li class="flex-item1">
-          <a href="incoming_order_page.html"><button class="btn"><img id="icon1" src="Pict/5a364b752c0633.9984354215135077011803.png"></button></a>
-        </li>
-        <li class="flex-item1">
-          <a href="product_page.html"><button class="btn"><img id="icon1" src="Pict/list.png"></button></a>
-        </li>
-      </ul>
+  		  <li class="flex-item1">
+  		  	<a href=""><button class="btn"><img id="icon1" src="Pict/icons8-home-50.png"></button></a>
+  		  </li>
+  		  <li class="flex-item1">
+  		  	<a href="catalog_entry.html"><button class="btn"><img id="icon1" src="Pict/plus.png"></button></a>
+  		  </li>
+  		  <li class="flex-item1">
+  		  	<a href=""><button class="btn"><img id="icon1" src="Pict/5a364b752c0633.9984354215135077011803.png"></button></a>
+  		  </li>
+  		  <li class="flex-item1">
+  		  	<a href=""><button class="btn"><img id="icon1" src="Pict/avatar.png"></button></a>
+  		  </li>
+  		</ul>
     </div>
-  </footer>
+	</footer>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>

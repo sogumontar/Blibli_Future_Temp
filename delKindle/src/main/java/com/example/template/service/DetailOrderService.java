@@ -27,4 +27,14 @@ public class DetailOrderService {
     public List findBySkuMerchant(String skuMerchant){
         return detailOrderRepository.findBySkuMerchant(skuMerchant);
     }
+
+    public List findByIdOrder(Integer idOrder){
+        return detailOrderRepository.findByIdOrder(idOrder);
+    }
+
+    public DetailOrder updateStatusAcc(Integer id){
+        DetailOrder detailOrder = detailOrderRepository.findFirstById(id);
+        detailOrder.setStatus(2);
+        return detailOrderRepository.save(detailOrder);
+    }
 }

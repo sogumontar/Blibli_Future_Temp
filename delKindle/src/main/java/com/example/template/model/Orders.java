@@ -27,6 +27,9 @@ public class Orders {
     @Column(name = "tot_transaction")
     private Integer totTrans;
 
+    @Column(name ="name")
+    private String name;
+
     public Orders(){
 
     }
@@ -97,5 +100,13 @@ public class Orders {
 
     public void setTotTrans(Integer totTrans) {
         this.totTrans = totTrans;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

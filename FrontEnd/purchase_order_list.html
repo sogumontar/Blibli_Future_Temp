@@ -7,7 +7,9 @@
   <link rel="stylesheet" href="css/bootstrap.css">
   <script src="js/bootstrap.min.js"></script>
   <link href="css/style_purchase_order_list.css" rel="stylesheet">
+  <script type="text/javascript" src="js/script_purchase_order_list.js">
 
+  </script>
 </head>
 
 <body>
@@ -42,61 +44,11 @@
   </div>
 
     <div id="London" class="tabcontent">
-      <div id="header_content">
-        <ul id="ul_header">
-          <li id="li_header"><a href="">  <img src="pict/shopping.png" alt=""></a></li>
-          <li id="li_header"><a href=""><b>Gudangnya Buku</b></a></li>
-        </ul>
-        <hr>
-      </div>
-      <div class="col-md-12">
-        <div class="row">
-          <div class="col-md-4">
-            <img src="Pict/buku_fashion.jpg" id="img_product" alt="">
-          </div>
-          <div class="col-md-8">
-              <table>
-                <tr>
-                  <td><p>Fashion figure</p></td>
-                </tr>
-                <tr>
-                  <td><p>Rp 12123123</p></td>
-                </tr>
-                <tr>
-                  <td><h4>Belum bayar</h4></td>
-                </tr>
-              </table>
-          </div>
-        </div>
-      </div>
+
       <br>
 
-      <div id="header_content">
-        <ul id="ul_header">
-          <li id="li_header"><a href="">  <img src="pict/shopping.png" alt=""></a></li>
-          <li id="li_header"><a href=""><b>Gudangnya Buku</b></a></li>
-        </ul>
-        <hr>
-      </div>
-      <div class="col-md-12">
-        <div class="row">
-          <div class="col-md-4">
-            <img src="Pict/buku_fashion.jpg" id="img_product" alt="">
-          </div>
-          <div class="col-md-8">
-              <table>
-                <tr>
-                  <td><p>Fashion figure</p></td>
-                </tr>
-                <tr>
-                  <td><p>Rp 12123123</p></td>
-                </tr>
-                <tr>
-                  <td><h4>Belum bayar</h4></td>
-                </tr>
-              </table>
-          </div>
-        </div>
+      <div id="listOrder">
+
       </div>
     </div>
 
@@ -127,29 +79,8 @@
     </div>
     <br>
 
-    <div id="header_content">
-      <ul id="ul_header">
-        <li id="li_header"><a href="">  <img src="pict/shopping.png" alt=""></a></li>
-        <li id="li_header"><a href=""><b>Gudangnya Buku</b></a></li>
-      </ul>
-      <hr>
-    </div>
-    <div class="col-md-12">
-      <div class="row">
-        <div class="col-md-4">
-          <img src="Pict/buku_fashion.jpg" id="img_product" alt="">
-        </div>
-        <div class="col-md-8">
-            <table>
-              <tr>
-                <td><p>Fashion figure</p></td>
-              </tr>
-              <tr>
-                <td><p>Rp 12123123</p></td>
-              </tr>
-            </table>
-        </div>
-      </div>
+    <div id="listOrderAcc">
+
     </div>
   </div>
 
@@ -196,20 +127,6 @@
       document.getElementById(cityName).style.display = "block";
       evt.currentTarget.className += " active";
     }
-</script>
-<script>
-var coll = document.getElementsByClassName("collapsible");
-
-  coll[0].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-
 </script>
 </body>
 

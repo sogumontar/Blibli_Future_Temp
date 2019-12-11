@@ -5,6 +5,8 @@ var last = 0;
 var plus = 0;
 
 $(document).ready(function(){
+	var nama ='';
+
 
 	hideNavbar();
 	assignDataProduct();
@@ -25,7 +27,25 @@ $(document).ready(function(){
 	}
 
 
+	//get all By sku
+	$.ajax({
+				type:"GET",
+				beforeSend : function( xhr ) {
+					xhr.setRequestHeader( "Authorization", "Bearer "+token );
+				},
+				url:"http://localhost:9081/user/findById/"+id,
+				success: function(data) {
+					alert(data.name);
+					nama = data.name;
+					console.log(nama);
+				},
 
+				error: function(data) {
+					console.log(data);
+					}
+			});
+
+	console.log(nama);
 	function assignDataProduct(){
 		$.ajax({
 					type:"GET",
@@ -81,7 +101,8 @@ $(document).ready(function(){
 			createdAt: today,
 			virtualaccount: virtual,
 			tipeTrans: document.getElementById('tipe_trans').value,
-			totTrans: totPesanan
+			totTrans: totPesanan,
+			name: nama
 		};
 		$.ajax({
 							type:"POST",
@@ -126,6 +147,7 @@ $(document).ready(function(){
 																							publication_year: users[i].publication_year,
 																							price: users[i].price,
 																							author: users[i].author,
+																							status: 1,
 																							publisher: users[i].publisher,
 																							isbn: users[i].isbn
 																						}
