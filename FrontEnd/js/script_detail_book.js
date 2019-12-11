@@ -2,12 +2,27 @@ var wis;
  var indikator;
  $(document).ready(function(){
 
+
   var id = new URL(location.href).searchParams.get('id');
   var token = localStorage.getItem("Token")
-  var idLog = localStorage.getItem("skuLogin")
+  var idLog = localStorage.getItem("skuLogin");
+  var role=localStorage.getItem("Role");
   var judul, gambar,kategori,publikasi,harga,pencipta,publish,ibn,skuU,skuP;
   var skuz=localStorage.getItem("skuLogin");
   var skuzz;
+
+        if(role==="ROLE_USER"){
+            $("#actions")
+            .append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id=\"addToCart\" class=\"btn btn-success\">Add To Cart</button>\n \
+                <button id=\"addToWishlist\" class=\"btn btn-primary\">Add To WishList</button>\
+               ");
+        }else if(role==="ROLE_MERCHANT"){
+            $("#actions")
+                .append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id=\"update\" class=\"btn btn-primary\">Update</button>\n \
+                <button id=\"delete\" class=\"btn btn-danger\">Delete</button>\
+               ");
+        }
+
 
     // const url ='https://swapi.co/api/people'
     const url ="http://localhost:9081/product/get/"+id;

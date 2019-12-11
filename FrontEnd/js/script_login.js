@@ -25,8 +25,7 @@ $(document).ready(function(){
                   localStorage.setItem('skuLogin',skuLog);
                     localStorage.setItem('Role',data.role);
                   if(data.role == "ROLE_USER"){
-                      location.href = 
-                      "index.html";
+                      location.href = "index.html";
                   }else if(data.role == "ROLE_ADMIN"){
                       location.href = "home_admin.html";
                   }else if(data.role == "ROLE_MERCHANT"){

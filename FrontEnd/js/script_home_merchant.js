@@ -65,6 +65,7 @@ function listData() {
 											</div>\
                       <hr>\
                       <p class='card-text'>Dijual Oleh : "+namaLogin+"</p>\
+                      <a class='btn btn-primary' href='detail_book.html?id="+users[i].sku_product+"'>Detail</a>\
                     </div>\
                 </div>\
 									");
