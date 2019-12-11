@@ -64,8 +64,11 @@ function test(){
           },
           success: function(data) {
             var users = JSON.parse(JSON.stringify(data));
+            var penandaa=0;
             for (var i in users) {
+
             	if(users[i].sku_user===id && users[i].status==1){
+					penandaa++;
             		sub_total = sub_total + users[i].price;
                $("#dat").
                 append('<div class="row">\
@@ -89,6 +92,11 @@ function test(){
 			        </div><br>');
             	}
             }
+            if(penandaa===0){
+				$("#dat").
+				append('<h1>Nothing In Cart</h1>\
+				');
+			}
 							document.getElementById("set_total").innerHTML = "Sub Total : Rp "+sub_total;
 							console.log(sub_total);
 
