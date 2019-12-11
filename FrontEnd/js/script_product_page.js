@@ -27,7 +27,7 @@ $(document).ready(function(){
                 append("<div class='col-lg-4 col-md-6 mb-4'>\
                     <div class='card h-100'>\
 											<div class='card-body'>\
-												<h4 class='card-title'> <img src='C:/product/"+users[i].pict_product+"' class='card-img-top' id='image'>\</center></h4>\
+												<h4 class='card-title'> <img src='./product/"+users[i].pict_product+"' class='card-img-top' id='image'>\</center></h4>\
 												<p class='card-text'>"+users[i].title+"</p>\
 											</div>\
 											<div class='card-footer'>\

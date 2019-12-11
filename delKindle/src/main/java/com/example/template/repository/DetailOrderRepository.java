@@ -11,4 +11,6 @@ import java.util.List;
 public interface DetailOrderRepository extends JpaRepository<DetailOrder,Integer> {
     @Query("SELECT d FROM DetailOrder d WHERE d.sku_merchant LIKE ?1 ")
     List findBySkuMerchant(String sku_merchant);
+
+    List findAll();
 }

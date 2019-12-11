@@ -23,6 +23,7 @@ $(document).ready(function(){
                   console.log(data.role);
                   localStorage.setItem('Token',token);
                   localStorage.setItem('skuLogin',skuLog);
+                    localStorage.setItem('Role',data.role);
                   if(data.role == "ROLE_USER"){
                       location.href = 
                       "index.html";

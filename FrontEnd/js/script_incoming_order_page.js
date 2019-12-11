@@ -33,13 +33,14 @@ $(document).ready(function(){
             console.log(data);
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {
-               $("#listOrder").
+                alert(users[i].sku_user)
+               $("#listOrders").
                 append("<div class='col-md-12'>\
                     <div class='row'>\
                       <div class='col-md-8'>\
                         <table>\
                           <tr>\
-                            <td>Nama Pemesan : Andreas Tampubolon</td>\
+                            <td>Nama Pemesan : Andreas Tampubolosn</td>\
                           </tr>\
                           <tr>\
                             <td>Total Pemesanan: Rp.300.000</td>\

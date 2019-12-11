@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var token=localStorage.getItem("Token");
+        var role=localStorage.getItem("Role");
+        if(token){
+            if(role==='ROLE_USER'){
+                $("#test").append('<a href="wishlist.html"><button class="btn"><img id="icon1" src="Pict/icons8-love-50.png"></button></a>')
+            }else if(role==='ROLE_MERCHANT'){
+                $("#test").append('<a href=\"catalog_entry.html\"><button class=\"btn\"><img id=\"icon1\" src=\"Pict/plus.png\"></button></a>')
+            }
+
+        }else{
+            $("#test").append('<a href="wishlist.html"><button class="btn"><img id="icon1" src="Pict/icons8-love-50.png"></button></a>')
+        }
+    </script>
+</head>
+<body>
+
+</body>
+<div class="container-fluid">
+    <footer class="fixed-bottom" style="background-color: white">
+        <div id="ds" class="container-fluid">
+            <ul class="flex-container" class="navbar navbar-expand fixed-bottom">
+                <li class="flex-item1">
+                    <a href="index.html"><button class="btn"><img id="icon1" src="Pict/icons8-home-50.png"></button></a>
+                </li>
+                <li class="flex-item1" id="test">
+
+                </li>
+                <li class="flex-item1">
+                    <a href="cart.html"><button class="btn"><img id="icon1" src="Pict/5a364b752c0633.9984354215135077011803.png"></button></a>
+                </li>
+                <li class="flex-item1">
+                    <a href="profile.html"><button class="btn"><img id="icon1" src="Pict/avatar.png"></button></a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+</div>
+
+</html>

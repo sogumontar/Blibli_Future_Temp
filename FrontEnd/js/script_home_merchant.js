@@ -9,26 +9,46 @@ $(document).ready(function(){
   setMerchant();
   assignDataProduct();
 
-
+    var namaLogin;
 
   function assignDataProduct(){
-		var gbr="5.png";
-		$.ajax({
+
+      $.ajax({
           type:"GET",
           contentType: 'application/json',
           beforeSend : function( xhr ) {
-           xhr.setRequestHeader( "Authorization", "Bearer "+token );
-         },
-          url:"http://localhost:9081/merchant/getAllByMerchant/"+skuLogin,
+              xhr.setRequestHeader( "Authorization", "Bearer "+token );
+          },
+          url:"http://localhost:9081/user/findById/"+skuLogin,
           success: function(data) {
-						console.log(data);
+              namaLogin=data.name;
+              console.log(data.name);
+          },error: function (err) {
+            console.log(err);
+          }
+
+        });
+      setTimeout(function(){ listData() }, 1000);
+		var gbr="5.png";
+
+	}
+function listData() {
+    $.ajax({
+        type:"GET",
+        contentType: 'application/json',
+        beforeSend : function( xhr ) {
+            xhr.setRequestHeader( "Authorization", "Bearer "+token );
+        },
+        url:"http://localhost:9081/merchant/getAllByMerchant/"+skuLogin,
+        success: function(data) {
+            console.log(data);
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {
-               $("#listBook").
+                $("#listBook").
                 append("<div class='col-lg-4 col-md-6 mb-5'>\
                     <div id='h'>\
 											<div class='card-body'>\
-												<h4 class='card-title'> <img src='C:/product/"+users[i].pict_product+"' class='card-img-top' id='image'>\</center></h4>\
+												<h4 class='card-title'> <img src='./product/"+users[i].pict_product+"' class='card-img-top' id='image'>\</center></h4>\
 												<p class='card-text'>"+users[i].title+"</p>\
 											</div>\
 											<div class=''>\
@@ -44,18 +64,17 @@ $(document).ready(function(){
                         </div>\
 											</div>\
                       <hr>\
-                      <p class='card-text'>Dijual Oleh : "+temp+"</p>\
+                      <p class='card-text'>Dijual Oleh : "+namaLogin+"</p>\
                     </div>\
                 </div>\
 									");
             }
-          },
-          error: function(data) {
+        },
+        error: function(data) {
             console.log(data);
-            }
-        });
-	}
-
+        }
+    });
+}
   function hideNavbar(){
 		var prevScrollpos = window.pageYOffset;
 		window.onscroll = function() {

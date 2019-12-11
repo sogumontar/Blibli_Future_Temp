@@ -86,7 +86,7 @@ public class MerchantService {
         int last = lastProductService.findLast().getLast_book();
         int two = last+1;
         String pict = "pict"+two+".jpg";
-        File file = new File("C:/product/"+pict);
+        File file = new File("C:/xampp/htdocs/Blibli_Future_Temp/FrontEnd/product/"+pict);
         try(FileOutputStream fos = new FileOutputStream(file)){
             byte[] decoder = Base64.getDecoder().decode(catalogEntryRequest.getPict_product());
             fos.write(decoder);
@@ -100,7 +100,7 @@ public class MerchantService {
         int last = lastProductService.findLast().getLast_book();
         int two = last+1;
         String pdf = "book"+two+".pdf";
-        File file = new File("C:/product/book/"+pdf);
+        File file = new File("C:/xampp/htdocs/Blibli_Future_Temp/FrontEnd/product/book/"+pdf);
         try(FileOutputStream fos = new FileOutputStream(file)){
             byte[] decoder = Base64.getDecoder().decode(catalogEntryRequest.getBook_file());
             fos.write(decoder);

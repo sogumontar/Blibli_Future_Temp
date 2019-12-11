@@ -36,7 +36,7 @@ var wis;
 
         <div class="row" id="row1">
             <div class="col-md-4">
-              <img src="C:/product/${i.pict_product}" class="card-img-top" id="image">
+              <img src="./product/${i.pict_product}" class="card-img-top" id="image">
             </div>
             <div class="col-md-8">
               <p><b>Judul</b> : ${i.title} </p>
@@ -77,12 +77,15 @@ var wis;
         console.log(indikator);
       },
       error: function(err) {
-          alert(err)
+          // alert(err)
       }
 
   });
+     $("#addToCart").click(function(){
+         addCart();
+     });
 
-  $("#addToCart").click(function(){
+  function addCart(){
 
         var temp_token = localStorage.getItem("Token");
         var jsonVar = {
@@ -101,32 +104,32 @@ var wis;
         };
       if(indikator==0){
         $.ajax({
-                type:"POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": "Bearer "+token
-                },
-                url:"http://localhost:9081/cart/add",
-                data: JSON.stringify(jsonVar),
-                success: function(data){
-                  alert("Success Add To Cart");
-                  location.href="detail_book.html?id="+id;
-                },
-                error: function(err) {
-                    alert(err)
-                }
+            type:"POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer "+token
+            },
+            url:"http://localhost:9081/cart/add",
+            data: JSON.stringify(jsonVar),
+            success: function(data){
+                alert("Success add to Cart");
+                location.href="detail_book.html?id="+id;
+            },
+            error: function(err) {
+                // alert(err)
+            }
         });
       }else{
         alert("This Book Already In Cart");
       }
-      });
+      }
 
 
       $.ajax({
         type:"GET",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer "+token
+            "Authorization": "Bearer "
         },
         url:"http://localhost:9081/wishlist/check/"+skuz+"/"+id,
         success: function(data){
@@ -134,7 +137,7 @@ var wis;
           console.log(wis)
         },
         error: function(err) {
-            alert(err)
+            // alert(err)
         }
 
     });

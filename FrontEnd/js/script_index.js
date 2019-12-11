@@ -54,7 +54,7 @@ $('#kategori').append("<br><hr><br><br>\
                 append("<div class='col-lg-3 col-md-6 mb-4'>\
                     <a href='detail_book.html?id="+users[i].sku_product+"'><div class='card h-100'>\
 											<div class='card-body'>\
-												<h4 class='card-title'> <img src='C:/product/"+users[i].pict_product+"' class='card-img-top' id='image'>\</center></h4>\
+												<h4 class='card-title'> <img src='./product/"+users[i].pict_product+"' class='card-img-top' id='image'>\</center></h4>\
 												<p class='card-text'><b>"+users[i].title+"</b></p>\
 											</div>\
 											<div class='card-footer'>\

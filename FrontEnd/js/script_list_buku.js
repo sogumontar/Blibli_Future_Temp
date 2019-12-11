@@ -41,7 +41,7 @@ $(document).ready(function(){
             for (var i in users) {
                $("#dat").
                 append("<div class='ard' id='card'>\
-						      <img src='C:/product/"+users[i].pict_product+"' class='card-img-top' id='image'>\
+						      <img src='./product/"+users[i].pict_product+"' class='card-img-top' id='image'>\
 						      <div class='card-body'>\
 						        <div class=''>\
 						          <center><h5>" + users[i].title + "</h5></center>\

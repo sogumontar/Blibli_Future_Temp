@@ -27,4 +27,7 @@ public class DetailOrderService {
     public List findBySkuMerchant(String skuMerchant){
         return detailOrderRepository.findBySkuMerchant(skuMerchant);
     }
+    public List findAll(){
+        return detailOrderRepository.findAll();
+    }
 }
