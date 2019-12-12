@@ -22,7 +22,7 @@ $(document).ready(function(){
           url:"http://localhost:9081/user/findById/"+skuLogin,
           success: function(data) {
               namaLogin=data.name;
-              console.log(data.name);
+              // console.log(data.name);
           },error: function (err) {
             console.log(err);
           }
@@ -41,7 +41,7 @@ function listData() {
         },
         url:"http://localhost:9081/merchant/getAllByMerchant/"+skuLogin,
         success: function(data) {
-            console.log(data);
+            // console.log(data);
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {
                 $("#listBook").
@@ -72,7 +72,7 @@ function listData() {
             }
         },
         error: function(data) {
-            console.log(data);
+            // console.log(data);
         }
     });
 }
@@ -98,13 +98,13 @@ function listData() {
     			},
           url:"http://localhost:9081/user/findById/"+skuLogin,
           success: function(data) {
-            console.log(data);
+            // console.log(data);
             $('#toko').text(data.name);
             temp =data.name;
           },
 
           error: function(data) {
-            console.log(data);
+            // console.log(data);
             }
         });
 
@@ -116,13 +116,13 @@ function listData() {
         			},
               url:"http://localhost:9081/merchant/countIdMerchant/"+skuLogin,
               success: function(data) {
-                console.log(data);
+                // console.log(data);
                 $('#number_produk').text("Product : "+data);
                 temp =data.name;
               },
 
               error: function(data) {
-                console.log(data);
+                // console.log(data);
                 }
             });
 

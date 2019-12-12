@@ -4,6 +4,7 @@ import com.example.template.model.Product;
 import com.example.template.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -79,11 +80,12 @@ public class ProductController {
 //        return ResponseEntity.ok().build();
 //    }
 
-//    @CrossOrigin
-//    @DeleteMapping("/del/{id}")
-//    public void deleteProduct(@PathVariable Integer id) {
-//        productService.deleteById(id);
-//    }
+    @Transactional
+    @CrossOrigin
+    @DeleteMapping("/del/{id}")
+    public void deleteProduct(@PathVariable String id) {
+        productService.deleteBySkuProduct(id);
+    }
 //
 //    @CrossOrigin
 //    @PostMapping(value= "/createFile")

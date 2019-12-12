@@ -13,10 +13,12 @@ for(var i in queryStringList)
 }
 
   function getCasts(){
-  const url ="http://localhost:9081/product/"+res;
+
+  const url ="http://localhost:9081/product/get/"+res;
   window.fetch(url).then((res)=>{
     return res.json()
   }).then((i)=>{
+      document.getElementById('pict').value="./product/"+i.pict_product;
       document.getElementById('title').value=i.title;
       document.getElementById('description').value=i.description;
       document.getElementById('categories').value=i.categories;

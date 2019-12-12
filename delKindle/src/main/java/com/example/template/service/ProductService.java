@@ -60,5 +60,8 @@ public class ProductService {
     public List findAllByCategories(String kategori){
         return productRepo.findAllByCategories(kategori);
     }
+    public void deleteBySkuProduct(String skuProduct){
+         productRepo.deleteBySku_product(skuProduct);
+    }
 }
 

@@ -9,24 +9,30 @@
   <script src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/script_update_buku.js"></script>
   <link href="css/style_catalog_entry.css" rel="stylesheet">
+  <script>
+    $(function(){ $("#head").load("navbar.html") });
+    $(function(){ $("#footer").load("footer.html") });  </script>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="navbar">
-    <div class="container">
-      <a class="navbar-brand" href="#">DelKindle</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <img style="width: 35px" src="Pict/5a364b752c0633.9984354215135077011803.png">
-          </li>
+<nav id="head">
 
-        </ul>
-      </div>
-    </div>
-  </nav>
+</nav>
+<!--  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="navbar">-->
+<!--    <div class="container">-->
+<!--      <a class="navbar-brand" href="#">DelKindle</a>-->
+<!--      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--        <span class="navbar-toggler-icon"></span>-->
+<!--      </button>-->
+<!--      <div class="collapse navbar-collapse" id="navbarResponsive">-->
+<!--        <ul class="navbar-nav ml-auto">-->
+<!--          <li class="nav-item active">-->
+<!--            <img style="width: 35px" src="Pict/5a364b752c0633.9984354215135077011803.png">-->
+<!--          </li>-->
+
+<!--        </ul>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </nav>-->
 
 
   <!-- Page Content -->
@@ -44,10 +50,10 @@
   <div id="pemesanan">
     <form id="form" name="productForm" method="PUT">
       <center><div class="form-group">
-        <input type='file' class="form-control" style="width: 300px;" id="pict_product" name="file"  onchange="readURL(this);" />
-         <img id="blah" src="http://placehold.it/180" alt="your image" />
+<!--        <input type='file' class="form-control" style="width: 300px;" id="pict_product" name="file"  onchange="readURL(this);" />-->
+<!--         <img id="blah" src="http://placehold.it/180" alt="your image" />-->
          <br>
-         <img width="300px"  height="250px" src="C:\product\1a.png">
+         <img width="300px"  height="250px" id="pict">
          <br>
           <input type="file" class="form-control" style="width: 300px;" id="pict_product" name="file" placeholder="Picture Product" >
         </div>
@@ -98,24 +104,27 @@
   </div><br><br><br><br><br><br>
 
   <!-- Footer -->
-  <footer class="fixed-bottom" style="background-color: white">
-    <div id="ds">
-      <ul class="flex-container" class="navbar navbar-expand fixed-bottom">
-        <li class="flex-item1">
-          <a href=""><button class="btn"><img id="icon1" src="Pict/icons8-home-50.png"></button></a>
-        </li>
-        <li class="flex-item1">
-          <a href="catalog_entry.html"><button class="btn"><img id="icon1" src="Pict/plus.png"></button></a>
-        </li>
-        <li class="flex-item1">
-          <a href=""><button class="btn"><img id="icon1" src="Pict/5a364b752c0633.9984354215135077011803.png"></button></a>
-        </li>
-        <li class="flex-item1">
-          <a href=""><button class="btn"><img id="icon1" src="Pict/avatar.png"></button></a>
-        </li>
-      </ul>
-    </div>
-  </footer>
+<div id="footer">
+
+</div>
+<!--  <footer class="fixed-bottom" style="background-color: white">-->
+<!--    <div id="ds">-->
+<!--      <ul class="flex-container" class="navbar navbar-expand fixed-bottom">-->
+<!--        <li class="flex-item1">-->
+<!--          <a href=""><button class="btn"><img id="icon1" src="Pict/icons8-home-50.png"></button></a>-->
+<!--        </li>-->
+<!--        <li class="flex-item1">-->
+<!--          <a href="catalog_entry.html"><button class="btn"><img id="icon1" src="Pict/plus.png"></button></a>-->
+<!--        </li>-->
+<!--        <li class="flex-item1">-->
+<!--          <a href=""><button class="btn"><img id="icon1" src="Pict/5a364b752c0633.9984354215135077011803.png"></button></a>-->
+<!--        </li>-->
+<!--        <li class="flex-item1">-->
+<!--          <a href=""><button class="btn"><img id="icon1" src="Pict/avatar.png"></button></a>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--  </footer>-->
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>

@@ -18,7 +18,7 @@ var wis;
                ");
         }else if(role==="ROLE_MERCHANT"){
             $("#actions")
-                .append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id=\"update\" class=\"btn btn-primary\">Update</button>\n \
+                .append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id=\"updates\" class=\"btn btn-primary\">Update</button>\n \
                 <button id=\"delete\" class=\"btn btn-danger\">Delete</button>\
                ");
         }
@@ -74,7 +74,7 @@ var wis;
 
 
     }).then(() => {
-      console.log("selesai")
+      // console.log("selesai")
     })
 
     const wait = time => new Promise((resolve) => setTimeout(resolve, time));
@@ -89,13 +89,37 @@ var wis;
       url:"http://localhost:9081/cart/check/"+skuz+"/"+id,
       success: function(data){
         indikator=data;
-        console.log(indikator);
+        // console.log(indikator);
       },
       error: function(err) {
           // alert(err)
       }
 
   });
+    $("#updates").click(function () {
+        location.href="update_book.html?id="+id;
+    });
+
+     $("#delete").click(function(){
+         deletes();
+     });
+     function deletes(){
+         $.ajax({
+             type:"DELETE",
+             headers: {
+                 "Content-Type": "application/json",
+                 "Authorization": "Bearer "+token
+             },
+             url:"http://localhost:9081/product/del/"+id,
+             success: function(data){
+                 alert("Delete Success");
+                 location.href="home_merchant.html?id="+id;
+             },
+             error: function(err) {
+                 // alert(err)
+             }
+         });
+     }
      $("#addToCart").click(function(){
          addCart();
      });
@@ -149,7 +173,7 @@ var wis;
         url:"http://localhost:9081/wishlist/check/"+skuz+"/"+id,
         success: function(data){
           wis=data;
-          console.log(wis)
+          // console.log(wis)
         },
         error: function(err) {
             // alert(err)
