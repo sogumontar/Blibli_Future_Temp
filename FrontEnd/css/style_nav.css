@@ -1,0 +1,20 @@
+
+#navbar {
+  top: 0;
+  display: block;
+  transition: top 0.3s;
+}
+#navbar1{
+	height:25px;
+	 background-color:#0D74CC;
+}
+#navbar2{
+	height:60px;
+	 background-color:#008AFF;
+}
+li {
+  float: left;
+}
+#font{
+	font-size: 2.5em;color: white
+}

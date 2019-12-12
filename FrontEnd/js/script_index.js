@@ -3,10 +3,9 @@ $(document).ready(function(){
 	var c = new URL(location.href).searchParams.get('token')
 	var token = localStorage.getItem('Token');
 
-	hideNavbar();
 	assignDataProduct();
 
-	$("#footer").load("footer.html");
+	
 
 $('#kategori').append("<br>\
 			<h2 style='color: #008BFF;'><b><font face='Times New Roman'>Kategori</font></b></h2>\
@@ -26,19 +25,7 @@ $('#kategori').append("<br>\
 			</ul>\
 	");
 
-	function hideNavbar(){
-		var prevScrollpos = window.pageYOffset;
-		window.onscroll = function() {
-		var currentScrollPos = window.pageYOffset;
-		  if (prevScrollpos > currentScrollPos) {
-		    document.getElementById("navbar").style.top = "0";
-		  } else {
-		    document.getElementById("navbar").style.top = "-50px";
-		  }
-		  prevScrollpos = currentScrollPos;
-		}
-	}
-
+	
 	function assignDataProduct(){
 		$.ajax({
           type:"GET",
@@ -54,14 +41,14 @@ $('#kategori').append("<br>\
                 append("<div class='col-lg-3 col-md-6 mb-4'>\
                     <a href='detail_book.html?id="+users[i].sku_product+"'><div class='card h-100'>\
 											<div class='card-body'>\
-												<h4 class='card-title'> <img src='C:/product/"+users[i].pict_product+"' class='card-img-top' id='image'>\</center></h4>\
+												<h4 class='card-title'> <img src='./product/"+users[i].pict_product+"' class='card-img-top' id='image'>\</center></h4>\
 												<p class='card-text'><b>"+users[i].title+"</b></p>\
 											</div>\
 											<div class='card-footer'>\
 												<div class='col-md-12'>\
 													<div class='row'>\
 														<div class='col-md-6'>\
-														 <center><span class='badge badge-success'>Rps "+users[i].price+"</span></center>\
+														 <center><span class='badge badge-success'>Rp "+users[i].price+"</span></center>\
 														</div>\
 														<div class='col-md-6'>\
 															<center><span class='badge badge-light'>"+users[i].name_merchant+"</span></center>\

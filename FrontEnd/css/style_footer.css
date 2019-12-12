@@ -22,7 +22,7 @@
   align-items: center;
 }
 .ds{
-  background-color: red;
+  background-color: #F1F1F1;
 }
 
 
@@ -32,24 +32,20 @@
 /* untuk web laptop */
 @media only screen and (min-width: 981px) {
   /* For mobile phones: */
-  #body {
-    margin-left: 250px;
-    margin-right: 250px;
-  }
   #icon1{
     width: 30px;
   }
   .ds{
-    margin-left: 160px;
-    margin-right: 160px;
-    background-color: red;
+    background-color: #F1F1F1;
+    height: 40px;
   }
   li {
     float: left;
   }
   .flex-container {
     padding: 0;
-    margin: 0;
+    margin-left: 0px;
+    margin-right: 0px;
     list-style: none;
 
     display: -webkit-box;
@@ -62,21 +58,6 @@
     justify-content: space-around;
     align-items: center;
   }
-  #ex4 .p1[data-count]:after{
-  position:absolute;
-  right:10%;
-  top:8%;
-  content: attr(data-count);
-  font-size:40%;
-  padding:.2em;
-  border-radius:50%;
-  line-height:1em;
-  color: white;
-  background:rgba(255,0,0,.85);
-  text-align:center;
-  min-width: 1em;
-  //font-weight:bold;
-}
 #image{
   height: 150px;
 }

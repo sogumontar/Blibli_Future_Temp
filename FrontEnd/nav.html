@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	 <script type="text/javascript" src="js/jquery.slim.min.js"></script>
+	  <link rel="stylesheet" href="css/bootstrap.css">
+	  <script src="js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style_nav.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script type="text/javascript" src="js/script_nav.js"></script>
+</head>
+<body>
+  <nav class="navbar-dark bg-primary fixed-top" id="navbar">
+  	<div id="navbar1">
+  		<div class="container">
+  			<a href="index.html" style="text-decoration: none"><i class="glyphicon glyphicon-home" style="color:white"></i>&nbsp;&nbsp;<font style="color:white">Beranda </font></a>
+  		</div>
+  	</div>
+    <div id="navbar2">
+      <div class="container">
+	   	<div class="col-md-12">
+	   		<div class="row">
+	   			<div class="col-md-1">
+	   				<a href="index.html"><font id="font">DelKindle</font></a>
+	   			</div>
+	   			<div class="col-md-9">
+
+	   			</div>
+	   			<div class="col-md-2">
+						<div id="temp">
+							<i class="glyphicon glyphicon-user" style="color: white" id="icon_user"></i> &nbsp;<font style="color: white" id="name">Andreas Tampubolon</font>
+						</div>
+					</div>
+	   		</div>
+	   	</div>
+      </div>
+    </div>
+  </nav>
+
+  <script type="text/javascript">
+  	hideNavbar();
+  	function hideNavbar(){
+		var prevScrollpos = window.pageYOffset;
+		window.onscroll = function() {
+		var currentScrollPos = window.pageYOffset;
+		  if (prevScrollpos > currentScrollPos) {
+		    document.getElementById("navbar").style.top = "0";
+		  } else {
+		    document.getElementById("navbar").style.top = "-85px";
+		  }
+		  prevScrollpos = currentScrollPos;
+		}
+	}
+  </script>
+</body>
+</html>

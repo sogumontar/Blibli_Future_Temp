@@ -8,13 +8,15 @@
   <script src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/script_index.js"></script>
   <link href="css/style_index.css" rel="stylesheet">
-
+  <script type="text/javascript">
+     $(function(){$("#nav").load("nav.html")});
+  </script>
 </head>
 
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="navbar">
+ <!--  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="navbar">
     <div class="container">
       <a class="navbar-brand" href="#">DelKindle</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,7 +35,10 @@
         </ul>
       </div>
     </div>
-  </nav>
+  </nav> -->
+
+  <div id="nav">
+  </div>
 
   <!-- Page Content -->
   <div id="body">
@@ -69,7 +74,7 @@
     <div id="div_kat">
       <div id="kategori">
 
-  		</div>
+      </div>
     </div>
     <br><br>
     <h2 style="color: #008BFF;"><b><font face="Times New Roman">Buku Pilihan</font></b></h2>
@@ -88,21 +93,21 @@
 
   <!-- Footer -->
   <footer class="fixed-bottom" style="background-color: white">
-		<div class="ds">
+    <div class="ds">
       <ul class="flex-container" class="navbar navbar-expand fixed-bottom">
-  		  <li class="flex-item1">
-  		  	<a href=""><button class="btn"  data-toggle="tooltip" data-placement="top" title="Tooltip on top"><img id="icon1"  src="Pict/icons8-home-50.png"></button></a>
-  		  </li>
-  		  <li class="flex-item1">
-  		  	<a href="wishlist.html"><button class="btn"><img id="icon1" src="Pict/icons8-love-50.png"></button></a>
-  		  </li>
-  		  <li class="flex-item1">
-  		  	<a href="cart.html"><button class="btn"><img id="icon1" src="Pict/5a364b752c0633.9984354215135077011803.png"></button></a>
-  		  </li>
         <li class="flex-item1">
-  		  	<a href="book_library.html"><button class="btn"><img id="icon1" src="Pict/book2.png"></button></a>
-  		  </li>
-  		  <li class="flex-item1">
+          <a href=""><button class="btn"  data-toggle="tooltip" data-placement="top" title="Tooltip on top"><img id="icon1"  src="Pict/icons8-home-50.png"></button></a>
+        </li>
+        <li class="flex-item1">
+          <a href="wishlist.html"><button class="btn"><img id="icon1" src="Pict/icons8-love-50.png"></button></a>
+        </li>
+        <li class="flex-item1">
+          <a href="cart.html"><button class="btn"><img id="icon1" src="Pict/5a364b752c0633.9984354215135077011803.png"></button></a>
+        </li>
+        <li class="flex-item1">
+          <a href="book_library.html"><button class="btn"><img id="icon1" src="Pict/book2.png"></button></a>
+        </li>
+        <li class="flex-item1">
           <div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
              <img id="icon1" src="Pict/avatar.png" >
@@ -114,10 +119,10 @@
                <a class="dropdown-item-text" href="#">Logout</a>
             </ul>
           </div>
-  		  </li>
-  		</ul>
+        </li>
+      </ul>
     </div>
-	</footer>
+  </footer>
   <div id="footer">
 
   </div>

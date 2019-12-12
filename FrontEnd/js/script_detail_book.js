@@ -9,6 +9,17 @@ var wis;
   var skuz=localStorage.getItem("skuLogin");
   var skuzz;
 
+  if(role==="ROLE_USER"){
+        $("#actions")
+        .append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id=\"addToCart\" class=\"btn btn-success\">Add To Cart</button>\n \
+            <button id=\"addToWishlist\" class=\"btn btn-primary\">Add To WishList</button>\
+           ");
+    }else if(role==="ROLE_MERCHANT"){
+        $("#actions")
+            .append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id=\"updates\" class=\"btn btn-primary\">Update</button>\n \
+            <button id=\"delete\" class=\"btn btn-danger\">Delete</button>\
+           ");
+  }
     // const url ='https://swapi.co/api/people'
     const url ="http://localhost:9081/product/get/"+id;
     window.fetch(url,{
@@ -36,7 +47,7 @@ var wis;
 
         <div class="row" id="row1">
             <div class="col-md-4">
-              <img src="C:/product/${i.pict_product}" class="card-img-top" id="image">
+              <img src="./product/${i.pict_product}" class="card-img-top" id="image">
             </div>
             <div class="col-md-8">
               <p><b>Judul</b> : ${i.title} </p>
@@ -139,7 +150,30 @@ var wis;
         }
 
     });
+    $("#updates").click(function () {
+         location.href="update_book.html?id="+id;
+     });
 
+      $("#delete").click(function(){
+          deletes();
+      });
+      function deletes(){
+          $.ajax({
+              type:"DELETE",
+              headers: {
+                  "Content-Type": "application/json",
+                  "Authorization": "Bearer "+token
+              },
+              url:"http://localhost:9081/product/del/"+id,
+              success: function(data){
+                  alert("Delete Success");
+                  location.href="home_merchant.html?id="+id;
+              },
+              error: function(err) {
+                  // alert(err)
+              }
+          });
+      }
 
       $("#addToWishlist").click(function(){
         var temp_token = localStorage.getItem("Token");
