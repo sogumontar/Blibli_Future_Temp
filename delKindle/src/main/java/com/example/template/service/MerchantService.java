@@ -156,4 +156,8 @@ public class MerchantService {
          return "sukses";
     }
 
+    public void deleteBySkuProduct(String skuProduct){
+        merchantRepository.deleteBySku_product(skuProduct);
+    }
+
 }

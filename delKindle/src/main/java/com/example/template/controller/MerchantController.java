@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.transaction.Transactional;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.nio.file.Files;
@@ -72,5 +73,12 @@ public class MerchantController {
     @PostMapping("/saveProduct")
     public String saveProduct(@RequestBody CatalogEntryRequest catalogEntryRequest){
        return merchantService.saveProduct(catalogEntryRequest);
+    }
+
+    @Transactional
+    @CrossOrigin
+    @DeleteMapping("/del/{id}")
+    public void deleteProduct(@PathVariable String id) {
+        merchantService.deleteBySkuProduct(id);
     }
 }
