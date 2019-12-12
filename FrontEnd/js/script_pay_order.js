@@ -2,7 +2,6 @@ var skuLogin = localStorage.getItem('skuLogin');
 var token = localStorage.getItem('Token');
 
 $(document).ready(function(){
-
   //method
 
 
@@ -78,21 +77,24 @@ function bayar(id){
                   success: function(data1) {
                       //update Status Detail Order
                       var users = JSON.parse(JSON.stringify(data1));
+                      var plus = 0;
                       for (var i in users) {
+                        console.log(plus);
                           //looping
                           $.ajax({
                                 type:"POST",
                                 beforeSend : function( xhr ) {
                                   xhr.setRequestHeader( "Authorization", "Bearer "+token );
                                 },
-                                url:"http://localhost:9081/detailOrder/updateStatusAcc/"+data1.id,
+                                url:"http://localhost:9081/detailOrder/updateStatusAcc/"+data1[plus].id,
                                 success: function(data2) {
 
                                 },
                                 error: function(data2) {
-                                  console.log(data2);
+                                  //console.log(data2);
                                 }
                           });
+                          plus = plus + 1;
                       }
                   },
 
@@ -106,11 +108,10 @@ function bayar(id){
           console.log(data);
           }
       });
-    setInterval(pindah,2000);  
+      setInterval(pindah,2000);
 }
 
 function pindah(){
   alert("success melakukan Pembayaran");
   location.href ="pay_order.html";
-
 }

@@ -6,8 +6,9 @@ $(document).ready(function(){
 	hideNavbar();
 	assignDataProduct();
 
+	$("#footer").load("footer.html");
 
-$('#kategori').append("<br><hr><br><br>\
+$('#kategori').append("<br>\
 			<h2 style='color: #008BFF;'><b><font face='Times New Roman'>Kategori</font></b></h2>\
 			<ul class='produk'>\
 				<li><div id='pelajaran' class='col-md-4'><a style='font-size:12px;' href='kategori_detail.html?val=buku_pelajaran' value='buku_pelajaran'><img src='Pict/buku_pelajaran.jpg' id='kategori_gambar' ><center><p>Buku Pelajaran</p></center></a></div>\
@@ -57,7 +58,16 @@ $('#kategori').append("<br><hr><br><br>\
 												<p class='card-text'><b>"+users[i].title+"</b></p>\
 											</div>\
 											<div class='card-footer'>\
-												<center><button class='btn btn-primary' id='but_beli'>Rp "+users[i].price+"</button></center>\
+												<div class='col-md-12'>\
+													<div class='row'>\
+														<div class='col-md-6'>\
+														 <center><span class='badge badge-success'>Rps "+users[i].price+"</span></center>\
+														</div>\
+														<div class='col-md-6'>\
+															<center><span class='badge badge-light'>"+users[i].name_merchant+"</span></center>\
+														</div>\
+													</div>\
+												</div>\
 											</div>\
                     </div></a>\
                 </div>\

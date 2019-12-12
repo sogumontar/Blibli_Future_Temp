@@ -3,42 +3,8 @@
  * Copyright 2013-2019 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-heroic-features/blob/master/LICENSE)
  */
- body {
-   padding-top: 35px;
-   background-color: #F1F1F1;
- }
- #body{
-   /* background-color: blue; */
- }
- #div_kat{
-   background-color: white;
- }
-#navbar {
-  background-color: #007BFF;
-  top: 0;
-  display: block;
-  transition: top 0.3s;
-}
-
-h1 {
-  color: white;
-}
 #icon1{
   width: 50px;
-  margin-bottom: 10px;
-}
-.carousel{
-  margin-top: 20px;
-}
-#kategori{
-  margin-left: 75px;
-  margin-right: 75px;
-}
-
-#kategori_gambar{
-  width: 220px;
-  height: 150px;
-  border-radius: 100px;
 }
 .flex-container {
   padding: 0;
@@ -55,20 +21,10 @@ h1 {
   justify-content: space-around;
   align-items: center;
 }
-.produk{
-  list-style-type: none;
-  overflow: hidden;
+.ds{
+  background-color: red;
 }
-li {
-  float: left;
-}
-#kategori_gambar{
-  width:80px;
-  height: 80px;
-  border-radius: 100px;
-}
-/*flexbox footer */
-@import "compass/css3";
+
 
 
 
@@ -80,31 +36,13 @@ li {
     margin-left: 250px;
     margin-right: 250px;
   }
-  img #gambar1{
-    width: 50px;
-  }
   #icon1{
     width: 30px;
   }
   .ds{
     margin-left: 160px;
     margin-right: 160px;
-  }
-  #kategori{
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-  #kategori_gambar{
-    width:80px;
-    height: 80px;
-    border-radius: 100px;
-  }
-  #nama{
-    font-size: 1vw;
-  }
-  .produk{
-    list-style-type: none;
-    overflow: hidden;
+    background-color: red;
   }
   li {
     float: left;

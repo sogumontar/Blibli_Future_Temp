@@ -53,6 +53,9 @@ public class Product {
     @Column(name="sku_merchant")
     private String sku_merchant;
 
+    @Column(name="name_merchant")
+    private String name_merchant;
+
 
     public Product(String sku_product,String title, String description, String categories, String publication_year, Integer price, String author, String publisher, String isbn, String pict_product,String book_file, String sku_merchant) {
         this.sku_product = sku_product;
@@ -184,5 +187,11 @@ public class Product {
         this.book_file = book_file;
     }
 
+    public String getName_merchant() {
+        return name_merchant;
+    }
 
+    public void setName_merchant(String name_merchant) {
+        this.name_merchant = name_merchant;
+    }
 }
