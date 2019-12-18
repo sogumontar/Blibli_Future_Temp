@@ -70,7 +70,7 @@ function test(){
                $("#dat").
                 append('<div class="row">\
 			          <div class="col-md-4">\
-			            <img src="./product/'+users[i].pict_product+'" id="img_product" alt="">\
+			            <img src="./product/'+users[i].pict_product+'" class="card" id="img_product" alt="">\
 			          </div>\
 			          <div class="col-md-8">\
 			              <table>\

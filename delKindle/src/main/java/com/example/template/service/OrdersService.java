@@ -6,6 +6,8 @@ import com.example.template.repository.OrderRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class OrdersService {
 
@@ -18,9 +20,9 @@ public class OrdersService {
     @Autowired
     OrdersService ordersService;
 
-    public String updateAfterCart(String sku_user){
-        cartRepo.akhir(sku_user);
-        return "sukses";
+    public List updateAfterCart(String sku_user){
+        return cartRepo.akhir(sku_user);
+
     }
 
     public Orders save(Orders orders){
@@ -41,5 +43,8 @@ public class OrdersService {
 
     public Orders findLast(){
         return orderRepo.findLast();
+    }
+    public List findAllBySkuAndStatus(String sku, Integer status){
+        return orderRepo.findAllBySkuUserAndStatus(sku,status);
     }
 }

@@ -63,5 +63,8 @@ public class ProductService {
     public void deleteBySkuProduct(String skuProduct){
          productRepo.deleteBySku_product(skuProduct);
     }
+    public List findAllBySkuMerchant(String skuMerchant){
+        return productRepo.findAllBySku_merchant(skuMerchant);
+    }
 }
 

@@ -99,6 +99,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers("seqUser/**")
                 .permitAll()
+                .antMatchers("/mail/sendingMail")
+                .permitAll()
 //                .anyRequest()
 //                .authenticated()
         ;

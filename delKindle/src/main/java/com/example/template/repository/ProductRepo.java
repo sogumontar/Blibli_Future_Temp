@@ -18,4 +18,7 @@ public interface ProductRepo extends JpaRepository<Product,String> {
     @Query("DELETE FROM Product p WHERE p.sku_product LIKE?1")
     void deleteBySku_product(String sku_Product);
 
+    @Query("SELECT p FROM Product p where p.sku_merchant LIKE?1")
+    List findAllBySku_merchant(String sku_merchant);
+
 }

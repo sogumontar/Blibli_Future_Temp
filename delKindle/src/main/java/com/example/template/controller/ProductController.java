@@ -110,4 +110,10 @@ public class ProductController {
 //        return productService.findFirstById(productId);
 //    }
 
+    @CrossOrigin
+    @GetMapping("/allByMerchant/{sku_merchant}")
+    public List findAllBySkuMerchant(@PathVariable String sku_merchant){
+        return productService.findAllBySkuMerchant(sku_merchant);
+    }
+
 }

@@ -35,6 +35,7 @@ var wis;
     }).then((res)=>{
       return res.json()
     }).then((i)=>{
+        $("#gudang").append("<a href='gudang.html?id="+i.sku_merchant+"'>"+i.sku_merchant+"</a>")
        skuzz=i.sku_product;
        judul=i.title;
        gambar=i.pict_product;

@@ -36,5 +36,5 @@ public interface CartRepo extends JpaRepository<Cart,Long> {
     @Modifying
     @Transactional
     @Query("UPDATE Cart c SET c.status=3 WHERE c.sku_user LIKE ?1 AND c.status=2")
-    void akhir(String sku_user);
+    List akhir(String sku_user);
 }

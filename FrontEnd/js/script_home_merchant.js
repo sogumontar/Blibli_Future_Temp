@@ -32,7 +32,9 @@ $(document).ready(function(){
 		var gbr="5.png";
 
 	}
+    var jumlah=0;
 function listData() {
+
     $.ajax({
         type:"GET",
         contentType: 'application/json',
@@ -44,6 +46,7 @@ function listData() {
             // console.log(data);
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {
+                jumlah++;
                 $("#listBook").
                 append("<div class='col-lg-4 col-md-6 mb-5'>\
                     <div id='h'>\
@@ -69,12 +72,20 @@ function listData() {
                     </div>\
                 </div>\
 									");
+
+
+            }
+            console.log(jumlah);
+            if(jumlah===0){
+                $("#info").append("&nbsp;&nbsp;&nbsp;&nbsp;<h1>Your Catalog is Empty</h1>")
+                $("#listBook").append("&nbsp;&nbsp;&nbsp;&nbsp;<a href='./catalog_entry.html' class='btn btn-primary'>Lets Entry Some Books</a>")
             }
         },
         error: function(data) {
             // console.log(data);
         }
     });
+
 }
   function hideNavbar(){
 		var prevScrollpos = window.pageYOffset;
