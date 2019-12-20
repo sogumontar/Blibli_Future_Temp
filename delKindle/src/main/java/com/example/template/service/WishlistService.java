@@ -52,4 +52,8 @@ public class WishlistService {
         return"Delete Success";
     }
 
+    public Integer existBySku_user(String sku_user){
+        return wishlistRepo.existsBySku_user(sku_user);
+    }
+
 }

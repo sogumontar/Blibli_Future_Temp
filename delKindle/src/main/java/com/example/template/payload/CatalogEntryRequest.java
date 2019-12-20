@@ -25,6 +25,8 @@ public class CatalogEntryRequest {
 
     public String sku_merchant;
 
+    public String name_merchant;
+
     public String getSku_product() {
         return sku_product;
     }
@@ -119,5 +121,13 @@ public class CatalogEntryRequest {
 
     public void setSku_merchant(String sku_merchant) {
         this.sku_merchant = sku_merchant;
+    }
+
+    public String getName_merchant() {
+        return name_merchant;
+    }
+
+    public void setName_merchant(String name_merchant) {
+        this.name_merchant = name_merchant;
     }
 }

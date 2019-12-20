@@ -11,6 +11,7 @@ public class TemplateApplicationTests {
 
 	@Test
 	public void contextLoads() {
+
 	}
 
 }

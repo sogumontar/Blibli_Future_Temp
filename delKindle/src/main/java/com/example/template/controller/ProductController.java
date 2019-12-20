@@ -108,4 +108,9 @@ public class ProductController {
 //        return productService.findFirstById(productId);
 //    }
 
+//    @CrossOrigin
+//    @GetMapping("/nameMerchant")
+//    public  String findByNameMerchant(@PathVariable String nameMerchant){
+//        return
+//    }
 }

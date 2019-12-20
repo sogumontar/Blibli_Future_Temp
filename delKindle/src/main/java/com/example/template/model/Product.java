@@ -85,6 +85,24 @@ public class Product {
         this.sku_merchant = sku_merchant;
     }
 
+    public Product(String sku_product, String title, String description, String categories, String publication_year, Integer price, String author, String publisher, String isbn, String sku_merchant,String name_merchant) {
+        this.sku_product = sku_product;
+        this.title = title;
+        this.description = description;
+        this.categories = categories;
+        this.publication_year = publication_year;
+        this.price = price;
+        this.author = author;
+        this.isbn = isbn;
+        this.publisher = publisher;
+        this.sku_merchant = sku_merchant;
+        this.name_merchant = name_merchant;
+    }
+    public Product(){
+
+    }
+
+
     public String getPict_product() {
         return pict_product;
     }
@@ -92,12 +110,6 @@ public class Product {
     public void setPict_product(String pict_product) {
         this.pict_product = pict_product;
     }
-    public Product(){
-
-    }
-
-
-
 
     public String getTitle() {
         return title;
