@@ -30,6 +30,7 @@ public class Orders {
     public Orders(){
 
     }
+    
 
     public Orders(String skuUser, Integer status, String createdAt, String virtualaccount, Integer tipeTrans,Integer totTrans) {
         this.skuUser = skuUser;

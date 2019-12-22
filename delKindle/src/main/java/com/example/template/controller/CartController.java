@@ -83,7 +83,6 @@ public class CartController {
 //                cart.getSku_user(),
 //                cart.getSku_product()
 //        );
-        System.out.println(cartService.save(cart));
         return cartService.save(cart);
     }
 
@@ -118,6 +117,13 @@ public class CartController {
         ordersService.updateAfterCart(sku_user);
         System.out.println(ordersService.updateAfterCart(sku_user));
         return "Sukses";
+    }
+    @CrossOrigin
+    @Transactional
+    @DeleteMapping("/delBySkuUser/{sku_user}")
+    public String delBySkuUser(@PathVariable String sku_user){
+        cartService.deleteBySkuUser(sku_user);
+        return "Delete Success";
     }
 
 }

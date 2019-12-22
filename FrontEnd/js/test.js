@@ -1,31 +1,9 @@
 var count=0;
 var token=localStorage.getItem("Token")
-var skuOrderList=0;
-var finalVA;
-console.log("asd")
 $(document).ready(function(){
-    $("#sendVirtualAccount").click(function(){
-        var inputan=document.getElementById("form2").value;
-        checkSKU(skuOrderList);
-        $.ajax({
-            type:"POST",
-            url:"http://localhost:9081/orders/checkVA/"+finalVA+"/"+inputan,
-            headers:{
-                "Content-Type" : "application/json",
-                "Authorization": "Bearer "+token
-            },
-            success: function (data) {
-                console.log(data);
-                if(data===1){
-                    alert("Virtual Account Benar")
-                }
-            },
-            error: function (err) {
-                // alert(err);
-            }
-        })
-    });
     var id=localStorage.getItem("skuLogin")
+
+    //List Order
     $.ajax({
         type:"GET",
         url:"http://localhost:9081/orders/findOrder/"+id+"/1",
@@ -37,7 +15,7 @@ $(document).ready(function(){
             var users = JSON.parse(JSON.stringify(data));
 
             for (var i in users) {
-                count++;
+                count=1;
                 $("#London").append("<div id=\"header_content\">\n" +
                     "        <ul id=\"ul_header\">\n" +
                     "          <li id=\"li_header\"><i>&nbsp;&nbsp;&nbsp;&nbsp;"+users[i].createdAt+"</i></li>\n" +
@@ -51,7 +29,7 @@ $(document).ready(function(){
                     "                  <div class='col-md-4'><p> Total :  Rp "+users[i].totTrans+",00</p></div>\n" +
                     "                  <div class='col-md-3'><p>Belum bayar</p></div>\n" +
                     "                  <div class='col-md-1'><a onclick='cancel("+users[i].id+")' class='btn btn-danger'>Cancel</a>&nbsp;&nbsp;&nbsp;</div>\n" +
-                    "                  <div class='col-md-2'>&nbsp;&nbsp;&nbsp;<a href='' class='btn btn-success' data-toggle='modal' onclick='checkSKU("+users[i].id+")' data-target='#modalSubscriptionForm'>Bayar</a></div>\n" +
+                    "                  <div class='col-md-2'>&nbsp;&nbsp;&nbsp;<a href='' class='btn btn-success'> Bayar</a></div>\n" +
                     "                </div>\n" +
                     "          </div>\n" +
                     "        </div>\n" +
@@ -72,49 +50,15 @@ $(document).ready(function(){
             console.log(data);
         }
     });
-
 });
-// alert(count)
-
-
-function cancel(sku) {
-    $.ajax({
-        type: "DELETE",
-        url: "http://localhost:9081/orders/deleteById/"+sku,
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer "+token
-        },
-        success :function(response){
-            alert(response);
-            location.href="purchase_order_list.html";
-        },
-        error : function (err) {
-            alert(err);
-        }
-    });
+if(count===0){
+    $("#London").append("<div id=\"header_content\">\n" +
+        "      <div class=\"col-md-12\">\n" +
+        "        <div class=\"row\">\n" +
+        "          <div class=\"col-md-12\">\" +
+    "              <h1>Nothing in your order list</h1>        "+
+    "          </div>\n" +
+    "        </div>\n" +
+    "      </div><hr>"+
+)
 }
-
-function checkSKU(skuOrder) {
-    skuOrderList=skuOrder;
-
-    var result;
-    $.ajax({
-        type: "GET",
-        url: "http://localhost:9081/orders/findVA/"+skuOrder,
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer "+token
-        },
-        success :function(data){
-            var users = JSON.parse(JSON.stringify(data));
-            result=users.virtualaccount;
-            finalVA=users.virtualaccount;
-        },
-        error : function (err) {
-            alert(err);
-        }
-    });
-    return result
-}
-

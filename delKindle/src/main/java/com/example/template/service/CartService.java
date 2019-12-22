@@ -99,5 +99,8 @@ public class CartService {
         orderRepo.save(orders);
         return "Sukses";
     }
+    public void deleteBySkuUser(String skuUser){
+        cartRepo.deleteBySku_user(skuUser);
+    }
 
 }

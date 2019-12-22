@@ -2,8 +2,10 @@ package com.example.template.repository;
 
 import com.example.template.model.Orders;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.Order;
 import java.util.List;
@@ -15,4 +17,13 @@ public interface OrderRepo extends JpaRepository<Orders,Integer> {
     Orders findLast();
 
     List findAllBySkuUserAndStatus(String sku,Integer status);
+
+    @Transactional
+    @Modifying
+    @Query("DELETE FROM Orders o WHERE o.id =?1")
+    void deleteById(Integer id);
+
+    @Query("SELECT o FROM Orders o where o.id=?1")
+    Orders findById(int id);
+
 }

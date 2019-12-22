@@ -43,10 +43,43 @@ public class OrdersController {
     public List findOrder(@PathVariable String sku, @PathVariable Integer status){
         return ordersService.findAllBySkuAndStatus(sku,status);
     }
-    @CrossOrigin
-    @PostMapping("/sendMail/{email}")
-    public String  sendEmail(@PathVariable String email){
+    public static String encrypt(String text)
+    {
+        int s=4;
+        String result= new String();
+        char ch;
+        for(int i = 0; i < text.length(); ++i){
+            ch = text.charAt(i);
 
+            if(ch >= 'a' && ch <= 'z'){
+                ch = (char)(ch + s);
+
+                if(ch > 'z'){
+                    ch = (char)(ch - 'z' + 'a' - 1);
+                }
+
+                result += ch;
+            }
+            else if(ch >= 'A' && ch <= 'Z'){
+                ch = (char)(ch + s);
+
+                if(ch > 'Z'){
+                    ch = (char)(ch - 'Z' + 'A' - 1);
+                }
+
+                result += ch;
+            }
+            else {
+                result += ch;
+            }
+        }
+        return result;
+    }
+    @CrossOrigin
+    @PostMapping("/sendMail/{email}/{VA}")
+    public String  sendEmail(@PathVariable String email, @PathVariable String VA){
+
+        String VirtualAccount=encrypt(VA);
 //        sendEmail();
 //            sendEmailWithAttachment();
         final String username = "hendrasimz93@gmail.com";
@@ -68,13 +101,13 @@ public class OrdersController {
         try {
 
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("hendrasimz93@gmail.com"));
+            message.setFrom(new InternetAddress("pardelkindle@gmail.com"));
             message.setRecipients(
                     Message.RecipientType.TO,
-                    InternetAddress.parse("hendrasimz92@gmail.com")
+                    InternetAddress.parse(email)
             );
-            message.setSubject("Transaksi Del Kindle");
-            message.setText("Terimakasih telah melakukan transaksi \n Kode Transaksi anda adalah : "+email);
+            message.setSubject("Transaksi Del Kindle ");
+            message.setText("Terimakasih telah melakukan transaksi \n Kode Transaksi anda adalah :  " + VirtualAccount);
 
             Transport.send(message);
 
@@ -106,4 +139,58 @@ public class OrdersController {
 //        javaMailSender.send(msg);
 //
 //    }
+    @CrossOrigin
+    @DeleteMapping("/deleteById/{id}")
+    public String deleteById(@PathVariable Integer id){
+        ordersService.deleteById(id);
+        return "Success";
+    }
+
+    @CrossOrigin
+    @PostMapping("checkVA/{VA}/{text}")
+    public Integer check(@PathVariable String VA,@PathVariable String text){
+        Integer res=0;
+        int s=4;
+        char ch;
+        String result= new String();
+
+        for(int i = 0; i < text.length(); ++i){
+            ch = text.charAt(i);
+
+            if(ch >= 'a' && ch <= 'z'){
+                ch = (char)(ch - s);
+
+                if(ch < 'a'){
+                    ch = (char)(ch + 'z' - 'a' + 1);
+                }
+
+                result += ch;
+            }
+            else if(ch >= 'A' && ch <= 'Z'){
+                ch = (char)(ch - s);
+
+                if(ch < 'A'){
+                    ch = (char)(ch + 'Z' - 'A' + 1);
+                }
+
+                result += ch;
+            }
+            else {
+                result += ch;
+            }
+        }
+        if(result.equals(VA)){
+            res=1;
+        }
+        return res;
+    }
+
+    //findVirtualAccount
+    @CrossOrigin
+    @GetMapping("/findVA/{id}")
+    public Orders findVA(@PathVariable int id){
+        return ordersService.findVirtualAccount(id);
+    }
+
+
 }

@@ -3,6 +3,7 @@ package com.example.template.service;
 import com.example.template.model.Orders;
 import com.example.template.repository.CartRepo;
 import com.example.template.repository.OrderRepo;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,5 +47,13 @@ public class OrdersService {
     }
     public List findAllBySkuAndStatus(String sku, Integer status){
         return orderRepo.findAllBySkuUserAndStatus(sku,status);
+    }
+    public void deleteById(Integer id){
+        orderRepo.deleteById(id);
+    }
+
+    //findVirtualAccount
+    public Orders findVirtualAccount(int id){
+        return orderRepo.findById(id);
     }
 }
