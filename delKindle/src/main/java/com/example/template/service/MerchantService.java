@@ -17,6 +17,8 @@ import java.nio.file.Paths;
 import java.util.Base64;
 import java.util.List;
 
+import static org.jsoup.parser.Parser.unescapeEntities;
+
 @Service
 public class MerchantService {
 
@@ -109,7 +111,16 @@ public class MerchantService {
             System.out.println(e.getMessage());
         }
     }
-
+    private String unescapeUntilNoHtmlEntityFound(String value){
+        value=value.replace("<","");
+        value=value.replace(">","");
+        value=value.replace("&","");
+        value=value.replace("//","");
+        value=value.replace("$.","");
+        value=value.replace("$(","");
+        System.out.println(value);
+       return value;
+    }
     public String saveProduct(CatalogEntryRequest catalogEntryRequest){
 
             String sku_merchant = catalogEntryRequest.getSku_merchant();
@@ -137,16 +148,17 @@ public class MerchantService {
             String pdf = "book"+two+".pdf";
             String pict = "pict"+two+".jpg";
 
+
             Product product = new Product(
               sku_product,
-              catalogEntryRequest.getTitle(),
-              catalogEntryRequest.getDescription(),
-              catalogEntryRequest.getCategories(),
-              catalogEntryRequest.getPublication_year(),
+              unescapeUntilNoHtmlEntityFound(catalogEntryRequest.getTitle()),
+              unescapeUntilNoHtmlEntityFound(catalogEntryRequest.getDescription()),
+              unescapeUntilNoHtmlEntityFound(catalogEntryRequest.getCategories()),
+              unescapeUntilNoHtmlEntityFound(catalogEntryRequest.getPublication_year()),
               catalogEntryRequest.getPrice(),
-              catalogEntryRequest.getAuthor(),
-              catalogEntryRequest.getPublisher(),
-              catalogEntryRequest.getIsbn(),
+              unescapeUntilNoHtmlEntityFound(catalogEntryRequest.getAuthor()),
+              unescapeUntilNoHtmlEntityFound(catalogEntryRequest.getPublisher()),
+              unescapeUntilNoHtmlEntityFound(catalogEntryRequest.getIsbn()),
               catalogEntryRequest.getSku_merchant()
             );
             product.setPict_product(pict);

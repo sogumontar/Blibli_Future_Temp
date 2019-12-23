@@ -17,13 +17,15 @@ $(document).ready(function(){
               contentType: "application/json",
               success: function(data){
                 if(data.status == 1){
-                  alert("Login Success");
+                  var now = new Date().getTime();
+                  alert(now);
                   token = data.accessToken;
                   skuLog=data.skuLog;
                   console.log(data.role);
                   localStorage.setItem('Token',token);
                   localStorage.setItem('skuLogin',skuLog);
-                    localStorage.setItem('Role',data.role);
+                  localStorage.setItem('setupTime', now)
+                  localStorage.setItem('Role',data.role);
                   if(data.role == "ROLE_USER"){
                       location.href = "index.html";
                   }else if(data.role == "ROLE_ADMIN"){

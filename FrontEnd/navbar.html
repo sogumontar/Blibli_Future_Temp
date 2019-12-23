@@ -40,6 +40,8 @@
 
 </body>
 <script>
+
+
     var id=localStorage.getItem("skuLogin")
     var username;
     $.ajax({
@@ -76,6 +78,19 @@
         location.href="login.html";
     }
     function login(){
+        location.href="login.html";
+    }
+
+
+    var now = new Date().getTime();
+    var setupTime = localStorage.getItem('setupTime');
+    alert(now-setupTime +"    asd   "+ 20*60*1000)
+    if(now-setupTime > 20*60*1000) {
+        localStorage.clear()
+        logouts();
+    }
+
+    function logouts(){
         location.href="login.html";
     }
 </script>
