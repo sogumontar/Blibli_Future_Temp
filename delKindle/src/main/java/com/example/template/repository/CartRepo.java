@@ -5,6 +5,7 @@ import com.example.template.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,4 +38,9 @@ public interface CartRepo extends JpaRepository<Cart,Long> {
     @Transactional
     @Query("UPDATE Cart c SET c.status=3 WHERE c.sku_user LIKE ?1 AND c.status=2")
     void akhir(String sku_user);
+
+    @Transactional
+    @Modifying
+    @Query("DELETE FROM Cart c WHERE c.sku_user=?1")
+    void checkout(String sku_user);
 }

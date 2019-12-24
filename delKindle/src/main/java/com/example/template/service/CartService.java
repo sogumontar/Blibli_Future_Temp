@@ -2,7 +2,6 @@ package com.example.template.service;
 
 import com.example.template.model.Cart;
 import com.example.template.model.Orders;
-import com.example.template.model.Product;
 import com.example.template.repository.CartRepo;
 import com.example.template.repository.OrderRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Service;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class CartService {
@@ -100,4 +98,8 @@ public class CartService {
         return "Sukses";
     }
 
+    public String checkout(String sku_user){
+        cartRepo.checkout(sku_user);
+        return "success";
+    }
 }

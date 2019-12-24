@@ -3,12 +3,7 @@
  * Copyright 2013-2019 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-heroic-features/blob/master/LICENSE)
  */
- body {
-   padding-top: 35px;
- }
- #body{
-   
- }
+
  #div_kat{
    background-color: white;
  }
@@ -23,7 +18,7 @@ h1 {
   color: white;
 }
 #icon1{
-  width: 50px;
+  width: 20px;
   margin-bottom: 10px;
 }
 .carousel{
@@ -66,22 +61,15 @@ li {
   height: 80px;
   border-radius: 100px;
 }
-/*flexbox footer */
-@import "compass/css3";
-
-
+#image{
+  height: 150px;
+}
 
 
 /* untuk web laptop */
 @media only screen and (min-width: 981px) {
   /* For mobile phones: */
-  #body {
-    margin-left: 250px;
-    margin-right: 250px;
-  }
-  img #gambar1{
-    width: 50px;
-  }
+
   #icon1{
     width: 30px;
   }
@@ -92,11 +80,6 @@ li {
   #kategori{
     margin-left: 10px;
     margin-right: 10px;
-  }
-  #kategori_gambar{
-    width:80px;
-    height: 80px;
-    border-radius: 100px;
   }
   #nama{
     font-size: 1vw;
@@ -123,21 +106,7 @@ li {
     justify-content: space-around;
     align-items: center;
   }
-  #ex4 .p1[data-count]:after{
-  position:absolute;
-  right:10%;
-  top:8%;
-  content: attr(data-count);
-  font-size:40%;
-  padding:.2em;
-  border-radius:50%;
-  line-height:1em;
-  color: white;
-  background:rgba(255,0,0,.85);
-  text-align:center;
-  min-width: 1em;
-  //font-weight:bold;
-}
+
 #image{
   height: 150px;
 }

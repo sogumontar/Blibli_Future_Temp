@@ -35,7 +35,6 @@ $(document).ready(function(){
 				},
 				url:"http://localhost:9081/user/findById/"+id,
 				success: function(data) {
-					alert(data.name);
 					nama = data.name;
 					console.log(nama);
 				},
@@ -113,8 +112,8 @@ $(document).ready(function(){
 							data: JSON.stringify(jsonVar),
 							contentType: "application/json",
 							success: function(data){
-								//findLast from Order
 
+								//findLast from Order
 								$.ajax({
 													type:"GET",
 													url:"http://localhost:9081/orders/findLast",
@@ -149,7 +148,8 @@ $(document).ready(function(){
 																							author: users[i].author,
 																							status: 1,
 																							publisher: users[i].publisher,
-																							isbn: users[i].isbn
+																							isbn: users[i].isbn,
+																							name: nama
 																						}
 																						$.ajax({
 																											type:"POST",
@@ -160,7 +160,22 @@ $(document).ready(function(){
 																											data: JSON.stringify(jsonVar1),
 																											contentType: "application/json",
 																											success: function(data3){
+																													//remove product from cart
+																													$.ajax({
+																																		type:"DELETE",
+																																		url:"http://localhost:9081/cart/checkout/"+id,
+																																		beforeSend : function( xhr ) {
+																																		 xhr.setRequestHeader( "Authorization", "Bearer "+token );
+																																		},
+																																		data: JSON.stringify(jsonVar1),
+																																		contentType: "application/json",
+																																		success: function(data4){
 
+																																		},
+																																		error: function(err) {
+																																				console.log(err.responseJSON.message);
+																																		}
+																													});
 																											},
 																											error: function(err) {
 																													console.log(err.responseJSON.message);

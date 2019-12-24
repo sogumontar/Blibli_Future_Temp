@@ -34,13 +34,14 @@ public class Orders {
 
     }
 
-    public Orders(String skuUser, Integer status, String createdAt, String virtualaccount, Integer tipeTrans,Integer totTrans) {
+    public Orders(String skuUser, Integer status, String createdAt, String virtualaccount, Integer tipeTrans,Integer totTrans,String name) {
         this.skuUser = skuUser;
         this.status = status;
         this.createdAt = createdAt;
         this.virtualaccount = virtualaccount;
         this.tipeTrans = tipeTrans;
         this.totTrans = totTrans;
+        this.name = name;
     }
 
     public Orders(String skuUser, String skuProducts, int i, String toString) {

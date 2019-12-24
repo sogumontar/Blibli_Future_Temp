@@ -1,7 +1,6 @@
 package com.example.template.controller;
 
 import com.example.template.model.Cart;
-import com.example.template.model.Product;
 import com.example.template.repository.CartRepo;
 import com.example.template.repository.OrderRepo;
 import com.example.template.service.CartService;
@@ -13,12 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
-import javax.swing.text.html.Option;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/cart")
@@ -38,9 +32,6 @@ public class CartController {
     @CrossOrigin
     @GetMapping("/check/{skuUser}/{skuProduct}")
     public Integer check(@PathVariable  String skuUser, @PathVariable String skuProduct){
-
-//        System.out.println(skuUser + skuProduct);
-//        System.out.println(cartService.check(skuUser,skuProduct));
         return cartRepo.existsBySku_userAndSku_product(skuUser,skuProduct);
     }
 
@@ -118,6 +109,14 @@ public class CartController {
         ordersService.updateAfterCart(sku_user);
         System.out.println(ordersService.updateAfterCart(sku_user));
         return "Sukses";
+    }
+
+    @Transactional
+    @CrossOrigin
+    @DeleteMapping("/checkout/{sku_user}")
+    public String checkout(@PathVariable String sku_user){
+        cartService.checkout(sku_user);
+        return "success";
     }
 
 }

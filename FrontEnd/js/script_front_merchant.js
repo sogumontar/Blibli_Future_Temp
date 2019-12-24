@@ -1,8 +1,7 @@
 $(document).ready(function(){
 
-  var skuLogin = localStorage.getItem('skuLogin');
+  var skuMerchant = new URL(location.href).searchParams.get('sku');
   var token = localStorage.getItem('Token');
-  var c = new URL(location.href).searchParams.get('token')
 
   var temp="";
   hideNavbar();
@@ -17,37 +16,35 @@ $(document).ready(function(){
           type:"GET",
           contentType: 'application/json',
           beforeSend : function( xhr ) {
-           xhr.setRequestHeader( "Authorization", "Bearer "+token );
-         },
-          url:"http://localhost:9081/merchant/getAllByMerchant/"+skuLogin,
+           xhr.setRequestHeader( "Authorization", "Bearer "+token);
+          },
+          url:"http://localhost:9081/merchant/getAllByMerchant/"+skuMerchant,
           success: function(data) {
 						console.log(data);
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {
                $("#listBook").
-                append("<div class='col-lg-4 col-md-6 mb-5'>\
-                    <div id='h'>\
+                append("<div class='col-lg-3 col-md-6 mb-4'>\
+                    <a href='detail_book.html?id="+users[i].sku_product+"'><div class='card h-100'>\
 											<div class='card-body'>\
 												<h4 class='card-title'> <img src='./product/"+users[i].pict_product+"' class='card-img-top' id='image'>\</center></h4>\
-												<p class='card-text'>"+users[i].title+"</p>\
-											</div>\
-											<div class=''>\
+												<p class='card-text'><b>"+users[i].title+"</b></p>\
+											</div></a>\
+											<div class='card-footer'>\
 												<div class='col-md-12'>\
-                          <div class='row'>\
-                            <div class='col-md-6'>\
-                              <p>Rp "+users[i].price+"</p>\
-                            </div>\
-                            <div class='col-md-6'>\
-                              <p></p>\
-                            </div>\
-                          </div>\
-                        </div>\
+													<div class='row'>\
+														<div class='col-md-6'>\
+														 <center><span class='badge badge-success'>Rp "+users[i].price+"</span></center>\
+														</div>\
+														<div class='col-md-6'>\
+															<center><span class='badge badge-light'>"+users[i].name_merchant+"</span></center>\
+														</div>\
+													</div>\
+												</div>\
 											</div>\
-                      <hr>\
-                      <p class='card-text'>Dijual Oleh : "+temp+"</p>\
                     </div>\
                 </div>\
-									");
+                ");
             }
           },
           error: function(data) {
@@ -74,9 +71,9 @@ $(document).ready(function(){
     $.ajax({
           type:"GET",
           beforeSend : function( xhr ) {
-        		xhr.setRequestHeader( "Authorization", "Bearer "+token );
+        		xhr.setRequestHeader( "Authorization", "Bearer "+token);
     			},
-          url:"http://localhost:9081/user/findById/"+skuLogin,
+          url:"http://localhost:9081/user/findById/"+skuMerchant,
           success: function(data) {
             console.log(data);
             $('#toko').text(data.name);
@@ -94,7 +91,7 @@ $(document).ready(function(){
               beforeSend : function( xhr ) {
             		xhr.setRequestHeader( "Authorization", "Bearer "+token );
         			},
-              url:"http://localhost:9081/merchant/countIdMerchant/"+skuLogin,
+              url:"http://localhost:9081/merchant/countIdMerchant/"+skuMerchant,
               success: function(data) {
                 console.log(data);
                 $('#number_produk').text("Product : "+data);

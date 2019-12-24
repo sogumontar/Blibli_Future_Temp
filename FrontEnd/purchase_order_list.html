@@ -3,88 +3,58 @@
 
 <head>
   <title>Purchase Order - Del Kindle</title>
-  <script type="text/javascript" src="js/jquery.slim.min.js"></script>
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <script src="js/bootstrap.min.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
   <link href="css/style_purchase_order_list.css" rel="stylesheet">
   <script type="text/javascript" src="js/script_purchase_order_list.js">
-
+  </script>
+  <script type="text/javascript" src="js/script_nav.js"></script>
+  <script type="text/javascript">
+    $(function(){$("#nav").load("nav.html")});
   </script>
 </head>
 
 <body>
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="navbar">
-    <div class="container">
-      <a class="navbar-brand" href="#">DelKindle</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <img style="width: 35px" src="Pict/5a364b752c0633.9984354215135077011803.png">
-          </li>
+    <!-- Navigation -->
+  <div id="nav"></div>
 
-        </ul>
-      </div>
+  <div  class="col-xs-12 col-md-8 col-md-offset-2">
+    <!-- Page Content -->
+    <div id="header_merchant" class="row">
+      <div><a href="javascript:history.back()"><img src="Pict/left.png" width="25px"></a>&nbsp;&nbsp;&nbsp;</div>
+        <div><h2 id="catalog"> Purchase Order List</h2></div>
     </div>
-  </nav>
 
+    <div class="tab">
+      <button class="tablinks" onclick="openCity(event, 'London')" id="tablinks1">Order List</button>
+      <button class="tablinks" onclick="openCity(event, 'Paris')">Purchase</button>
+    </div>
 
-  <!-- Page Content -->
-  <div id="header_merchant" class="row">
-    <div><a href="javascript:history.back()"><img src="Pict/left.png" width="25px"></a>&nbsp;&nbsp;&nbsp;</div>
-      <div><h2 id="catalog"> Purchase Order List</h2></div>
-  </div>
+      <div id="London" class="tabcontent">
 
-  <div class="tab">
-    <button class="tablinks" onclick="openCity(event, 'London')" id="tablinks1">Order List</button>
-    <button class="tablinks" onclick="openCity(event, 'Paris')">Purchase</button>
-  </div>
+        <br>
 
-    <div id="London" class="tabcontent">
+        <div id="listOrder">
+
+        </div>
+      </div>
+
+    <div id="Paris" class="tabcontent">
 
       <br>
 
-      <div id="listOrder">
+      <div id="listOrderAcc">
 
       </div>
-    </div>
-
-  <div id="Paris" class="tabcontent">
-    <div id="header_content">
-      <ul id="ul_header">
-        <li id="li_header"><a href="">  <img src="pict/shopping.png" alt=""></a></li>
-        <li id="li_header"><a href=""><b>Gudangnya Buku</b></a></li>
-      </ul>
-      <hr>
-    </div>
-    <div class="col-md-12">
-      <div class="row">
-        <div class="col-md-4">
-          <img src="Pict/buku_fashion.jpg" id="img_product" alt="">
-        </div>
-        <div class="col-md-8">
-            <table>
-              <tr>
-                <td><p>Fashion figure</p></td>
-              </tr>
-              <tr>
-                <td><p>Rp 12123123</p></td>
-              </tr>
-            </table>
-        </div>
-      </div>
-    </div>
-    <br>
-
-    <div id="listOrderAcc">
-
     </div>
   </div>
 
-  <br><br><br>
+
+
   <!-- <button type="button" class="collapsible">Open Collapsible</button>
 <div class="content">
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -92,23 +62,35 @@
 
   <!-- Footer -->
   <footer class="fixed-bottom" style="background-color: white">
-		<div id="ds">
+    <div class="ds">
       <ul class="flex-container" class="navbar navbar-expand fixed-bottom">
-  		  <li class="flex-item1">
-  		  	<a href=""><button class="btn"><img id="icon1" src="Pict/icons8-home-50.png"></button></a>
-  		  </li>
-  		  <li class="flex-item1">
-  		  	<a href="catalog_entry.html"><button class="btn"><img id="icon1" src="Pict/plus.png"></button></a>
-  		  </li>
-  		  <li class="flex-item1">
-  		  	<a href=""><button class="btn"><img id="icon1" src="Pict/5a364b752c0633.9984354215135077011803.png"></button></a>
-  		  </li>
-  		  <li class="flex-item1">
-  		  	<a href=""><button class="btn"><img id="icon1" src="Pict/avatar.png"></button></a>
-  		  </li>
-  		</ul>
+        <li class="flex-item1">
+          <a href="index.html"><button class="btn"  data-toggle="tooltip" data-placement="top" title="Tooltip on top"><img id="icon1"  src="Pict/icons8-home-50.png"></button></a>
+        </li>
+        <li class="flex-item1">
+          <a href="wishlist.html"><button class="btn"><img id="icon1" src="Pict/icons8-love-50.png"></button></a>
+        </li>
+        <li class="flex-item1">
+          <a href="cart.html"><button class="btn"><img id="icon1" src="Pict/5a364b752c0633.9984354215135077011803.png"></button></a>
+        </li>
+        <li class="flex-item1">
+          <a href="library.html"><button class="btn"><img id="icon1" src="Pict/book2.png"></button></a>
+        </li>
+        <li class="flex-item1">
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+             <img id="icon1" src="Pict/avatar.png" >
+               <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+              <a class="dropdown-item" href="pay_order.html">Bayar Orderan</a>
+               <a class="dropdown-item" href="purchase_order_list.html">List Transaksi</a>
+            </ul>
+          </div>
+        </li>
+      </ul>
     </div>
-	</footer>
+  </footer>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>

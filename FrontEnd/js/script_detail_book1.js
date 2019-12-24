@@ -26,7 +26,7 @@ $(document).ready(function(){
 	function assignDataProduct(){
 		$.ajax({
           type:"GET",
-					
+
           url:"http://localhost:9081/product/get/20",
           success: function(data) {
 						console.log(data.length);

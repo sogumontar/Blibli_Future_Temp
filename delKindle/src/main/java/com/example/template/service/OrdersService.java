@@ -37,7 +37,8 @@ public class OrdersService {
                orders.getCreatedAt(),
                orders.getVirtualaccount(),
                orders.getTipeTrans(),
-               orders.getTotTrans()
+               orders.getTotTrans(),
+                orders.getName()
         );
         return  ordersService.save(orders1);
     }

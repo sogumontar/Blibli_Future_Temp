@@ -2,40 +2,49 @@
 <html>
 <head>
 	<title></title>
-	 <script type="text/javascript" src="js/jquery.slim.min.js"></script>
+		 <script src="js/popper/popper.js" ></script>
+		 <script src="js/popper/bootstrap.min.js" ></script>
 	  <link rel="stylesheet" href="css/bootstrap.css">
 	  <script src="js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style_nav.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<script type="text/javascript" src="js/script_nav.js"></script>
+	<style>
+			#container{
+				display: flex;
+				justify-content: space-around;
+			}
+	</style>
 </head>
 <body>
-  <nav class="navbar-dark bg-primary fixed-top" id="navbar">
-  	<div id="navbar1">
-  		<div class="container">
-  			<a href="index.html" style="text-decoration: none"><i class="glyphicon glyphicon-home" style="color:white"></i>&nbsp;&nbsp;<font style="color:white">Beranda </font></a>
-  		</div>
-  	</div>
-    <div id="navbar2">
-      <div class="container">
-	   	<div class="col-md-12">
-	   		<div class="row">
-	   			<div class="col-md-1">
-	   				<a href="index.html"><font id="font">DelKindle</font></a>
-	   			</div>
-	   			<div class="col-md-9">
+  <nav class="fixed-top" id="container">
+    <div class="home">
+    	<a href="index.html"><font id="font">DelKindle</font></a>
+    </div>
+		<div class="user">
+			<div id="temp" style="margin-top:17px;">
 
-	   			</div>
-	   			<div class="col-md-2">
-						<div id="temp">
-							<i class="glyphicon glyphicon-user" style="color: white" id="icon_user"></i> &nbsp;<font style="color: white" id="name">Andreas Tampubolon</font>
-						</div>
-					</div>
-	   		</div>
-	   	</div>
+			</div>
+		</div>
+  </nav>
+
+
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Are you sure want to logout ? </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="logout">Yes</button>
       </div>
     </div>
-  </nav>
+  </div>
+</div>
 
   <script type="text/javascript">
   	hideNavbar();
@@ -44,9 +53,9 @@
 		window.onscroll = function() {
 		var currentScrollPos = window.pageYOffset;
 		  if (prevScrollpos > currentScrollPos) {
-		    document.getElementById("navbar").style.top = "0";
+		    document.getElementById("container").style.top = "0";
 		  } else {
-		    document.getElementById("navbar").style.top = "-85px";
+		    document.getElementById("container").style.top = "-85px";
 		  }
 		  prevScrollpos = currentScrollPos;
 		}

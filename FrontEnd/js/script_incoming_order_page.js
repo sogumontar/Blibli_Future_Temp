@@ -35,9 +35,12 @@ $(document).ready(function(){
             for (var i in users) {
                $("#listOrder").
                 append("<div class='col-md-12'>\
-                    <div class='row'>\
+                    <div class='row' id='row'>\
                       <div class='col-md-8'>\
                         <table>\
+                        <tr>\
+                          <td>Nama : "+users[i].name+"</td>\
+                        </tr>\
                           <tr>\
                             <td>Total Pemesanan: Rp."+users[i].price+"</td>\
                           </tr>\
@@ -45,7 +48,7 @@ $(document).ready(function(){
                             <td>Tanggal Pemesanan : 24 Oktober 2019</td>\
                           </tr>\
                           <tr>\
-                            <td>Status Pembayaran : " + (users[i].status == 1 ? 'Belum Bayar': 'Sudah Bayar') + "</td>\
+                            <td>Status Pembayaran : " + (users[i].status == 1 ? '<span class="badge badge-danger">Belum Bayar</span>': '<span class="badge badge-success">Sudah Bayar</span>') + "</td>\
                           </tr>\
                         </table>\
                       </div>\

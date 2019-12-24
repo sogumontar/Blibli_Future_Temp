@@ -45,7 +45,7 @@ $(document).ready(function(){
 	                            <td>Tanggal Pemesanan : "+users[i].createdAt+"</td>\
 	                          </tr>\
 	                          <tr>\
-	                            <td>Status Pembayaran : " + (users[i].status == 1 ? 'Belum Bayar': 'Sudah Bayar') + "</td>\
+	                            <td>Status Pembayaran : " + (users[i].status == 1 ? '<span class="badge badge-danger">Belum Bayar</span>': '<span class="badge badge-success">Sudah Bayar</span>') + "</td>\
 	                          </tr>\
 														<tr>\
 	                            <td>Virtual Account : " + users[i].virtualaccount + "</td>\
@@ -93,7 +93,7 @@ $(document).ready(function(){
 	                            <td>Tanggal Pemesanan : "+users[i].createdAt+"</td>\
 	                          </tr>\
 	                          <tr>\
-	                            <td>Status Pembayaran : " + (users[i].status == 1 ? 'Belum Bayar': 'Sudah Bayar') + "</td>\
+	                            <td>Status Pembayaran : " + (users[i].status == 1 ? '<span class="badge badge-danger">Belum Bayar</span>': '<span class="badge badge-success">Sudah Bayar</span>') + "</td>\
 	                          </tr>\
 														<tr>\
 	                            <td>Virtual Account : " + users[i].virtualaccount + "</td>\
