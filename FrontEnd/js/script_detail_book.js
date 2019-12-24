@@ -89,6 +89,7 @@ var wis;
       },
       url:"http://localhost:9081/cart/check/"+skuz+"/"+id,
       success: function(data){
+        var checkStatus=JSON.parse(JSON.stringify(data));
         indikator=data;
         // console.log(indikator);
       },

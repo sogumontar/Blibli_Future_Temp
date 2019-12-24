@@ -17,7 +17,10 @@ $(document).ready(function(){
             success: function (data) {
                 console.log(data);
                 if(data===1){
+                    doPayment();
                     alert("Virtual Account Benar")
+                }else{
+                    alert("Virtual Account Salah")
                 }
             },
             error: function (err) {
@@ -79,6 +82,21 @@ $(document).ready(function(){
 
 function cancel(sku) {
     $.ajax({
+        type:"DELETE",
+        url:"http://localhost:9081/detailOrder/delByOrderId/"+sku,
+        headers:{
+            "Content-Type": "application/json",
+            "Authorization": "Bearer "+token
+        },
+        success: function(response){
+            console.log(response);
+        },
+        error: function (err) {
+            alert(err)
+        }
+    })
+
+    $.ajax({
         type: "DELETE",
         url: "http://localhost:9081/orders/deleteById/"+sku,
         headers: {
@@ -116,5 +134,40 @@ function checkSKU(skuOrder) {
         }
     });
     return result
+}
+
+function doPayment() {
+    $.ajax({
+       type : "PUT",
+       url : "http://localhost:9081/orders/updateById/"+skuOrderList,
+        headers:{
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer "+token
+        },
+        success : function(success){
+           console.log(success);
+        },
+        error : function (err) {
+            alert(err);
+        }
+    });
+
+    $.ajax({
+        type:"PUT",
+        url : "http://localhost:9081/detailOrder/updateByIdOrder/"+skuOrderList,
+        headers:{
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer "+token
+        },
+        success : function(success){
+            console.log(success);
+        },
+        error : function (err) {
+            alert(err);
+        }
+    });
+
+    alert("Do Payment")
+    location.href("purchase_order_list.html")
 }
 

@@ -26,4 +26,9 @@ public interface OrderRepo extends JpaRepository<Orders,Integer> {
     @Query("SELECT o FROM Orders o where o.id=?1")
     Orders findById(int id);
 
+    @Modifying
+    @Transactional
+    @Query("UPDATE Orders o set o.status=2 where o.id=?1")
+    void updateOrdersById(Integer id);
+
 }

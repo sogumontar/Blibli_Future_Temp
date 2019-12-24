@@ -126,4 +126,12 @@ public class CartController {
         return "Delete Success";
     }
 
+    @CrossOrigin
+    @Transactional
+    @PutMapping("updtBySkuUser/{sku_user}")
+    public String updtBySkuUser(@PathVariable String sku_user){
+        cartService.updtBySkuUser(sku_user);
+        return "Updated Success";
+    }
+
 }

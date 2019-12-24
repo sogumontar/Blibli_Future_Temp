@@ -8,6 +8,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.mail.*;
@@ -192,5 +193,11 @@ public class OrdersController {
         return ordersService.findVirtualAccount(id);
     }
 
+    @CrossOrigin
+    @Transactional
+    @PutMapping("/updateById/{id}")
+    public void updateById(@PathVariable Integer id){
+        ordersService.updateById(id);
+    }
 
 }

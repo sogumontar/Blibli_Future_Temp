@@ -103,4 +103,8 @@ public class CartService {
         cartRepo.deleteBySku_user(skuUser);
     }
 
+    public void updtBySkuUser(String sku_user){
+        cartRepo.updtBySkuUser(sku_user);
+    }
+
 }

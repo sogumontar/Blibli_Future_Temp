@@ -73,8 +73,7 @@
 
     function logout() {
         alert("logout success");
-        localStorage.removeItem("Token");
-        localStorage.removeItem("skuLogin");
+        localStorage.clear();
         location.href="login.html";
     }
     function login(){
@@ -84,8 +83,7 @@
 
     var now = new Date().getTime();
     var setupTime = localStorage.getItem('setupTime');
-    alert(now-setupTime +"    asd   "+ 20*60*1000)
-    if(now-setupTime > 20*60*1000) {
+    if(now-setupTime > 2*60*60*1000) {
         localStorage.clear()
         logouts();
     }

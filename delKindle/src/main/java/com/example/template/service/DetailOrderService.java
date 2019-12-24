@@ -30,4 +30,16 @@ public class DetailOrderService {
     public List findAll(){
         return detailOrderRepository.findAll();
     }
+
+    public void deleteByDetailOrderId(Integer id){
+        detailOrderRepository.deleteByOrderId(id);
+    }
+
+    public String updateByIdOrder(Integer id){
+        detailOrderRepository.updateByIdOrder(id);
+        return "Success Update";
+    }
+    public List findLibrary(String sku_user){
+        return detailOrderRepository.findLibrary(sku_user);
+    }
 }

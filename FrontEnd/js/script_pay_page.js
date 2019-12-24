@@ -4,6 +4,7 @@ var totPesanan = 0;
 var last = 0;
 var plus = 0;
 var VA="VA";
+var sku_product='testing';
 $(document).ready(function(){
 
 	hideNavbar();
@@ -37,8 +38,10 @@ $(document).ready(function(){
 					success: function(data) {
 						var users = JSON.parse(JSON.stringify(data));
 						for (var i in users) {
-							if(users[i].sku_user == id){
+							if(users[i].sku_user == id && users[i].status==1){
 								totPesanan = totPesanan + users[i].price;
+								sku_product+=users[i].sku_product;
+								sku_product+=',';
 								$("#listProduct").
 								append('<div class="col-md-12">\
 									<div class="row" id="price">\
@@ -71,18 +74,19 @@ $(document).ready(function(){
 
 
 	function makeOrder(){
+		var arr=[];
 		//virtualAccount
 		var virtual = makeVirtualaccount(10);
 		//Get date now
 		let today = new Date().toISOString().slice(0, 10);
-
 		var jsonVar = {
 			skuUser: id,
 			status: 1,
 			createdAt: today,
 			virtualaccount: virtual,
 			tipeTrans: document.getElementById('tipe_trans').value,
-			totTrans: totPesanan
+			totTrans: totPesanan,
+			sku_product: sku_product
 		};
 		$.ajax({
 							type:"POST",
@@ -104,60 +108,10 @@ $(document).ready(function(){
 									contentType: "application/json",
 									success: function(data1){
 									//get all cart by sku user
-										$.ajax({
-										type:"GET",
-										url:"http://localhost:9081/cart/",
-										beforeSend : function( xhr ) {
-										xhr.setRequestHeader( "Authorization", "Bearer "+token );
-										},
-										contentType: "application/json",
-										success: function(data2){
-										var userss = JSON.parse(JSON.stringify(data2));
-										for (var i in userss) {
-											if(userss[i].sku_user == id){
-
-												console.log("data2");
-												//save detail order
-												var jsonVar1 = {
-													sku_product: userss[i].sku_product,
-													sku_merchant: userss[i].sku_merchant,
-													sku_user: id,
-													idOrder: data1.id,
-													title: userss[i].title,
-													pict_product: userss[i].pict_product ,
-													categories: userss[i].categories,
-													publication_year: userss[i].publication_year,
-													price: userss[i].price,
-													author: userss[i].author,
-													publisher: userss[i].publisher,
-													isbn: userss[i].isbn
-												}
-												$.ajax({
-													type:"POST",
-													url:"http://localhost:9081/detailOrder/saveDetailOrder",
-													beforeSend : function( xhr ) {
-														xhr.setRequestHeader( "Authorization", "Bearer "+token );
-													},
-													data: JSON.stringify(jsonVar1),
-													contentType: "application/json",
-													success: function(data3){
-													},
-													error: function(err) {
-														console.log(err.responseJSON.message);
-													}
-												});
-												delCart(users[i].id);
-
-											}
-										}
-										},
-										error: function(err) {
-												console.log(err.responseJSON.message);
-										}
-										});
+										addDetailOrder();
 									},
 									error: function(err) {
-										console.log(err.responseJSON.message);
+										alert("1"+err.responseJSON.message);
 									}
 								});
 							},
@@ -165,6 +119,79 @@ $(document).ready(function(){
 									console.log(err.responseJSON.message);
 							}
 		});
+	}
+	function addDetailOrder() {
+		var findLast=0;
+		$.ajax({
+			type:"GET",
+			url:"http://localhost:9081/orders/findLast/",
+			beforeSend : function( xhr ) {
+				xhr.setRequestHeader( "Authorization", "Bearer "+token );
+			},
+			contentType: "application/json",
+			success: function(dat){
+				var last=JSON.parse(JSON.stringify(dat));
+				console.log(last.id);
+				findLast=last.id;
+				$.ajax({
+					type:"GET",
+					url:"http://localhost:9081/cart/",
+					beforeSend : function( xhr ) {
+						xhr.setRequestHeader( "Authorization", "Bearer "+token );
+					},
+					contentType: "application/json",
+					success: function(data2){
+						var userss = JSON.parse(JSON.stringify(data2));
+						for (var i in userss) {
+							console.log(findLast)
+							if(userss[i].sku_user == id && userss[i].status==1){
+								var jsonVar1 = {
+									sku_product: userss[i].sku_product,
+									sku_merchant: userss[i].sku_merchant,
+									sku_user: id,
+									idOrder: findLast,
+									title: userss[i].title,
+									pict_product: userss[i].pict_product ,
+									categories: userss[i].categories,
+									publication_year: userss[i].publication_year,
+									price: userss[i].price,
+									author: userss[i].author,
+									publisher: userss[i].publisher,
+									isbn: userss[i].isbn,
+									status: 1
+								}
+								$.ajax({
+									type:"POST",
+									url:"http://localhost:9081/detailOrder/saveDetailOrder",
+									beforeSend : function( xhr ) {
+										xhr.setRequestHeader( "Authorization", "Bearer "+token );
+									},
+									data: JSON.stringify(jsonVar1),
+									contentType: "application/json",
+									success: function(data3){
+									},
+									error: function(err) {
+										alert("3"+err.responseJSON.message);
+									}
+								});
+
+
+
+							}
+						}
+						delCart();
+					},
+					error: function(err) {
+						alert("2"+err.responseJSON.message);
+					}
+				});
+			}
+		});
+
+
+
+
+
 	}
 	function sendEmail(){
 		$.ajax({
@@ -184,7 +211,6 @@ $(document).ready(function(){
 					},
 					url:"http://localhost:9081/orders/sendMail/"+users.email+"/"+VA,
 					success: function(data){
-						alert(VA);
 					},
 					error: function(err) {
 						// alert(err)
@@ -199,12 +225,12 @@ $(document).ready(function(){
 
 	function delCart() {
 		$.ajax({
-			type:"DELETE",
+			type:"PUT",
 			headers: {
 				"Content-Type": "application/json",
 				"Authorization": "Bearer "+token
 			},
-			url:"http://localhost:9081/cart/delBySkuUser/"+id,
+			url:"http://localhost:9081/cart/updtBySkuUser/"+id,
 			success: function(data){
 
 			},
@@ -214,45 +240,16 @@ $(document).ready(function(){
 		});
 	}
 	function pindah(){
-		// var jsonData = {
-		//
-		// }
-		// $.ajax({
-		// 		type:"POST",
-		// 		url:"",
-		// 		headers:{
-		// 			"Content-Type":"application/json",
-		// 			"Authentication":"Bearer "+token
-		// 		},success: function(response){
-		// 			alert(response);
-		// 		},
-		// 		error: function (err) {
-		// 			alert(err);
-		// 		}
-		// })
-		alert("success make order");
+		alert("success make orders");
 		location.href = "purchase_order_list.html";
 	}
 	$('#but_pesanan').click(function(){
+
 		makeOrder();
-		delCart();
 		sendEmail();
 		setInterval(pindah,2000);
 	});
 
-	// function findLast(){
-	// 	$.ajax({
-	// 						type:"GET",
-	// 						url:"http://localhost:9081/orders/findLast",
-	// 						contentType: "application/json",
-	// 						success: function(data){
-	// 							alert(data.id);
-	// 							last = data.id;
-	// 						},
-	// 						error: function(err) {
-	// 								console.log(err.responseJSON.message);
-	// 						}
-	// 	});
-	// }
+
 
 });

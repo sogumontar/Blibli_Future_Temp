@@ -37,8 +37,10 @@ public class OrdersService {
                orders.getCreatedAt(),
                orders.getVirtualaccount(),
                orders.getTipeTrans(),
-               orders.getTotTrans()
+               orders.getTotTrans(),
+               orders.getSku_product()
         );
+        System.out.println(orders.getSku_product());
         return  ordersService.save(orders1);
     }
 
@@ -55,5 +57,10 @@ public class OrdersService {
     //findVirtualAccount
     public Orders findVirtualAccount(int id){
         return orderRepo.findById(id);
+    }
+
+    public String updateById(Integer id ){
+        orderRepo.updateOrdersById(id);
+        return "Success update";
     }
 }

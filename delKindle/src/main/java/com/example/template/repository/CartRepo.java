@@ -19,7 +19,7 @@ public interface CartRepo extends JpaRepository<Cart,Long> {
     Cart findFirstBySku_product(String sku_product);
 
 
-    @Query("SELECT COUNT(u.id) FROM Cart u WHERE u.sku_user LIKE ?1 and u.sku_product LIKE ?2")
+    @Query("SELECT COUNT(u.id) FROM Cart u WHERE u.sku_user LIKE ?1 and u.sku_product LIKE ?2 and u.status=1")
     Integer existsBySku_userAndSku_product(String sku_user, String sku_product);
 
     @Query("SELECT c FROM Cart c WHERE c.sku_user=?1")
@@ -43,4 +43,7 @@ public interface CartRepo extends JpaRepository<Cart,Long> {
     @Query("DELETE FROM Cart c WHERE c.sku_user LIKE?1")
     void deleteBySku_user(String sku_user);
 
+    @Modifying
+    @Query("UPDATE Cart c SET c.status=2 WHERE c.sku_user LIKE ?1 AND c.status=1")
+    void updtBySkuUser(String sku_user);
 }

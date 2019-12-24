@@ -18,7 +18,6 @@ $(document).ready(function(){
               success: function(data){
                 if(data.status == 1){
                   var now = new Date().getTime();
-                  alert(now);
                   token = data.accessToken;
                   skuLog=data.skuLog;
                   console.log(data.role);
