@@ -49,6 +49,9 @@ public class DetailOrder {
     @Column(name = "name")
     public String name;
 
+    @Column(name = "sku_user")
+    public String sku_user;
+
     public DetailOrder(){
 
     }
@@ -67,6 +70,23 @@ public class DetailOrder {
         this.isbn = isbn;
         this.status = status;
         this.name = name;
+    }
+
+    public DetailOrder(String sku_product, String sku_merchant, Integer idOrder, String title, String pict_product, String categories, String publication_year, Integer price, String author, String publisher, String isbn, Integer status, String name, String sku_user) {
+        this.sku_product = sku_product;
+        this.sku_merchant = sku_merchant;
+        this.idOrder = idOrder;
+        this.title = title;
+        this.pict_product = pict_product;
+        this.categories = categories;
+        this.publication_year = publication_year;
+        this.price = price;
+        this.author = author;
+        this.publisher = publisher;
+        this.isbn = isbn;
+        this.status = status;
+        this.name = name;
+        this.sku_user = sku_user;
     }
 
     public Integer getId() {
@@ -179,5 +199,13 @@ public class DetailOrder {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getSku_user() {
+        return sku_user;
+    }
+
+    public void setSku_user(String sku_user) {
+        this.sku_user = sku_user;
     }
 }

@@ -17,6 +17,7 @@ public class CartService {
     CartRepo cartRepo;
     @Autowired
     OrderRepo orderRepo;
+
     public Integer check(String skuUser,String skuProduct){
         return cartRepo.existsBySku_userAndSku_product(skuUser,skuProduct);
     }
@@ -101,5 +102,13 @@ public class CartService {
     public String checkout(String sku_user){
         cartRepo.checkout(sku_user);
         return "success";
+    }
+
+    public void deleteBySkuUser(String skuUser){
+        cartRepo.deleteBySku_user(skuUser);
+    }
+
+    public void updtBySkuUser(String sku_user){
+        cartRepo.updtBySkuUser(sku_user);
     }
 }

@@ -5,6 +5,7 @@ import com.example.template.service.DetailOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @CrossOrigin(maxAge = 3600)
@@ -38,4 +39,33 @@ public class DetailOrderController {
     public DetailOrder updateStatusAcc(@PathVariable Integer id){
         return  detailOrderService.updateStatusAcc(id);
     }
+
+    @CrossOrigin
+    @GetMapping("/findAll")
+    public List findAll(){
+        return detailOrderService.findAll();
+    }
+
+
+    @CrossOrigin
+    @DeleteMapping("/delByOrderId/{id}")
+    @Transactional
+    public String deleteDetailOrderByOrderId(@PathVariable Integer id){
+        detailOrderService.deleteByDetailOrderId(id);
+        return "Success delete Detail Order";
+    }
+
+    @CrossOrigin
+    @Transactional
+    @PutMapping("/updateByIdOrder/{idOrder}")
+    public void updateByIdOrder(@PathVariable Integer idOrder){
+        detailOrderService.updateByIdOrder(idOrder);
+    }
+
+    @CrossOrigin
+    @GetMapping("/findLibrary/{sku_user}")
+    public List findLibrary(String sku_user){
+        return detailOrderService.findLibrary(sku_user);
+    }
+
 }

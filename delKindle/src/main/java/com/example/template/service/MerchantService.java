@@ -161,4 +161,27 @@ public class MerchantService {
         merchantRepository.deleteBySku_product(skuProduct);
     }
 
+    public void updateProduct(Product product){
+        int last = lastProductService.findLast().getLast_book();
+        int two = last+1;
+        String pict = "pict"+two+".jpg";
+        File file = new File("C:/xampp/htdocs/Blibli_Future_Temp/FrontEnd/product/"+pict);
+        try(FileOutputStream fos = new FileOutputStream(file)){
+            byte[] decoder = Base64.getDecoder().decode(product.getPict_product());
+            fos.write(decoder);
+            System.out.println("Image file saved");
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    private String unescapeUntilNoHtmlEntityFound(String value){
+        value=value.replace("<","");
+        value=value.replace(">","");
+        value=value.replace("&","");
+        value=value.replace("//","");
+        value=value.replace("$.","");
+        value=value.replace("$(","");
+        System.out.println(value);
+        return value;
+    }
 }

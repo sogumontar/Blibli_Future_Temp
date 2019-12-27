@@ -58,23 +58,6 @@ public class CartController {
     @CrossOrigin
     @PostMapping("/add")
     public Cart save(@RequestBody Cart cart){
-//        Date obDate = new Date();
-//        SimpleDateFormat obDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-//        Cart cart1=new Cart(
-//                obDateFormat.format(obDate.getTime()).toString(),
-//                cart.getStatus(),
-//                cart.getTitle(),
-//                cart.getPict_product(),
-//                cart.getCategories(),
-//                cart.getPublication_year(),
-//                cart.getPrice(),
-//                cart.getAuthor(),
-//                cart.getPublisher(),
-//                cart.getIsbn(),
-//                cart.getSku_user(),
-//                cart.getSku_product()
-//        );
-        System.out.println(cartService.save(cart));
         return cartService.save(cart);
     }
 
@@ -117,6 +100,22 @@ public class CartController {
     public String checkout(@PathVariable String sku_user){
         cartService.checkout(sku_user);
         return "success";
+    }
+
+    @CrossOrigin
+    @Transactional
+    @DeleteMapping("/delBySkuUser/{sku_user}")
+    public String delBySkuUser(@PathVariable String sku_user){
+        cartService.deleteBySkuUser(sku_user);
+        return "Delete Success";
+    }
+
+    @CrossOrigin
+    @Transactional
+    @PutMapping("updtBySkuUser/{sku_user}")
+    public String updtBySkuUser(@PathVariable String sku_user){
+        cartService.updtBySkuUser(sku_user);
+        return "Updated Success";
     }
 
 }

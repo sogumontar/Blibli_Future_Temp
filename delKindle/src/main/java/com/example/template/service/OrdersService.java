@@ -68,4 +68,20 @@ public class OrdersService {
         orders.setStatus(2);
         return ordersService.save(orders);
     }
+    public List findAllBySkuAndStatus(String sku, Integer status){
+        return orderRepo.findAllBySkuUserAndStatus(sku,status);
+    }
+    public void deleteById(Integer id){
+        orderRepo.deleteById(id);
+    }
+
+    //findVirtualAccount
+    public Orders findVirtualAccount(int id){
+        return orderRepo.findById(id);
+    }
+
+    public String updateById(Integer id ){
+        orderRepo.updateOrdersById(id);
+        return "Success update";
+    }
 }
