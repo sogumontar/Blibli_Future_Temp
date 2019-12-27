@@ -12,15 +12,13 @@ $.ajax({
           url:"http://localhost:9081/user/findById/"+id,
           success: function(data) {
             var users = JSON.parse(JSON.stringify(data));
-            
+
                $("#detail").
                 append('<input type="text" id="name" required="" class="form-control" name="" readonly value="'+users.name+'" placeholder="Nama Lengkap" >\
                       <br>\
                       <input type="text" id="email" required=""  class="form-control" readonly value="'+users.email+'" name="" placeholder="Email">\
                       <br>\
                       <input type="text" id="username" required="" class="form-control" readonly name="" value="'+users.username+'" placeholder="Username">\
-                      <br>\
-                      <input type="text" id="username" required="" class="form-control" readonly name="" value="'+users.gender+'" placeholder="Username">\
                       <br>\
                       <input type="number" id="telepon" class="form-control" value="'+users.telepon+'" readonly name="" placeholder="Telepon">\
                       <br>\
@@ -32,11 +30,6 @@ $.ajax({
                       <br><br>\
                   ');
               }
-            
+
 
         });
-
-
-
-
-

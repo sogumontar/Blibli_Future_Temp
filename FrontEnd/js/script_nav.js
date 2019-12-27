@@ -19,3 +19,16 @@ $("#logout").click(function(){
   localStorage.removeItem("skuLogin");
   location.href ="index.html";
 })
+
+
+var now = new Date().getTime();
+    var setupTime = localStorage.getItem('setupTime');
+    if(now-setupTime > 2*60*60*1000) {
+        localStorage.clear()
+        logouts();
+    }
+
+    function logouts(){
+        alert("Sesi Anda Telah Habis, Silahkan Login Kembali")
+        location.href="login.html";
+    }

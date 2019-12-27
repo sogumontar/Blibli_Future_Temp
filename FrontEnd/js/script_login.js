@@ -21,10 +21,12 @@ $(document).ready(function(){
                   alert("Login Success");
                   token = data.accessToken;
                   skuLog=data.skuLog;
+                  var now = new Date().getTime();
                   //Set LocalStorage
                   localStorage.setItem('Token',token);
                   localStorage.setItem('skuLogin',skuLog);
-                  localStorage.setItem('name',data.name)
+                  localStorage.setItem('name',data.name);
+                  localStorage.setItem('setupTime', now);
 
                   if(data.role == "ROLE_USER"){
                       location.href =  "index.html";
@@ -39,7 +41,7 @@ $(document).ready(function(){
                 }
 
               },
-              
+
               error: function(err) {
                   alert("Username dan Password anda salah")
                   $("#message").append(err.responseJSON.message);

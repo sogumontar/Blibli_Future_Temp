@@ -3,106 +3,109 @@
 
 <head>
   <title>Pay Page - Del Kindle</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+  <script type="text/javascript" src="js/jquery.slim.min.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <script src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/script_pay_page.js"></script>
   <link href="css/style_pay_page.css" rel="stylesheet">
-  <script type="text/javascript" src="js/script_nav.js"></script>
-  <script type="text/javascript">
-    $(function(){$("#nav").load("nav.html")});
+  <script>
+    $(function(){ $("#head").load("navbar.html") });
+    $(function(){ $("#footer").load("footer.html") });
   </script>
 </head>
 
 <body>
   <!-- Navigation -->
-  <div id="nav">
+  <div id="head">
 
   </div>
-  <br><br><br>
+<!--  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="navbar">-->
+<!--    <div class="container">-->
+<!--      <a class="navbar-brand" href="#">DelKindle</a>-->
+<!--      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--        <span class="navbar-toggler-icon"></span>-->
+<!--      </button>-->
+<!--      <div class="collapse navbar-collapse" id="navbarResponsive">-->
+<!--        <ul class="navbar-nav ml-auto">-->
+<!--          <li class="nav-item active">-->
+<!--            <img style="width: 35px" src="Pict/5a364b752c0633.9984354215135077011803.png">-->
+<!--          </li>-->
 
-  <div class="col-xs-12 col-md-8 col-md-offset-2">
-    <!-- Page Content -->
-    <div id="header_merchant" class="row">
-      <div><a href="javascript:history.back()"><img src="Pict/left.png" width="25px"></a>&nbsp;&nbsp;&nbsp;</div>
-        <div><h2 id="catalog"> Pay Page</h2></div>
+<!--        </ul>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </nav>-->
+
+
+  <!-- Page Content -->
+  <div id="header_merchant" class="row">
+    <div><a href="javascript:history.back()"><img src="Pict/left.png" width="25px"></a>&nbsp;&nbsp;&nbsp;</div>
+      <div><h2 id="catalog"> Pay Page</h2></div>
+  </div>
+
+    <div id="content">
+      <div id="header_content">
+        <ul id="ul_header">
+          <li id="li_header"><a href="">  <img src="pict/money.png" id="img_header"></a></li>
+          <li id="li_header"><a href=""><b>Total Pembayaran</b></a></li>
+        </ul>
+        <hr>
+      </div>
+
+      <div id="listProduct">
+
+      </div>
+      <br>
+      <p id="tot_pesanan"><b>Total Pesanan : Rp 40000</b></p>
     </div>
+
     <br>
-      <div id="content" class="well">
-        <div id="header_content">
-          <ul id="ul_header">
-            <li id="li_header"><a href="">  <img src="pict/money.png" id="img_header"></a></li>
-            <li id="li_header"><a href=""><b>Total Pembayaran</b></a></li>
-          </ul>
-          <hr>
-        </div>
 
-        <div id="listProduct">
-
-        </div>
-        <br>
-        <p id="tot_pesanan"><b>Total Pesanan : Rp 40000</b></p>
+    <div id="content">
+      <div id="header_content">
+        <ul id="ul_header">
+          <li id="li_header"><a href="">  <img src="pict/exchange.png" id="img_header"></a></li>
+          <li id="li_header"><a href=""><b>Metode Pembayaran</b></a></li>
+        </ul>
+        <hr>
       </div>
-
-      <div id="content" class="well">
-        <div id="header_content">
-          <ul id="ul_header">
-            <li id="li_header"><a href="">  <img src="pict/exchange.png" id="img_header"></a></li>
-            <li id="li_header"><a href=""><b>Metode Pembayaran</b></a></li>
-          </ul>
-          <hr>
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Transfer Bank</label>
-          <select class="form-control" id="tipe_trans" required>
-            <option value="1">Bank BCA</option>
-            <option value="2">Bank Mandiri</option>
-            <option value="3">Bank BRI</option>
-          </select>
-        </div>
-        <br>
-
-      <button type="button" class="btn btn-primary btn-md btn-block" name="button" id="but_pesanan"><i class="glyphicon glyphicon-ok-sign"></i> Buat Pesanan</button>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Transfer Bank</label>
+        <select class="form-control" id="tipe_trans" required>
+          <option value="1">Bank BCA</option>
+          <option value="2">Bank Mandiri</option>
+          <option value="3">Bank BRI</option>
+        </select>
       </div>
-      <br><br><br><br>
+      <br>
 
-  </div>
+    <button type="button" class="btn btn-primary btn-md btn-block" name="button" id="but_pesanan"> Buat Pesanan</button>
+    </div>
+    <br><br><br><br>
+
 
   <!-- Footer -->
-  <footer class="fixed-bottom" style="background-color: white">
-    <div class="ds">
-      <ul class="flex-container" id="flex-container" class="navbar navbar-expand fixed-bottom">
-        <li class="flex-item1">
-          <a href="index.html"><button class="btn"  data-toggle="tooltip" data-placement="top" title="Tooltip on top"><img id="icon1"  src="Pict/icons8-home-50.png"></button></a>
-        </li>
-        <li class="flex-item1">
-          <a href="wishlist.html"><button class="btn"><img id="icon1" src="Pict/icons8-love-50.png"></button></a>
-        </li>
-        <li class="flex-item1">
-          <a href="cart.html"><button class="btn"><img id="icon1" src="Pict/5a364b752c0633.9984354215135077011803.png"></button></a>
-        </li>
-        <li class="flex-item1">
-          <a href="library.html"><button class="btn"><img id="icon1" src="Pict/book2.png"></button></a>
-        </li>
-        <li class="flex-item1">
-          <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
-             <img id="icon1" src="Pict/avatar.png" >
-               <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-              <a class="dropdown-item" href="pay_order.html">Bayar Orderan</a>
-               <a class="dropdown-item" href="purchase_order_list.html">List Transaksi</a>
-               <a class="dropdown-item-text" href="#">Logout</a>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </footer>
+  <div id="footer">
+
+  </div>
+<!--  <footer class="fixed-bottom" style="background-color: white">-->
+<!--		<div id="ds">-->
+<!--      <ul class="flex-container" class="navbar navbar-expand fixed-bottom">-->
+<!--  		  <li class="flex-item1">-->
+<!--  		  	<a href=""><button class="btn"><img id="icon1" src="Pict/icons8-home-50.png"></button></a>-->
+<!--  		  </li>-->
+<!--  		  <li class="flex-item1">-->
+<!--  		  	<a href="catalog_entry.html"><button class="btn"><img id="icon1" src="Pict/plus.png"></button></a>-->
+<!--  		  </li>-->
+<!--  		  <li class="flex-item1">-->
+<!--  		  	<a href=""><button class="btn"><img id="icon1" src="Pict/5a364b752c0633.9984354215135077011803.png"></button></a>-->
+<!--  		  </li>-->
+<!--  		  <li class="flex-item1">-->
+<!--  		  	<a href=""><button class="btn"><img id="icon1" src="Pict/avatar.png"></button></a>-->
+<!--  		  </li>-->
+<!--  		</ul>-->
+<!--    </div>-->
+<!--	</footer>-->
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>

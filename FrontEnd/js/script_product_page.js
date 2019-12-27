@@ -119,7 +119,8 @@ $(document).ready(function(){
 });
 
 function hai(product_id){
-  localStorage.setItem("productId",product_id);
+  alert(product_id);
+  // localStorage.setItem("productId",product_id);
 }
 function updateProduct(){
   var token = localStorage.getItem('Token');
