@@ -37,7 +37,7 @@ $(document).ready(function(){
             success: function(data) {
                 var users = JSON.parse(JSON.stringify(data));
                 for (var i in users) {
-                    if( users[i].status==1){
+                    if( users[i].status!=1){
                         sub_total = sub_total + users[i].price;
                         $("#dat").
                         append('<div class="row">\

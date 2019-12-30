@@ -97,6 +97,19 @@ public class MerchantService {
             System.out.println(e.getMessage());
         }
     }
+    public void updateProduct(Product product){
+        int last = lastProductService.findLast().getLast_book();
+        int two = last+1;
+        String pict = "pict"+two+".jpg";
+        File file = new File("C:/xampp/htdocs/Blibli_Future_Temp/FrontEnd/product/"+pict);
+        try(FileOutputStream fos = new FileOutputStream(file)){
+            byte[] decoder = Base64.getDecoder().decode(product.getPict_product());
+            fos.write(decoder);
+            System.out.println("Image file saved");
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
 
     public void addBook(CatalogEntryRequest catalogEntryRequest){
         int last = lastProductService.findLast().getLast_book();

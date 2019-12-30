@@ -20,8 +20,6 @@ $.ajax({
                       <br>\
                       <input type="text" id="username" required="" class="form-control" readonly name="" value="'+users.username+'" placeholder="Username">\
                       <br>\
-                      <input type="text" id="username" required="" class="form-control" readonly name="" value="'+users.gender+'" placeholder="Username">\
-                      <br>\
                       <input type="number" id="telepon" class="form-control" value="'+users.telepon+'" readonly name="" placeholder="Telepon">\
                       <br>\
                       <input type="text" id="alamat" class="form-control" value="'+users.alamat+'" name="" readonly placeholder="Alamat">\

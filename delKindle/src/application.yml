@@ -1,5 +1,4 @@
 
-
 spring:
   mail:
     default-encoding: UTF-8

@@ -66,6 +66,10 @@ public class ProductService {
     public List findAllBySkuMerchant(String skuMerchant){
         return productRepo.findAllBySku_merchant(skuMerchant);
     }
+    public String updateWithoutPict(String title, String description, String categories, String publication_year, Integer price, String author , String isbn , String publisher, String sku_product){
+        productRepo.updateWithoutPict(title,description,categories,publication_year,price,author,isbn,publisher,sku_product);
+        return "Update Success";
+    }
 
 
 }

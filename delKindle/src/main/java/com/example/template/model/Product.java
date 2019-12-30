@@ -69,6 +69,18 @@ public class Product {
         this.sku_merchant = sku_merchant;
     }
 
+    public Product(String title, String description, String categories, String publication_year, Integer price, String author, String isbn, String publisher, String pict_product) {
+        this.title = title;
+        this.description = description;
+        this.categories = categories;
+        this.publication_year = publication_year;
+        this.price = price;
+        this.author = author;
+        this.isbn = isbn;
+        this.publisher = publisher;
+        this.pict_product = pict_product;
+    }
+
     public Product(String sku_product, String title, String description, String categories, String publication_year, Integer price, String author, String publisher, String isbn, String sku_merchant) {
         this.sku_product = sku_product;
         this.title = title;

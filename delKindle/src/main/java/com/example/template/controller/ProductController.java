@@ -3,6 +3,7 @@ package com.example.template.controller;
 import com.example.template.model.Product;
 import com.example.template.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -72,11 +73,7 @@ public class ProductController {
 //    @CrossOrigin
 //    @PutMapping("/update/{idProduct}")
 //    public ResponseEntity<Object> updateProduct(@PathVariable Integer idProduct, @RequestBody Product product){
-//        Optional<Product> productOptional= Optional.ofNullable(productService.findFirstById(idProduct));
-//        if(!productOptional.isPresent())
-//            return ResponseEntity.notFound().build();
-//        product.setId(idProduct);
-//        productService.save(product);
+//        productService..(product);
 //        return ResponseEntity.ok().build();
 //    }
 
@@ -114,6 +111,12 @@ public class ProductController {
     @GetMapping("/allByMerchant/{sku_merchant}")
     public List findAllBySkuMerchant(@PathVariable String sku_merchant){
         return productService.findAllBySkuMerchant(sku_merchant);
+    }
+    @CrossOrigin
+    @Modifying
+    @PutMapping("/updateWithoutPict/{title}/{description}/{categories}/{publication_year}/{price}/{author}/{isbn}/{publisher}/{sku_product}")
+    public void updateWithoutPict(@PathVariable String title,@PathVariable String description,@PathVariable String categories,@PathVariable String publication_year,@PathVariable Integer price,@PathVariable String author ,@PathVariable String isbn ,@PathVariable String publisher,@PathVariable String sku_product){
+        productService.updateWithoutPict(title,description,categories,publication_year,price,author,isbn,publisher,sku_product);
     }
 
 }
