@@ -1,6 +1,6 @@
 #header_merchant{
   margin: 75px 25px 0px 25px;
-  padding: 25px 25px 25px 25px;
+  padding: 10px 10px 10px 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 #navbar {
@@ -16,7 +16,7 @@
 
 #garantee{
   margin: 10px 25px 0px 25px;
-  padding: 25px 25px 25px 25px;
+  padding: 5px 5px 5px 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: #FFF8DF;
 }
@@ -33,17 +33,35 @@
   font-size:4vw;
 }
 #pict_shopping{
-  width: 100px;
+  width: 50px;
+}
+#pict_market{
+  width: 30px;
 }
 #not{
   font-size: 3vw;
 }
 #icon1{
-  width: 50px;
+  width: 20px;
   margin-bottom: 10px;
 }
 #h{
   border-color: black;
+}
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
 }
 
 @media only screen and (min-width: 981px) {
@@ -57,6 +75,12 @@
   }
   #number_produk{
     font-size: 2vw;
+  }
+  #garantee{
+    margin: 10px 25px 0px 25px;
+    padding: 20px 20px 20px 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #FFF8DF;
   }
   #pict_market{
     width: 50px;

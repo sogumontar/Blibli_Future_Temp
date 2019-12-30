@@ -27,42 +27,24 @@ public class Orders {
     @Column(name = "tot_transaction")
     private Integer totTrans;
 
-    @Column(name = "sku_product")
-    private String sku_product;
-
-    public Orders(String skuUser, Integer status, String createdAt, String virtualaccount, Integer tipeTrans, Integer totTrans, String sku_product) {
-        this.skuUser = skuUser;
-        this.status = status;
-        this.createdAt = createdAt;
-        this.virtualaccount = virtualaccount;
-        this.tipeTrans = tipeTrans;
-        this.totTrans = totTrans;
-        this.sku_product = sku_product;
-    }
+    @Column(name ="name")
+    private String name;
 
     public Orders(){
 
     }
-    
 
-    public Orders(String skuUser, Integer status, String createdAt, String virtualaccount, Integer tipeTrans,Integer totTrans) {
+    public Orders(String skuUser, Integer status, String createdAt, String virtualaccount, Integer tipeTrans,Integer totTrans,String name) {
         this.skuUser = skuUser;
         this.status = status;
         this.createdAt = createdAt;
         this.virtualaccount = virtualaccount;
         this.tipeTrans = tipeTrans;
         this.totTrans = totTrans;
+        this.name = name;
     }
 
     public Orders(String skuUser, String skuProducts, int i, String toString) {
-    }
-
-    public String getSku_product() {
-        return sku_product;
-    }
-
-    public void setSku_product(String sku_product) {
-        this.sku_product = sku_product;
     }
 
     public Integer getId() {
@@ -119,5 +101,13 @@ public class Orders {
 
     public void setTotTrans(Integer totTrans) {
         this.totTrans = totTrans;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

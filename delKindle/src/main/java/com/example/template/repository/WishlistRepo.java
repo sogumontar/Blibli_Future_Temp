@@ -15,4 +15,6 @@ public interface WishlistRepo extends JpaRepository<Wishlist,Long> {
 
     void deleteById(Integer id);
 
+    @Query("SELECT  COUNT(u.id) FROM Wishlist  u WHERE u.sku_user LIKE ?1")
+    Integer existsBySku_user(String sku_user);
 }

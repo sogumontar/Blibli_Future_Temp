@@ -1,0 +1,100 @@
+#header_merchant{
+  margin: 75px 25px 0px 25px;
+  padding: 25px 25px 25px 25px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#navbar {
+  background-color: #007BFF;
+  top: 0;
+  display: block;
+  transition: top 0.3s;
+}
+
+.item_header{
+  margin-left: 50px;
+}
+
+#garantee{
+  margin: 10px 25px 0px 25px;
+  padding: 25px 25px 25px 25px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #FFF8DF;
+}
+
+#produk{
+  margin: 25px 25px 50px 25px;
+  padding: 25px 0px 25px 0px;
+}
+
+#toko{
+  font-size:6vw;
+}
+#number_produk{
+  font-size:4vw;
+}
+#pict_shopping{
+  width: 100px;
+}
+#not{
+  font-size: 3vw;
+}
+#icon1{
+  width: 50px;
+  margin-bottom: 10px;
+}
+#h{
+  border-color: black;
+}
+
+@media only screen and (min-width: 981px) {
+  /* For mobile phones: */
+  body{
+    margin-left: 250px;
+    margin-right: 250px;
+  }
+  #toko{
+    font-size:3vw;
+  }
+  #number_produk{
+    font-size: 2vw;
+  }
+  #pict_market{
+    width: 50px;
+  }
+  #pict_shopping{
+    width: 70px;
+  }
+  #not{
+    font-size: 1.5vw;
+  }
+  #icon1{
+    width: 30px;
+  }
+  .ds{
+    margin-left: 160px;
+    margin-right: 160px;
+  }
+  .flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+  #image{
+    width: 150px;
+    height: 180px;
+  }
+  #h{
+    height: 500px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}

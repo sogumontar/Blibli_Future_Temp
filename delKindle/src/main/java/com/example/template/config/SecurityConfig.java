@@ -99,10 +99,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers("seqUser/**")
                 .permitAll()
-                .antMatchers("/mail/sendingMail")
+                .antMatchers("/product/get/*")
                 .permitAll()
-//                .anyRequest()
-//                .authenticated()
+                .antMatchers("/product/")
+                .permitAll()
+                .antMatchers("/merchant/getAllByMerchant/*")
+                .permitAll()
+                .antMatchers("/merchant/countIdMerchant/*")
+                .permitAll()
+                .anyRequest()
+                .authenticated()
         ;
 
         // Add our custom JWT security filter

@@ -1,95 +1,128 @@
 $(document).ready(function(){
-	var token=localStorage.getItem("Token")
-  var id=localStorage.getItem("skuLogin")
+	if(localStorage.getItem("skuLogin")){
+		var token=localStorage.getItem("Token")
+		var id=localStorage.getItem("skuLogin")
 
-	hideNavbar();
+		hideNavbar();
 
-	function hideNavbar(){
-		var prevScrollpos = window.pageYOffset;
-		window.onscroll = function() {
-		var currentScrollPos = window.pageYOffset;
-		  if (prevScrollpos > currentScrollPos) {
-		    document.getElementById("navbar").style.top = "0";
-		  } else {
-		    document.getElementById("navbar").style.top = "-50px";
-		  }
-		  prevScrollpos = currentScrollPos;
-		}
-	}
-test();
-	function test(){
-		$.ajax({
-			type:"GET",
-			url:"http://localhost:9081/wishlist/",
-			headers: {
-					"Content-Type": "application/json",
-					"Authorization": "Bearer "+token
-			},
-			success: function(data) {
-				var users = JSON.parse(JSON.stringify(data));
-				if(users.length == 0){
-					$("#wish").append("&nbsp;&nbsp;&nbsp;&nbsp;<h3><b>No Book in Wishlist</b></h3>");
+		function hideNavbar(){
+			var prevScrollpos = window.pageYOffset;
+			window.onscroll = function() {
+			var currentScrollPos = window.pageYOffset;
+				if (prevScrollpos > currentScrollPos) {
+					document.getElementById("navbar").style.top = "0";
+				} else {
+					document.getElementById("navbar").style.top = "-50px";
 				}
-				for (var i in users) {
-					if(users[i].sku_user == id){
-						console.log("test")
-					 $("#wish").
-					 append("<div class='col-lg-4 col-md-6 mb-5'>\
- 							<div id='h'>\
-								<a href='detail_book.html?id="+users[i].sku_product+"' style='text-decoration:none'>\
- 								<div class='card-body'>\
- 									<h4 class='card-title'> <img src='./product/"+users[i].pict_product+"' class='card-img-top' id='image'>\</center></h4>\
- 									<p class='card-text' style='color:black'><b>"+users[i].title+"</b></p>\
- 								</div>\
-								</a>\
- 								<div class=''>\
- 									<div class='col-md-12'>\
- 										<div class='row'>\
- 											<div class='col-md-6'>\
- 												<p id='harga'><b>Rp "+users[i].price+"</b></p>\
- 											</div>\
- 											<div class='col-md-6'>\
- 												<p></p>\
- 											</div>\
- 										</div>\
- 									</div>\
- 								</div>\
- 								<div id='bawah'><hr>\
-									<button type=button' class='btn btn-outline-danger btn-block' onclick='hap("+users[i].id+")'>Remove From Wishlist</button>\
-								</div>\
- 							</div>\
- 					</div>\
- 						");
+				prevScrollpos = currentScrollPos;
+			}
+		}
+
+		existBySkuUser();
+
+		//function existBySkuUser
+		function existBySkuUser(){
+			$.ajax({
+				type:"GET",
+				url:"http://localhost:9081/wishlist/existBySkuUser/"+id,
+				headers: {
+						"Content-Type": "application/json",
+						"Authorization": "Bearer "+token
+				},
+				success:function(data){
+					if(data == 0){
+						console.log(data);
+						$("#alert").append('<div class="alert alert-warning" role="alert">\
+			          <h4 class="alert-heading"><i class="glyphicon glyphicon-info-sign"></i> &nbsp; No Book in Wishlist!</h4>\
+			      </div>\
+						');
 					}
 				}
+			});
+		}
 
-			},
-			error: function(data) {
-				$("#dat2").
-				append("<br><br><br><div class='container-fluid' id='notLogged'>\
-						<center><p>You are not logged in yet <a href='login.html'>Login</a></p></center>\
-					</div>")
-				console.log(data);
-				}
-		});
+
+
+
+	test();
+
+		function test(){
+			$.ajax({
+				type:"GET",
+				url:"http://localhost:9081/wishlist/",
+				headers: {
+						"Content-Type": "application/json",
+						"Authorization": "Bearer "+token
+				},
+				success: function(data) {
+					var users = JSON.parse(JSON.stringify(data));
+					if(users.length == 0){
+						$("#wish").append("&nbsp;&nbsp;&nbsp;&nbsp;<h3><b>No Book in Wishlist</b></h3>");
+					}
+					for (var i in users) {
+						if(users[i].sku_user == id){
+							console.log("test")
+						 $("#wish").
+						 append("<div class='col-lg-4 col-md-6 mb-5'>\
+								<div id='h'>\
+									<a href='detail_book.html?id="+users[i].sku_product+"' style='text-decoration:none'>\
+									<div class='card-body'>\
+										<h4 class='card-title'> <img src='./product/"+users[i].pict_product+"' class='card-img-top' id='image'>\</center></h4>\
+										<p class='card-text' style='color:black'><b>"+users[i].title+"</b></p>\
+									</div>\
+									</a>\
+									<div class=''>\
+										<div class='col-md-12'>\
+											<div class='row'>\
+												<div class='col-md-6'>\
+													<p id='harga'><b>Rp "+users[i].price+"</b></p>\
+												</div>\
+												<div class='col-md-6'>\
+													<p></p>\
+												</div>\
+											</div>\
+										</div>\
+									</div>\
+									<div id='bawah'><hr>\
+										<button type=button' class='btn btn-outline-danger btn-block' onclick='hap("+users[i].id+")'><i class='glyphicon glyphicon-trash'></i> Remove From Wishlist</button>\
+									</div>\
+								</div>\
+						</div>\
+							");
+						}
+					}
+
+				},
+				error: function(data) {
+					$("#dat2").
+					append("<br><br><br><div class='container-fluid' id='notLogged'>\
+							<center><p>You are not logged in yet <a href='login.html'>Login</a></p></center>\
+						</div>")
+					console.log(data);
+					}
+			});
+		}
+		// $("#del").click(function(){
+		// 	alert("bayar")
+		// 	$.ajax({
+		// 		type:"POST",
+		// 		url:"http://localhost:9081/cart/purchase/"+id,
+		// 		Content-Type:"application/json",
+		// 		headers: {
+	 //              "Content-Type": "application/json",
+	 //              "Authorization": "Bearer "+token
+	 //          	},
+		// 		success: function(data){
+
+		// 		}
+		// 	});
+
+		// });
+
+	}else{
+			alert("You must be Login to open wistlist");
+			location.href = "login.html";
 	}
-	// $("#del").click(function(){
-	// 	alert("bayar")
-	// 	$.ajax({
-	// 		type:"POST",
-	// 		url:"http://localhost:9081/cart/purchase/"+id,
-	// 		Content-Type:"application/json",
-	// 		headers: {
- //              "Content-Type": "application/json",
- //              "Authorization": "Bearer "+token
- //          	},
-	// 		success: function(data){
-
-	// 		}
-	// 	});
-
-	// });
-
 
 });
 function hap(test){
@@ -103,7 +136,7 @@ function hap(test){
 				"Authorization": "Bearer "+token
 		},
 		success:function(data){
-			alert("Delete Success");
+			alert("Success Delete Book from Wishlist");
 			location.href="wishlist.html";
 		}
 	});

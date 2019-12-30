@@ -60,8 +60,9 @@ public class ProductService {
     public List findAllByCategories(String kategori){
         return productRepo.findAllByCategories(kategori);
     }
+
     public void deleteBySkuProduct(String skuProduct){
-         productRepo.deleteBySku_product(skuProduct);
+        productRepo.deleteBySku_product(skuProduct);
     }
     public List findAllBySkuMerchant(String skuMerchant){
         return productRepo.findAllBySku_merchant(skuMerchant);
@@ -70,7 +71,5 @@ public class ProductService {
         productRepo.updateWithoutPict(title,description,categories,publication_year,price,author,isbn,publisher,sku_product);
         return "Update Success";
     }
-
-
 }
 

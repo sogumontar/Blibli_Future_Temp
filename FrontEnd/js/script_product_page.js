@@ -37,7 +37,7 @@ $(document).ready(function(){
                               <p><button type='button' class='btn btn-outline-primary' onclick='updateProduct("+users[i].sku_product+")' data-toggle='modal' data-target='#updateModal'>Update</button></p>\
                              </div>\
                             <div class='col-md-6'>\
-                              <p><button type='button' class='btn btn-outline-danger' onclick='hai("+users[i].id+")'  data-toggle='modal' data-target='#exampleModal'>Delete</button></p>\
+                              <p><button type='button' class='btn btn-outline-danger' onclick='hai("+users[i].sku_product+")'  data-toggle='modal' data-target='#exampleModal'>Delete</button></p>\
                             </div>\
                           </div>\
                         </div>\
@@ -119,7 +119,20 @@ $(document).ready(function(){
 });
 
 function hai(product_id){
-  localStorage.setItem("productId",product_id);
+    $.ajax({
+        type:"DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer "+token
+        },
+        url:"http://localhost:9081/product/del/"+product_id,
+        success: function(data){
+            alert("Delete Success");
+        },
+        error: function(err) {
+            // alert(err)
+        }
+    });
 }
 function updateProduct(){
   var token = localStorage.getItem('Token');

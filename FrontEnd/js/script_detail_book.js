@@ -2,28 +2,24 @@ var wis;
  var indikator;
  $(document).ready(function(){
 
-
   var id = new URL(location.href).searchParams.get('id');
   var token = localStorage.getItem("Token")
-  var idLog = localStorage.getItem("skuLogin");
-  var role=localStorage.getItem("Role");
+  var idLog = localStorage.getItem("skuLogin")
   var judul, gambar,kategori,publikasi,harga,pencipta,publish,ibn,skuU,skuP;
   var skuz=localStorage.getItem("skuLogin");
   var skuzz;
 
-        if(role==="ROLE_USER"){
-            $("#actions")
-            .append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id=\"addToCart\" class=\"btn btn-success\">Add To Cart</button>\n \
-                <button id=\"addToWishlist\" class=\"btn btn-primary\">Add To WishList</button>\
-               ");
-        }else if(role==="ROLE_MERCHANT"){
-            $("#actions")
-                .append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id=\"updates\" class=\"btn btn-primary\">Update</button>\n \
-                <button id=\"delete\" class=\"btn btn-danger\">Delete</button>\
-               ");
-        }
-
-
+  // if(role==="ROLE_USER"){
+  //       $("#actions")
+  //       .append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id=\"addToCart\" class=\"btn btn-success\">Add To Cart</button>\n \
+  //           <button id=\"addToWishlist\" class=\"btn btn-primary\">Add To WishList</button>\
+  //          ");
+  //   }else if(role==="ROLE_MERCHANT"){
+  //       $("#actions")
+  //           .append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id=\"updates\" class=\"btn btn-primary\">Update</button>\n \
+  //           <button id=\"delete\" class=\"btn btn-danger\">Delete</button>\
+  //          ");
+  // }
     // const url ='https://swapi.co/api/people'
     const url ="http://localhost:9081/product/get/"+id;
     window.fetch(url,{
@@ -35,7 +31,6 @@ var wis;
     }).then((res)=>{
       return res.json()
     }).then((i)=>{
-        $("#gudang").append("<a href='gudang.html?id="+i.sku_merchant+"'>"+i.sku_merchant+"</a>")
        skuzz=i.sku_product;
        judul=i.title;
        gambar=i.pict_product;
@@ -67,6 +62,7 @@ var wis;
             <hr>
             <br>
             <div class="content">
+              <p><b>Description : </b></p>
                 ${i.description}
             </div>
         </div>
@@ -75,7 +71,7 @@ var wis;
 
 
     }).then(() => {
-      // console.log("selesai")
+      console.log("selesai")
     })
 
     const wait = time => new Promise((resolve) => setTimeout(resolve, time));
@@ -89,127 +85,43 @@ var wis;
       },
       url:"http://localhost:9081/cart/check/"+skuz+"/"+id,
       success: function(data){
-        var checkStatus=JSON.parse(JSON.stringify(data));
         indikator=data;
-        // console.log(indikator);
+        console.log(indikator);
       },
       error: function(err) {
-          // alert(err)
+          alert(err)
       }
 
   });
-    $("#updates").click(function () {
-        location.href="update_book.html?id="+id;
-    });
 
-     $("#delete").click(function(){
-         deletes();
-     });
-     function deletes(){
-         $.ajax({
-             type:"DELETE",
-             headers: {
-                 "Content-Type": "application/json",
-                 "Authorization": "Bearer "+token
-             },
-             url:"http://localhost:9081/product/del/"+id,
-             success: function(data){
-                 alert("Delete Success");
-                 location.href="home_merchant.html?id="+id;
-             },
-             error: function(err) {
-                 // alert(err)
-             }
-         });
-     }
-     $("#addToCart").click(function(){
-         addCart();
-     });
-
-  function addCart(){
-
-        var temp_token = localStorage.getItem("Token");
-        var jsonVar = {
-          status:1,
-          title:judul,
-          pict_product:gambar,
-          categories:kategori,
-          publication_year:publikasi,
-          price:harga,
-          author:pencipta,
-          publisher:publish,
-          isbn:ibn,
-          sku_user:idLog,
-          sku_product:skuP,
-          sku_merchant:skuM
-        };
+  $("#addToCart").click(function(){
+    if(localStorage.skuLogin){
+      var temp_token = localStorage.getItem("Token");
+      var jsonVar = {
+        status:1,
+        title:judul,
+        pict_product:gambar,
+        categories:kategori,
+        publication_year:publikasi,
+        price:harga,
+        author:pencipta,
+        publisher:publish,
+        isbn:ibn,
+        sku_user:idLog,
+        sku_product:skuP,
+        sku_merchant:skuM
+      };
       if(indikator==0){
-        $.ajax({
-            type:"POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer "+token
-            },
-            url:"http://localhost:9081/cart/add",
-            data: JSON.stringify(jsonVar),
-            success: function(data){
-                alert("Success add to Cart");
-                location.href="detail_book.html?id="+id;
-            },
-            error: function(err) {
-                // alert(err)
-            }
-        });
-      }else{
-        alert("This Book Already In Cart");
-      }
-      }
-
-
-      $.ajax({
-        type:"GET",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer "
-        },
-        url:"http://localhost:9081/wishlist/check/"+skuz+"/"+id,
-        success: function(data){
-          wis=data;
-          // console.log(wis)
-        },
-        error: function(err) {
-            // alert(err)
-        }
-
-    });
-
-
-      $("#addToWishlist").click(function(){
-        var temp_token = localStorage.getItem("Token");
-        var jsonVar = {
-          status:1,
-          title:judul,
-          pict_product:gambar,
-          categories:kategori,
-          publication_year:publikasi,
-          price:harga,
-          author:pencipta,
-          publisher:publish,
-          isbn:ibn,
-          sku_user:idLog,
-          sku_product:skuP
-        };
-      if(wis==0){
         $.ajax({
                 type:"POST",
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": "Bearer "+token
                 },
-                url:"http://localhost:9081/wishlist/add",
+                url:"http://localhost:9081/cart/add",
                 data: JSON.stringify(jsonVar),
                 success: function(data){
-                  alert("Success add to wisthlist");
+                  alert("Success Add To Cart");
                   location.href="detail_book.html?id="+id;
                 },
                 error: function(err) {
@@ -217,8 +129,102 @@ var wis;
                 }
         });
       }else{
-        alert("This Book Already In WishList");
+        alert("This Book Already In Cart");
       }
+    }else{
+      alert("You must be login");
+      location.href = "login.html";
+    }
+
+  });
+
+
+      $.ajax({
+        type:"GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer "+token
+        },
+        url:"http://localhost:9081/wishlist/check/"+skuz+"/"+id,
+        success: function(data){
+          wis=data;
+          console.log(wis)
+        },
+        error: function(err) {
+            alert(err)
+        }
+
+    });
+
+
+    // $("#updates").click(function () {
+    //      location.href="update_book.html?id="+id;
+    //  });
+    //
+    //   $("#delete").click(function(){
+    //       deletes();
+    //   });
+    //   function deletes(){
+    //       $.ajax({
+    //           type:"DELETE",
+    //           headers: {
+    //               "Content-Type": "application/json",
+    //               "Authorization": "Bearer "+token
+    //           },
+    //           url:"http://localhost:9081/product/del/"+id,
+    //           success: function(data){
+    //               alert("Delete Success");
+    //               location.href="home_merchant.html?id="+id;
+    //           },
+    //           error: function(err) {
+    //               // alert(err)
+    //           }
+    //       });
+    //   }
+
+      $("#addToWishlist").click(function(){
+        if(localStorage.getItem("skuLogin")){
+          var temp_token = localStorage.getItem("Token");
+          var jsonVar = {
+            status:1,
+            title:judul,
+            pict_product:gambar,
+            categories:kategori,
+            publication_year:publikasi,
+            price:harga,
+            author:pencipta,
+            publisher:publish,
+            isbn:ibn,
+            sku_user:idLog,
+            sku_product:skuP
+          };
+          if(wis==0){
+            $.ajax({
+                    type:"POST",
+                    beforeSend : function( xhr ) {
+                     xhr.setRequestHeader( "Authorization", "Bearer "+token);
+                    },
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer "+token
+                    },
+                    url:"http://localhost:9081/wishlist/add",
+                    data: JSON.stringify(jsonVar),
+                    success: function(data){
+                      alert("Success add to wishlist");
+                      location.href="detail_book.html?id="+id;
+                    },
+                    error: function(err) {
+                        alert(err)
+                    }
+            });
+          }else{
+            alert("This Book Already In WishList");
+          }
+        }else{
+          alert("You must be login");
+          location.href="login.html";
+        }
       });
 
   });

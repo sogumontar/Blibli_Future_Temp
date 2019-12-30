@@ -31,6 +31,7 @@ public class AuthService {
     public static String skuLogin;
     private static String temp;
     public static Integer status;
+    public static String name;
 
     @Autowired
     AuthenticationManager authenticationManager;
@@ -78,8 +79,9 @@ public class AuthService {
         System.out.println(jwt);
         skuLogin=user.getSku();
         status = user.getStatus();
+        name = user.getName();
         System.out.println(user.getSku());
-        return ResponseEntity.ok(new JwtAuthenticationResponse(jwt,temp,skuLogin,status));
+        return ResponseEntity.ok(new JwtAuthenticationResponse(jwt,temp,skuLogin,status,name));
     }
 
 
