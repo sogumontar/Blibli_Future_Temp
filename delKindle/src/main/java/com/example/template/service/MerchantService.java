@@ -17,6 +17,8 @@ import java.nio.file.Paths;
 import java.util.Base64;
 import java.util.List;
 
+import static org.jsoup.parser.Parser.unescapeEntities;
+
 @Service
 public class MerchantService {
 
@@ -86,9 +88,22 @@ public class MerchantService {
         int last = lastProductService.findLast().getLast_book();
         int two = last+1;
         String pict = "pict"+two+".jpg";
-        File file = new File("C://xampp8/htdocs/FrontEnd/product/"+pict);
+        File file = new File("C:/xampp/htdocs/Blibli_Future_Temp/FrontEnd/product/"+pict);
         try(FileOutputStream fos = new FileOutputStream(file)){
             byte[] decoder = Base64.getDecoder().decode(catalogEntryRequest.getPict_product());
+            fos.write(decoder);
+            System.out.println("Image file saved");
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    public void updateProduct(Product product){
+        int last = lastProductService.findLast().getLast_book();
+        int two = last+1;
+        String pict = "pict"+two+".jpg";
+        File file = new File("C:/xampp/htdocs/Blibli_Future_Temp/FrontEnd/product/"+pict);
+        try(FileOutputStream fos = new FileOutputStream(file)){
+            byte[] decoder = Base64.getDecoder().decode(product.getPict_product());
             fos.write(decoder);
             System.out.println("Image file saved");
         }catch(Exception e){
@@ -100,7 +115,7 @@ public class MerchantService {
         int last = lastProductService.findLast().getLast_book();
         int two = last+1;
         String pdf = "book"+two+".pdf";
-        File file = new File("C://xampp8/htdocs/FrontEnd/product/book/"+pdf);
+        File file = new File("C:/xampp/htdocs/Blibli_Future_Temp/FrontEnd/product/book/"+pdf);
         try(FileOutputStream fos = new FileOutputStream(file)){
             byte[] decoder = Base64.getDecoder().decode(catalogEntryRequest.getBook_file());
             fos.write(decoder);
@@ -109,7 +124,16 @@ public class MerchantService {
             System.out.println(e.getMessage());
         }
     }
-
+    private String unescapeUntilNoHtmlEntityFound(String value){
+        value=value.replace("<","");
+        value=value.replace(">","");
+        value=value.replace("&","");
+        value=value.replace("//","");
+        value=value.replace("$.","");
+        value=value.replace("$(","");
+        System.out.println(value);
+       return value;
+    }
     public String saveProduct(CatalogEntryRequest catalogEntryRequest){
 
             String sku_merchant = catalogEntryRequest.getSku_merchant();
@@ -137,51 +161,24 @@ public class MerchantService {
             String pdf = "book"+two+".pdf";
             String pict = "pict"+two+".jpg";
 
+
             Product product = new Product(
               sku_product,
-              catalogEntryRequest.getTitle(),
-              catalogEntryRequest.getDescription(),
-              catalogEntryRequest.getCategories(),
-              catalogEntryRequest.getPublication_year(),
+              unescapeUntilNoHtmlEntityFound(catalogEntryRequest.getTitle()),
+              unescapeUntilNoHtmlEntityFound(catalogEntryRequest.getDescription()),
+              unescapeUntilNoHtmlEntityFound(catalogEntryRequest.getCategories()),
+              unescapeUntilNoHtmlEntityFound(catalogEntryRequest.getPublication_year()),
               catalogEntryRequest.getPrice(),
-              catalogEntryRequest.getAuthor(),
-              catalogEntryRequest.getPublisher(),
-              catalogEntryRequest.getIsbn(),
-              catalogEntryRequest.getSku_merchant(),
-              catalogEntryRequest.getName_merchant()
+              unescapeUntilNoHtmlEntityFound(catalogEntryRequest.getAuthor()),
+              unescapeUntilNoHtmlEntityFound(catalogEntryRequest.getPublisher()),
+              unescapeUntilNoHtmlEntityFound(catalogEntryRequest.getIsbn()),
+              catalogEntryRequest.getSku_merchant()
             );
             product.setPict_product(pict);
             product.setBook_file(pdf);
-            merchantService.save(product);
+         merchantService.save(product);
 
          return "sukses";
     }
 
-    public void deleteBySkuProduct(String skuProduct){
-        merchantRepository.deleteBySku_product(skuProduct);
-    }
-
-    public void updateProduct(Product product){
-        int last = lastProductService.findLast().getLast_book();
-        int two = last+1;
-        String pict = "pict"+two+".jpg";
-        File file = new File("C:/xampp/htdocs/Blibli_Future_Temp/FrontEnd/product/"+pict);
-        try(FileOutputStream fos = new FileOutputStream(file)){
-            byte[] decoder = Base64.getDecoder().decode(product.getPict_product());
-            fos.write(decoder);
-            System.out.println("Image file saved");
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-    }
-    private String unescapeUntilNoHtmlEntityFound(String value){
-        value=value.replace("<","");
-        value=value.replace(">","");
-        value=value.replace("&","");
-        value=value.replace("//","");
-        value=value.replace("$.","");
-        value=value.replace("$(","");
-        System.out.println(value);
-        return value;
-    }
 }

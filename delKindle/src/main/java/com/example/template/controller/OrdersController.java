@@ -16,15 +16,14 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 import java.util.Properties;
+
 @CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping("/orders")
 public class OrdersController {
     @Autowired
     private JavaMailSender javaMailSender;
-
     @Autowired
     OrdersService ordersService;
 
@@ -38,36 +37,6 @@ public class OrdersController {
     @GetMapping("/findLast")
     public Orders findLast(){
         return ordersService.findLast();
-    }
-
-    @CrossOrigin
-    @GetMapping("/getAll")
-    public List getAll(){
-        return ordersService.getAll();
-    }
-
-    @CrossOrigin
-    @GetMapping("/findBySkuUser/{skuUser}")
-    public List findBySkuUser(@PathVariable String skuUser){
-        return ordersService.findBySkuUser(skuUser);
-    }
-
-    @CrossOrigin
-    @GetMapping("/findByVirtual/{virtual}")
-    public List findByVirtual(@PathVariable String virtual){
-        return ordersService.findByVirtual(virtual);
-    }
-
-    @CrossOrigin
-    @GetMapping("/findById/{id}")
-    public Optional<Orders> findById(@PathVariable Integer id){
-        return  ordersService.findById(id);
-    }
-
-    @CrossOrigin
-    @PostMapping("updateStatusAcc/{id}")
-    public Orders updateStatusAcc(@PathVariable Integer id){
-        return ordersService.updateStatusAcc(id);
     }
 
     @CrossOrigin
@@ -160,7 +129,7 @@ public class OrdersController {
 //        javaMailSender.send(msg);
 //    }
 
-    //    public String sendEmail(String emails) {
+//    public String sendEmail(String emails) {
 //
 //        SimpleMailMessage msg = new SimpleMailMessage();
 //        msg.setTo("hendrasimz92@gmail.com");
@@ -230,4 +199,5 @@ public class OrdersController {
     public void updateById(@PathVariable Integer id){
         ordersService.updateById(id);
     }
+
 }

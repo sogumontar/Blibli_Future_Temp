@@ -67,10 +67,5 @@ public class WishlistController {
         return "Success";
     }
 
-    @CrossOrigin
-    @GetMapping("existBySkuUser/{skuUser}")
-    public Integer existBySkuUser(@PathVariable String skuUser){
-        return  wishlistService.existBySku_user(skuUser);
-    }
 
 }

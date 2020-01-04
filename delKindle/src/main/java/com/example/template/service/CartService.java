@@ -2,6 +2,7 @@ package com.example.template.service;
 
 import com.example.template.model.Cart;
 import com.example.template.model.Orders;
+import com.example.template.model.Product;
 import com.example.template.repository.CartRepo;
 import com.example.template.repository.OrderRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class CartService {
@@ -17,7 +19,6 @@ public class CartService {
     CartRepo cartRepo;
     @Autowired
     OrderRepo orderRepo;
-
     public Integer check(String skuUser,String skuProduct){
         return cartRepo.existsBySku_userAndSku_product(skuUser,skuProduct);
     }
@@ -98,12 +99,6 @@ public class CartService {
         orderRepo.save(orders);
         return "Sukses";
     }
-
-    public String checkout(String sku_user){
-        cartRepo.checkout(sku_user);
-        return "success";
-    }
-
     public void deleteBySkuUser(String skuUser){
         cartRepo.deleteBySku_user(skuUser);
     }
@@ -111,4 +106,5 @@ public class CartService {
     public void updtBySkuUser(String sku_user){
         cartRepo.updtBySkuUser(sku_user);
     }
+
 }

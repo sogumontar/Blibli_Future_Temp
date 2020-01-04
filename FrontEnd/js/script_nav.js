@@ -6,7 +6,7 @@ $(document).ready(function(){
       <a href="profile.html" style="color: white" id="name">'+name+'</a>\
       &nbsp;&nbsp;&nbsp;<a onclick="logout()" href="index.html" ><b style="color: white">Logout</b></a>\
     ');
-    document.getElementById("name").innerHTML = localStorage.getItem('name');
+    // document.getElementById("name").innerHTML = localStorage.getItem('name');
   }else{
     $("#temp").append('<a href="login.html" style="font-size:1em"><i class="glyphicon glyphicon-user" style="color: white" id="icon_user">&nbsp;Login</a>')
   }

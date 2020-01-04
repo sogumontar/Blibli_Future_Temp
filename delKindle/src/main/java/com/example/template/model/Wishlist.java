@@ -23,6 +23,7 @@ public class Wishlist {
     @Column(name = "pict_product")
     public String pict_product;
 
+
     @Column(name = "categories")
     public String categories;
 

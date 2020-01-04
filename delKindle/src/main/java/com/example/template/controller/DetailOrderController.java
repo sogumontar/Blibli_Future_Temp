@@ -3,14 +3,14 @@ package com.example.template.controller;
 import com.example.template.model.DetailOrder;
 import com.example.template.service.DetailOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @CrossOrigin(maxAge = 3600)
 @RestController
-@RequestMapping("detailOrder")
+@RequestMapping("/detailOrder")
 public class DetailOrderController {
 
     @Autowired
@@ -27,19 +27,6 @@ public class DetailOrderController {
     public List findBySkuMerchant(@PathVariable String skuMerchant){
         return detailOrderService.findBySkuMerchant(skuMerchant);
     }
-
-    @CrossOrigin
-    @GetMapping("/findByIdOrder/{idOrder}")
-    public List findByIdOrder(@PathVariable Integer idOrder){
-        return detailOrderService.findByIdOrder(idOrder);
-    }
-
-    @CrossOrigin
-    @PostMapping("/updateStatusAcc/{id}")
-    public DetailOrder updateStatusAcc(@PathVariable Integer id){
-        return  detailOrderService.updateStatusAcc(id);
-    }
-
     @CrossOrigin
     @GetMapping("/findAll")
     public List findAll(){

@@ -3,7 +3,6 @@ package com.example.template.services.controllers;
 
 import com.example.template.model.Product;
 import com.example.template.service.ProductService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.RestAssured;
 import org.junit.After;
@@ -42,7 +41,7 @@ public class ProductControllerTests {
     }
 
 //    @Test
-//    public void testFindFirstById() throws JsonProcessingException {
+//    public void testFindFirstById(){
 //        given()
 //                .when()
 //                .get("/product/get/21")

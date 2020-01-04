@@ -4,8 +4,8 @@ import com.example.template.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 public interface ProductRepo extends JpaRepository<Product,String> {
@@ -30,4 +30,5 @@ public interface ProductRepo extends JpaRepository<Product,String> {
     @Transactional
     @Query("UPDATE Product p SET p.title=?1 , p.description=?2 , p.categories=?3 , p.publication_year=?4 , p.price=?5 , p.author=?6 , p.isbn=?7 , p.publisher=?8,p.pict_product=?9 WHERE p.sku_product LIKE?10")
     public void updateWithPict(String title, String description, String categories, String publication_year, Integer price, String author , String isbn , String publisher, String pict_product, String sku_product);
+
 }

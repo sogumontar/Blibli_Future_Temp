@@ -1,5 +1,6 @@
 var penanda=[];
 var sub_total = 0;
+
 $(document).ready(function(){
 	$("#tad").append('<a id="bayar" onclick="upd()" class="btn btn-success" href="">Process</a>')
 
@@ -88,9 +89,14 @@ function test(){
 			          </div>\
 			        </div><br>');
             	}
-            }
+			}
+			if(sub_total==0){
+				document.getElementById("checkoutButton").disabled=true;
+			}else{
+				
+			}
 							document.getElementById("set_total").innerHTML = "Sub Total : Rp "+sub_total;
-							console.log(sub_total);
+							console.log("test",sub_total);
 
           },
           error: function(data) {

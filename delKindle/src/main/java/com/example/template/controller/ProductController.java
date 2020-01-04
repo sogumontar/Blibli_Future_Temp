@@ -5,6 +5,7 @@ import com.example.template.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -69,11 +70,42 @@ public class ProductController {
 //    }
 
 
+//    @CrossOrigin
+//    @PutMapping("/update/{idProduct}")
+//    public ResponseEntity<Object> updateProduct(@PathVariable Integer idProduct, @RequestBody Product product){
+//        productService..(product);
+//        return ResponseEntity.ok().build();
+//    }
+
+    @Transactional
+    @CrossOrigin
+    @DeleteMapping("/del/{id}")
+    public void deleteProduct(@PathVariable String id) {
+        productService.deleteBySkuProduct(id);
+    }
+//
+//    @CrossOrigin
+//    @PostMapping(value= "/createFile")
+//    public String tambah(@Valid Product product,@RequestParam("picture_product") MultipartFile file){
+//        try{
+//            Product product1 = new Product(file.getBytes(),file.getBytes());
+//            productService.save(product1);
+//            return "berhasil";
+//        }catch (Exception e){
+//            return e.getMessage();
+//        }
+//    }
+
     @CrossOrigin
     @GetMapping(value = "/coba")
     public String coba(){
         return "berhasil";
     }
+//    @CrossOrigin
+//    @GetMapping("/{productId}")
+//    public Product findFirstById(@PathVariable  Integer productId){
+//        return productService.findFirstById(productId);
+//    }
 
     @CrossOrigin
     @GetMapping("/allByMerchant/{sku_merchant}")
@@ -86,4 +118,5 @@ public class ProductController {
     public void updateWithoutPict(@PathVariable String title,@PathVariable String description,@PathVariable String categories,@PathVariable String publication_year,@PathVariable Integer price,@PathVariable String author ,@PathVariable String isbn ,@PathVariable String publisher,@PathVariable String sku_product){
         productService.updateWithoutPict(title,description,categories,publication_year,price,author,isbn,publisher,sku_product);
     }
+
 }

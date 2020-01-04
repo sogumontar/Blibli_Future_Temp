@@ -31,7 +31,7 @@ public class AuthService {
     public static String skuLogin;
     private static String temp;
     public static Integer status;
-    public static String name;
+    public static String  name;
 
     @Autowired
     AuthenticationManager authenticationManager;
