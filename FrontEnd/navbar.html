@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="navbar">
+    <div class="container">
+        <a class="navbar-brand" href="#">Del KinDle</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+<!--                    <div id="ex4">-->
+<!--                      <span class="p1 fa-stack fa-2x has-badge" data-count="4">-->
+<!--                        <i class="p2 fa fa-shopping-cart fa-stack-1x xfa-inverse" data-count="4"></i>-->
+<!--                      </span>-->
+<!--                    </div>-->
+
+                </li>
+
+            </ul>
+
+        </div>
+        <div id="username">
+
+        </div>
+        <div id="navBook">
+
+        </div>
+        <div id="navLog">
+
+        </div>
+
+    </div>
+</nav>
+
+</body>
+<script>
+
+
+    var id=localStorage.getItem("skuLogin")
+    var username;
+    $.ajax({
+        type:"GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer "+token
+        },
+        url:"http://localhost:9081/user/findById/"+id,
+        success: function(data) {
+            var users = JSON.parse(JSON.stringify(data));
+            username=users.name;
+            console.log(username);
+            f();
+        }
+
+
+    });
+    var token=localStorage.getItem("Token");
+    function f() {
+        if(token){
+            $("#username").append('<a class="navbar-brand" href="library.html">'+username+'</a>')
+            $("#navBook").append('<a class="navbar-brand" href="library.html">Library</a>')
+            $("#navLog").append('<a class="navbar-brand" onclick="logout()" href="#">Logout</a>')
+        }else{
+            $("#navLog").append('<a class="navbar-brand" onclick="login()" href="#">Login</a>')
+        }
+    }
+
+    function logout() {
+        alert("logout success");
+        localStorage.clear();
+        location.href="login.html";
+    }
+    function login(){
+        location.href="login.html";
+    }
+
+
+    var now = new Date().getTime();
+    var setupTime = localStorage.getItem('setupTime');
+    if(now-setupTime > 2*60*60*1000) {
+        localStorage.clear()
+        logouts();
+    }
+
+    function logouts(){
+        alert("Sesi Anda Telah Habis, Silahkan Login Kembali")
+        location.href="login.html";
+    }
+</script>
+</html>

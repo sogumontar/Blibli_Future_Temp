@@ -1,6 +1,6 @@
 #header_merchant{
-  margin: 5px 5px 5px 5px;
-  padding: 15px 15px 15px 15px;
+  margin: 75px 25px 15px 25px;
+  padding: 25px 25px 25px 25px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .flex-container {
@@ -18,35 +18,27 @@
   justify-content: space-around;
   align-items: center;
 }
-
-#tambah{
-  margin: 5px 5px 5px 5px;
-  padding: 10px 10px 10px 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  background-color: #FFF8DF;
-}
-#icon1{
-  width: 20px;
-}
-#image{
-  height: 200px;
-}
 @media only screen and (min-width: 981px) {
 
-
+  body{
+    margin-left: 250px;
+    margin-right: 250px;
+  }
   #icon1{
     width: 30px;
   }
-  .ds{
+  #ds{
     margin-left: 160px;
     margin-right: 160px;
   }
   #tambah{
+    margin: 0px 25px 0px 25px;
     padding: 10px 10px 10px 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: #FFF8DF;
   }
   #content{
+    margin: 0px 25px 0px 25px;
     padding: 10px 10px 10px 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
@@ -68,8 +60,5 @@
     justify-content: space-around;
     align-items: center;
   }
-  #alert{
-    margin-left: 22px;
-    margin-right: 22px;
-  }
+
 }

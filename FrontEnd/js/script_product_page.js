@@ -32,15 +32,15 @@ $(document).ready(function(){
 											</div>\
 											<div class='card-footer'>\
 												<div class='col-md-12'>\
-                                                  <div class='row'>\
-                                                    <div class='col-md-6'>\
-                                                      <p><button type='button' class='btn btn-outline-primary' onclick='updateProduct("+users[i].sku_product+")' data-toggle='modal' data-target='#updateModal'>Update</button></p>\
-                                                     </div>\
-                                                    <div class='col-md-6'>\
-                                                      <p><button type='button' class='btn btn-outline-danger' onclick='fuck("+users[i].sku_product+")'>Delete</button></p>\
-                                                    </div>\
-                                                  </div>\
-                                                </div>\
+                          <div class='row'>\
+                            <div class='col-md-6'>\
+                              <p><button type='button' class='btn btn-outline-primary' onclick='updateProduct("+users[i].sku_product+")' data-toggle='modal' data-target='#updateModal'>Update</button></p>\
+                             </div>\
+                            <div class='col-md-6'>\
+                              <p><button type='button' class='btn btn-outline-danger' onclick='hai("+users[i].id+")'  data-toggle='modal' data-target='#exampleModal'>Delete</button></p>\
+                            </div>\
+                          </div>\
+                        </div>\
 											</div>\
                     </div>\
                 </div>\
@@ -119,25 +119,11 @@ $(document).ready(function(){
 });
 
 function hai(product_id){
-    alert(product_id);
-    // $.ajax({
-    //     type:"DELETE",
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //         "Authorization": "Bearer "+token
-    //     },
-    //     url:"http://localhost:9081/product/del/"+product_id,
-    //     success: function(data){
-    //         alert("Delete Success");
-    //     },
-    //     error: function(err) {
-    //         // alert(err)
-    //     }
-    // });
+  localStorage.setItem("productId",product_id);
 }
-function updateProduct(id){
-    alert(id)
+function updateProduct(){
   var token = localStorage.getItem('Token');
+  var id = "MERC-0001-0006";
   $.ajax({
         type:"GET",
         beforeSend : function( xhr ) {
@@ -161,8 +147,4 @@ function updateProduct(id){
           console.log(data);
           }
       });
-}
-
-function fuck(sku_product) {
-    alert(sku_product)
 }

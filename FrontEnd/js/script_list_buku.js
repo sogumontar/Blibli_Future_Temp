@@ -1,10 +1,6 @@
 $(document).ready(function(){
 	var token = localStorage.getItem('Token')
-	if(token){
-		console.log("testing");
-	}else{
-		console.log("binatang");
-	}
+	var role = localStorage.getItem('Role')
 	hideNavbar();
 	assignDataProduct();
 
@@ -41,7 +37,7 @@ $(document).ready(function(){
             for (var i in users) {
                $("#dat").
                 append("<div class='ard' id='card'>\
-						      <img src='C:/product/"+users[i].pict_product+"' class='card-img-top' id='image'>\
+						      <img src='./product/"+users[i].pict_product+"' class='card-img-top' id='image'>\
 						      <div class='card-body'>\
 						        <div class=''>\
 						          <center><h5>" + users[i].title + "</h5></center>\
@@ -53,8 +49,10 @@ $(document).ready(function(){
 						          <center><h5>Rp " + users[i].price + ",00</h5></center>\
 						        </div>\
 						        <div class=''>\
+						        " + if(role==='ROLE_MERCHANT'){+"\
 						          <button type='button' name='button' style='float:left' id='but_del'><a href='update_book.html?id="+users[i].aku_product+"'>Update</a></button>\
 						          <button type='button' name='button'  style='float:right' id='but_update'><a href='detail_book.html?id="+users[i].sku_product+"'>Detail</a></button>\
+						        "+ } +"\
 						        </div>\
 						      </div>\
 						    </div>");

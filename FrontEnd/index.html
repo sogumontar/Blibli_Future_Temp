@@ -3,31 +3,50 @@
 
 <head>
   <title>Homepage - Del Kindle</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+  <script type="text/javascript" src="js/jquery.slim.min.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <script src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/script_index.js"></script>
   <link href="css/style_index.css" rel="stylesheet">
-  <script type="text/javascript" src="js/script_nav.js"></script>
-   <link rel="stylesheet" type="text/css" href="css/style_nav.css">
-   <script type="text/javascript">
-    $(function(){$("#nav").load("nav.html")});
-   </script>
+  <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js" ></script>
+  <script>
+    // $(function(){ $("#head").load("navbar.html") });
+    $(function(){ $("#heads").load("navbar.html") });
+    $(function(){ $("#footer").load("footer.html") });
+  </script>
 </head>
 
 <body>
-  <!-- Navigation -->
-  <div id="nav">
+<nav id="heads">
 
-  </div>
+</nav>
+  <!-- Navigation -->
+<!--  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="navbar">-->
+<!--    <div class="container">-->
+<!--      <a class="navbar-brand" href="#">DelKindle</a>-->
+<!--      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--        <span class="navbar-toggler-icon"></span>-->
+<!--      </button>-->
+<!--      <div class="collapse navbar-collapse" id="navbarResponsive">-->
+<!--        <ul class="navbar-nav ml-auto">-->
+<!--          <li class="nav-item active">-->
+<!--            <div id="ex4">-->
+<!--              <span class="p1 fa-stack fa-2x has-badge" data-count="6">-->
+<!--                <i class="p2 fa fa-shopping-cart fa-stack-1x xfa-inverse" data-count="1"></i>-->
+<!--              </span>-->
+<!--            </div>-->
+<!--          </li>-->
+
+<!--        </ul>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </nav>-->
+
   <!-- Page Content -->
-  <div id="body" class="col-xs-12 col-md-8 col-md-offset-2">
+  <div id="body">
 
     <!-- Jumbotron Header -->
-    <div id="corousel" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -54,11 +73,8 @@
       </a>
     </div>
     <br><br>
-    <div id="div_kat">
-      <div id="kategori">
-
-      </div>
-    </div>
+    <div id="kategori">
+		</div>
     <br><br>
     <h2 style="color: #008BFF;"><b><font face="Times New Roman">Buku Pilihan</font></b></h2>
     <br>
@@ -67,44 +83,36 @@
       <div id="listBook" class="row container">
 
       </div>
-      <br><br><br><br><br><br><br><br><br><br><br><br><br>
+
     <!-- /.row -->
 
 
-  </div>
+  </div><br><br><br><br>
   <!-- /.container -->
 
   <!-- Footer -->
-  <footer class="fixed-bottom" style="background-color: white">
-    <div class="ds">
-      <ul class="flex-container" class="navbar navbar-expand fixed-bottom">
-        <li class="flex-item1">
-          <a href=""><button class="btn"  data-toggle="tooltip" data-placement="top" title="Tooltip on top"><img id="icon1"  src="Pict/icons8-home-50.png"></button></a>
-        </li>
-        <li class="flex-item1">
-          <a href="wishlist.html"><button class="btn"><img id="icon1" src="Pict/icons8-love-50.png"></button></a>
-        </li>
-        <li class="flex-item1">
-          <a href="cart.html"><button class="btn"><img id="icon1" src="Pict/5a364b752c0633.9984354215135077011803.png"></button></a>
-        </li>
-        <li class="flex-item1">
-          <a href="library.html"><button class="btn"><img id="icon1" src="Pict/book2.png"></button></a>
-        </li>
-        <li class="flex-item1">
-          <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
-             <img id="icon1" src="Pict/avatar.png" >
-               <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-              <a class="dropdown-item" href="pay_order.html">Bayar Orderan</a>
-               <a class="dropdown-item" href="purchase_order_list.html">List Transaksi</a>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </footer>
+<div id="footer">
+
+</div>
+<!--  <footer class="fixed-bottom" style="background-color: white">-->
+<!--		<div class="ds">-->
+<!--      <ul class="flex-container" class="navbar navbar-expand fixed-bottom">-->
+<!--  		  <li class="flex-item1">-->
+<!--  		  	<a href=""><button class="btn"><img id="icon1"  src="Pict/icons8-home-50.png"></button></a>-->
+<!--  		  </li>-->
+<!--  		  <li class="flex-item1">-->
+<!--  		  	<a href="wishlist.html"><button class="btn"><img id="icon1" src="Pict/icons8-love-50.png"></button></a>-->
+<!--  		  </li>-->
+<!--  		  <li class="flex-item1">-->
+<!--  		  	<a href="cart.html"><button class="btn"><img id="icon1" src="Pict/5a364b752c0633.9984354215135077011803.png"></button></a>-->
+<!--  		  </li>-->
+<!--  		  <li class="flex-item1">-->
+<!--  		  	<a href=""><button class="btn"><img id="icon1" src="Pict/avatar.png"></button></a>-->
+<!--  		  </li>-->
+<!--  		</ul>-->
+<!--    </div>-->
+<!--	</footer>-->
+
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

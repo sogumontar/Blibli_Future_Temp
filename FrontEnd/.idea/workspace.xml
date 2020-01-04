@@ -1,20 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4351cf65-828b-472e-b351-1ee2d8f966f8" name="Default Changelist" comment="" />
+    <list default="true" id="9a8b2d4a-f8e5-4a46-825e-d372f660de60" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../delKindle/src/test/java/com/example/template/services/controllers/impl/WishListServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog_entry.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog_entry.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/script_library.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/script_library.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/script_profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/script_profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/script_purchase_order_list.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/script_purchase_order_list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/script_update_buku.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/script_update_buku.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/script_update_profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/script_update_profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/purchase_order_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/purchase_order_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/update_book.html" beforeDir="false" afterPath="$PROJECT_DIR$/update_book.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../delKindle/src/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../delKindle/src/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../delKindle/src/main/java/com/example/template/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../delKindle/src/main/java/com/example/template/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../delKindle/src/main/java/com/example/template/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/../delKindle/src/main/java/com/example/template/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../delKindle/src/main/java/com/example/template/repository/ProductRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../delKindle/src/main/java/com/example/template/repository/ProductRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../delKindle/src/main/java/com/example/template/service/MerchantService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../delKindle/src/main/java/com/example/template/service/MerchantService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../delKindle/src/main/java/com/example/template/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../delKindle/src/main/java/com/example/template/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../delKindle/src/test/java/com/example/template/services/controllers/impl/ProductServiceImplTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../delKindle/src/test/java/com/example/template/services/controllers/impl/ProductServiceImplTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../delKindle/target/classes/com/example/template/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../delKindle/target/classes/com/example/template/controller/ProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../delKindle/target/classes/com/example/template/model/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/../delKindle/target/classes/com/example/template/model/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../delKindle/target/classes/com/example/template/repository/ProductRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/../delKindle/target/classes/com/example/template/repository/ProductRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../delKindle/target/classes/com/example/template/service/MerchantService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../delKindle/target/classes/com/example/template/service/MerchantService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../delKindle/target/classes/com/example/template/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../delKindle/target/classes/com/example/template/service/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../delKindle/target/test-classes/com/example/template/services/controllers/impl/ProductServiceImplTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/../delKindle/target/test-classes/com/example/template/services/controllers/impl/ProductServiceImplTests.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="C:\xampp\htdocs\Blibli_Future_Temp\FrontEnd\.idea" />
-      </set>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
     </option>
   </component>
-  <component name="ProjectId" id="1VePmxPwFPWEqLsb1mDScvD44KX" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1UjetS6ypAlPQYGD7Djr4UaF0FK" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -22,6 +50,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -48,12 +77,34 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4351cf65-828b-472e-b351-1ee2d8f966f8" name="Default Changelist" comment="" />
-      <created>1577610749503</created>
+      <changelist id="9a8b2d4a-f8e5-4a46-825e-d372f660de60" name="Default Changelist" comment="" />
+      <created>1575874651213</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1577610749503</updated>
-      <workItem from="1577610750913" duration="4585000" />
+      <updated>1575874651213</updated>
+      <workItem from="1575874670513" duration="12225000" />
+      <workItem from="1575905605251" duration="646000" />
+      <workItem from="1575940952667" duration="4464000" />
+      <workItem from="1575983438811" duration="1193000" />
+      <workItem from="1576027198907" duration="9783000" />
+      <workItem from="1576071790338" duration="2791000" />
+      <workItem from="1576112858507" duration="7358000" />
+      <workItem from="1576244784234" duration="726000" />
+      <workItem from="1576292566250" duration="2763000" />
+      <workItem from="1576295993963" duration="172000" />
+      <workItem from="1576296214937" duration="5182000" />
+      <workItem from="1576476601916" duration="6456000" />
+      <workItem from="1576650390350" duration="624000" />
+      <workItem from="1576816681609" duration="8428000" />
+      <workItem from="1576998151199" duration="10497000" />
+      <workItem from="1577022420177" duration="587000" />
+      <workItem from="1577061903114" duration="5230000" />
+      <workItem from="1577158896005" duration="15843000" />
+      <workItem from="1577290147480" duration="14541000" />
+      <workItem from="1577610240956" duration="3346000" />
+      <workItem from="1577691788235" duration="2110000" />
+      <workItem from="1577943862919" duration="1801000" />
+      <workItem from="1578102334154" duration="3571000" />
     </task>
     <servers />
   </component>
@@ -61,9 +112,35 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="297" y="161" key="run.anything.popup" timestamp="1577692825453">
+    <state x="2610" y="286" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1576300066106">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2610" y="286" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1576300066106" />
+    <state x="2607" y="0" key="CommitChangelistDialog2" timestamp="1576296177696">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2607" y="0" key="CommitChangelistDialog2/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1576296177696" />
+    <state x="341" y="184" key="com.intellij.ide.util.TipDialog" timestamp="1578102775789">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="297" y="161" key="run.anything.popup/0.0.1280.720@0.0.1280.720" timestamp="1577692825453" />
+    <state x="341" y="184" key="com.intellij.ide.util.TipDialog/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1576295995081" />
+    <state x="2432" y="276" key="com.intellij.ide.util.TipDialog/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1576296214778" />
+    <state x="341" y="184" key="com.intellij.ide.util.TipDialog/0.0.1280.720@0.0.1280.720" timestamp="1578102775789" />
+    <state x="0" y="0" width="742" height="720" key="find.popup" timestamp="1577693244347">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="0" y="0" width="742" height="720" key="find.popup/0.0.1280.720@0.0.1280.720" timestamp="1577693244347" />
+    <state x="2521" y="265" width="700" height="530" key="recent.locations.popup" timestamp="1576300632255">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2521" y="265" width="700" height="530" key="recent.locations.popup/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1576300632255" />
+    <state x="297" y="161" key="run.anything.popup" timestamp="1577692784935">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="297" y="161" key="run.anything.popup/0.0.1280.720@0.0.1280.720" timestamp="1577692784935" />
+    <state x="303" y="41" width="672" height="678" key="search.everywhere.popup" timestamp="1576117570722">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="303" y="41" width="672" height="678" key="search.everywhere.popup/0.0.1280.720@0.0.1280.720" timestamp="1576117570722" />
   </component>
 </project>

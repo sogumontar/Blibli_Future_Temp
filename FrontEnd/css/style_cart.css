@@ -1,6 +1,6 @@
 #header_merchant{
-  margin: 5px 5px 5px 5px;
-  padding: 15px 15px 15px 15px;
+  margin: 75px 25px 15px 25px;
+  padding: 25px 25px 25px 25px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 #navbar {
@@ -20,13 +20,18 @@ p{
   width: 50px;
 }
 #tambah{
-  margin: 5px 5px 5px 5px;
+  margin: 0px 25px 0px 25px;
   padding: 10px 10px 10px 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: #FFF8DF;
 }
-#dat{
+#content{
+  margin: 0px 25px 0px 25px;
   padding: 10px 10px 10px 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#header_content{
+  border-color: red;
 }
 .flex-container {
   padding: 0;
@@ -44,6 +49,17 @@ p{
   align-items: center;
 }
 
+#ul_header{
+  list-style-type: none;
+ padding: 0;
+ overflow: hidden;
+}
+#li_header a{
+  display: block;
+text-align: center;
+padding: 16px;
+text-decoration: none;
+}
 #li_header{
   float: left;
 }
@@ -51,23 +67,32 @@ p{
   width: 200px;
   height: 180px;
 }
-#icon1{
-  width: 20px;
-}
-#sub_total{
-  padding: 20px 20px 20px 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
 @media only screen and (min-width: 981px) {
 
-
+  body{
+    margin-left: 250px;
+    margin-right: 250px;
+  }
   #icon1{
     width: 30px;
   }
-  #dat{
+  #ds{
+    margin-left: 160px;
+    margin-right: 160px;
+  }
+  #tambah{
+    margin: 0px 25px 0px 25px;
     padding: 10px 10px 10px 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #FFF8DF;
+  }
+  #content{
+    margin: 0px 25px 0px 25px;
+    padding: 10px 10px 10px 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  #header_content{
+    border-color: red;
   }
   .flex-container {
     padding: 0;
@@ -100,20 +125,17 @@ p{
     float: left;
   }
   #img_product{
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 180px;
   }
   p{
     font-size: 1em;
     margin-bottom: 0.01em;
   }
   #sub_total{
-    margin-top: 20px;
+    width:750px;
+    margin: 10px 0px 25px 10px;
     padding: 20px 20px 20px 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-  .ds{
-    margin-left: 200px;
-    margin-right: 200px;
   }
 }

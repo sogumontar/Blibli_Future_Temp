@@ -3,30 +3,47 @@
 
 <head>
   <title>Purchase Order - Del Kindle</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+  <script type="text/javascript" src="js/jquery.slim.min.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <script src="js/bootstrap.min.js"></script>'
+  <script src="js/script_purchase_order_list.js"></script>
   <link href="css/style_purchase_order_list.css" rel="stylesheet">
-  <script type="text/javascript" src="js/script_purchase_order_list.js">
+  <script>
+    $(function(){ $("#head").load("navbar.html") });
+    $(function(){ $("#footer").load("footer.html") });
   </script>
-  <script type="text/javascript" src="js/script_nav.js"></script>
-  <script type="text/javascript">
-    $(function(){$("#nav").load("nav.html")});
-  </script>
+
 </head>
 
 <body>
-    <!-- Navigation -->
-  <div id="nav"></div>
+  <!-- Navigation -->
+  <div id="head">
 
-  <div  class="col-xs-12 col-md-8 col-md-offset-2">
-    <!-- Page Content -->
+  </div>
+  <br><br>
+<!--  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="navbar">-->
+<!--    <div class="container">-->
+<!--      <a class="navbar-brand" href="#">DelKindle</a>-->
+<!--      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--        <span class="navbar-toggler-icon"></span>-->
+<!--      </button>-->
+<!--      <div class="collapse navbar-collapse" id="navbarResponsive">-->
+<!--        <ul class="navbar-nav ml-auto">-->
+<!--          <li class="nav-item active">-->
+<!--            <img style="width: 35px" src="Pict/5a364b752c0633.9984354215135077011803.png">-->
+<!--          </li>-->
+
+<!--        </ul>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </nav>-->
+
+
+  <!-- Page Content -->
     <div id="header_merchant" class="row">
-      <div><a href="javascript:history.back()"><img src="Pict/left.png" width="25px"></a>&nbsp;&nbsp;&nbsp;</div>
-        <div><h2 id="catalog"> Purchase Order List</h2></div>
+      <div><a href="javascript:history.back()"><img style="margin-top: 10px;" src="Pict/left.png" width="25px"></a>&nbsp;&nbsp;&nbsp;</div>&nbsp;&nbsp;&nbsp;&nbsp;
+        <div><h2 id="catalog"> Purchase Order List</h2></div>&nbsp;&nbsp;&nbsp;&nbsp;
+      <img style="margin-top: -10px;" src="Pict/icons8-purchase-order-64.png">
     </div>
 
     <div class="tab">
@@ -36,68 +53,126 @@
 
       <div id="London" class="tabcontent">
 
-        <br>
-
-        <div id="listOrder">
-
-        </div>
       </div>
 
     <div id="Paris" class="tabcontent">
-
+      <div id="header_content">
+        <ul id="ul_header">
+          <li id="li_header"><a href="">  <img src="pict/shopping.png" alt=""></a></li>
+          <li id="li_header"><a href=""><b>Gudangnya Buku</b></a></li>
+        </ul>
+        <hr>
+      </div>
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="Pict/buku_fashion.jpg" id="img_product" alt="">
+          </div>
+          <div class="col-md-8">
+              <table>
+                <tr>
+                  <td><p>Fashion figure</p></td>
+                </tr>
+                <tr>
+                  <td><p>Rp 12123123</p></td>
+                </tr>
+              </table>
+          </div>
+        </div>
+      </div>
       <br>
 
-      <div id="listOrderAcc">
-
+      <div id="header_content">
+        <ul id="ul_header">
+          <li id="li_header"><a href="">  <img src="pict/shopping.png" alt=""></a></li>
+          <li id="li_header"><a href=""><b>Gudangnya Buku</b></a></li>
+        </ul>
+        <hr>
+      </div>
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="Pict/buku_fashion.jpg" id="img_product" alt="">
+          </div>
+          <div class="col-md-8">
+              <table>
+                <tr>
+                  <td><p>Fashion figure</p></td>
+                </tr>
+                <tr>
+                  <td><p>Rp 12123123</p></td>
+                </tr>
+              </table>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-
-
-  <!-- <button type="button" class="collapsible">Open Collapsible</button>
-<div class="content">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div> -->
-
-  <!-- Footer -->
-  <footer class="fixed-bottom" style="background-color: white">
-    <div class="ds">
-      <ul class="flex-container" class="navbar navbar-expand fixed-bottom">
-        <li class="flex-item1">
-          <a href="index.html"><button class="btn"  data-toggle="tooltip" data-placement="top" title="Tooltip on top"><img id="icon1"  src="Pict/icons8-home-50.png"></button></a>
-        </li>
-        <li class="flex-item1">
-          <a href="wishlist.html"><button class="btn"><img id="icon1" src="Pict/icons8-love-50.png"></button></a>
-        </li>
-        <li class="flex-item1">
-          <a href="cart.html"><button class="btn"><img id="icon1" src="Pict/5a364b752c0633.9984354215135077011803.png"></button></a>
-        </li>
-        <li class="flex-item1">
-          <a href="library.html"><button class="btn"><img id="icon1" src="Pict/book2.png"></button></a>
-        </li>
-        <li class="flex-item1">
-          <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
-             <img id="icon1" src="Pict/avatar.png" >
-               <span class="caret"></span>
+    <br><br><br>
+    <div class="modal fade" id="modalSubscriptionForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 ">Payment</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
             </button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-              <a class="dropdown-item" href="pay_order.html">Bayar Orderan</a>
-               <a class="dropdown-item" href="purchase_order_list.html">List Transaksi</a>
-            </ul>
           </div>
-        </li>
-      </ul>
+          <div class="modal-body mx-3">
+
+            <div class="md-form mb-4">
+              <i class="fas fa-envelope prefix grey-text"></i>
+              <label data-error="wrong" data-success="right" for="form2">Entry Your Virtual Account</label>
+              <input type="email" id="form2" class="form-control validate">
+            </div>
+
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <a id="sendVirtualAccount" class="btn btn-success" style="color: white">Send </a>
+          </div>
+        </div>
+      </div>
     </div>
-  </footer>
+
+    <div class="text-center">
+
+    </div>
+    <!-- <button type="button" class="collapsible">Open Collapsible</button>
+  <div class="content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div> -->
+
+    <!-- Footer -->
+    <div id="footer">
+
+    </div>
+<!--  <footer class="fixed-bottom" style="background-color: white">-->
+<!--		<div id="ds">-->
+<!--      <ul class="flex-container" class="navbar navbar-expand fixed-bottom">-->
+<!--  		  <li class="flex-item1">-->
+<!--  		  	<a href=""><button class="btn"><img id="icon1" src="Pict/icons8-home-50.png"></button></a>-->
+<!--  		  </li>-->
+<!--  		  <li class="flex-item1">-->
+<!--  		  	<a href="catalog_entry.html"><button class="btn"><img id="icon1" src="Pict/plus.png"></button></a>-->
+<!--  		  </li>-->
+<!--  		  <li class="flex-item1">-->
+<!--  		  	<a href=""><button class="btn"><img id="icon1" src="Pict/5a364b752c0633.9984354215135077011803.png"></button></a>-->
+<!--  		  </li>-->
+<!--  		  <li class="flex-item1">-->
+<!--  		  	<a href=""><button class="btn"><img id="icon1" src="Pict/avatar.png"></button></a>-->
+<!--  		  </li>-->
+<!--  		</ul>-->
+<!--    </div>-->
+<!--	</footer>-->
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script>
-    openCity("London")
+    openCity(event, 'London')
     function openCity(evt, cityName) {
+
       var i, tabcontent, tablinks;
       tabcontent = document.getElementsByClassName("tabcontent");
       for (i = 0; i < tabcontent.length; i++) {
@@ -110,6 +185,20 @@
       document.getElementById(cityName).style.display = "block";
       evt.currentTarget.className += " active";
     }
+</script>
+<script>
+var coll = document.getElementsByClassName("collapsible");
+
+  coll[0].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+
 </script>
 </body>
 

@@ -3,7 +3,6 @@ $(document).ready(function(){
   var token = localStorage.getItem('Token');
   var idLogin = localStorage.getItem('skuLogin');
   var base = "";
-  var name = localStorage.getItem('name');
 
   // Check for the File API support.
 if (window.File && window.FileReader && window.FileList && window.Blob) {
@@ -31,9 +30,6 @@ function handleFileSelect(evt) {
       $.ajax({
                 type:"POST",
                 url:"http://localhost:9081/merchant/addProductImage",
-                beforeSend : function( xhr ) {
-                 xhr.setRequestHeader( "Authorization", "Bearer "+token );
-               },
                 data: JSON.stringify(jsonVar),
                 contentType: "application/json",
                 success: function(data){
@@ -72,9 +68,6 @@ function handlePdf(evt) {
                 type:"POST",
                 url:"http://localhost:9081/merchant/addBook",
                 data: JSON.stringify(jsonVar),
-                beforeSend : function( xhr ) {
-                 xhr.setRequestHeader( "Authorization", "Bearer "+token );
-                },
                 contentType: "application/json",
                 success: function(data){
                     console.log(data.message);
@@ -91,7 +84,7 @@ function handlePdf(evt) {
   reader.readAsBinaryString(f);
 }
 
-function assignDataProduct(){
+  function assignDataProduct(){
 
       //access APIs
       var jsonVar = {
@@ -103,8 +96,7 @@ function assignDataProduct(){
           author:document.getElementById('author').value,
           isbn:document.getElementById('isbn').value,
           publisher:document.getElementById('publisher').value,
-          sku_merchant: localStorage.getItem("skuLogin"),
-          name_merchant: localStorage.getItem("name")
+          sku_merchant: localStorage.getItem("skuLogin")
       };
       //ajax
       $.ajax({

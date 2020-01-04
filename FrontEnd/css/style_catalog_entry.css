@@ -1,12 +1,17 @@
 #header_merchant{
-  margin: 75px 0px 0px 0px;
-  padding: 10px 10px 10px 10px;
+  margin: 75px 25px 0px 25px;
+  padding: 25px 25px 25px 25px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
+#navbar {
+  background-color: #007BFF;
+  top: 0;
+  display: block;
+  transition: top 0.3s;
+}
 #tambah{
-  margin: 10px 0px 0px 0px;
-  padding: 10px 10px 10px 10px;
+  margin: 10px 25px 0px 25px;
+  padding: 25px 25px 25px 25px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: #FFF8DF;
 }
@@ -58,23 +63,17 @@
   text-align: center;
   align-items: center;
 }
-#icon1{
-  width: 20px;
-}
+
 @media only screen and (min-width: 981px) {
-  #header_merchant{
-    margin: 75px 0px 0px 0px;
-    padding: 25px 25px 25px 25px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
 
-  #tambah{
-    margin: 10px 0px 0px 0px;
-    padding: 25px 25px 25px 25px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background-color: #FFF8DF;
+  body{
+    margin-left: 250px;
+    margin-right: 250px;
   }
-
+  #pemesanan{
+    margin-left: 20px;
+    margin-right: 20px;
+  }
   #toko{
     font-size:3vw;
   }
@@ -113,5 +112,9 @@
     -webkit-flex-flow: row wrap;
     justify-content: space-around;
     align-items: center;
+  }
+  footer{
+    padding-left: 160px;
+    padding-right: 160px;
   }
 }

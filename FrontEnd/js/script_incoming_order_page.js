@@ -33,22 +33,20 @@ $(document).ready(function(){
             console.log(data);
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {
-               $("#listOrder").
+                alert(users[i].sku_user)
+               $("#listOrders").
                 append("<div class='col-md-12'>\
-                    <div class='row' id='row'>\
+                    <div class='row'>\
                       <div class='col-md-8'>\
                         <table>\
-                        <tr>\
-                          <td>Nama : "+users[i].name+"</td>\
-                        </tr>\
                           <tr>\
-                            <td>Total Pemesanan: Rp."+users[i].price+"</td>\
+                            <td>Nama Pemesan : Andreas Tampubolosn</td>\
+                          </tr>\
+                          <tr>\
+                            <td>Total Pemesanan: Rp.300.000</td>\
                           </tr>\
                           <tr>\
                             <td>Tanggal Pemesanan : 24 Oktober 2019</td>\
-                          </tr>\
-                          <tr>\
-                            <td>Status Pembayaran : " + (users[i].status == 1 ? '<span class="badge badge-danger">Belum Bayar</span>': '<span class="badge badge-success">Sudah Bayar</span>') + "</td>\
                           </tr>\
                         </table>\
                       </div>\

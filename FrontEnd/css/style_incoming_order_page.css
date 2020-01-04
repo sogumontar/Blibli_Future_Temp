@@ -1,11 +1,16 @@
 #header_merchant{
-  margin: 10px 10px 10px 10px;
-  padding: 10px 10px 10px 10px;
+  margin: 75px 25px 0px 25px;
+  padding: 25px 25px 25px 25px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
+#navbar {
+  background-color: #007BFF;
+  top: 0;
+  display: block;
+  transition: top 0.3s;
+}
 #tambah{
-  margin: 0px 10px 0px 10px;
+  margin: 0px 25px 0px 25px;
   padding: 10px 10px 10px 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: #FFF8DF;
@@ -25,52 +30,15 @@
   font-size: 2vw;
 }
 #icon1{
-  width: 20px;
+  width: 50px;
   margin-bottom: 10px;
 }
-.flex-container {
-  padding: 0;
-  margin: 0;
-  list-style: none;
 
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-
-  -webkit-flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: center;
-}
-#row{
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-left: 10px;
-  margin-right: 10px;
-  padding: 10px;
-}
-#but_pemesanan{
-  border-color: #007BFF;
-  background-color: white;
-  color: #007BFF;
-  border-radius: 20px;
-  margin-top: 20px;
-}
-#pict_button{
-  width: 30px;
-}
 @media only screen and (min-width: 981px) {
 
-  #header_merchant{
-    margin: 0px 25px 0px 25px;
-    padding: 25px 25px 25px 25px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-  #tambah{
-    margin: 0px 25px 0px 25px;
-    padding: 10px 10px 10px 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background-color: #FFF8DF;
+  body{
+    margin-left: 250px;
+    margin-right: 250px;
   }
   #toko{
     font-size:3vw;
@@ -111,11 +79,14 @@
   #pict_button{
     width: 30px;
   }
-  #row{
+  .row{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-left: 10px;
     margin-right: 10px;
     padding: 10px;
+  }
+  .col-md-12{
+    margin-top: 10px;
   }
   .flex-container {
     padding: 0;

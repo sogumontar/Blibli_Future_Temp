@@ -16,20 +16,17 @@ $(document).ready(function(){
               data: JSON.stringify(jsonVar),
               contentType: "application/json",
               success: function(data){
-                console.log(data);
                 if(data.status == 1){
-                  alert("Login Success");
+                  var now = new Date().getTime();
                   token = data.accessToken;
                   skuLog=data.skuLog;
-                  var now = new Date().getTime();
-                  //Set LocalStorage
+                  console.log(data.role);
                   localStorage.setItem('Token',token);
                   localStorage.setItem('skuLogin',skuLog);
-                  localStorage.setItem('name',data.name);
-                  localStorage.setItem('setupTime', now);
-
+                  localStorage.setItem('setupTime', now)
+                  localStorage.setItem('Role',data.role);
                   if(data.role == "ROLE_USER"){
-                      location.href =  "index.html";
+                      location.href = "index.html";
                   }else if(data.role == "ROLE_ADMIN"){
                       location.href = "home_admin.html";
                   }else if(data.role == "ROLE_MERCHANT"){
@@ -40,8 +37,8 @@ $(document).ready(function(){
                   alert("Your account have block !");
                 }
 
-              },
 
+              },
               error: function(err) {
                   alert("Username dan Password anda salah")
                   $("#message").append(err.responseJSON.message);
