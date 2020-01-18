@@ -11,7 +11,8 @@ import java.util.List;
 
 @Service
 public class ProductService {
-
+    @Autowired
+    LastProductService lastProductService;
     @Autowired
     ProductRepo productRepo;
 
@@ -20,6 +21,7 @@ public class ProductService {
 //    public void deleteById(Integer id){
 //        productRepo.deleteById(id);
 //    }
+
     public List findAll(){
         return productRepo.findAll();
     }
@@ -70,6 +72,15 @@ public class ProductService {
     public String updateWithoutPict(String title, String description, String categories, String publication_year, Integer price, String author , String isbn , String publisher, String sku_product){
         productRepo.updateWithoutPict(title,description,categories,publication_year,price,author,isbn,publisher,sku_product);
         return "Update Success";
+    }
+    public String updateWithPict(String title, String description, String categories, String publication_year, Integer price, String author , String isbn , String publisher, String sku_product){
+
+        productRepo.updateWithPict(title,description,categories,publication_year,price,author,isbn,publisher,sku_product);
+        return "Update Success";
+    }
+
+    public Product editProduct(Product product){
+        return productRepo.findFirstBySku_product(product.getSku_merchant());
     }
 }
 

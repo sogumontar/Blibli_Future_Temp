@@ -3,123 +3,150 @@
 
 <head>
   <title>Catalog Entry - Del Kindle</title>
-  <script type="text/javascript" src="js/jquery.slim.min.js"></script>
-  <link rel="stylesheet" href="css/css.css">
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <script src="js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/script_update_buku.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+  <script type="text/javascript" src="js/script_update_book.js"></script>
   <link href="css/style_catalog_entry.css" rel="stylesheet">
+
 </head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="navbar">
-    <div class="container">
-      <a class="navbar-brand" href="#">DelKindle</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <img style="width: 35px" src="Pict/5a364b752c0633.9984354215135077011803.png">
-          </li>
 
-        </ul>
-      </div>
+<script type="text/javascript">
+  $(function(){$("#nav").load("nav.html")});
+</script>
+<div id="nav">
+
+</div>
+
+<div class="col-xs-12 col-md-8 col-md-offset-2">
+    <!-- Page Content -->
+<div id="header_merchant" class="row">
+  <div><a id="catalog" href="javascript:history.back()" style="color: black"><img src="Pict/left.png" width="25px"> Update Book</a>&nbsp;&nbsp;&nbsp;</div>
+  <div></div>
+</div>
+<div id="notifikasi">
+
+</div>
+
+<!-- /.container -->
+<center>
+<div id="gambar">
+
+</div>
+</center>
+<br>
+<!--<input type='file' class="form-control" style="width: 300px; " id="pict_product" name="file"  onchange="readURL(this);" />-->
+<label>Image Book</label>
+<input type="file" class="form-control" id="picture_product" onchange="readURL(this);" name="file" placeholder="Picture Product" >
+<label>Book File</label>
+<input type="file" id="file_produk" name="">
+</div>
+<div>
+  <!-- <form id="form" name="productForm" enctype="multipart/form-data"> -->
+  <form class="col-xs-12 col-md-8 col-md-offset-2">
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Titles</label>
+      <input id="title" class="form-control" placeholder="Title" required>
     </div>
-  </nav>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Description</label>
+      <textarea class="form-control" id="descriptions" rows="3" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect2">Categories</label>
+      <select class="form-control" id="categories" required>
+        <option>-- select --</option>
+        <option>Buku Pelajaran</option>
+        <option>Buku Anak anak</option>
+        <option>Buku Novel</option>
+        <option>Buku Fashion</option>
+        <option>Buku Ensiklopedia</option>
+        <option>Buku Seni</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Publication Year</label>
+      <input type="text" class="form-control" id="publication_year" placeholder="Publication Year" required>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Price</label>
+      <input type="number" min="0" class="form-control"  id="price" placeholder="Price" required>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Author</label>
+      <input type="text" class="form-control" id="author" placeholder="Author" required>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">ISBN</label>
+      <input type="text" class="form-control" id="isbnV" placeholder="ISBN" required>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Publisher</label>
+      <input type="text" class="form-control" id="publisher" placeholder="Publisher" required>
+    </div>
+<!--    <div class="form-group">-->
+<!--      <label for="exampleFormControlInput1">Picture Product</label>-->
+<!--      <input type="file" class="form-control" id="picture_product" name="file" placeholder="Picture Product" >-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="exampleFormControlInput1">Book File</label>-->
+<!--      <input type="file" class="form-control" id="book_file" name="book_file" placeholder="Picture Product" >-->
+<!--    </div>;-->
+    <!-- <input type="submit" name="" value="Tambah" id="submit"> -->
+    <center><a class="btn btn-primary" href=""  style="color: white" onclick="checkPict()" id="submit">Update</a></center>
+    <br><br><br><br><br><br><br>
+  </form>
+</div><br><br><br><br><br><br>
+
+</div>
 
 
-  <!-- Page Content -->
-  <div id="header_merchant" class="row">
-    <div><a id="catalog" href="javascript:history.back()" style="color: black"><img src="Pict/left.png" width="25px"> Catalog Entry</a>&nbsp;&nbsp;&nbsp;</div>
-    <div></div>
-  </div>
-  <div id="notifikasi">
-
-  </div>
-  <div id="tambah">
-      Update Buku
-  </div><br>
-  <!-- /.container -->
-  <div id="pemesanan">
-    <form id="form" name="productForm" method="PUT">
-      <center><div class="form-group">
-        <input type='file' class="form-control" style="width: 300px;" id="pict_product" name="file"  onchange="readURL(this);" />
-         <img id="blah" src="http://placehold.it/180" alt="your image" />
-         <br>
-         <img width="300px"  height="250px" src="C:\product\1a.png">
-         <br>
-          <input type="file" class="form-control" style="width: 300px;" id="pict_product" name="file" placeholder="Picture Product" >
-        </div>
-      </center>
-        <div class="form-group">
-          <label for="exampleFormControlInput1">Titles</label>
-          <input id="title" class="form-control" placeholder="Title" required>
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlInput1">Description</label>
-          <textarea class="form-control" id="description" rows="3" required></textarea>
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlSelect2">Categories</label>
-          <select class="form-control" id="categories" required>
-            <option>-- select --</option>
-            <option>Buku Pelajaran</option>
-            <option>Buku Anak anak</option>
-            <option>Buku Novel</option>
-            <option>Buku Fashion</option>
-            <option>Buku Ensiklopedia</option>
-            <option>Buku Seni</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlInput1">Publication Year</label>
-          <input type="text" class="form-control" id="publication_year" placeholder="Publication Year" required>
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlInput1">Price</label>
-          <input type="number" min="0" class="form-control"  id="price" placeholder="Price" required>
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlInput1">Author</label>
-          <input type="text" class="form-control" id="author" placeholder="Author" required>
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlInput1">ISBN</label>
-          <input type="text" class="form-control" id="isbn" placeholder="ISBN" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="exampleFormControlInput1">Publisher</label>
-          <input type="text" class="form-control" id="publisher" placeholder="Publisher" required>
-        </div>
-        <center><input type="submit" class="btn btn-primary" name="" onclick="push()" value="Update" id="submit"></center>
-      <!-- </form> -->
-  </div><br><br><br><br><br><br>
-
-  <!-- Footer -->
-  <footer class="fixed-bottom" style="background-color: white">
+  
+<!-- Footer -->
+ <footer class="fixed-bottom" style="background-color: white">
     <div id="ds">
       <ul class="flex-container" class="navbar navbar-expand fixed-bottom">
         <li class="flex-item1">
-          <a href=""><button class="btn"><img id="icon1" src="Pict/icons8-home-50.png"></button></a>
+          <a href="home_merchant.html"><button class="btn"><img id="icon1" src="Pict/icons8-home-50.png"></button></a>
         </li>
         <li class="flex-item1">
           <a href="catalog_entry.html"><button class="btn"><img id="icon1" src="Pict/plus.png"></button></a>
         </li>
         <li class="flex-item1">
-          <a href=""><button class="btn"><img id="icon1" src="Pict/5a364b752c0633.9984354215135077011803.png"></button></a>
+          <a href="incoming_order_page.html"><button class="btn"><img id="icon1" src="Pict/5a364b752c0633.9984354215135077011803.png"></button></a>
         </li>
         <li class="flex-item1">
-          <a href=""><button class="btn"><img id="icon1" src="Pict/avatar.png"></button></a>
+          <a href="product_page.html"><button class="btn"><img id="icon1" src="Pict/list.png"></button></a>
         </li>
       </ul>
     </div>
   </footer>
+<!--  <footer class="fixed-bottom" style="background-color: white">-->
+<!--    <div id="ds">-->
+<!--      <ul class="flex-container" class="navbar navbar-expand fixed-bottom">-->
+<!--        <li class="flex-item1">-->
+<!--          <a href="home_merchant.html"><button class="btn"><img id="icon1" src="Pict/icons8-home-50.png"></button></a>-->
+<!--        </li>-->
+<!--        <li class="flex-item1">-->
+<!--          <a href="catalog_entry.html"><button class="btn"><img id="icon1" src="Pict/plus.png"></button></a>-->
+<!--        </li>-->
+<!--        <li class="flex-item1">-->
+<!--          <a href="incoming_order_page.html"><button class="btn"><img id="icon1" src="Pict/5a364b752c0633.9984354215135077011803.png"></button></a>-->
+<!--        </li>-->
+<!--        <li class="flex-item1">-->
+<!--          <a href="product_page.html"><button class="btn"><img id="icon1" src="Pict/list.png"></button></a>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--  </footer>-->
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

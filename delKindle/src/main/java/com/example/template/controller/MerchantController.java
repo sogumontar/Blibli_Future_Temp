@@ -64,9 +64,19 @@ public class MerchantController {
     }
 
     @CrossOrigin
+    @PostMapping("/updateProductImage")
+    public void  updateProduct(@RequestBody CatalogEntryRequest catalogEntryRequest){
+        merchantService.updateProduct(catalogEntryRequest);
+    }
+    @CrossOrigin
     @PostMapping("/addBook")
     public void addBook(@RequestBody CatalogEntryRequest catalogEntryRequest){
        merchantService.addBook(catalogEntryRequest);
+    }
+    @CrossOrigin
+    @PostMapping("/updateBook")
+    public void updateBook(@RequestBody CatalogEntryRequest catalogEntryRequest){
+        merchantService.updateBook(catalogEntryRequest);
     }
 
     @CrossOrigin

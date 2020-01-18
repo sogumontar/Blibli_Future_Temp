@@ -50,7 +50,8 @@ public class CartService {
                 cart.getIsbn(),
                 cart.getSku_user(),
                 cart.getSku_product(),
-                cart.getSku_merchant()
+                cart.getSku_merchant(),
+                cart.getBook()
         );
 
         return  cartRepo.save(cart1);

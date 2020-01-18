@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/style_read_book.css">
+	<link rel="stylesheet" type="text/css" href="css/style_nav.css">
+    <script type="text/javascript">
+    $(function(){$("#nav").load("nav.html")});
+   </script>
+</head>
+<body>
+<div id="nav">
+	
+</div>	
+
+<div class="col-xs-12 col-md-8 col-md-offset-2">
+	<br><br><br>
+	<center>
+		<canvas id="the-canvas"></canvas>
+	</center>
+	<br>
+
+	<div>
+		<center>
+			<span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+		</center>
+		<br>
+	  <center><button id="prev" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left"> Previous</span></button>
+	  <button id="next" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-right"> Next </span></button>
+	  &nbsp; &nbsp;
+	 </center>
+	</div>
+	<br><br>
+</div>
+
+
+<script type="text/javascript" src="js/read_book.js"></script>
+</body>
+</html>

@@ -1,5 +1,11 @@
 var penanda=[];
 var sub_total = 0;
+if(localStorage.getItem("skuLogin")){
+
+}else{
+	alert("You must be login");
+	location.href = "login.html";
+}
 $(document).ready(function(){
 	$("#tad").append('<a id="bayar" onclick="upd()" class="btn btn-success" href="">Process</a>')
 
@@ -67,6 +73,7 @@ function test(){
             for (var i in users) {
             	if(users[i].sku_user===id && users[i].status==1){
             		sub_total = sub_total + users[i].price;
+            		localStorage.setItem('total_price',sub_total);
                $("#dat").
                 append('<div class="row">\
 			          <div class="col-md-4">\
@@ -89,6 +96,13 @@ function test(){
 			        </div><br>');
             	}
             }
+							if(sub_total == 0){
+								$('#notifikasi').append('<div class="alert alert-warning" role="alert">\
+					          <h4 class="alert-heading"><i class="glyphicon glyphicon-info-sign"></i> &nbsp; No Book in Cart !</h4>\
+					      </div>\
+								');
+								document.getElementById("chec").disabled = true;
+							}
 							document.getElementById("set_total").innerHTML = "Sub Total : Rp "+sub_total;
 							console.log(sub_total);
 

@@ -53,7 +53,7 @@ $(document).ready(function(){
                         </table>\
                       </div>\
                       <div class='col-md-4'>\
-                          <button type='button' id='but_pemesanan'><img src='Pict/next.png' id='pict_button'> Detail pemesanan</button>\
+                          <a href='detail_order_merchant.html?id_order="+users[i].id+"'><button type='button' id='but_pemesanan'><img src='Pict/next.png' id='pict_button'> Detail Pemesanan</button></a>\
                       </div>\
                     </div>\
                   </div>\

@@ -14,10 +14,11 @@ $(document).ready(function(){
 
 		$.ajax({
           type:"GET",
-          contentType: 'application/json',
-          beforeSend : function( xhr ) {
-           xhr.setRequestHeader( "Authorization", "Bearer "+token );
-         },
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer "+token
+        },
+         async: false,
           url:"http://localhost:9081/merchant/getAllByMerchant/"+skuLogin,
           success: function(data) {
 						console.log(data);
@@ -34,10 +35,10 @@ $(document).ready(function(){
 												<div class='col-md-12'>\
                           <div class='row'>\
                             <div class='col-md-6'>\
-                              <p><button type='button' class='btn btn-outline-primary' onclick='updateProduct("+users[i].sku_product+")' data-toggle='modal' data-target='#updateModal'>Update</button></p>\
+                              <p><a href='update_book.html?id="+users[i].sku_product+"'><button type='button' class='btn btn-outline-primary'  >Update</button></a></p>\
                              </div>\
                             <div class='col-md-6'>\
-                              <p><button type='button' class='btn btn-outline-danger' onclick='hai("+users[i].id+")'  data-toggle='modal' data-target='#exampleModal'>Delete</button></p>\
+                              <p><a href='deleteProduk.html?id="+users[i].sku_product+"'><button type='button' class='btn btn-outline-danger' onclick='hai1("+users[i].sku_product+")'>Delete</button></p>\
                             </div>\
                           </div>\
                         </div>\
@@ -103,6 +104,10 @@ $(document).ready(function(){
         });
   });
 
+  $('#delete_product').click(function(){
+    alert("andreas");
+  });
+
   $('#save_change').click(function(){
     var jsonVar = {
       title: document.getElementById('title'),
@@ -118,9 +123,22 @@ $(document).ready(function(){
 
 });
 
-function hai(product_id){
-  alert(product_id);
-  // localStorage.setItem("productId",product_id);
+function hai1(test){
+  alert(test)
+  // var token=localStorage.getItem("Token");
+  // $.ajax({
+  //   type:"DELETE",
+  //   url:"http://localhost:9081/wishlist/delete/"+test,
+  //   headers: {
+  //       "Content-Type": "application/json",
+  //       "Authorization": "Bearer "+token
+  //   },
+  //   success:function(data){
+  //     alert("Success Delete Book from Wishlist");
+  //     location.href="wishlist.html";
+  //    }
+  // });
+
 }
 function updateProduct(){
   var token = localStorage.getItem('Token');
@@ -149,3 +167,4 @@ function updateProduct(){
           }
       });
 }
+

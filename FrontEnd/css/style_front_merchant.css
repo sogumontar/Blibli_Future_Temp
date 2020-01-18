@@ -39,13 +39,36 @@
   font-size: 3vw;
 }
 #icon1{
-  width: 50px;
-  margin-bottom: 10px;
+  width: 20px;
 }
 #h{
   border-color: black;
 }
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+#pict_shopping{
+  width: 40px;
+}
+#pict_market{
+  width: 35px;
+}
+#image{
+  width: 280px;
+  height: 240px;
+}
 @media only screen and (min-width: 981px) {
   /* For mobile phones: */
   body{

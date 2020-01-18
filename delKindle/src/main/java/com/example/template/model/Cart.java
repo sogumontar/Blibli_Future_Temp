@@ -50,6 +50,10 @@ public class Cart {
 
     @Column(name = "sku_merchant")
     private String sku_merchant;
+
+    @Column(name = "book")
+    private String book;
+
     public Cart(){
 
     }
@@ -68,7 +72,7 @@ public class Cart {
         this.sku_product = sku_product;
     }
 
-    public Cart(String created_at, Integer status, String title, String pict_product, String categories, String publication_year, Integer price, String author, String publisher, String isbn, String sku_user, String sku_product, String sku_merchant) {
+    public Cart(String created_at, Integer status, String title, String pict_product, String categories, String publication_year, Integer price, String author, String publisher, String isbn, String sku_user, String sku_product, String sku_merchant,String book) {
         this.created_at = created_at;
         this.status = status;
         this.title = title;
@@ -82,6 +86,7 @@ public class Cart {
         this.sku_user = sku_user;
         this.sku_product = sku_product;
         this.sku_merchant = sku_merchant;
+        this.book = book;
     }
 
     public Integer getId() {
@@ -194,5 +199,14 @@ public class Cart {
 
     public void setSku_merchant(String sku_merchant) {
         this.sku_merchant = sku_merchant;
+    }
+
+
+    public String getBook() {
+        return book;
+    }
+
+    public void setBook(String book) {
+        this.book = book;
     }
 }

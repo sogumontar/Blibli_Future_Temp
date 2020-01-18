@@ -3,9 +3,16 @@ var token=localStorage.getItem("Token")
 var totPesanan = 0;
 var last = 0;
 var plus = 0;
-
+var VA="";
+var total_price = localStorage.getItem("total_price");
 $(document).ready(function(){
 	var nama ='';
+
+	if(total_price == 0 || total_price == null){
+		alert("No book in cart !");
+		location.href = "cart.html";
+	}
+
 
 
 	hideNavbar();
@@ -28,7 +35,7 @@ $(document).ready(function(){
 
 
 	//get all By sku
-	$.ajax({
+		$.ajax({
 				type:"GET",
 				beforeSend : function( xhr ) {
 					xhr.setRequestHeader( "Authorization", "Bearer "+token );
@@ -62,7 +69,7 @@ $(document).ready(function(){
 								append('<div class="col-md-12">\
 									<div class="row" id="price">\
 										<div class="col-md-8">'+users[i].title+'</div>\
-										<div class="col-md-4">'+users[i].price+'</div>\
+										<div class="col-md-4"><span class="badge badge-primary">Rp '+users[i].price+'<span></div>\
 									</div>\
 								</div><br>\
 								');
@@ -83,16 +90,36 @@ $(document).ready(function(){
    for ( var i = 0; i < length; i++ ) {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
    }
+	 VA=result;
    return result;
  }
 
-
+ function kirim(email,VIRTUAL){
+	 alert("Success make order ");
+	 localStorage.setItem("total_price",0);
+	 $.ajax({
+		 type:"POST",
+		 headers: {
+			 "Content-Type": "application/json",
+			 "Authorization": "Bearer "+token
+		 },
+		 url:"http://localhost:9081/orders/sendMail/"+email+"/"+VIRTUAL,
+		 success: function(data){
+			 alert("data");
+		 },
+		 error: function(err) {
+			 // alert(err)
+		 }
+	 });
+ }
 
 	function makeOrder(){
 		//virtualAccount
 		var virtual = makeVirtualaccount(10);
 		//Get date now
 		let today = new Date().toISOString().slice(0, 10);
+
+
 
 		var jsonVar = {
 			skuUser: id,
@@ -149,7 +176,9 @@ $(document).ready(function(){
 																							status: 1,
 																							publisher: users[i].publisher,
 																							isbn: users[i].isbn,
-																							name: nama
+																							name: nama,
+																							book: users[i].book,
+																							sku_user:id
 																						}
 																						$.ajax({
 																											type:"POST",
@@ -170,7 +199,22 @@ $(document).ready(function(){
 																																		data: JSON.stringify(jsonVar1),
 																																		contentType: "application/json",
 																																		success: function(data4){
-
+																																			//sendMail
+																																			$.ajax({
+																																				type:"GET",
+																																				headers: {
+																																					"Content-Type": "application/json",
+																																					"Authorization": "Bearer "+token
+																																				},
+																																				url:"http://localhost:9081/user/findById/"+id,
+																																				success: function(data5){
+																																					var users = JSON.parse(JSON.stringify(data5));
+																																					kirim(users.email,virtual)
+																																				},
+																																				error: function(err) {
+																																					// alert(err)
+																																				}
+																																			});
 																																		},
 																																		error: function(err) {
 																																				console.log(err.responseJSON.message);
@@ -201,9 +245,31 @@ $(document).ready(function(){
 	}
 
 	function pindah(){
-		alert("success make order");
+		// alert("success make order");
 		location.href = "purchase_order_list.html";
 	}
+
+	function sendEmail(){
+
+		$.ajax({
+			type:"GET",
+			headers: {
+				"Content-Type": "application/json",
+				"Authorization": "Bearer "+token
+			},
+			url:"http://localhost:9081/user/findById/"+id,
+			success: function(data){
+				var users = JSON.parse(JSON.stringify(data));
+				kirim(users.email)
+
+			},
+			error: function(err) {
+				// alert(err)
+			}
+		});
+	}
+
+
 	$('#but_pesanan').click(function(){
 		makeOrder();
 		setInterval(pindah,2000);

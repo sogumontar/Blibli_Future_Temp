@@ -82,11 +82,23 @@ public class MerchantService {
 //            return e.getMessage();
 //        }
 //    }
+
     public void addProduct(CatalogEntryRequest catalogEntryRequest){
         int last = lastProductService.findLast().getLast_book();
         int two = last+1;
         String pict = "pict"+two+".jpg";
-        File file = new File("C://xampp8/htdocs/FrontEnd/product/"+pict);
+        File file = new File("C://xampp8/htdocs/Blibli/FrontEnd/product/"+pict);
+        try(FileOutputStream fos = new FileOutputStream(file)){
+            byte[] decoder = Base64.getDecoder().decode(catalogEntryRequest.getPict_product());
+            fos.write(decoder);
+            System.out.println("Image file saved");
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    public void updateProduct(CatalogEntryRequest catalogEntryRequest){
+        String pict = catalogEntryRequest.getGambar();
+        File file = new File("C://xampp8/htdocs/Blibli/FrontEnd/product/"+pict);
         try(FileOutputStream fos = new FileOutputStream(file)){
             byte[] decoder = Base64.getDecoder().decode(catalogEntryRequest.getPict_product());
             fos.write(decoder);
@@ -100,7 +112,7 @@ public class MerchantService {
         int last = lastProductService.findLast().getLast_book();
         int two = last+1;
         String pdf = "book"+two+".pdf";
-        File file = new File("C://xampp8/htdocs/FrontEnd/product/book/"+pdf);
+        File file = new File("C://xampp8/htdocs/Blibli/FrontEnd/product/book/"+pdf);
         try(FileOutputStream fos = new FileOutputStream(file)){
             byte[] decoder = Base64.getDecoder().decode(catalogEntryRequest.getBook_file());
             fos.write(decoder);
@@ -109,6 +121,18 @@ public class MerchantService {
             System.out.println(e.getMessage());
         }
     }
+    public void updateBook(CatalogEntryRequest catalogEntryRequest){
+        String pdf = catalogEntryRequest.getBookFile();
+        File file = new File("C://xampp8/htdocs/Blibli/FrontEnd/product/book/"+pdf);
+        try(FileOutputStream fos = new FileOutputStream(file)){
+            byte[] decoder = Base64.getDecoder().decode(catalogEntryRequest.getBook_file());
+            fos.write(decoder);
+            System.out.println("Image file saved");
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
 
     public String saveProduct(CatalogEntryRequest catalogEntryRequest){
 

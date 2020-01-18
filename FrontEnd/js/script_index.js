@@ -38,19 +38,19 @@ $('#kategori').append("<br>\
             var users = JSON.parse(JSON.stringify(data));
             for (var i in users) {
                $("#listBook").
-                append("<div class='col-lg-3 col-md-6 mb-4' id='produk1'>\
+                append("<div class=' col-md-3' id='produk1'>\
                     <a href='detail_book.html?id="+users[i].sku_product+"'><div class='card h-100'>\
 											<div class='card-body'>\
 												<h4 class='card-title'> <img src='./product/"+users[i].pict_product+"' class='card-img-top' id='image'>\</center></h4>\
 												<p class='card-text'><b>"+users[i].title+"</b></p>\
 											</div></a>\
 											<div class='card-footer'>\
-												<div class='col-md-12'>\
+												<div class='col-xs-12'>\
 													<div class='row'>\
-														<div class='col-md-6'>\
+														<div class='col-xs-6'>\
 														 <center><span class='badge badge-success'>Rp "+users[i].price+"</span></center>\
 														</div>\
-														<div class='col-md-6'>\
+														<div class='col-xs-6'>\
 															<center><a href='front_merchant.html?sku="+users[i].sku_merchant+"'><span class='badge badge-light'>"+users[i].name_merchant+"</span></a></center>\
 														</div>\
 													</div>\

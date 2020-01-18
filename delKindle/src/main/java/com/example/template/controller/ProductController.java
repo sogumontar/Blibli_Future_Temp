@@ -86,4 +86,17 @@ public class ProductController {
     public void updateWithoutPict(@PathVariable String title,@PathVariable String description,@PathVariable String categories,@PathVariable String publication_year,@PathVariable Integer price,@PathVariable String author ,@PathVariable String isbn ,@PathVariable String publisher,@PathVariable String sku_product){
         productService.updateWithoutPict(title,description,categories,publication_year,price,author,isbn,publisher,sku_product);
     }
+    @CrossOrigin
+    @Modifying
+    @PutMapping("/updateWithPict/{title}/{description}/{categories}/{publication_year}/{price}/{author}/{isbn}/{publisher}/{sku_product}")
+    public void updateWithPict(@PathVariable String title,@PathVariable String description,@PathVariable String categories,@PathVariable String publication_year,@PathVariable Integer price,@PathVariable String author ,@PathVariable String isbn ,@PathVariable String publisher,@PathVariable String sku_product){
+        productService.updateWithPict(title,description,categories,publication_year,price,author,isbn,publisher,sku_product);
+    }
+
+    @CrossOrigin
+    @Modifying
+    @PostMapping("/editProduct")
+    public Product editProduct(@RequestBody Product product){
+        return productService.editProduct(product);
+    }
 }

@@ -27,6 +27,7 @@ $(document).ready(function(){
                   localStorage.setItem('skuLogin',skuLog);
                   localStorage.setItem('name',data.name);
                   localStorage.setItem('setupTime', now);
+                  localStorage.setItem('email', data.alamat);
 
                   if(data.role == "ROLE_USER"){
                       location.href =  "index.html";

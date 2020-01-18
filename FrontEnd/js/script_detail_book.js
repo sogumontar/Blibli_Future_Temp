@@ -43,6 +43,7 @@ var wis;
        skuU=i.sku_user;
        skuP=i.sku_product;
        skuM=i.sku_merchant;
+       book=i.book_file;
        html= `
 
         <div class="row" id="row1">
@@ -109,7 +110,8 @@ var wis;
         isbn:ibn,
         sku_user:idLog,
         sku_product:skuP,
-        sku_merchant:skuM
+        sku_merchant:skuM,
+        book:book
       };
       if(indikator==0){
         $.ajax({

@@ -1,4 +1,54 @@
+
+var url = window.location.toString();
+var res = new URL(location.href).searchParams.get('id')
+var token = localStorage.getItem('Token');
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#blah')
+                .attr('src', e.target.result);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+function checkPict() {
+    if(document.getElementById("picture_product").value===""){
+        updateWithoutPict();
+    }else{
+        updateWithPict();
+    }
+}
+function updateWithoutPict() {
+    var title=document.getElementById('title').value;
+    var description=document.getElementById('descriptions').value;
+    var categories= document.getElementById('categories').value;
+    var publication_year=document.getElementById('publication_year').value;
+    var price=document.getElementById('price').value;
+    var author=document.getElementById('author').value;
+    var isbns=document.getElementById('isbnV').value;
+    var publisher=document.getElementById('publisher').value;
+    console.log(title,description,categories,publication_year,price,author,isbns,publisher);
+    $.ajax({
+        type : "PUT",
+        url : "http://localhost:9081/product/updateWithoutPict/"+title+"/"+description+"/"+categories+"/"+publication_year+"/"+price+"/"+author+"/"+isbns+"/"+publisher+"/"+res,
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer "+token
+        },
+        success:function (data) {
+            alert("Update Success")
+        },
+        error:function (err) {
+            alert(err);
+        }
+    });
+    alert("Update Success")
+}
 $(document).ready(function(){
+    getCasts();
   var c = new URL(location.href).searchParams.get('token')
   var token = localStorage.getItem('Token');
   var idLogin = localStorage.getItem('skuLogin');
@@ -12,6 +62,59 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 } else {
   alert('The File APIs are not fully supported in this browser.');
 }
+
+
+    function updateWithPict(){
+
+        var title=document.getElementById('title').value;
+        var description=document.getElementById('descriptions').value;
+        var categories= document.getElementById('categories').value;
+        var publication_year=document.getElementById('publication_year').value;
+        var price=document.getElementById('price').value;
+        var author=document.getElementById('author').value;
+        var isbns=document.getElementById('isbnV').value;
+        var publisher=document.getElementById('publisher').value;
+        console.log(title,description,categories,publication_year,price,author,isbns,publisher);
+        $.ajax({
+            type : "PUT",
+            url : "http://localhost:9081/product/updateWithoutPict/"+title+"/"+description+"/"+categories+"/"+publication_year+"/"+price+"/"+author+"/"+isbns+"/"+publisher+"/"+res,
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer "+token
+            },
+            success:function (data) {
+                alert("Update Success")
+            },
+            error:function (err) {
+                alert(err);
+            }
+        });
+        alert("Update Success")
+    }
+    function getCasts(){
+        const url ="http://localhost:9081/product/get/"+res;
+        window.fetch(url).then((res)=>{
+            return res.json()
+        }).then((i)=>{
+            $("#gambar").append("<a href='./product/"+i.pict_product+"'><img id='blah' src='./product/"+i.pict_product+"' style='width: 500px; height: 350px;' alt='your image' /></a>")
+            // document.getElementById('pict').value="./product/"+i.pict_product;
+            document.getElementById('title').value=i.title;
+            document.getElementById('descriptions').value=i.description;
+            document.getElementById('categories').value=i.categories;
+            document.getElementById('publication_year').value=i.publication_year;
+            document.getElementById('price').value=i.price;
+            document.getElementById('author').value=i.author;
+            document.getElementById('isbnV').value=i.isbn;
+            document.getElementById('publisher').value=i.publisher;
+
+        }).then(() => {
+            // console.log("selesai")
+        })
+
+        const wait = time => new Promise((resolve) => setTimeout(resolve, time));
+
+
+    }
 
 function handleFileSelect(evt) {
   var f = evt.target.files[0];

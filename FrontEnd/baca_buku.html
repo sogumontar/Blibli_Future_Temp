@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Library - Del Kindle</title>
+    <script type="text/javascript" src="js/jquery.slim.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/script_baca_buku.js"></script>
+    <link href="css/style_cart.css" rel="stylesheet">
+    <script>
+        $(function(){ $("#head").load("navbar.html") });
+        $(function(){ $("#footer").load("footer.html") });
+        $(function(){ $("#baca").load("product/book/book14.pdf") });
+    </script>
+</head>
+
+<body>
+<br><br><br>
+<div id="body_content">
+    <!-- Navigation -->
+<!--    <div id="baca">-->
+
+<!--    </div>-->
+    <div id="head">
+
+    </div>
+    <!-- Page Content -->
+    <div id="header_merchant" class="row">
+        <div><a href="javascript:history.back()"><img src="Pict/left.png" width="25px"></a>&nbsp;&nbsp;&nbsp;</div>
+        <div><h2 id="catalog"> Library</h2></div>
+    </div>
+    <!-- /.container -->
+    <div id="content">
+        <div id="header_content">
+            <ul id="ul_header">
+                <li id="li_header"><a href="">  <img src="pict/shopping.png" alt=""></a></li>
+                <br>
+                <li id="penjual"></li>
+            </ul>
+            <hr>
+        </div>
+
+
+    </div>
+    <br><br><br><br>
+</div>
+<div class="" id="buku">
+  <div class="modal fade" id="modalSubscriptionForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+       aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<embed src="product/book/book14.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="95%" height="600px" />
+
+              <div class="modal-footer d-flex justify-content-center">
+                  <a id="sendVirtualAccount" class="btn btn-success" style="color: white">Send </a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+<!-- Footer -->
+<div id="footer">
+
+</div>
+
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

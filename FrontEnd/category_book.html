@@ -3,35 +3,34 @@
 
 <head>
   <title>Category Book - Del Kindle</title>
-  <script type="text/javascript" src="js/jquery.slim.min.js"></script>
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <script src="js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
   <script type="text/javascript" src="js/script_category_book.js"></script>
   <link href="css/style_category_book.css" rel="stylesheet">
+  <script type="text/javascript" src="js/script_nav.js"></script>
+   <link rel="stylesheet" type="text/css" href="css/style_nav.css">
+   <script type="text/javascript">
+    $(function(){$("#nav").load("nav.html")});
+   </script>
 </head>
 
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="navbar">
-    <div class="container">
-      <div class="col-md-12">
-        <div class="row">
-          <div class="col-md-11">
-            <a class="navbar-brand" href="#"><p>DelKindle</p></a>
-          </div>
-          <div class="col-md-1">
-            <img src="Pict/5a364b752c0633.9984354215135077011803.png" id="image_cart">
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
+  <div id="nav">
+    
+  </div>  
+
+
   <!-- Page Content -->
   <div id="header_merchant">
     <table>
       <tr>
-        <td><img src="Pict/left.png" width="25px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><a href="javascript:history.back()"><img src="Pict/left.png" width="25px"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
         <td><h3>Category Book</h3></td>
       </tr>
     </table>

@@ -1,0 +1,10 @@
+@media only screen and (max-width: 888px) {
+  #the-canvas{
+    width: 330px;
+  }
+}
+
+
+@media only screen and (min-width: 981px) {
+
+}

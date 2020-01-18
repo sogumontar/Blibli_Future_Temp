@@ -52,6 +52,9 @@ public class DetailOrder {
     @Column(name = "sku_user")
     public String sku_user;
 
+    @Column(name = "book")
+    public String book;
+
     public DetailOrder(){
 
     }
@@ -207,5 +210,13 @@ public class DetailOrder {
 
     public void setSku_user(String sku_user) {
         this.sku_user = sku_user;
+    }
+
+    public String getBook() {
+        return book;
+    }
+
+    public void setBook(String book) {
+        this.book = book;
     }
 }

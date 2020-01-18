@@ -45,6 +45,18 @@ text-decoration: none;
 #img_header{
   width: 40px;
 }
+#detail_product{
+  background-color: red;
+}
+  #price{
+    background-color: white;
+    padding: 10px;
+    margin: 5px 5px 5px 5px;
+
+  }
+#content{
+  background-color: #F6F5F5;
+}  
 @media only screen and (min-width: 981px) {
   #header_merchant{
     margin: 10px 0px 10px 0px;
@@ -114,6 +126,8 @@ text-decoration: none;
   }
   #price{
     background-color: white;
+    padding: 10px;
+    margin-bottom: 5px;
   }
   #img_header{
     width: 40px;

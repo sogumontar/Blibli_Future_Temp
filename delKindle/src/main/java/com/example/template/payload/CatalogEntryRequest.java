@@ -1,8 +1,9 @@
 package com.example.template.payload;
 
 public class CatalogEntryRequest {
+    public String gambar;
     public String sku_product;
-
+    public String bookFile;
     public String title;
 
     public String description;
@@ -26,6 +27,22 @@ public class CatalogEntryRequest {
     public String sku_merchant;
 
     public String name_merchant;
+
+    public String getBookFile() {
+        return bookFile;
+    }
+
+    public void setBookFile(String bookFile) {
+        this.bookFile = bookFile;
+    }
+
+    public String getGambar() {
+        return gambar;
+    }
+
+    public void setGambar(String gambar) {
+        this.gambar = gambar;
+    }
 
     public String getSku_product() {
         return sku_product;

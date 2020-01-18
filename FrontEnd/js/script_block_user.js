@@ -49,7 +49,7 @@ $(document).ready(function(){
                               <td>Role : ' + users[i].roles[0].name+ '</td>\
                             </tr>\
                             <tr>\
-                              <td>Status : ' + (users[i].status == 1 ? 'Active': 'Block') + '</td>\
+                              <td>Status : ' + (users[i].status == 1 ? '<span class="badge badge-primary">Active</span>': '<span class="badge badge-danger">Block</span>') + '</td>\
                             </tr>\
                           </table>\
                         </div>\

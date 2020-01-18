@@ -2,14 +2,16 @@
 <html>
 <head>
 	<title>Login - Del Kindle</title>
-	<script type="text/javascript" src="js/jquery.slim.min.js"></script>
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<script src="js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 	<script type="text/javascript" src="js/script_login.js"></script>
 	<link rel="stylesheet" href="css/style_login.css">
 </head>
 <body>
-	<div id="body">
+	<div id="body" class="col-xs-12 col-md-8 col-md-offset-2">
 		<center>
 			<div id="content">
 				<img src="pict/logo.png">
@@ -17,10 +19,11 @@
 						<input type="text" class="form-control" id="username" name="username" placeholder="Username" required="">
 						<br>
 						<input type="password" class="form-control" id="password"  name="password" placeholder="Password" required="">
-						<a href="register.html"><small class="form-text text-muted">Sign up ?</small></a>
+						
 						<br>
-						<button  style="height: 40px;" class="btn btn-primary" id="button">Login</a>
+						<button  style="height: 40px;" class="btn btn-primary" id="button"><span class="glyphicon glyphicon-share-alt"></span> Login</a>
 						<br><br>
+						<a href="register.html"><small class="form-text text-muted">Sign up ?</small></a>
 						<input type="hidden" name="" value="andreas" id="temp_token">
 			</div>
 		</center>

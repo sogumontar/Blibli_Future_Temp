@@ -1,6 +1,7 @@
 #header_merchant{
+  height: 110px;
   margin: 75px 25px 0px 25px;
-  padding: 25px 25px 25px 25px;
+  padding: 5px 5px 5px 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 #navbar {
@@ -57,13 +58,21 @@
   justify-content: space-around;
   align-items: center;
 }
-
+#pict{
+    width: 80px;
+  }
 @media only screen and (min-width: 981px) {
   /* For mobile phones: */
   body{
     margin-left: 250px;
     margin-right: 250px;
   }
+  #header_merchant{
+  height: 170px;  
+  margin: 75px 25px 0px 25px;
+  padding: 25px 25px 25px 25px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
   #toko{
     font-size:3vw;
   }
@@ -104,4 +113,11 @@
   #pict{
     width: 80px;
   }
+  #garantee{
+   height: 150px; 
+  margin: 10px 25px 0px 25px;
+  padding: 25px 25px 25px 25px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #C8EDE6;
+}
 }

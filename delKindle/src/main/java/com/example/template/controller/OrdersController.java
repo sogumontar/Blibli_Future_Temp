@@ -114,8 +114,8 @@ public class OrdersController {
         String VirtualAccount=encrypt(VA);
 //        sendEmail();
 //            sendEmailWithAttachment();
-        final String username = "hendrasimz93@gmail.com";
-        final String password = "simangunsong77";
+        final String username = "pardelkindle@gmail.com";
+        final String password = "pardel1234567";
 
         Properties prop = new Properties();
         prop.put("mail.smtp.host", "smtp.gmail.com");
@@ -139,7 +139,7 @@ public class OrdersController {
                     InternetAddress.parse(email)
             );
             message.setSubject("Transaksi Del Kindle ");
-            message.setText("Terimakasih telah melakukan transaksi \n Kode Transaksi anda adalah :  " + VirtualAccount);
+            message.setText("Terimakasih telah melakukan transaksi \n Kode Transaksi anda adalah :  " + VA);
 
             Transport.send(message);
 

@@ -1,6 +1,13 @@
 var penanda=[];
 var sub_total = 0;
 var id=localStorage.getItem("idLogin");
+if(localStorage.getItem("skuLogin")){
+
+}else{
+    alert("You must be login");
+    location.href = "login.html";
+}
+
 $(document).ready(function(){
     $("#tad").append('<a id="bayar" onclick="upd()" class="btn btn-success" href="">Process</a>')
 
@@ -37,28 +44,28 @@ $(document).ready(function(){
             success: function(data) {
                 var users = JSON.parse(JSON.stringify(data));
                 for (var i in users) {
-                    if( users[i].status!=1){
+                    if( users[i].status==2 && users[i].sku_user == id){
                         sub_total = sub_total + users[i].price;
                         $("#dat").
                         append('<div class="row">\
-			          <div class="col-md-4">\
-			            <img src="./product/'+users[i].pict_product+'" id="img_product" alt="">\
-			          </div>\
-			          <div class="col-md-8">\
-			              <table>\
-			                <tr>\
-			                  <td><p><b>Title : </b>'+users[i].title +'</p></td>\
-			                </tr>\
-			                <tr>\
-												<td><p><b>Categori : </b>'+users[i].categories+'</p></td>\
-												<br>\
-			                </tr>\
-			                <tr><br><br>\
-			                  <td><a onclick="" data-toggle="modal" data-target="#modalSubscriptionForm"><button class="btn btn-secondary">Baca</button></a></td>\
-			                </tr>\
-			              </table>\
-			          </div>\
-			        </div><br>');
+            			          <div class="col-md-4">\
+            			            <img src="./product/'+users[i].pict_product+'" id="img_product" alt="">\
+            			          </div>\
+            			          <div class="col-md-8">\
+            			              <table>\
+            			                <tr>\
+            			                  <td><p><b>Title : </b>'+users[i].title +'</p></td>\
+            			                <tr>\
+                                  </tr>\
+            												<td><p><b>Categori : </b>'+users[i].categories+'</p></td>\
+            												<br>\
+            			                </tr>\
+            			                <tr><br><br>\
+            			                  <td><a href="read_book.html?book='+users[i].book+'"><button class="btn btn-secondary"><span class="glyphicon glyphicon-book"></span>&nbsp; Baca</button></a></td>\
+            			                </tr>\
+            			              </table>\
+            			          </div>\
+            			        </div><br>');
                     }
                 }
                 // document.getElementById("set_total").innerHTML = "Sub Total : Rp "+sub_total;
@@ -76,5 +83,3 @@ $(document).ready(function(){
 
     }
 });
-
-

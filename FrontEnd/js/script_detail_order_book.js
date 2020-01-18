@@ -3,8 +3,9 @@ $(document).ready(function(){
   var id = new URL(location.href).searchParams.get('id_order');
   var token = localStorage.getItem('Token');
   //method
+  
+alert(id);
   getDetailOrder();
-
 
   function getDetailOrder(){
     $.ajax({
@@ -16,24 +17,23 @@ $(document).ready(function(){
 					success: function(data) {
 						console.log(data);
             var users = JSON.parse(JSON.stringify(data));
-            for (var i in users) {
-               if(users[i].status == 1){
+               if(1 == 1){
 								 $("#listOrder").
-	                append('<div class="col-md-12">\
+	                append('<div class="col-xs-12">\
                     <div class="row">\
-                      <div class="col-md-4">\
-                        <img src="C:/product/'+users[i].pict_product+'" id="image" alt="">\
+                      <div class="col-xs-5">\
+                        <img src="./product/'+users.pict_product+'" id="image" alt="">\
                       </div>\
-                      <div class="col-md-8">\
+                      <div class="col-xs-7">\
                           <table>\
                             <tr>\
-                              <td><p>'+users[i].title+'</p></td>\
+                              <td><p><b>Title :'+users.title+'</b></p></td>\
                             </tr>\
                             <tr>\
-                              <td><p>Rp '+users[i].price+'</p></td>\
+                              <td><p><b>Price : Rp '+users.price+'<b></p></td>\
                             </tr>\
                             <tr>\
-                              <td><h4>Belum bayar</h4></td>\
+                              <td><b>Status : <b> ' + (users.status == 1 ? ' <span class="badge badge-danger">Belum bayar</span>': '<span class="badge badge-primary"> Sudah Bayar </span>') + '\
                             </tr>\
                           </table>\
                       </div>\

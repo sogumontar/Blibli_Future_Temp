@@ -30,6 +30,28 @@ public class Orders {
     @Column(name ="name")
     private String name;
 
+    @Column(name = "sku_product")
+    private String sku_product;
+
+    public Orders(String skuUser, Integer status, String createdAt, String virtualaccount, Integer tipeTrans, Integer totTrans, String name, String sku_product) {
+        this.skuUser = skuUser;
+        this.status = status;
+        this.createdAt = createdAt;
+        this.virtualaccount = virtualaccount;
+        this.tipeTrans = tipeTrans;
+        this.totTrans = totTrans;
+        this.name = name;
+        this.sku_product = sku_product;
+    }
+
+    public String getSku_product() {
+        return sku_product;
+    }
+
+    public void setSku_product(String sku_product) {
+        this.sku_product = sku_product;
+    }
+
     public Orders(){
 
     }

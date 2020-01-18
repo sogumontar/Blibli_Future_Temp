@@ -103,7 +103,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers("/product/")
                 .permitAll()
-                .antMatchers("/merchant/getAllByMerchant/*")
+                .antMatchers("/merchant/del/*")
                 .permitAll()
                 .antMatchers("/merchant/countIdMerchant/*")
                 .permitAll()

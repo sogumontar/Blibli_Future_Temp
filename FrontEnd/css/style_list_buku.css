@@ -178,4 +178,8 @@
   #harga{
     color: red;
   }
+  .ds{
+    margin-left: 160px;
+    margin-right: 160px;
+  }
 }

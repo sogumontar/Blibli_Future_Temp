@@ -2,16 +2,17 @@
 <html>
 <head>
 	<title>Register - Del Kindle</title>
-	<script type="text/javascript" src="js/jquery.slim.min.js"></script>
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/axios.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 	<script type="text/javascript" src="js/script_register.js"></script>
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/style_register.css">
 </head>
 <body>
-	<div id="body">
+	<div id="body" class="col-xs-12 col-md-8 col-md-offset-2 ">
 		<center>
 			<div id="content">
 			<a href="index.html"><img src="pict/logo.png"></a>
@@ -29,14 +30,14 @@
 					<br>
 					<input type="number" id="telepon" class="form-control" name="" placeholder="Telepon">
 					<br>
-					<select class="form-control" style="width: 400px;" id="role">
+					<select class="form-control" id="role">
 						<option value="" selected="">Role</option>
 						<option value="ROLE_USER">User</option>
 						<option value="ROLE_MERCHANT">Merchant</option>
 					</select>
 					<br>
 					<br>
-					<button style="height:  40px;" class="btn btn-primary" id="register">Register</button>
+					<button style="height:  40px;" class="btn btn-primary" id="register"><span class="glyphicon glyphicon-plus"></span> Register</button>
 					<br><br>
 				<div id="message">
 

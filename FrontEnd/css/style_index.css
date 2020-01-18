@@ -30,9 +30,9 @@ h1 {
 }
 
 #kategori_gambar{
-  width: 220px;
-  height: 150px;
-  border-radius: 100px;
+  width: 100px;
+  height: 100px;
+  border-radius: 80px;
 }
 .flex-container {
   padding: 0;
@@ -64,6 +64,9 @@ li {
 #image{
   height: 150px;
 }
+#tex{
+    left: 40%;
+}
 
 
 /* untuk web laptop */
@@ -74,7 +77,7 @@ li {
     width: 30px;
   }
   .ds{
-    margin-left: 160px;
+    margin-left: 50px;
     margin-right: 160px;
   }
   #kategori{
@@ -107,7 +110,14 @@ li {
     align-items: center;
   }
 
-#image{
-  height: 150px;
-}
+  #image{
+    height: 150px;
+  }
+  #ic{
+    left: 20%;
+    right: 50%;
+  }
+  #tex{
+    margin-left: 25px;
+  }
 }
